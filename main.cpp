@@ -7,6 +7,6 @@ int main()
   p.exec();
 
   p.~Principal();
-  
+
   return 0;
 }
