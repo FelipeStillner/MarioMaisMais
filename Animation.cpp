@@ -38,7 +38,6 @@ void Animation::change(sf::IntRect uvRect, std::string imageVect, bool faceRight
 
 void Animation::update(float deltaTime)
 {
-    std::cout<<deltaTime;
     totalTime += deltaTime;
 
     if (totalTime >= switchTime)

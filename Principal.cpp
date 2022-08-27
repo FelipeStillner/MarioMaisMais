@@ -21,6 +21,7 @@ void Principal::exec()
 
   while (window.isOpen())
   {
+    deltaTime = clock.restart().asSeconds();
     sf::Event evnt;
 
     while (window.pollEvent(evnt))
@@ -38,7 +39,7 @@ void Principal::exec()
 
     a.update(deltaTime);
 
-    window.clear(sf::Color::Blue);
+    window.clear();
 
     window.draw(sf::Sprite(t, a.uvRect));
 
