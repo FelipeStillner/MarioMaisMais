@@ -10,8 +10,13 @@ Principal::~Principal()
 
 void Principal::exec()
 {
-  sf::RenderWindow window(sf::VideoMode(300, 300), "NOME");
+  sf::RenderWindow window(sf::VideoMode(1000, 1000), "NOME");
+  sf::Texture t;// png com todos as imagens 
+  t.loadFromFile("Textures/playerTexture.png");
+
+  Animation a(sf::IntRect(0, 80, 29, 27), "0121", 0.2f, 0);
   
+  float deltaTime;
   sf::Clock clock;
 
   while (window.isOpen())
@@ -31,7 +36,12 @@ void Principal::exec()
       }
     }
 
+    a.update(deltaTime);
+
     window.clear(sf::Color::Blue);
+
+    window.draw(sf::Sprite(t, a.uvRect));
+
     window.display();
   }
 }
