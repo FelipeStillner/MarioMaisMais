@@ -34,6 +34,7 @@ void Principal::executar()
         }
         // Clear screen
         window.clear();
+        sprite.move(sf::Vector2f(100, 100));
         // Draw the sprite
         window.draw(sprite);
         // Update the window
