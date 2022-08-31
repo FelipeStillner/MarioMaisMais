@@ -1,12 +1,9 @@
-#include "Principal.h"
+#include <stdio.h>
+#include <SFML/Graphics.hpp>
 
 int main()
 {
-  Principal p;
 
-  p.exec();
-
-  p.~Principal();
 
   return 0;
 }
