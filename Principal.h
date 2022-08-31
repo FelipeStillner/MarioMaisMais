@@ -1,3 +1,5 @@
+#include <SFML/Graphics.hpp>
+
 class Principal
 {
 private:
@@ -5,12 +7,6 @@ private:
 public:
   Principal(/* args */);
   ~Principal();
+  void executar();
 };
 
-Principal::Principal(/* args */)
-{
-}
-
-Principal::~Principal()
-{
-}
