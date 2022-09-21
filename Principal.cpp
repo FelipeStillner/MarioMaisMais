@@ -1,8 +1,7 @@
 #include "Principal.h"
 
-Principal::Principal(/* args */)
+Principal::Principal()
 {
-
   executar();
 }
 
@@ -15,11 +14,10 @@ void Principal::executar()
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "SFML window");
     // Load a sprite to display
-    sf::Texture texture;
-    if (!texture.loadFromFile("a.png"))
+    sf::Texture *texture = new sf::Texture();
+    if (!texture->loadFromFile("a.png"))
         return;
-    sf::Sprite sprite(texture, sf::IntRect(0, 75, 21, 40));
-    sprite.move(sf::Vector2f(100, 100));
+    Entidade e(1, 2.1, 3.4, texture ,Animacao(sf::IntRect(1, 1, 100, 100)));
 
     // Start the game loop
     while (window.isOpen())
@@ -34,9 +32,8 @@ void Principal::executar()
         }
         // Clear screen
         window.clear();
-        sprite.move(sf::Vector2f(100, 100));
         // Draw the sprite
-        window.draw(sprite);
+        e.imprimir(&window);
         // Update the window
         window.display();
     }

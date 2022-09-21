@@ -1,4 +1,7 @@
-#include <SFML/Graphics.hpp>
+#pragma once
+
+#include "Afix.h"
+#include "Entidade.h"
 
 class Principal
 {

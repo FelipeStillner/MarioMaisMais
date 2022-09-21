@@ -1,0 +1,2 @@
+all:
+	g++ -I/Users/felipestillnereufranio/Documents/Trabalhos_UTFPR/Libraries -L/opt/homebrew/Cellar/sfml/2.5.1_1/lib -lsfml-graphics -lsfml-window -lsfml-system -o prog main.cpp Principal.cpp Ente.cpp Entidade.cpp Animacao.cpp
