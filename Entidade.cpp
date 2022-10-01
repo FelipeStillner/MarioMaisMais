@@ -44,7 +44,7 @@ void Entidade::imprimir(sf::RenderWindow *rw)
   rw->draw(s);
 }
 
-void Entidade::executar()
+void Entidade::executar(int dt)
 {
-
+  anim.executar(dt);
 }

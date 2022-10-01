@@ -5,6 +5,6 @@ public:
 public:
   Ente();
   Ente(int i);
-  ~Ente();
-  virtual void executar() = 0;
+  virtual ~Ente();
+  //virtual void executar() = 0;
 };

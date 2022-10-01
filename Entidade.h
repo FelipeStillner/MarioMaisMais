@@ -18,6 +18,6 @@ public:
   Entidade(int i, float x, float y, sf::Texture* t);
   Entidade(int i, float x, float y, sf::Texture* t, Animacao a);
   ~Entidade();
-  void executar();
+  void executar(int dt);
   void imprimir(sf::RenderWindow *rw);
 };
