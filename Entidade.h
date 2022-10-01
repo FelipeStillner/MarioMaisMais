@@ -9,8 +9,8 @@ class Entidade : public Ente
 public:
   int x;
   int y;
-  Animacao anim;
-  sf::Texture* text;
+  Animacao *anim;
+  sf::Texture *text;
 public:
   Entidade();
   Entidade(int i);
@@ -18,6 +18,6 @@ public:
   Entidade(int i, float x, float y, sf::Texture* t);
   Entidade(int i, float x, float y, sf::Texture* t, Animacao a);
   ~Entidade();
-  void executar(int dt);
+  void executar(float dt);
   void imprimir(sf::RenderWindow *rw);
 };

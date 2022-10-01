@@ -29,22 +29,31 @@ Entidade::Entidade(int i, float x, float y, sf::Texture* t, Animacao a) : Ente(i
   this->x = x;
   this->y = y;
   text = t;
-  anim = a;
+  anim = new Animacao(a);
 }
 
 Entidade::~Entidade()
 {
-  anim.~Animacao();
+  anim->~Animacao();
+  free(anim);
 }
 
 void Entidade::imprimir(sf::RenderWindow *rw)
 {
-  sf::Sprite s(*text, anim.rect);
+  sf::Sprite s(*text, anim->rect);
   s.setPosition(x, y);
+  s.setScale(10, 10);
   rw->draw(s);
 }
 
-void Entidade::executar(int dt)
+void Entidade::executar(float dt)
 {
-  anim.executar(dt);
+  if (!(anim == NULL))
+  {
+    anim->executar(dt);
+  }
+  else
+  {
+    
+  }
 }

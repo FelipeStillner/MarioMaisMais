@@ -4,3 +4,4 @@
 #include "SFML/System.hpp"
 #include "SFML/Window.hpp"
 #include <string.h>
+#include <iostream>

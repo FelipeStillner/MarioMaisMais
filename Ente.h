@@ -1,3 +1,7 @@
+#pragma once
+
+#include "Afix.h"
+
 class Ente
 {
 public:
