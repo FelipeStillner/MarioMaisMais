@@ -22,12 +22,16 @@ void Principal::executar()
     sf::Texture *texture = new sf::Texture();
     if (!texture->loadFromFile("a.png"))
         return;
-    Entidade e(1, 2.1, 3.4, texture, Animacao(sf::IntRect(0, 0, 30, 30), 0.5, "12"));
+    Entidade *e = new Entidade(1, 1000, 1000, texture, Animacao(sf::IntRect(0, 0, 30, 30), 0.5, "12"));
+    Entidade *ent = new Entidade(2, 0, 0, texture, Animacao(sf::IntRect(0, 0, 30, 30), 0.5, "12"));
+    e->col = new Colisao(100, 100);
+    ent->col = new Colisao(100, 100);
 
     while (window.isOpen())
     {
         window.clear();
-        e.imprimir(&window);
+        ent->imprimir(&window);
+        e->imprimir(&window);
         dt = clock.getElapsedTime().asSeconds();  
         if (!(dt >= 1.0f / FPS))
         {
@@ -44,26 +48,34 @@ void Principal::executar()
                 window.close();
             else if (event.type == sf::Event::MouseButtonPressed)
             {
-                e.x = sf::Mouse::getPosition(window).x;
-                e.y = sf::Mouse::getPosition(window).y;
+                e->x = sf::Mouse::getPosition(window).x;
+                e->y = sf::Mouse::getPosition(window).y;
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
             {
-                e.x += 5;
+                ent->x += 5;
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
             {
-                e.x -= 5;
+                ent->x -= 5;
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
             {
-                e.y -= 5;
+                ent->y -= 5;
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
             {
-                e.y += 5;
+                ent->y += 5;
             }
         }
-        e.executar(dt);
+        e->executar(dt);
+        if(colidindo(e, ent))
+        {
+            e->vy = 0;
+        }
+        if(e->y >= 1000)
+        {
+            e->vy = 0;
+        }
     }
 }

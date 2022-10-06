@@ -3,11 +3,13 @@
 Entidade::Entidade() : Ente(), anim()
 {
   text = NULL;
+  col = NULL;
 }
 
 Entidade::Entidade(int i) : Ente(i), anim()
 {
   text = NULL;
+  col = NULL;
 }
 
 Entidade::Entidade(int i, float x, float y) : Ente(i), anim()
@@ -15,6 +17,7 @@ Entidade::Entidade(int i, float x, float y) : Ente(i), anim()
   this->x = x;
   this->y = y;
   text = NULL;
+  col = NULL;
 }
 
 Entidade::Entidade(int i, float x, float y, sf::Texture* t) : Ente(i)
@@ -22,6 +25,7 @@ Entidade::Entidade(int i, float x, float y, sf::Texture* t) : Ente(i)
   this->x = x;
   this->y = y;
   text = t;
+  col = NULL;
 }
 
 Entidade::Entidade(int i, float x, float y, sf::Texture* t, Animacao a) : Ente(i)
@@ -30,12 +34,14 @@ Entidade::Entidade(int i, float x, float y, sf::Texture* t, Animacao a) : Ente(i
   this->y = y;
   text = t;
   anim = new Animacao(a);
+  col = NULL;
 }
 
 Entidade::~Entidade()
 {
   anim->~Animacao();
   free(anim);
+  free(col);
 }
 
 void Entidade::imprimir(sf::RenderWindow *rw)
@@ -52,8 +58,6 @@ void Entidade::executar(float dt)
   {
     anim->executar(dt);
   }
-  else
-  {
-    
-  }
+  y += vy;
+  vy += 1;
 }

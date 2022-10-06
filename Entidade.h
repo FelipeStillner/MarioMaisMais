@@ -3,14 +3,18 @@
 #include "Afix.h"
 #include "Ente.h"
 #include "Animacao.h"
+#include "Colisao.h"
 
 class Entidade : public Ente
 {
 public:
   int x;
   int y;
+  int vx;
+  int vy;
   Animacao *anim;
   sf::Texture *text;
+  Colisao* col;
 public:
   Entidade();
   Entidade(int i);
