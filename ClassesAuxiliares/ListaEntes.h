@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Afix.h"
-#include "Ente.h"
-#include "Entidade.h"
+#include "../Afix.h"
+#include "../Ente.h"
+#include "../Entidades/Entidade.h"
 
 class ListaEntes
 {

@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Afix.h"
-#include "Ente.h"
-#include "Animacao.h"
-#include "Colisao.h"
+#include "../Afix.h"
+#include "../Ente.h"
+#include "../ClassesAuxiliares/Animacao.h"
+#include "../ClassesAuxiliares/Colisao.h"
 
 class Entidade : public Ente
 {

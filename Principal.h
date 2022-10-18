@@ -1,8 +1,8 @@
 #pragma once
 
 #include "Afix.h"
-#include "Entidade.h"
-#include "ListaEntes.h"
+#include "Entidades/Entidade.h"
+#include "ClassesAuxiliares/ListaEntes.h"
 
 class Principal
 {
@@ -13,4 +13,3 @@ public:
   ~Principal();
   void executar();
 };
-

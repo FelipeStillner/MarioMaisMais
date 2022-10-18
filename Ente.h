@@ -4,8 +4,9 @@
 
 class Ente
 {
-public:
+protected:
   int id;
+  static int nEntes;
 public:
   Ente();
   Ente(int i);

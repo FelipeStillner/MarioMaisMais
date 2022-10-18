@@ -1,5 +1,5 @@
 #include "Colisao.h"
-#include "Entidade.h"
+#include "../Entidades/Entidade.h"
 
 Colisao::Colisao()
 {
@@ -57,7 +57,6 @@ int colidindo(Entidade *e1, Entidade *e2)
     {
       return CIMA; // e2 colidio a emcima de e1
     }
-
   }
   if(e1->x <= e2->x + e2->col->getWidth() && e1->x + e1->col->getWidth() >= e2->x + e2->col->getWidth())
   {

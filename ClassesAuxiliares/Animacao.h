@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Afix.h"
+#include "../Afix.h"
 
 class Animacao
 {
