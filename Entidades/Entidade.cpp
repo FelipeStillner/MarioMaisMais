@@ -1,40 +1,12 @@
 #include "Entidade.h"
 
-Entidade::Entidade() : Ente(), anim()
-{
-  text = NULL;
-  col = NULL;
-}
-
-Entidade::Entidade(int i) : Ente(i), anim()
-{
-  text = NULL;
-  col = NULL;
-}
-
-Entidade::Entidade(int i, float x, float y) : Ente(i), anim()
-{
-  this->x = x;
-  this->y = y;
-  text = NULL;
-  col = NULL;
-}
-
-Entidade::Entidade(int i, float x, float y, sf::Texture* t) : Ente(i)
+Entidade::Entidade(int i, float x, float y, sf::Texture* t, Animacao* a, Colisao* c) : Ente(i)
 {
   this->x = x;
   this->y = y;
   text = t;
-  col = NULL;
-}
-
-Entidade::Entidade(int i, float x, float y, sf::Texture* t, Animacao a) : Ente(i)
-{
-  this->x = x;
-  this->y = y;
-  text = t;
-  anim = new Animacao(a);
-  col = NULL;
+  anim = a;
+  col = c;
 }
 
 Entidade::~Entidade()
@@ -60,4 +32,74 @@ void Entidade::executar(float dt)
   }
   y += vy;
   vy += 1;
+}
+
+void Entidade::setAnimacao(Animacao a)
+{
+  if(anim == NULL)
+  {
+    anim = new Animacao;
+  }
+  *anim = a;
+}
+
+void Entidade::setColisao(Colisao c)
+{
+  if(col == NULL)
+  {
+    col = new Colisao;
+  }
+  *col = c;
+}
+
+void Entidade::setTextura(sf::Texture* t)
+{
+  text = t;
+}
+
+void Entidade::setX(int x)
+{
+  this->x = x;
+}
+
+void Entidade::setY(int y)
+{
+  this->y = y;
+}
+
+const Animacao* Entidade::getAnimacao()
+{
+  return anim;
+}
+
+const Colisao* Entidade::getColisao()
+{
+  return col;
+}
+
+const sf::Texture* Entidade::getTextura()
+{
+  return text;
+}
+
+const int Entidade::getX()
+{
+  x0 = x;
+  return x;
+}
+
+const int Entidade::getY()
+{
+  y0 = y;
+  return y;
+}
+
+const int Entidade::getX0()
+{
+  return x0;
+}
+
+const int Entidade::getY0()
+{
+  return y0;
 }

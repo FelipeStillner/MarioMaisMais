@@ -1,6 +1,6 @@
 #pragma once
 
-#define NAOCOLIDIO 0
+#define NAOCOLIDIU 0
 #define BAIXO 1
 #define CIMA 2
 #define DIREITA 3

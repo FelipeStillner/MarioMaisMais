@@ -47,28 +47,51 @@ int colidindo(Entidade *e1, Entidade *e2)
     std::cout << "NULL e2";
     return 0;
   }
+  int colisao = 0;
   if(e1->x <= e2->x && e1->x + e1->col->getWidth() >= e2->x)
   {
     if(e1->y <= e2->y && e1->y + e1->col->getHeight() >= e2->y)
     {
-      return BAIXO; // e2 colidio a embaixo de e1
+      colisao = 1;
     }
-    if(e1->y <= e2->y + e2->col->getHeight() && e1->y + e1->col->getHeight() >= e2->y + e2->col->getHeight())
+    else if(e1->y <= e2->y + e2->col->getHeight() && e1->y + e1->col->getHeight() >= e2->y + e2->col->getHeight())
     {
-      return CIMA; // e2 colidio a emcima de e1
+      colisao = 1;
     }
   }
-  if(e1->x <= e2->x + e2->col->getWidth() && e1->x + e1->col->getWidth() >= e2->x + e2->col->getWidth())
+  else if(e1->x <= e2->x + e2->col->getWidth() && e1->x + e1->col->getWidth() >= e2->x + e2->col->getWidth())
   {
     if(e1->y <= e2->y && e1->y + e1->col->getHeight() >= e2->y)
     {
-      return BAIXO; // e2 colidio a embaixo de e1
+      colisao = 1;
     }
-    if(e1->y <= e2->y + e2->col->getHeight() && e1->y + e1->col->getHeight() >= e2->y + e2->col->getHeight())
+    else if(e1->y <= e2->y + e2->col->getHeight() && e1->y + e1->col->getHeight() >= e2->y + e2->col->getHeight())
     {
-      return CIMA; // e2 colidio a emcima de e1
+      colisao = 1;
     }
   }
-  
-  return 0;
+  if (!colisao)
+  {
+    return 0;
+  }
+  int vx1 = e1->getX() - e1->getX0();
+  int vy1 = e1->getY() - e1->getY0();
+  int vx2 = e2->getX() - e2->getX0();
+  int vy2 = e2->getY() - e2->getY0();
+  if(vx1 - vx2 > 0)
+  {
+    
+  }
+  if(vx1 - vx2 < 0)
+  {
+    
+  }
+  if(vy1 - vy2 > 0)
+  {
+    
+  }
+  if(vy1 - vy2 < 0)
+  {
+    
+  }
 }

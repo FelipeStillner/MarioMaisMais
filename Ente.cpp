@@ -2,11 +2,6 @@
 
 int Ente::nEntes = 0;
 
-Ente::Ente()
-{
-  nEntes++;
-}
-
 Ente::Ente(int i)
 {
   nEntes++;
@@ -15,5 +10,4 @@ Ente::Ente(int i)
 
 Ente::~Ente()
 {
-  nEntes--;
 }

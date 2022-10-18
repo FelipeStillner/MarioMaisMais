@@ -8,9 +8,8 @@ protected:
   int id;
   static int nEntes;
 public:
-  Ente();
-  Ente(int i);
+  Ente(int i = nEntes);
   virtual ~Ente();
-  virtual void executar(float dt) = 0;
+  virtual void executar(float dt = 0) = 0;
   virtual void imprimir(sf::RenderWindow* w) = 0;
 };
