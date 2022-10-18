@@ -26,12 +26,14 @@ void Principal::executar()
     Entidade *ent = new Entidade(2, 0, 0, texture, Animacao(sf::IntRect(0, 0, 30, 30), 0.5, "12"));
     e->col = new Colisao(100, 100);
     ent->col = new Colisao(100, 100);
+    ListaEntes l;
+    l.push(e);
+    l.push(ent);
 
     while (window.isOpen())
     {
         window.clear();
-        ent->imprimir(&window);
-        e->imprimir(&window);
+        l.imprimir(&window);
         dt = clock.getElapsedTime().asSeconds();  
         if (!(dt >= 1.0f / FPS))
         {
@@ -66,6 +68,10 @@ void Principal::executar()
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
             {
                 ent->y += 5;
+            }
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace))
+            {
+                ent->vy -= 10;
             }
         }
         e->executar(dt);

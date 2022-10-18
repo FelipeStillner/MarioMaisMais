@@ -2,6 +2,7 @@
 
 #include "Afix.h"
 #include "Entidade.h"
+#include "ListaEntes.h"
 
 class Personagem : public Entidade
 {

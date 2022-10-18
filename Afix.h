@@ -5,3 +5,5 @@
 #include "SFML/Window.hpp"
 #include <string.h>
 #include <iostream>
+#include <list>
+#include <pthread.h>
