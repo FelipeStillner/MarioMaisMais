@@ -11,19 +11,6 @@ Entidade::~Entidade()
 {
 }
 
-void Entidade::imprimir(sf::RenderWindow *rw)
-{
-  sf::Sprite s(*text);
-  s.setPosition(x, y);
-  s.setScale(10, 10);
-  rw->draw(s);
-}
-
-void Entidade::executar(float dt)
-{
-  
-}
-
 void Entidade::setColisao(Colisao c)
 {
   col = c;

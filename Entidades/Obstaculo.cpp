@@ -11,7 +11,7 @@ Obstaculo::~Obstaculo()
 
 void Obstaculo::executar(float dt)
 {
-  
+  // A Fazer
 }
 
 void Obstaculo::imprimir(sf::RenderWindow *rw)

@@ -12,9 +12,9 @@ protected:
   Colisao col;
 public:
   Entidade(float x = 0, float y = 0, sf::Texture* t = NULL, Colisao c = Colisao());
-  ~Entidade();
-  virtual void executar(float dt);
-  virtual void imprimir(sf::RenderWindow *rw);
+  virtual ~Entidade();
+  virtual void executar(float dt) = 0;
+  virtual void imprimir(sf::RenderWindow *rw) = 0;
   void setColisao(Colisao c);
   void setTextura(sf::Texture* t);
   void setX(int x);
