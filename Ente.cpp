@@ -1,11 +1,11 @@
 #include "Ente.h"
 
-int Ente::nEntes = 0;
+int Ente::I = 0;
 
-Ente::Ente(int i)
+Ente::Ente()
 {
-  nEntes++;
-  id = i;
+  id = I;
+  I++;
 }
 
 Ente::~Ente()

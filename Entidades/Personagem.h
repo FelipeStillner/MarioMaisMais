@@ -1,14 +1,19 @@
 #pragma once
 
-#include "../Afix.h"
 #include "Entidade.h"
 
 class Personagem : public Entidade
 {
-private:
+protected:
   int vida;
+  Animacao *anim;
 public:
   Personagem();
-  Personagem(int n, Entidade e);
   ~Personagem();
+  virtual void executar(float dt);
+  virtual void imprimir(sf::RenderWindow *rw);
+  void setAnimacao(Animacao a);
+  const Animacao* getAnimacao();
+  void operator++();
+  void operator--();
 };

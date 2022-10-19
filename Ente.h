@@ -6,9 +6,9 @@ class Ente
 {
 protected:
   int id;
-  static int nEntes;
+  static int I;
 public:
-  Ente(int i = nEntes);
+  Ente();
   virtual ~Ente();
   virtual void executar(float dt = 0) = 0;
   virtual void imprimir(sf::RenderWindow* w) = 0;
