@@ -23,11 +23,13 @@ void Entidade::setTextura(sf::Texture* t)
 
 void Entidade::setX(int x)
 {
+  x0 = this->x;
   this->x = x;
 }
 
 void Entidade::setY(int y)
 {
+  y0 = this->y;
   this->y = y;
 }
 
@@ -49,4 +51,14 @@ const int Entidade::getX() const
 const int Entidade::getY() const
 {
   return y;
+}
+
+const int Entidade::getX0() const
+{
+  return x0;
+}
+
+const int Entidade::getY0() const
+{
+  return y0;
 }

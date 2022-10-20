@@ -1,13 +1,13 @@
 #pragma once
 
 #include "../Ente.h"
-#include "../ClassesAuxiliares/Animacao.h"
 #include "../ClassesAuxiliares/Colisao.h"
 
 class Entidade : public Ente
 {
 protected:
   int x, y;
+  int x0, y0;
   sf::Texture *text;
   Colisao col;
 public:
@@ -23,4 +23,6 @@ public:
   const sf::Texture* getTextura() const;
   const int getX() const;
   const int getY() const;
+  const int getX0() const;
+  const int getY0() const;
 };

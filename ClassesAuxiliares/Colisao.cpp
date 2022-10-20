@@ -1,10 +1,6 @@
 #include "Colisao.h"
 #include "../Entidades/Entidade.h"
 
-Colisao::Colisao()
-{
-}
-
 Colisao::Colisao(int x, int y)
 {
   width = x;
@@ -15,57 +11,47 @@ Colisao::~Colisao()
 {
 }
 
-void Colisao::setWidth(int n)
+void Colisao::setWidth(const int n)
 {
   width = n;
 }
 
-int Colisao::getWidth()
+const int Colisao::getWidth() const
 {
   return width;
 }
 
-void Colisao::setHeight(int n)
+void Colisao::setHeight(const int n)
 {
   height = n;
 }
 
-int Colisao::getHeight()
+const int Colisao::getHeight() const
 {
   return height;
 }
 
 int colidindo(Entidade *e1, Entidade *e2)
 {
-  if(e1->col == NULL)
-  {
-    std::cout << "NULL e1";
-    return 0;
-  }
-  if(e1->col == NULL)
-  {
-    std::cout << "NULL e2";
-    return 0;
-  }
   int colisao = 0;
-  if(e1->x <= e2->x && e1->x + e1->col->getWidth() >= e2->x)
+  if(e1->getX() <= e2->getX() && e1->getX() + e1->getColisao().getWidth() >= e2->getX())
   {
-    if(e1->y <= e2->y && e1->y + e1->col->getHeight() >= e2->y)
+    if(e1->getY() <= e2->getY() && e1->getY() + e1->getColisao().getHeight() >= e2->getY())
     {
       colisao = 1;
     }
-    else if(e1->y <= e2->y + e2->col->getHeight() && e1->y + e1->col->getHeight() >= e2->y + e2->col->getHeight())
+    else if(e1->getY() <= e2->getY() + e2->getColisao().getHeight() && e1->getY()+ e1->getColisao().getHeight() >= e2->getY() + e2->getColisao().getHeight())
     {
       colisao = 1;
     }
   }
-  else if(e1->x <= e2->x + e2->col->getWidth() && e1->x + e1->col->getWidth() >= e2->x + e2->col->getWidth())
+  else if(e1->getX() <= e2->getX() + e2->getColisao().getWidth() && e1->getX() + e1->getColisao().getWidth() >= e2->getX() + e2->getColisao().getWidth())
   {
-    if(e1->y <= e2->y && e1->y + e1->col->getHeight() >= e2->y)
+    if(e1->getY() <= e2->getY() && e1->getY() + e1->getColisao().getHeight() >= e2->getY())
     {
       colisao = 1;
     }
-    else if(e1->y <= e2->y + e2->col->getHeight() && e1->y + e1->col->getHeight() >= e2->y + e2->col->getHeight())
+    else if(e1->getY() <= e2->getY() + e2->getColisao().getHeight() && e1->getY() + e1->getColisao().getHeight() >= e2->getY() + e2->getColisao().getHeight())
     {
       colisao = 1;
     }

@@ -1,9 +1,5 @@
 #include "Animacao.h"
 
-Animacao::Animacao()
-{
-}
-
 Animacao::Animacao(sf::IntRect r, float tA, std::string s)
 {
   rect = r;

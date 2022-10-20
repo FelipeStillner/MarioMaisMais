@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Entidade.h"
+#include "../ClassesAuxiliares/Animacao.h"
 
 class Personagem : public Entidade
 {
@@ -9,7 +10,7 @@ protected:
   Animacao anim;
 public:
   Personagem(float x = 0, float y = 0, sf::Texture* t = NULL, Colisao c = Colisao(), int v = 0, Animacao a = Animacao());
-  ~Personagem();
+  virtual ~Personagem();
   virtual void executar(float dt);
   virtual void imprimir(sf::RenderWindow *rw);
   void setAnimacao(Animacao a);

@@ -14,13 +14,12 @@ private:
   int width;
   int height;
 public:
-  Colisao();
-  Colisao(int x, int y);
+  Colisao(int x = 0, int y = 0);
   ~Colisao();
-  void setWidth(int n);
-  int getWidth();
-  void setHeight(int n);
-  int getHeight();
+  void setWidth(const int n);
+  const int getWidth() const;
+  void setHeight(const int n);
+  const int getHeight() const;
 };
 
 int colidindo(Entidade *e1, Entidade *e2);

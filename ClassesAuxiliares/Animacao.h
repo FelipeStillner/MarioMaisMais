@@ -12,8 +12,7 @@ private:
   std::string seq;
   int at;
 public:
-  Animacao();
-  Animacao(sf::IntRect r, float tAnim, std::string seq);
+  Animacao(sf::IntRect r = sf::IntRect(), float tAnim = 0, std::string seq = std::string());
   ~Animacao();
   void executar(float dt);
 };
