@@ -13,7 +13,11 @@ Projetil::~Projetil()
 
 void Projetil::executar(const float dt)
 {
-  // A Fazer
+  x0 = x;
+  x = x + vx*dt;
+  y0 = y;
+  y = y + vy*dt;
+  // Checar colisoes
 }
 
 void Projetil::imprimir(sf::RenderWindow *rw)

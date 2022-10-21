@@ -56,6 +56,7 @@ int colidindo(Entidade *e1, Entidade *e2)
       colisao = 1;
     }
   }
+  return colisao;
   if (!colisao)
   {
     return 0;

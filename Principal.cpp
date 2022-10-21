@@ -20,12 +20,10 @@ void Principal::executar()
     window.setFramerateLimit(FPS);
 
     sf::Texture *texture = new sf::Texture();
-    if (!texture->loadFromFile("a.png"))
+    if (!texture->loadFromFile("Sprites/a.png"))
         return;
-    Entidade *e = new Entidade(1, 1000, 1000, texture, Animacao(sf::IntRect(0, 0, 30, 30), 0.5, "12"));
-    Entidade *ent = new Entidade(2, 0, 0, texture, Animacao(sf::IntRect(0, 0, 30, 30), 0.5, "12"));
-    e->col = new Colisao(100, 100);
-    ent->col = new Colisao(100, 100);
+    Personagem *e = new Personagem(1000.0, 1000.0, texture, Colisao(10, 10), 1,Animacao(sf::IntRect(0, 0, 30, 30), 0.5, "12"));
+    Personagem *ent = new Personagem(2, 0, texture, Colisao(10, 10), 1, Animacao(sf::IntRect(0, 0, 30, 30), 0.5, "12"));
     ListaEntes l;
     l.push(e);
     l.push(ent);
@@ -50,31 +48,28 @@ void Principal::executar()
                 window.close();
             else if (event.type == sf::Event::MouseButtonPressed)
             {
-                e->x = sf::Mouse::getPosition(window).x;
-                e->y = sf::Mouse::getPosition(window).y;
+                e->setX(sf::Mouse::getPosition(window).x);
+                e->setY(sf::Mouse::getPosition(window).y);
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
             {
-                ent->x += 5;
+                ent->setX(ent->getX() + 5);
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
             {
-                ent->x -= 5;
+                ent->setX(ent->getX() - 5);
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
             {
-                ent->y -= 5;
+                ent->setY(ent->getY() + 5);
             }
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
             {
-                ent->y += 5;
-            }
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace))
-            {
-                ent->vy -= 10;
+               ent->setY(ent->getY() - 5);
             }
         }
         e->executar(dt);
+        ent->executar(dt);/*
         if(colidindo(e, ent))
         {
             e->vy = 0;
@@ -82,6 +77,6 @@ void Principal::executar()
         if(e->y >= 1000)
         {
             e->vy = 0;
-        }
+        }*/
     }
 }
