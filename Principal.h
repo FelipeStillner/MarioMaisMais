@@ -6,6 +6,7 @@
 #include "Entidades/Obstaculo.h"
 #include "Entidades/Personagem.h"
 #include "Entidades/Projetil.h"
+#include "ClassesAuxiliares/GerenciadorTexturas.h"
 
 class Principal
 {

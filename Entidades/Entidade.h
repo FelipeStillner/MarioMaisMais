@@ -6,8 +6,8 @@
 class Entidade : public Ente
 {
 protected:
-  int x, y;
-  int x0, y0;
+  float x, y;
+  float x0, y0;
   sf::Texture *text;
   Colisao col;
 public:
@@ -17,12 +17,12 @@ public:
   virtual void imprimir(sf::RenderWindow *rw) = 0;
   void setColisao(Colisao c);
   void setTextura(sf::Texture* t);
-  void setX(int x);
-  void setY(int y);
+  void setX(float x);
+  void setY(float y);
   const Colisao getColisao() const;
   const sf::Texture* getTextura() const;
-  const int getX() const;
-  const int getY() const;
-  const int getX0() const;
-  const int getY0() const;
+  const float getX() const;
+  const float getY() const;
+  const float getX0() const;
+  const float getY0() const;
 };

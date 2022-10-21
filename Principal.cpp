@@ -18,19 +18,19 @@ void Principal::executar()
     sf::RenderWindow window(sf::VideoMode(1600, 1200), "SFML window");
     sf::Event event;
     window.setFramerateLimit(FPS);
-
-    sf::Texture *texture = new sf::Texture();
-    if (!texture->loadFromFile("Sprites/a.png"))
-        return;
-    Personagem *e = new Personagem(1000.0, 1000.0, texture, Colisao(10, 10), 1,Animacao(sf::IntRect(0, 0, 30, 30), 0.5, "12"));
-    Personagem *ent = new Personagem(2, 0, texture, Colisao(10, 10), 1, Animacao(sf::IntRect(0, 0, 30, 30), 0.5, "12"));
+    
+    GerenciadorTexturas g;
+    Personagem *e = new Personagem(1000.0, 1000.0, g.lista[0], Colisao(10, 10), 1,Animacao(sf::IntRect(0, 0, 30, 30), 0.5, "12"));
+    Personagem *ent = new Personagem(2, 0, g.lista[0], Colisao(10, 10), 1, Animacao(sf::IntRect(0, 0, 30, 30), 0.5, "12"));
+    Projetil *p = new Projetil(0, 0, g.lista[1], Colisao(1, 1), 10, 10, 0);
     ListaEntes l;
     l.push(e);
     l.push(ent);
+    l.push(p);
 
     while (window.isOpen())
     {
-        window.clear();
+        window.clear(sf::Color::White);
         l.imprimir(&window);
         dt = clock.getElapsedTime().asSeconds();  
         if (!(dt >= 1.0f / FPS))
@@ -68,8 +68,8 @@ void Principal::executar()
                ent->setY(ent->getY() - 5);
             }
         }
-        e->executar(dt);
-        ent->executar(dt);/*
+        l.executar(dt);
+        /*
         if(colidindo(e, ent))
         {
             e->vy = 0;
