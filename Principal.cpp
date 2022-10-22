@@ -1,10 +1,10 @@
 #include "Principal.h"
 
-Principal::Principal() : gText(), entes(), w(sf::VideoMode(1600, 1200), "SFML window")
+Principal::Principal() : gText(), entes(), w(sf::VideoMode(1600, 1200), "SFML window"), clock()
 {
     Personagem *e = new Personagem(1000.0, 1000.0, gText.lista[0], Colisao(10, 10), 1,Animacao(sf::IntRect(0, 0, 30, 30), 0.5, "12"));
     Personagem *ent = new Personagem(2, 0, gText.lista[0], Colisao(10, 10), 1, Animacao(sf::IntRect(0, 0, 30, 30), 0.5, "1242"));
-    Projetil *p = new Projetil(0, 0, gText.lista[1], Colisao(1, 1), 10, 10, 0);
+    Projetil *p = new Projetil(0, 0, gText.lista[1], Colisao(1, 1), 10.0, 10.0, 0);
     entes.push(e);
     entes.push(ent);
     entes.push(p);
@@ -26,7 +26,7 @@ void Principal::executar()
         w.clear(sf::Color::White);
         entes.imprimir(&w);
         dt = clock.getElapsedTime().asSeconds();  
-        if (!(dt >= 1.0f / FPS))
+        if (dt < (1.0 / FPS))
         {
                 sf::sleep(sf::seconds((1.0f / FPS) - dt));
                 dt = 1.0f / FPS;
@@ -41,8 +41,8 @@ void Principal::executar()
                 w.close();
             if (event.type == sf::Event::MouseButtonPressed)
             {
-                static_cast<Entidade*>(entes[0])->setX(sf::Mouse::getPosition(w).x);
-                static_cast<Entidade*>(entes[0])->setY(sf::Mouse::getPosition(w).y);
+                static_cast<Personagem*>(entes[0])->setX(sf::Mouse::getPosition(w).x);
+                static_cast<Personagem*>(entes[0])->setY(sf::Mouse::getPosition(w).y);
             }/*
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
             {

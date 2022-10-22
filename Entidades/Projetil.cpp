@@ -17,7 +17,6 @@ void Projetil::executar(const float dt)
   x = x + vx*dt;
   y0 = y;
   y = y + vy*dt;
-  // Checar colisoes
 }
 
 void Projetil::imprimir(sf::RenderWindow *rw)

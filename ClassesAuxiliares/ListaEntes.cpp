@@ -45,17 +45,14 @@ void ListaEntes::imprimir(sf::RenderWindow* w)
 Ente* ListaEntes::operator[](int n)
 {
   std::list<Ente*>::iterator i = lista.begin();
+  if(n > lista.size())
+  {
+    return NULL;
+  }
   while (n>0)
   {
     i++;
-    if(i == lista.end())
-    {
-      return NULL;
-    }
-  }
-  if(i == lista.end())
-  {
-    return NULL;
+    n--;
   }
   return *i;
 }
