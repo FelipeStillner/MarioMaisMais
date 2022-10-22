@@ -28,8 +28,9 @@ void Principal::executar()
         dt = clock.getElapsedTime().asSeconds();  
         if (dt < (1.0 / FPS))
         {
-                sf::sleep(sf::seconds((1.0f / FPS) - dt));
-                dt = 1.0f / FPS;
+            sf::Time t = sf::seconds((1.0f / FPS) - dt);
+            sf::sleep(t);
+            dt = 1.0f / FPS;
         }
         else{std::cout << "FPS\n";}
         clock.restart();
