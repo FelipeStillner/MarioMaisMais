@@ -16,4 +16,5 @@ public:
   std::list<Ente*> getLista();
   void executar(float dt);
   void imprimir(sf::RenderWindow* w);
+  Ente* operator[](int i); 
 };

@@ -11,9 +11,12 @@
 class Principal
 {
 private:
-  /* data */
+  ListaEntes entes;
+  GerenciadorTexturas gText;
+  sf::RenderWindow w;
+  sf::Clock clock;
 public:
-  Principal(/* args */);
+  Principal();
   ~Principal();
   void executar();
 };
