@@ -2,12 +2,12 @@
 
 Principal::Principal() : gText(), entes(), w(sf::VideoMode(1600, 1200), "SFML window"), clock()
 {
-    Personagem *e = new Personagem(1000.0, 1000.0, gText.lista[0], Colisao(10, 10), 1,Animacao(sf::IntRect(0, 0, 30, 30), 0.5, "12"));
-    Personagem *ent = new Personagem(2, 0, gText.lista[0], Colisao(10, 10), 1, Animacao(sf::IntRect(0, 0, 30, 30), 0.5, "1242"));
-    Projetil *p = new Projetil(0, 0, gText.lista[1], Colisao(1, 1), 10.0, 10.0, 0);
+    Personagem *e = new Personagem(1000.0, 1000.0, gText.lista[0], Colisao(16, 32), 1,Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
+    Projetil *p = new Projetil(0, 0, gText.lista[1], Colisao(1, 1), 100.0, 100.0, 0);
+    Obstaculo *o = new Obstaculo(1000.0, 1000.0, gText.lista[2], Colisao(0, 0));
     entes.push(e);
-    entes.push(ent);
     entes.push(p);
+    entes.push(o);
     executar();
 }
 
@@ -24,6 +24,7 @@ void Principal::executar()
     while (w.isOpen())
     {
         w.clear(sf::Color::White);
+        w.draw(sf::Sprite(*(gText.lista[3])));
         entes.imprimir(&w);
         dt = clock.getElapsedTime().asSeconds();  
         if (dt < (1.0 / FPS))

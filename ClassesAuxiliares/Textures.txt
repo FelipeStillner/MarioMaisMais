@@ -1,2 +1,4 @@
-a.png
-bola.png
+mario_custom/big/spr_mario_big_walk_strip4.png
+Projectiles/spr_superball.png
+Tiles/bg_pipe.png
+Backgrounds/bg_hills5.png
