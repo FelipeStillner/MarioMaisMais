@@ -24,7 +24,9 @@ void Principal::executar()
     while (w.isOpen())
     {
         w.clear(sf::Color::White);
-        w.draw(sf::Sprite(*(gText.lista[3])));
+        sf::Sprite s(*(gText.lista[3]));
+        s.setScale(3.2, 2.8);
+        w.draw(s);
         entes.imprimir(&w);
         dt = clock.getElapsedTime().asSeconds();  
         if (dt < (1.0 / FPS))
