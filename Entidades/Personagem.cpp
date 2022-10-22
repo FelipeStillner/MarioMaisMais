@@ -12,6 +12,7 @@ Personagem::~Personagem()
 void Personagem::executar(float dt)
 {
   anim.executar(dt);
+  // Se personagem colidir com Obstaculo volta para posicao anterior/
 }
 
 void Personagem::imprimir(sf::RenderWindow *rw)
