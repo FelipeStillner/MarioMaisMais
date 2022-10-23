@@ -1,10 +1,10 @@
 #include "Principal.h"
 
-Principal::Principal() : gText(), entes(), w(sf::VideoMode(1600, 1200), "SFML window"), clock()
+Principal::Principal() : gText(), entes(), w(sf::VideoMode(1920, 1080), "SFML window"), clock()
 {
-    Personagem *e = new Personagem(1000.0, 1000.0, gText.lista[0], Colisao(160, 320), 1,Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
-    Projetil *p = new Projetil(0, 0, gText.lista[1], Colisao(80, 80), 100.0, 100.0, 0);
-    Obstaculo *o = new Obstaculo(1000.0, 1000.0, gText.lista[2], Colisao(320, 320));
+    Personagem *e = new Personagem(1000.0, 500.0, gText.lista[0], Colisao(160, 320), 1,Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
+    Projetil *p = new Projetil(0, 0, gText.lista[1], Colisao(80, 80), 200.0, 100.0, 0);
+    Obstaculo *o = new Obstaculo(1000.0, 800.0, gText.lista[2], Colisao(320, 320));
     entes.push(e);
     entes.push(p);
     entes.push(o);
@@ -26,7 +26,7 @@ void Principal::executar()
         w.clear(sf::Color::White);
         sf::RectangleShape r;
         r.setOrigin(0, 0);
-        r.setSize(sf::Vector2f(1800, 1200));
+        r.setSize(sf::Vector2f(w.getSize().x, w.getSize().y));
         r.setTexture(gText.lista[3]);
         w.draw(r);
         entes.imprimir(&w);
