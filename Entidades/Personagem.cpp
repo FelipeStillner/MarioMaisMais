@@ -17,10 +17,12 @@ void Personagem::executar(float dt)
 
 void Personagem::imprimir(sf::RenderWindow *rw)
 {
-  sf::Sprite s(*text, anim.rect);
-  s.setPosition(x, y);
-  s.setScale(10, 10);
-  rw->draw(s);
+  sf::RectangleShape r;
+  r.setTexture(text);
+  r.setTextureRect(anim.rect);
+  r.setPosition(x, y);
+  r.setSize(sf::Vector2f(col.getWidth(), col.getHeight()));
+  rw->draw(r);
 }
 
 void Personagem::setAnimacao(Animacao a)

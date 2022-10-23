@@ -21,10 +21,11 @@ void Projetil::executar(const float dt)
 
 void Projetil::imprimir(sf::RenderWindow *rw)
 {
-  sf::Sprite s(*text);
-  s.setPosition(x, y);
-  s.setScale(10, 10);
-  rw->draw(s);
+  sf::RectangleShape r;
+  r.setTexture(text);
+  r.setPosition(x, y);
+  r.setSize(sf::Vector2f(col.getWidth(), col.getHeight()));
+  rw->draw(r);
 }
 
 
