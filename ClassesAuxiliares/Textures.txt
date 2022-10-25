@@ -2,3 +2,5 @@ mario_custom/big/spr_mario_big_walk_strip4.png
 Projectiles/spr_superball.png
 Tiles/bg_pipe.png
 Backgrounds/bg_hills5.png
+Enemies/Land/spr_goomba_strip2.png
+Tiles/background120.png

@@ -4,6 +4,8 @@ Entidade::Entidade(float x, float y, sf::Texture* t, Colisao c) : Ente(), col(c)
 {
   this->x = x;
   this->y = y;
+  x0 = x;
+  y0 = y;
   text = t;
 }
 

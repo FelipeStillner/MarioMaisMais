@@ -2,12 +2,16 @@
 
 Principal::Principal() : gText(), entes(), w(sf::VideoMode(1920, 1080), "SFML window"), clock()
 {
-    Personagem *e = new Personagem(1000.0, 500.0, gText.lista[0], Colisao(160, 320), 1,Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
+    Jogador *e = new Jogador(1000.0, 500.0, gText.lista[0], Colisao(160, 320), 1,Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
     Projetil *p = new Projetil(0, 0, gText.lista[1], Colisao(80, 80), 200.0, 100.0, 0);
     Obstaculo *o = new Obstaculo(1000.0, 800.0, gText.lista[2], Colisao(320, 320));
+    Obstaculo *c = new Obstaculo(0.0, 900.0, gText.lista[5], Colisao(1920, 320));
+    Inimigo *i = new Inimigo(1000.0, 600.0, gText.lista[4], Colisao(160, 160), 1,Animacao(sf::IntRect(0, 0, 16, 16), 0.25, "12"));
     entes.push(e);
     entes.push(p);
     entes.push(o);
+    entes.push(c);
+    entes.push(i);
     executar();
 }
 
@@ -49,24 +53,44 @@ void Principal::executar()
             {
                 static_cast<Personagem*>(entes[0])->setX(sf::Mouse::getPosition(w).x);
                 static_cast<Personagem*>(entes[0])->setY(sf::Mouse::getPosition(w).y);
-            }/*
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-            {
-                ent->setX(ent->getX() + 5);
             }
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-            {
-                ent->setX(ent->getX() - 5);
-            }
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-            {
-                ent->setY(ent->getY() + 5);
-            }
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-            {
-                ent->setY(ent->getY() - 5);
-            }*/
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+        {
+            Personagem* p = static_cast<Personagem*>(entes[0]);
+            p->setX(p->getX()+10);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        {
+            Personagem* p = static_cast<Personagem*>(entes[0]);
+            p->setX(p->getX()-10);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        {
+            Personagem* p = static_cast<Personagem*>(entes[0]);
+            p->setY(p->getY()-10);
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+        {
+            Personagem* p = static_cast<Personagem*>(entes[0]);
+            p->setY(p->getY()+10);
         }
         entes.executar(dt);
+        for (int i = 0; i < entes.getLista().size(); i++)
+        {
+            for (int j = i+1; j < entes.getLista().size(); j++)
+            {
+                Entidade *e1 = static_cast<Entidade*>(entes[i]),
+                    *e2 = static_cast<Entidade*>(entes[j]);
+                if (colidindo(e1, e2) || colidindo(e2, e1))
+                {
+                    e1->setX(e1->getX0());
+                    e2->setX(e2->getX0());
+                    e1->setY(e1->getY0());
+                    e2->setY(e2->getY0());
+                }
+            }
+        }
+        
     }
 }

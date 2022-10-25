@@ -7,6 +7,8 @@
 #include "Entidades/Personagem.h"
 #include "Entidades/Projetil.h"
 #include "ClassesAuxiliares/GerenciadorTexturas.h"
+#include "Entidades/Jogador.h"
+#include "Entidades/Inimigo.h"
 
 class Principal
 {

@@ -6,6 +6,8 @@
 #define DIREITA 3
 #define ESQUERDA 4
 
+#include "../Afix.h"
+
 class Entidade;
 
 class Colisao
