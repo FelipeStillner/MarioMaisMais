@@ -1,6 +1,6 @@
 #include "Obstaculo.h"
 
-Obstaculo::Obstaculo(float x, float y, sf::Texture* t, Colisao c)  : Entidade(x, y, t, c)
+Obstaculo::Obstaculo(float x, float y, float w, float h,  sf::Texture* t, Colisao c)  : Entidade(x, y, w, h, t, c)
 {
 }
 
@@ -18,6 +18,6 @@ void Obstaculo::imprimir(sf::RenderWindow *rw)
   sf::RectangleShape r;
   r.setTexture(text);
   r.setPosition(x, y);
-  r.setSize(sf::Vector2f(col.getWidth(), col.getHeight()));
+  r.setSize(sf::Vector2f(w, h));
   rw->draw(r);
 }

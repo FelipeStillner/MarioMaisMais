@@ -1,9 +1,11 @@
 #include "Entidade.h"
 
-Entidade::Entidade(float x, float y, sf::Texture* t, Colisao c) : Ente(), col(c)
+Entidade::Entidade(float x, float y, float w, float h, sf::Texture* t, Colisao c) : Ente(), col(c)
 {
   this->x = x;
   this->y = y;
+  this->w = w;
+  this->h = h;
   x0 = x;
   y0 = y;
   text = t;

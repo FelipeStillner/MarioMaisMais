@@ -1,10 +1,12 @@
 #include "Colisao.h"
 #include "../Entidades/Entidade.h"
 
-Colisao::Colisao(int x, int y)
+Colisao::Colisao(int x, int y, int w, int h)
 {
-  width = x;
-  height = y;
+  this->x = x;
+  this->y = y;
+  width = w;
+  height = h;
 }
 
 Colisao::~Colisao()
@@ -31,9 +33,29 @@ const int Colisao::getHeight() const
   return height;
 }
 
+void Colisao::setX(const int n)
+{
+  x = n;
+}
+
+const int Colisao::getX() const 
+{
+  return x;
+}
+
+void Colisao::setY(const int n)
+{
+  y = n;
+}
+
+const int Colisao::getY() const 
+{
+  return y;
+}
+
 int colidindo(Entidade *e1, Entidade *e2)
 { 
-  int x1 = e1->getX(), x2 = e2->getX(), y1 = e1->getY(), y2 = e2->getY(),
+  int x1 = e1->getX()+e1->getColisao().getX(), x2 = e2->getX()+e2->getColisao().getX(), y1 = e1->getY()+e1->getColisao().getY(), y2 = e2->getY()+e2->getColisao().getY(),
     w1 = e1->getColisao().getWidth(), w2 = e2->getColisao().getWidth(), 
     h1 = e1->getColisao().getHeight(), h2 = e2->getColisao().getHeight();
   int colisao = 0;
