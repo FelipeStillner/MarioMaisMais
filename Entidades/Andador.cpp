@@ -10,4 +10,5 @@ Andador::~Andador()
 
 void Andador::executar(float dt)
 {
+  anim.executar(dt);
 }

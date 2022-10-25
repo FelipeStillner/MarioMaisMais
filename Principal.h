@@ -2,7 +2,7 @@
 
 #include "Afix.h"
 #include "Entidades/Entidade.h"
-#include "ClassesAuxiliares/ListaEntes.h"
+#include "ClassesAuxiliares/ListaEntidades.h"
 #include "Entidades/Obstaculo.h"
 #include "Entidades/Personagem.h"
 #include "Entidades/Projetil.h"
@@ -13,7 +13,7 @@
 class Principal
 {
 private:
-  ListaEntes entes;
+  ListaEntidades entidades;
   GerenciadorGrafico gText;
   sf::RenderWindow w;
   sf::Clock clock;

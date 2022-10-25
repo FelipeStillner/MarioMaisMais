@@ -13,6 +13,8 @@ class Entidade;
 class Colisao
 {
 private:
+  int x;
+  int y;
   int width;
   int height;
 public:

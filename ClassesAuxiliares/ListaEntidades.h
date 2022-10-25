@@ -1,20 +1,18 @@
 #pragma once
 
 #include "../Afix.h"
-#include "../Ente.h"
 #include "../Entidades/Entidade.h"
 
-class ListaEntes
+class ListaEntidades
 {
 private:
-  std::list<Ente*> lista;
+  std::list<Entidade*> lista;
 public:
-  ListaEntes();
-  ~ListaEntes();
-  void push(Ente* e);
+  ListaEntidades();
+  ~ListaEntidades();
   void push(Entidade* e);
-  std::list<Ente*> getLista();
+  std::list<Entidade*> getLista();
   void executar(float dt);
   void imprimir(sf::RenderWindow* w);
-  Ente* operator[](int n); 
+  Entidade* operator[](int n); 
 };

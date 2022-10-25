@@ -7,5 +7,5 @@ private:
 public:
   Inimigo(float x = 0, float y = 0, sf::Texture* t = NULL, Colisao c = Colisao(), int v = 0, Animacao a = Animacao());
   ~Inimigo();
-  virtual void executar(float dt) {};
+  virtual void executar(float dt);
 };
