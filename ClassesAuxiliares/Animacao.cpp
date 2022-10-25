@@ -1,10 +1,9 @@
 #include "Animacao.h"
 
-Animacao::Animacao(sf::IntRect r, float tA, std::string s)
+Animacao::Animacao(sf::IntRect r, float tA, std::string s): seq(s)
 {
   rect = r;
   tAnim = tA;
-  seq.assign(s);
   tTotal = 0;
   at = 0;
 }
@@ -15,6 +14,10 @@ Animacao::~Animacao()
 
 void Animacao::executar(float dt)
 {
+  if (seq == std::string())
+  {
+    return;
+  }
   tTotal += dt;
   if (tTotal >= tAnim)
   {
@@ -25,3 +28,5 @@ void Animacao::executar(float dt)
     tTotal -= tAnim;
   }
 }
+
+

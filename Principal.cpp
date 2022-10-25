@@ -60,24 +60,53 @@ void Principal::executar()
             Personagem* p = static_cast<Personagem*>(entidades[0]);
             p->setX(p->getX()+10);
             p->setY(p->getY());
+            if(p->getTextura() != gText.texturas[0] || p->getAnimacao().rect.width != 16)
+            {
+                p->setAnimacao(Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
+                p->setTextura(gText.texturas[0]);
+            }
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
             Personagem* p = static_cast<Personagem*>(entidades[0]);
             p->setX(p->getX()-10);
             p->setY(p->getY());
+            if(p->getTextura() != gText.texturas[0] || p->getAnimacao().rect.width != -16)
+            {
+                p->setAnimacao(Animacao(sf::IntRect(48, 0, -16, 32), 0.25, "1232"));
+                p->setTextura(gText.texturas[0]);
+            }
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
             Personagem* p = static_cast<Personagem*>(entidades[0]);
             p->setY(p->getY()-10);
             p->setX(p->getX());
+            if(p->getTextura() != gText.texturas[7] || p->getAnimacao().rect.width != 16)
+            {
+                p->setAnimacao(Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "12"));
+                p->setTextura(gText.texturas[7]);
+            }
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
             Personagem* p = static_cast<Personagem*>(entidades[0]);
             p->setY(p->getY()+10);
             p->setX(p->getX());
+            if(p->getTextura() != gText.texturas[7] || p->getAnimacao().rect.width != 16)
+            {
+                p->setAnimacao(Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "12"));
+                p->setTextura(gText.texturas[7]);
+            }
+        }
+        else 
+        {
+            Personagem* p = static_cast<Personagem*>(entidades[0]);
+            if(p->getTextura() != gText.texturas[6])
+            {
+                p->setTextura(gText.texturas[6]);
+                p->setAnimacao(Animacao(sf::IntRect(3, 0 ,16, 32), 0.25));
+            }
         }
         for (int i = 0; i < entidades.getLista().size(); i++)
         {
