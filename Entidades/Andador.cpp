@@ -1,6 +1,6 @@
 #include "Andador.h"
 
-Andador::Andador(/* args */)
+Andador::Andador(float x, float y, sf::Texture* t, Colisao c, int v ,Animacao a) : Inimigo(x, y, t, c, v, anim)
 {
 }
 
@@ -8,9 +8,6 @@ Andador::~Andador()
 {
 }
 
-void Andador::executar()
+void Andador::executar(float dt)
 {
-  x += x-x0;
-  y += y-y0;
-  // Se colidir troca posicao anterior com a posicao atual
 }

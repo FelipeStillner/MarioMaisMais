@@ -1,7 +1,7 @@
-#include "GerenciadorTexturas.h"
+#include "GerenciadorGrafico.h"
 
 
-GerenciadorTexturas::GerenciadorTexturas() : lista()
+GerenciadorGrafico::GerenciadorGrafico() : texturas()
 {
   std::string filename ("");
   std::ifstream file("ClassesAuxiliares/Textures.txt");
@@ -12,17 +12,17 @@ GerenciadorTexturas::GerenciadorTexturas() : lista()
       std::cout << "Erro ao carregar a textura: " << filename << std::endl;
       return;
     }
-    lista.push_back(texture);
+    texturas.push_back(texture);
   }
 }
 
-GerenciadorTexturas::~GerenciadorTexturas()
+GerenciadorGrafico::~GerenciadorGrafico()
 {
   int i;
-  for ( i = 0; i < lista.size(); i++)
+  for ( i = 0; i < texturas.size(); i++)
   {
-    free(lista[i]);
+    free(texturas[i]);
   }
-  lista.clear();
+  texturas.clear();
 }
 
