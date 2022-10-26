@@ -1,22 +1,24 @@
 #pragma once
 
 #include "Afix.h"
-#include "Entidades/Entidade.h"
 #include "ClassesAuxiliares/ListaEntidades.h"
 #include "Entidades/Obstaculo.h"
-#include "Entidades/Personagem.h"
 #include "Entidades/Projetil.h"
-#include "ClassesAuxiliares/GerenciadorGrafico.h"
+#include "Gerenciadores/GerenciadorGrafico.h"
 #include "Entidades/Jogador.h"
 #include "Entidades/Inimigo.h"
+#include "Gerenciadores/GerenciadorEventos.h"
+// #include "Menu.h"
 
 class Principal
 {
 private:
   ListaEntidades entidades;
-  GerenciadorGrafico gText;
   sf::RenderWindow w;
   sf::Clock clock;
+public:
+  GerenciadorEventos gEven;
+  GerenciadorGrafico gGraf;
 public:
   Principal();
   ~Principal();

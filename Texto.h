@@ -1,18 +1,17 @@
 #pragma once
 
-#include "Entidade/Entidade.h"
-
+#include "Entidades/Entidade.h"
+#include "Gerenciadores/GerenciadorGrafico.h"
 #include "Afix.h"
 #include "Ente.h"
+
 using std::string;
 using std::list;
-using std::vector:
-
-
+using std::vector;
 
 class Texto : public Ente
 {   
-    private:
+private:
     string vTexto;
     //int iSprite;
     static vector<sf::RectangleShape*> rSprite;
@@ -25,13 +24,12 @@ class Texto : public Ente
     static int lstLt;
     sf::Texture* textura;
 
-    public:
-
-    Texto(const string t =NULL, int index, int x, int y, int fontsize);
+public:
+    Texto(const string t, int index, int x, int y, float fontsize = 1);
     ~Texto();
     virtual void imprimir(sf::RenderWindow* w);
     static void inicializarSprite();
     static void destroirSprite();
     static void setGerenciadorGrafico(GerenciadorGrafico* gT);
     
-}
+};

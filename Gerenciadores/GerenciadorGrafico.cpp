@@ -4,7 +4,7 @@
 GerenciadorGrafico::GerenciadorGrafico() : texturas()
 {
   std::string filename ("");
-  std::ifstream file("ClassesAuxiliares/Textures.txt");
+  std::ifstream file("Gerenciadores/Textures.txt");
   while (file >> filename) {
     sf::Texture *texture = new sf::Texture();  
     if (!texture->loadFromFile("Texturas/"+filename))
@@ -26,6 +26,15 @@ GerenciadorGrafico::~GerenciadorGrafico()
   texturas.clear();
 }
 
-sf::Texture* GerenciadorGrafico::operator[] (int i) const {
-if(i>=0&&i<texturas.size()){return(texturas[i]);}
-else{std::cout<<"erro ao retornar textura em GG \n ";}}
+sf::Texture* GerenciadorGrafico::operator[] (int i) const 
+{
+  if(i >= 0 && i < texturas.size())
+  {
+    return(texturas[i]);
+  }
+  else
+  {
+    std::cout << "erro ao retornar textura em GG \n ";
+    exit(0);
+  }
+}

@@ -1,12 +1,12 @@
 #include "Principal.h"
-#include"Texto.h"
-Principal::Principal() : gText(), entidades(), w(sf::VideoMode(1920, 1080), "SFML window"), clock()
+
+Principal::Principal() : gGraf(), entidades(), w(sf::VideoMode(1920, 1080), "SFML window"), clock()
 {
-    Jogador *e = new Jogador(1000.0, 500.0, gText.texturas[0], Colisao(160, 320), 1,Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
-    Projetil *p = new Projetil(0, 0, gText.texturas[1], Colisao(80, 80), 200.0, 100.0, 0);
-    Obstaculo *o = new Obstaculo(1000.0, 800.0, gText.texturas[2], Colisao(320, 320));
-    Obstaculo *c = new Obstaculo(0.0, 900.0, gText.texturas[5], Colisao(1920, 320));
-    Inimigo *i = new Inimigo(1000.0, 600.0, gText.texturas[4], Colisao(160, 160), 1,Animacao(sf::IntRect(0, 0, 16, 16), 0.25, "12"));
+    Jogador *e = new Jogador(this, 1000.0, 500.0, 160, 320, gGraf.texturas[0], Colisao(10, 10, 140, 300), 1,Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
+    Projetil *p = new Projetil(0, 0, 80, 80, gGraf.texturas[1], Colisao(10, 10, 60, 60), 200.0, 100.0, 0);
+    Obstaculo *o = new Obstaculo(1000.0, 800.0, 320, 320, gGraf.texturas[2], Colisao(10, 10, 300, 300));
+    Obstaculo *c = new Obstaculo(0.0, 900.0, 1920, 320, gGraf.texturas[5], Colisao(10, 10, 1900, 300));
+    Inimigo *i = new Inimigo(1000.0, 600.0, 160, 160, gGraf.texturas[4], Colisao(10, 10, 140, 140), 1,Animacao(sf::IntRect(0, 0, 16, 16), 0.25, "12"));
     entidades.push(e);
     entidades.push(p);
     entidades.push(o);
@@ -29,11 +29,11 @@ void Principal::executar()
     while (w.isOpen())
     {
         w.clear(sf::Color::White);
-        sf::RectangleShape fundo;
-        fundo.setOrigin(0, 0);
-        fundo.setSize(sf::Vector2f(w.getSize().x, w.getSize().y));
-        fundo.setTexture(gText.texturas[3]);
-        w.draw(fundo);
+        sf::RectangleShape r;
+        r.setOrigin(0, 0);
+        r.setSize(sf::Vector2f(w.getSize().x, w.getSize().y));
+        r.setTexture(gGraf.texturas[3]);
+        w.draw(r);
         entidades.imprimir(&w);
         dt = clock.getElapsedTime().asSeconds();  
         if (dt < (1.0 / FPS))
@@ -58,57 +58,39 @@ void Principal::executar()
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
-            Personagem* p = static_cast<Personagem*>(entidades[0]);
+            Jogador* p = static_cast<Jogador*>(entidades[0]);
             p->setX(p->getX()+10);
             p->setY(p->getY());
-            if(p->getTextura() != gText.texturas[0] || p->getAnimacao().rect.width != 16)
-            {
-                p->setAnimacao(Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
-                p->setTextura(gText.texturas[0]);
-            }
+            p->setEstado(WALKR);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
-            Personagem* p = static_cast<Personagem*>(entidades[0]);
+            Jogador* p = static_cast<Jogador*>(entidades[0]);
             p->setX(p->getX()-10);
             p->setY(p->getY());
-            if(p->getTextura() != gText.texturas[0] || p->getAnimacao().rect.width != -16)
-            {
-                p->setAnimacao(Animacao(sf::IntRect(48, 0, -16, 32), 0.25, "1232"));
-                p->setTextura(gText.texturas[0]);
-            }
+            p->setEstado(WALKL);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
-            Personagem* p = static_cast<Personagem*>(entidades[0]);
+            Jogador* p = static_cast<Jogador*>(entidades[0]);
             p->setY(p->getY()-10);
             p->setX(p->getX());
-            if(p->getTextura() != gText.texturas[7] || p->getAnimacao().rect.width != 16)
-            {
-                p->setAnimacao(Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "12"));
-                p->setTextura(gText.texturas[7]);
-            }
+            p->setEstado(CLIMB);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
-            Personagem* p = static_cast<Personagem*>(entidades[0]);
+            Jogador* p = static_cast<Jogador*>(entidades[0]);
             p->setY(p->getY()+10);
             p->setX(p->getX());
-            if(p->getTextura() != gText.texturas[7] || p->getAnimacao().rect.width != 16)
-            {
-                p->setAnimacao(Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "12"));
-                p->setTextura(gText.texturas[7]);
-            }
+            p->setEstado(CLIMB);
         }
         else 
         {
-            Personagem* p = static_cast<Personagem*>(entidades[0]);
-            if(p->getTextura() != gText.texturas[6])
-            {
-                p->setTextura(gText.texturas[6]);
-                p->setAnimacao(Animacao(sf::IntRect(3, 0 ,16, 32), 0.25));
-            }
+            static_cast<Jogador*>(entidades[0])->setEstado(IDLE);   
         }
+        entidades.executar(dt);
+
+        
         for (int i = 0; i < entidades.getLista().size(); i++)
         {
             for (int j = i+1; j < entidades.getLista().size(); j++)
@@ -117,6 +99,7 @@ void Principal::executar()
                     *e2 = static_cast<Entidade*>(entidades[j]);
                 if (colidindo(e1, e2) || colidindo(e2, e1))
                 {
+                    // Muito ruim
                     e1->setX(e1->getX0());
                     e2->setX(e2->getX0());
                     e1->setY(e1->getY0());
@@ -128,6 +111,5 @@ void Principal::executar()
                 }
             }
         }
-        entidades.executar(dt);
     }
 }

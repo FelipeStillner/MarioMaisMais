@@ -1,17 +1,18 @@
 #pragma once
-#include "Entidade/Entidade.h"
+
+#include "Entidades/Entidade.h"
 
 #include "Afix.h"
 #include "Ente.h"
+#include "Texto.h"
+
 using std::string;
 using std::list;
+
 class Menu : public Ente
 {
 private:
-
   list<Texto*> lTexto;
-  
-
 public:
   Menu();
   ~Menu();

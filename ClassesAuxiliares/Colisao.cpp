@@ -53,8 +53,10 @@ const int Colisao::getY() const
   return y;
 }
 
+
+// Ideia para calculaer a direcao da colisao: distancia entre os centros dos retangulos de colisao
 int colidindo(Entidade *e1, Entidade *e2)
-{ 
+{
   int x1 = e1->getX()+e1->getColisao().getX(), x2 = e2->getX()+e2->getColisao().getX(), y1 = e1->getY()+e1->getColisao().getY(), y2 = e2->getY()+e2->getColisao().getY(),
     w1 = e1->getColisao().getWidth(), w2 = e2->getColisao().getWidth(), 
     h1 = e1->getColisao().getHeight(), h2 = e2->getColisao().getHeight();

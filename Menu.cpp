@@ -52,5 +52,4 @@ void Menu::escreveTexto(string vTexto, int fIndex, int fX , int fY, int fSize)
     {
         
     }
-
 }
