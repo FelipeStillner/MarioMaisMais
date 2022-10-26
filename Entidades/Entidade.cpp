@@ -27,11 +27,21 @@ void Entidade::setTextura(sf::Texture* t)
 
 void Entidade::setX(float x)
 {
-  x0 = this->x;
   this->x = x;
 }
 
 void Entidade::setY(float y)
+{
+  this->y = y;
+}
+
+void Entidade::setXX0(float x)
+{
+  x0 = this->x;
+  this->x = x;
+}
+
+void Entidade::setYY0(float y)
 {
   y0 = this->y;
   this->y = y;

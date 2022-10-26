@@ -20,6 +20,8 @@ public:
   void setTextura(sf::Texture* t);
   void setX(float x);
   void setY(float y);
+  void setXX0(float x);
+  void setYY0(float y);
   const Colisao getColisao() const;
   const sf::Texture* getTextura() const;
   const float getX() const;

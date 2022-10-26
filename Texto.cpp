@@ -65,9 +65,9 @@ void Texto::inicializarSprite()
         int y=0;
         for(int i=0;i<size;i++)
         {   
-            sf::RectangleShape r = new sf::RectangleShape (sf::Vector2(sprW,fontsize*sprH));
+            sf::RectangleShape r = sf::RectangleShape (sf::Vector2(sprW,fontsize*sprH));
             r->setPosition(x, y);
-            x+=sprW;
+            x += sprW;
             rSprite.push_back(r);
         }
     }

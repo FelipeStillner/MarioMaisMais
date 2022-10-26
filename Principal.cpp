@@ -52,36 +52,36 @@ void Principal::executar()
                 w.close();
             if (event.type == sf::Event::MouseButtonPressed)
             {
-                static_cast<Personagem*>(entidades[0])->setX(sf::Mouse::getPosition(w).x);
-                static_cast<Personagem*>(entidades[0])->setY(sf::Mouse::getPosition(w).y);
+                static_cast<Personagem*>(entidades[0])->setXX0(sf::Mouse::getPosition(w).x);
+                static_cast<Personagem*>(entidades[0])->setYY0(sf::Mouse::getPosition(w).y);
             }
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
             Jogador* p = static_cast<Jogador*>(entidades[0]);
-            p->setX(p->getX()+10);
-            p->setY(p->getY());
+            p->setXX0(p->getX()+10);
+            p->setYY0(p->getY());
             p->setEstado(WALKR);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
             Jogador* p = static_cast<Jogador*>(entidades[0]);
-            p->setX(p->getX()-10);
-            p->setY(p->getY());
+            p->setXX0(p->getX()-10);
+            p->setYY0(p->getY());
             p->setEstado(WALKL);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
             Jogador* p = static_cast<Jogador*>(entidades[0]);
-            p->setY(p->getY()-10);
-            p->setX(p->getX());
+            p->setYY0(p->getY()-10);
+            p->setXX0(p->getX());
             p->setEstado(CLIMB);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
             Jogador* p = static_cast<Jogador*>(entidades[0]);
-            p->setY(p->getY()+10);
-            p->setX(p->getX());
+            p->setYY0(p->getY()+10);
+            p->setXX0(p->getX());
             p->setEstado(CLIMB);
         }
         else 
@@ -104,10 +104,6 @@ void Principal::executar()
                     e2->setX(e2->getX0());
                     e1->setY(e1->getY0());
                     e2->setY(e2->getY0());
-                    e1->setX(e1->getX());
-                    e2->setX(e2->getX());
-                    e1->setY(e1->getY());
-                    e2->setY(e2->getY());
                 }
             }
         }
