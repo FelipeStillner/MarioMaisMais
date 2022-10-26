@@ -12,6 +12,8 @@ protected:
   sf::Texture *text;
   Colisao col;
 public:
+  int vy;
+public:
   Entidade(float x = 0, float y = 0, float w = 0, float h = 0, sf::Texture* t = NULL, Colisao c = Colisao());
   virtual ~Entidade();
   virtual void executar(float dt) = 0;

@@ -2,9 +2,9 @@
 
 #define NAOCOLIDIU 0
 #define BAIXO 1
-#define CIMA 2
-#define DIREITA 3
-#define ESQUERDA 4
+#define CIMA -1
+#define DIREITA 2
+#define ESQUERDA -2
 
 #include "../Afix.h"
 

@@ -2,7 +2,7 @@
 
 Principal::Principal() : gGraf(), entidades(), w(sf::VideoMode(1920, 1080), "SFML window"), clock()
 {
-    Jogador *e = new Jogador(this, 1000.0, 500.0, 160, 320, gGraf.texturas[0], Colisao(10, 10, 140, 300), 1,Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
+    Jogador *e = new Jogador(this, 500.0, 500.0, 160, 320, gGraf.texturas[0], Colisao(10, 10, 140, 300), 1,Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
     Projetil *p = new Projetil(0, 0, 80, 80, gGraf.texturas[1], Colisao(10, 10, 60, 60), 200.0, 100.0, 0);
     Obstaculo *o = new Obstaculo(1000.0, 800.0, 320, 320, gGraf.texturas[2], Colisao(10, 10, 300, 300));
     Obstaculo *c = new Obstaculo(0.0, 900.0, 1920, 320, gGraf.texturas[5], Colisao(10, 10, 1900, 300));
@@ -73,23 +73,18 @@ void Principal::executar()
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
             Jogador* p = static_cast<Jogador*>(entidades[0]);
-            p->setYY0(p->getY()-10);
-            p->setXX0(p->getX());
-            p->setEstado(CLIMB);
-        }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-        {
-            Jogador* p = static_cast<Jogador*>(entidades[0]);
-            p->setYY0(p->getY()+10);
-            p->setXX0(p->getX());
-            p->setEstado(CLIMB);
+            if(p->vy == 0)
+            {
+                p->vy = -31;
+                p->setXX0(p->getX());
+                p->setEstado(CLIMB);
+            }
         }
         else 
         {
             static_cast<Jogador*>(entidades[0])->setEstado(IDLE);   
         }
         entidades.executar(dt);
-
         
         for (int i = 0; i < entidades.getLista().size(); i++)
         {
@@ -97,13 +92,30 @@ void Principal::executar()
             {
                 Entidade *e1 = static_cast<Entidade*>(entidades[i]),
                     *e2 = static_cast<Entidade*>(entidades[j]);
-                if (colidindo(e1, e2) || colidindo(e2, e1))
+                int c1 = colidindo(e1, e2), c2 = colidindo(e2, e1);
+                if (c1 == CIMA || c2 == BAIXO)
                 {
-                    // Muito ruim
-                    e1->setX(e1->getX0());
-                    e2->setX(e2->getX0());
                     e1->setY(e1->getY0());
                     e2->setY(e2->getY0());
+                    e1->vy = 0;
+                    e2->vy = 0;
+                }
+                else if (c1 == BAIXO || c2 == CIMA)
+                {
+                    e2->setY(e2->getY0());
+                    e1->setY(e1->getY0());
+                    e1->vy = 0;
+                    e2->vy = 0;
+                }
+                if (c1 == DIREITA || c2 == ESQUERDA)
+                {
+                    e1->setX(e1->getX0());
+                    e2->setX(e2->getX0());
+                }
+                else if (c1 == ESQUERDA || c2 == DIREITA)
+                {
+                    e2->setX(e2->getX0());
+                    e1->setX(e1->getX0());
                 }
             }
         }

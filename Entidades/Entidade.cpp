@@ -9,6 +9,7 @@ Entidade::Entidade(float x, float y, float w, float h, sf::Texture* t, Colisao c
   x0 = x;
   y0 = y;
   text = t;
+  vy = 0;
 }
 
 Entidade::~Entidade()

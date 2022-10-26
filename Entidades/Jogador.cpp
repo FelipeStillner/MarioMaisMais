@@ -16,6 +16,9 @@ Jogador::~Jogador()
 
 void Jogador::executar(float dt)
 {
+  y0 = y;
+  y += vy;
+  vy += 2;
   anim.executar(dt);
 }
 

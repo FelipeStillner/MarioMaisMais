@@ -54,7 +54,7 @@ const int Colisao::getY() const
 }
 
 
-// Ideia para calculaer a direcao da colisao: distancia entre os centros dos retangulos de colisao
+// Ideia para calcular a direcao da colisao: distancia entre os centros dos retangulos de colisao
 int colidindo(Entidade *e1, Entidade *e2)
 {
   int x1 = e1->getX()+e1->getColisao().getX(), x2 = e2->getX()+e2->getColisao().getX(), y1 = e1->getY()+e1->getColisao().getY(), y2 = e2->getY()+e2->getColisao().getY(),
@@ -83,29 +83,29 @@ int colidindo(Entidade *e1, Entidade *e2)
       colisao = 1;
     }
   }
-  return colisao;
+  //return colisao;
   if (!colisao)
   {
     return 0;
   }
-  int vx1 = x1 - e1->getX0();
-  int vy1 = y1 - e1->getY0();
-  int vx2 = x2 - e2->getX0();
-  int vy2 = y2 - e2->getY0();
-  if(vx1 - vx2 > 0)
+  float Dvx = x2 - e2->getX0() - (x1 - e1->getX0());
+  float Dvy = y2 - e2->getY0() - (y1 - e1->getY0());
+
+
+  if (Dvy > 0)// e1 embaixo de e2
   {
-    
+    return BAIXO;
   }
-  if(vx1 - vx2 < 0)
+  else if (Dvy < 0)// e1 emcima de e2
   {
-    
+    return CIMA;
   }
-  if(vy1 - vy2 > 0)
+  else if (Dvx > 0)
   {
-    
+    return 1;
   }
-  if(vy1 - vy2 < 0)
+  else
   {
-    
+    return 1;
   }
 }
