@@ -1,5 +1,5 @@
 #include "Principal.h"
-
+#include"Texto.h"
 Principal::Principal() : gText(), entidades(), w(sf::VideoMode(1920, 1080), "SFML window"), clock()
 {
     Jogador *e = new Jogador(1000.0, 500.0, gText.texturas[0], Colisao(160, 320), 1,Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
@@ -7,6 +7,7 @@ Principal::Principal() : gText(), entidades(), w(sf::VideoMode(1920, 1080), "SFM
     Obstaculo *o = new Obstaculo(1000.0, 800.0, gText.texturas[2], Colisao(320, 320));
     Obstaculo *c = new Obstaculo(0.0, 900.0, gText.texturas[5], Colisao(1920, 320));
     Inimigo *i = new Inimigo(1000.0, 600.0, gText.texturas[4], Colisao(160, 160), 1,Animacao(sf::IntRect(0, 0, 16, 16), 0.25, "12"));
+    
     entidades.push(e);
     entidades.push(p);
     entidades.push(o);
@@ -17,6 +18,7 @@ Principal::Principal() : gText(), entidades(), w(sf::VideoMode(1920, 1080), "SFM
 
 Principal::~Principal()
 {
+    
 }
 
 void Principal::executar()
@@ -28,11 +30,11 @@ void Principal::executar()
     while (w.isOpen())
     {
         w.clear(sf::Color::White);
-        sf::RectangleShape r;
-        r.setOrigin(0, 0);
-        r.setSize(sf::Vector2f(w.getSize().x, w.getSize().y));
-        r.setTexture(gText.texturas[3]);
-        w.draw(r);
+        sf::RectangleShape fundo;
+        fundo.setOrigin(0, 0);
+        fundo.setSize(sf::Vector2f(w.getSize().x, w.getSize().y));
+        fundo.setTexture(gText.texturas[3]);
+        w.draw(fundo);
         entidades.imprimir(&w);
         dt = clock.getElapsedTime().asSeconds();  
         if (dt < (1.0 / FPS))

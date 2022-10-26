@@ -2,7 +2,6 @@
 
 #include "../Afix.h"
 #include <fstream>
-
 class GerenciadorGrafico
 {
 public:
@@ -10,4 +9,5 @@ public:
 public:
   GerenciadorGrafico();
   ~GerenciadorGrafico();
+  sf::Texture* operator[] (int i) const ;
 };

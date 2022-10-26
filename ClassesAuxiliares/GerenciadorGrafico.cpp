@@ -26,3 +26,6 @@ GerenciadorGrafico::~GerenciadorGrafico()
   texturas.clear();
 }
 
+sf::Texture* GerenciadorGrafico::operator[] (int i) const {
+if(i>=0&&i<texturas.size()){return(texturas[i]);}
+else{std::cout<<"erro ao retornar textura em GG \n ";}}
