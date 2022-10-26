@@ -1,6 +1,6 @@
 #include "Andador.h"
 
-Andador::Andador(float x, float y, sf::Texture* t, Colisao c, int v ,Animacao a) : Inimigo(x, y, t, c, v, anim)
+Andador::Andador(float x, float y, float w, float h,  sf::Texture* t, Colisao c, int v ,Animacao a) : Inimigo(x, y, w, h, t, c, v, anim)
 {
 }
 

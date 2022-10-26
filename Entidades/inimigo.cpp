@@ -1,6 +1,6 @@
 #include "Inimigo.h"
 
-Inimigo::Inimigo(float x, float y, sf::Texture* t, Colisao c, int v, Animacao a): Personagem(x, y, t, c, v, a)
+Inimigo::Inimigo(float x, float y, float w, float h, sf::Texture* t, Colisao c, int v, Animacao a): Personagem(x, y, w, h, t, c, v, a)
 {
 }
 

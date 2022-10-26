@@ -7,11 +7,12 @@ class Entidade : public Ente
 {
 protected:
   float x, y;
+  float w, h;
   float x0, y0;
   sf::Texture *text;
   Colisao col;
 public:
-  Entidade(float x = 0, float y = 0, sf::Texture* t = NULL, Colisao c = Colisao());
+  Entidade(float x = 0, float y = 0, float w = 0, float h = 0, sf::Texture* t = NULL, Colisao c = Colisao());
   virtual ~Entidade();
   virtual void executar(float dt) = 0;
   virtual void imprimir(sf::RenderWindow *rw) = 0;

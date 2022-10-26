@@ -1,6 +1,6 @@
 #include "Projetil.h"
 
-Projetil::Projetil(float x, float y, sf::Texture* t, Colisao c, int vx, int vy, int dano) : Entidade(x, y, t, c)
+Projetil::Projetil(float x, float y, float w, float h, sf::Texture* t, Colisao c, int vx, int vy, int dano) : Entidade(x, y, w, h, t, c)
 {
   this->vx = vx;
   this->vy = vy;
@@ -24,7 +24,7 @@ void Projetil::imprimir(sf::RenderWindow *rw)
   sf::RectangleShape r;
   r.setTexture(text);
   r.setPosition(x, y);
-  r.setSize(sf::Vector2f(col.getWidth(), col.getHeight()));
+  r.setSize(sf::Vector2f(w, h));
   rw->draw(r);
 }
 

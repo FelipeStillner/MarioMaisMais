@@ -1,6 +1,6 @@
 #include "Personagem.h"
 
-Personagem::Personagem(float x, float y, sf::Texture* t, Colisao c, int v ,Animacao a) : Entidade(x, y, t, c), anim(a)
+Personagem::Personagem(float x, float y, float w, float h, sf::Texture* t, Colisao c, int v ,Animacao a) : Entidade(x, y, w, h, t, c), anim(a)
 {
   vida = v;
 }
@@ -21,7 +21,7 @@ void Personagem::imprimir(sf::RenderWindow *rw)
   r.setTexture(text);
   r.setTextureRect(anim.rect);
   r.setPosition(x, y);
-  r.setSize(sf::Vector2f(col.getWidth(), col.getHeight()));
+  r.setSize(sf::Vector2f(w, h));
   rw->draw(r);
 }
 

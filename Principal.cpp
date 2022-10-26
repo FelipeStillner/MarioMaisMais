@@ -7,7 +7,6 @@ Principal::Principal() : gText(), entidades(), w(sf::VideoMode(1920, 1080), "SFM
     Obstaculo *o = new Obstaculo(1000.0, 800.0, gText.texturas[2], Colisao(320, 320));
     Obstaculo *c = new Obstaculo(0.0, 900.0, gText.texturas[5], Colisao(1920, 320));
     Inimigo *i = new Inimigo(1000.0, 600.0, gText.texturas[4], Colisao(160, 160), 1,Animacao(sf::IntRect(0, 0, 16, 16), 0.25, "12"));
-    
     entidades.push(e);
     entidades.push(p);
     entidades.push(o);
@@ -62,24 +61,53 @@ void Principal::executar()
             Personagem* p = static_cast<Personagem*>(entidades[0]);
             p->setX(p->getX()+10);
             p->setY(p->getY());
+            if(p->getTextura() != gText.texturas[0] || p->getAnimacao().rect.width != 16)
+            {
+                p->setAnimacao(Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
+                p->setTextura(gText.texturas[0]);
+            }
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
             Personagem* p = static_cast<Personagem*>(entidades[0]);
             p->setX(p->getX()-10);
             p->setY(p->getY());
+            if(p->getTextura() != gText.texturas[0] || p->getAnimacao().rect.width != -16)
+            {
+                p->setAnimacao(Animacao(sf::IntRect(48, 0, -16, 32), 0.25, "1232"));
+                p->setTextura(gText.texturas[0]);
+            }
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
             Personagem* p = static_cast<Personagem*>(entidades[0]);
             p->setY(p->getY()-10);
             p->setX(p->getX());
+            if(p->getTextura() != gText.texturas[7] || p->getAnimacao().rect.width != 16)
+            {
+                p->setAnimacao(Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "12"));
+                p->setTextura(gText.texturas[7]);
+            }
         }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
         {
             Personagem* p = static_cast<Personagem*>(entidades[0]);
             p->setY(p->getY()+10);
             p->setX(p->getX());
+            if(p->getTextura() != gText.texturas[7] || p->getAnimacao().rect.width != 16)
+            {
+                p->setAnimacao(Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "12"));
+                p->setTextura(gText.texturas[7]);
+            }
+        }
+        else 
+        {
+            Personagem* p = static_cast<Personagem*>(entidades[0]);
+            if(p->getTextura() != gText.texturas[6])
+            {
+                p->setTextura(gText.texturas[6]);
+                p->setAnimacao(Animacao(sf::IntRect(3, 0 ,16, 32), 0.25));
+            }
         }
         for (int i = 0; i < entidades.getLista().size(); i++)
         {
