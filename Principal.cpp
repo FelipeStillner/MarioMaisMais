@@ -77,7 +77,7 @@ void Principal::executar()
             {
                 p->vy = -31;
                 p->setXX0(p->getX());
-                p->setEstado(CLIMB);
+                p->setEstado(JUMP);
             }
         }
         else 

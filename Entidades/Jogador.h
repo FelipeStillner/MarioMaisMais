@@ -20,4 +20,4 @@ public:
 #define IDLE 0
 #define WALKR 1
 #define WALKL 2
-#define CLIMB 3
+#define JUMP 3

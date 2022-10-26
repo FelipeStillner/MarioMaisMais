@@ -102,10 +102,10 @@ int colidindo(Entidade *e1, Entidade *e2)
   }
   else if (Dvx > 0)
   {
-    return 1;
+    return DIREITA;
   }
   else
   {
-    return 1;
+    return ESQUERDA;
   }
 }
