@@ -8,12 +8,13 @@
 #include "Entidades/Jogador.h"
 #include "Entidades/Inimigo.h"
 #include "Gerenciadores/GerenciadorEventos.h"
+#include "Fase1.h"
 // #include "Menu.h"
 
 class Principal
 {
 private:
-  ListaEntidades entidades;
+  Fase* f;
   sf::Clock clock;
 public:
   sf::RenderWindow w;
