@@ -1,11 +1,5 @@
 #pragma once
 
-#define NAOCOLIDIU 0
-#define BAIXO 1
-#define CIMA -1
-#define DIREITA 2
-#define ESQUERDA -2
-
 #include "../Afix.h"
 
 class Entidade;
@@ -31,3 +25,9 @@ public:
 };
 
 int colidindo(Entidade *e1, Entidade *e2);
+
+#define NAOCOLIDIU 0
+#define BAIXO 1
+#define CIMA -1
+#define DIREITA 2
+#define ESQUERDA -2

@@ -34,29 +34,29 @@ void Jogador::setEstado(const int est)
   case IDLE:
     if(estado == WALKR)
     {
-      setTextura(p->gGraf.texturas[6]);
+      setTextura(p->gGraf[6]);
       setAnimacao(Animacao(sf::IntRect(0, 0 ,16, 32)));
     }
     else
     {
-      setTextura(p->gGraf.texturas[6]);
+      setTextura(p->gGraf[6]);
       setAnimacao(Animacao(sf::IntRect(16, 0 ,-16, 32)));
     }
     break;
   
   case WALKR:
     setAnimacao(Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
-    setTextura(p->gGraf.texturas[0]);
+    setTextura(p->gGraf[0]);
     break;
 
   case WALKL:
     setAnimacao(Animacao(sf::IntRect(48, 0, -16, 32), 0.25, "1232"));
-    setTextura(p->gGraf.texturas[0]);
+    setTextura(p->gGraf[0]);
     break;
   
   case JUMP:
     setAnimacao(Animacao(sf::IntRect(0, 0, 16, 32), 2, "12"));
-    setTextura(p->gGraf.texturas[7]);
+    setTextura(p->gGraf[7]);
     break;
   
   default:

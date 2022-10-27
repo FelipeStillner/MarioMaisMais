@@ -4,7 +4,7 @@
 #include <fstream>
 class GerenciadorGrafico
 {
-public:
+private:
   std::vector<sf::Texture*> texturas;
 public:
   GerenciadorGrafico();

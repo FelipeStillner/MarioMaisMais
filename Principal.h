@@ -14,9 +14,9 @@ class Principal
 {
 private:
   ListaEntidades entidades;
-  sf::RenderWindow w;
   sf::Clock clock;
 public:
+  sf::RenderWindow w;
   GerenciadorEventos gEven;
   GerenciadorGrafico gGraf;
 public:
