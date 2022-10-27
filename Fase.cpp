@@ -1,4 +1,6 @@
 #include "Fase.h"
+#include "Principal.h"
+#include "Entidades/Jogador.h"
 
 Fase::Fase(Principal* p) : Ente()
 {

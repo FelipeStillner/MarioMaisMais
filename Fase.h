@@ -4,7 +4,9 @@
 #include "Ente.h"
 #include "ClassesAuxiliares/ListaEntidades.h"
 #include "Gerenciadores/GerenciadorColisoes.h"
-#include "Entidades/Jogador.h"
+
+class Jogador;
+class Principal;
 
 class Fase : public Ente
 {
