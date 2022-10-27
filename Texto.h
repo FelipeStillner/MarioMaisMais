@@ -1,5 +1,5 @@
 #pragma once
-
+/*
 #include "Entidades/Entidade.h"
 #include "Gerenciadores/GerenciadorGrafico.h"
 #include "Afix.h"
@@ -33,3 +33,4 @@ public:
     static void setGerenciadorGrafico(GerenciadorGrafico* gT);
     
 };
+*/

@@ -55,7 +55,7 @@ void Jogador::setEstado(const int est)
     break;
   
   case JUMP:
-    setAnimacao(Animacao(sf::IntRect(0, 0, 16, 32), 2, "12"));
+    setAnimacao(Animacao(sf::IntRect(0, 0, 16, 32), 0.3, "12"));
     setTextura(p->gGraf[7]);
     break;
   

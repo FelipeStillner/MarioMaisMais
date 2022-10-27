@@ -6,4 +6,3 @@
 #include <string.h>
 #include <iostream>
 #include <list>
-#include <pthread.h>

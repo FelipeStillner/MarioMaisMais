@@ -15,7 +15,7 @@
     Ranking
 
 
-*/
+
 Menu::Menu() : Ente()
 {
 }
@@ -36,14 +36,14 @@ void Menu::imprimir(sf::RenderWindow* w)
 }
 
 
-/*
+
     vTexto == texto a ser escrito
     fIndex = indice da textura
     fX = posicao x da primeira letra
     fY = posicao y da primeria letra
     fSize = tamanho da fonte
 
-*/
+
 void Menu::escreveTexto(string vTexto, int fIndex, int fX , int fY, int fSize)
 {
     int len = vTexto.size();
@@ -53,3 +53,4 @@ void Menu::escreveTexto(string vTexto, int fIndex, int fX , int fY, int fSize)
         
     }
 }
+*/

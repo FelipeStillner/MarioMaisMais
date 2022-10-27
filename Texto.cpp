@@ -1,5 +1,5 @@
 #include "Texto.h"
-
+/*
 Texto::Texto(const string t, int index, int x, int y, float fontsize)
 {   
     //multiplicador do tamanho da fonte
@@ -95,3 +95,4 @@ void Texto::setGerenciadorGrafico(GerenciadorGrafico* gT)
     } 
     std::cout << "erro GG\n";
 }
+*/

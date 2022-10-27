@@ -1,5 +1,5 @@
 #pragma once
-
+/*
 #include "Entidades/Entidade.h"
 
 #include "Afix.h"
@@ -23,3 +23,4 @@ public:
 };
 
 
+*/
