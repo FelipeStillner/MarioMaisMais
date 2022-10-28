@@ -1,10 +1,13 @@
 #pragma once
 /*
 #include "Entidades/Entidade.h"
+
 #include "Gerenciadores/GerenciadorGrafico.h"
 #include "Afix.h"
 #include "Ente.h"
 
+#include"../../../sfml/SFML-2.5.1/include/SFML/
+#include<
 using std::string;
 using std::list;
 using std::vector;
@@ -14,7 +17,7 @@ class Texto : public Ente
 private:
     string vTexto;
     //int iSprite;
-    static vector<sf::RectangleShape*> rSprite;
+    static vector<sf::intRect*> rSprite;
     vector<sf::RectangleShape*> rCaracteres;
     int pX; int pY;
     static GerenciadorGrafico * gText;
@@ -22,6 +25,7 @@ private:
     static int fontH;
     static int frstLt;
     static int lstLt;
+    static int MAX;
     sf::Texture* textura;
 
 public:

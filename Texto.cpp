@@ -1,8 +1,15 @@
 #include "Texto.h"
+<<<<<<< Updated upstream
 /*
+=======
+
+
+// 8x8 !
+>>>>>>> Stashed changes
 Texto::Texto(const string t, int index, int x, int y, float fontsize)
 {   
     //multiplicador do tamanho da fonte
+
     if(fontsize <= 0 || fontsize >= MAX)
     {
         fontsize = 1;
@@ -65,9 +72,9 @@ void Texto::inicializarSprite()
         int y=0;
         for(int i=0;i<size;i++)
         {   
-            sf::RectangleShape r = sf::RectangleShape (sf::Vector2(sprW,fontsize*sprH));
+            sf::intRect r = sf::intRect (sf::Vector2 (fontWid,fontsize*fontH));
             r->setPosition(x, y);
-            x += sprW;
+            x += fontWid;
             rSprite.push_back(r);
         }
     }
@@ -95,4 +102,13 @@ void Texto::setGerenciadorGrafico(GerenciadorGrafico* gT)
     } 
     std::cout << "erro GG\n";
 }
+<<<<<<< Updated upstream
 */
+=======
+
+int Texto::fontWid = 8;
+int Texto::fontH = 8;
+int Texto::frstLt = static_cast<int> ('!');
+int Texto::lstLt = static_cast<int> ('~');
+int Texto::MAX = 1080;
+>>>>>>> Stashed changes
