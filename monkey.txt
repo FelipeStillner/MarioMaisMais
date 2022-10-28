@@ -1,0 +1,11 @@
+g++ -c **.cpp Gerenciadores/**.cpp Entidades/**.cpp ClassesAuxiliares/**.cpp -IC:\SFML\SFML-2.5.1\include
+g++ **.o  -o sfml-app -LC:\SFML\SFML-2.5.1\lib -lsfml-graphics -lsfml-window -lsfml-system
+./sfml-app
+rm **.o
+rm **.exe
+
+Gerenciadores/**.cpp Entidades/**.cpp ClassesAuxiliares/**.cpp
+
+g++ -IC:\SFML\SFML-2.5.1\include -LC:\SFML\SFML-2.5.1\lib -lsfml-graphics-s -lsfml-window-s -lsfml-system-s -o sfml-app  
+
+/Gerenciadores/**.o /Entidades/**.o /ClassesAuxiliares/**.o
