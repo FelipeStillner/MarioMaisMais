@@ -1,4 +1,5 @@
 #include"Menu.h"
+
 /*
     Bom dia
 
@@ -15,13 +16,38 @@
     Ranking
 
 
+*/
 
-Menu::Menu() : Ente()
-{
+Menu::Menu(GerenciadorGrafico * gT) : Ente()
+{   
+    gText = *gT;
+    int frstL= '!';
+    int i,j;
+    //strcpy(strings[0],"MARIO");
+    strings[0]="MARIO";
+    //strings[1]+="++";
+    for(i=0;i<('~'-'!'+1);i++)
+    {
+        letras.push_back(new sf::IntRect(i*8,0,8,8));
+    }
+
+
+
+
 }
 
 Menu::~Menu()
 {
+    
+    int i =0 ;
+    while(i<('~'-'!'+1))
+    {
+        sf::IntRect * pAux = letras[i];
+        i++;
+        delete pAux;
+    }
+        letras.clear();
+
 
 }
 
@@ -30,20 +56,39 @@ void Menu::executar(float dt)
 
 }
 
-void Menu::imprimir(sf::RenderWindow* w)
+void Menu::imprimir /*const*/ (sf::RenderWindow* w)
 {
+    int i,j;
+    float wd = 8.0 , hg = 8.0;
+    float x = 500.0, y = 500.0;
+    sf::Texture* text = gText[8];
 
+    for(j=0;j<strings.size();j++)
+    for(i=0;i<(strings[j]).size();i++)
+    {
+        int lAux =  strings[j][i];
+        if(lAux!=' ')
+        {
+            sf::RectangleShape rAux;
+            rAux.setTexture(text);
+            rAux.setTextureRect(*(letras[lAux-'!']));
+            rAux.setPosition(8.0*i+x, y+8.0*j);
+            rAux.setSize(sf::Vector2f(wd, hg));
+            w->draw(rAux);
+        }
+    }
 }
 
 
 
-    vTexto == texto a ser escrito
+    /*
+    vTexto = texto a ser escrito
     fIndex = indice da textura
     fX = posicao x da primeira letra
     fY = posicao y da primeria letra
     fSize = tamanho da fonte
-
-
+    */
+/*
 void Menu::escreveTexto(string vTexto, int fIndex, int fX , int fY, int fSize)
 {
     int len = vTexto.size();

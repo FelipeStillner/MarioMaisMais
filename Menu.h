@@ -1,26 +1,27 @@
 #pragma once
-/*
-#include "Entidades/Entidade.h"
 
+#include "Entidades/Entidade.h"
+#include "Gerenciadores/GerenciadorGrafico.h"
 #include "Afix.h"
 #include "Ente.h"
 #include "Texto.h"
 
 using std::string;
-using std::list;
+using std::vector;
 
 class Menu : public Ente
 {
 private:
-  list<Texto*> lTexto;
+  vector<sf::IntRect*> letras;
+  vector<string> strings;
+  GerenciadorGrafico gText;
 public:
-  Menu();
+  Menu(GerenciadorGrafico * gT);
   ~Menu();
   virtual void executar(float dt);
   virtual void imprimir(sf::RenderWindow* w);
-  void escreveTexto(string vTexto,int fIndex, int fX , int fY, int fSize);
+  //void escreveTexto(string vTexto,int fIndex, int fX , int fY, int fSize);
 
 };
 
 
-*/
