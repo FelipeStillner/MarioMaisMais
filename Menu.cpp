@@ -18,13 +18,17 @@
 
 */
 
+void Menu::setgGraf(GerenciadorGrafico * g)
+{
+    gGraf = g;
+}
 Menu::Menu(GerenciadorGrafico * gT) : Ente()
 {   
-    gText = *gT;
+    gGraf = gT;
     int frstL= '!';
     int i,j;
     //strcpy(strings[0],"MARIO");
-    strings[0]="MARIO";
+    //strings[0]="MARIO";
     //strings[1]+="++";
     for(i=0;i<('~'-'!'+1);i++)
     {
@@ -57,17 +61,18 @@ void Menu::executar(float dt)
 }
 
 void Menu::imprimir /*const*/ (sf::RenderWindow* w)
-{
+{   if(gGraf!=NULL){
+    strings[0]="MARIO";
     int i,j;
     float wd = 8.0 , hg = 8.0;
     float x = 500.0, y = 500.0;
-    sf::Texture* text = gText[8];
+    sf::Texture* text = (*gGraf)[8];
 
     for(j=0;j<strings.size();j++)
     for(i=0;i<(strings[j]).size();i++)
     {
         int lAux =  strings[j][i];
-        if(lAux!=' ')
+        if(lAux!=' '&& lAux!='\0')
         {
             sf::RectangleShape rAux;
             rAux.setTexture(text);
@@ -76,6 +81,7 @@ void Menu::imprimir /*const*/ (sf::RenderWindow* w)
             rAux.setSize(sf::Vector2f(wd, hg));
             w->draw(rAux);
         }
+    }
     }
 }
 
