@@ -34,7 +34,8 @@ void Principal::executar()
         else{std::cout << "FPS\n";}
         clock.restart();
         w.display();
-        
+
+        // Isso vira o gerenciador de inputs
         while (w.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
@@ -75,25 +76,6 @@ void Principal::executar()
         }
         if(f->isPlaying)
             f->executar(dt);
-        
-        // Isso vai virar o gerenciador de colisoes
-        
-        for (int i = 0; i < f->entidades.size(); i++)
-        {
-            for (int j = i+1; j < f->entidades.size(); j++)
-            {
-                Entidade *e1 = f->entidades[i],
-                    *e2 = f->entidades[j];
-                if (colidindo(e1, e2) || colidindo(e2, e1))
-                {
-                    e1->setY(e1->getY0());
-                    e2->setY(e2->getY0());
-                    e1->vy = 0;
-                    e2->vy = 0;
-                } 
-
-            }
-        }
         if(f->isPlaying)
             f->gerenciarColisoes();
     }

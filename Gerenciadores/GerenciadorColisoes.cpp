@@ -40,11 +40,16 @@ void GerenciadorColisoes::executar()
       if (colidindo(*p, *i))
       {
         (*i)->operator--();
+        (*p)->~Projetil();
+        f->entidades.remove(*p);
       }
     }
-    if (colidindo(*p, jog))
+    if (colidindo(*p, jog) || colidindo(*p, jog))
     {
+      std::cout << "AA";
       jog--;
+      (*p)->~Projetil();
+        f->entidades.remove(*p);
     }
   }
   
@@ -66,23 +71,33 @@ void GerenciadorColisoes::executar()
     {
       if (colidindo(*o1, *o))
       {
+        (*o)->setY((*o)->getY0());
+        (*o1)->setY((*o1)->getY0());
+        (*o)->vy = 0;
+        (*o1)->vy = 0;
         //int dir = direcaoColisao(jog, *i);
-        
       }
     }
     // Personagem X Obstaculo: Personagem volta pra coordenada anterior na direcao da colisao
     for (i = inim.begin(); i != inim.end(); i++)
     {
-      //if (colidindo(*p, *i))
+      if (colidindo(*o, *i))
       {
+        (*o)->setY((*o)->getY0());
+        (*i)->setY((*i)->getY0());
+        (*o)->vy = 0;
+        (*i)->vy = 0;
         //int dir = direcaoColisao(jog, *i);
 
       }
     }
-    //if (colidindo(*p, jog))
+    if (colidindo(*o, jog))
     {
       //int dir = direcaoColisao(jog, *i);
-      
+      (*o)->setY((*o)->getY0());
+      (jog)->setY((jog)->getY0());
+      (*o)->vy = 0;
+      (jog)->vy = 0;
     }
   }
 }
