@@ -22,6 +22,7 @@ void GerenciadorColisoes::executar()
   std::list<Obstaculo*>::iterator o, o1;
   std::list<Inimigo*>::iterator i;
   int dir;
+  
   for (p = proj.begin(); p != proj.end(); p++)
   {
     // Projetil X Obstaculo: Projetil eh eliminado
@@ -46,7 +47,7 @@ void GerenciadorColisoes::executar()
       jog--;
     }
   }
-
+  
   // Inimigo X Jogador: jogador leva dano e mudam posicao dependendo da direcao da colisao
   for (i = inim.begin(); i != inim.end(); i++)
   {
@@ -56,30 +57,31 @@ void GerenciadorColisoes::executar()
 
     }
   }
-
+  
   for (o = obst.begin(); o != obst.end(); o++)
   {
+    
     // Obstaculo X Obstaculo: ambos voltam pra coordenada anterior na direcao da colisao
     for (o1 = o; o1 != obst.end(); o1++)
     {
       if (colidindo(*o1, *o))
       {
-        int dir = direcaoColisao(jog, *i);
+        //int dir = direcaoColisao(jog, *i);
         
       }
     }
     // Personagem X Obstaculo: Personagem volta pra coordenada anterior na direcao da colisao
     for (i = inim.begin(); i != inim.end(); i++)
     {
-      if (colidindo(*p, *i))
+      //if (colidindo(*p, *i))
       {
-        int dir = direcaoColisao(jog, *i);
+        //int dir = direcaoColisao(jog, *i);
 
       }
     }
-    if (colidindo(*p, jog))
+    //if (colidindo(*p, jog))
     {
-      int dir = direcaoColisao(jog, *i);
+      //int dir = direcaoColisao(jog, *i);
       
     }
   }

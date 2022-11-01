@@ -84,32 +84,17 @@ void Principal::executar()
             {
                 Entidade *e1 = f->entidades[i],
                     *e2 = f->entidades[j];
-                int c1 = colidindo(e1, e2), c2 = colidindo(e2, e1);
-                if (c1 == CIMA || c2 == BAIXO)
+                if (colidindo(e1, e2) || colidindo(e2, e1))
                 {
                     e1->setY(e1->getY0());
                     e2->setY(e2->getY0());
                     e1->vy = 0;
                     e2->vy = 0;
-                }
-                else if (c1 == BAIXO || c2 == CIMA)
-                {
-                    e2->setY(e2->getY0());
-                    e1->setY(e1->getY0());
-                    e1->vy = 0;
-                    e2->vy = 0;
-                }
-                if (c1 == DIREITA || c2 == ESQUERDA)
-                {
-                    e1->setX(e1->getX0());
-                    e2->setX(e2->getX0());
-                }
-                else if (c1 == ESQUERDA || c2 == DIREITA)
-                {
-                    e2->setX(e2->getX0());
-                    e1->setX(e1->getX0());
-                }
+                } 
+
             }
         }
+        if(f->isPlaying)
+            f->gerenciarColisoes();
     }
 }

@@ -19,6 +19,7 @@ void Fase::executar(float dt)
 
 void Fase::gerenciarColisoes()
 {
+  gCol.executar();
 }
 
 void Fase::imprimir(sf::RenderWindow* rw)
