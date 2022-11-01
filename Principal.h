@@ -9,7 +9,7 @@
 #include "Entidades/Inimigo.h"
 #include "Gerenciadores/GerenciadorEventos.h"
 #include "Fase1.h"
-// #include "Menu.h"
+#include "Menu.h"
 
 class Principal
 {
@@ -20,6 +20,7 @@ public:
   sf::RenderWindow w;
   GerenciadorEventos gEven;
   GerenciadorGrafico gGraf;
+  Menu menu;
 public:
   Principal();
   ~Principal();

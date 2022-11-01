@@ -3,6 +3,7 @@
 Principal::Principal() : gGraf(), w(sf::VideoMode(1920, 1080), "SFML window"), clock()
 {
     f = new Fase1(this);
+    //menu = Menu(&gGraf);
     executar();
 }
 
@@ -21,6 +22,8 @@ void Principal::executar()
     {
         if(f->isPlaying)
             f->imprimir(&w);
+        //menu.imprimir(&w);
+        
         dt = clock.getElapsedTime().asSeconds();  
         if (dt < (1.0 / FPS))
         {
@@ -31,7 +34,7 @@ void Principal::executar()
         else{std::cout << "FPS\n";}
         clock.restart();
         w.display();
-
+        
         while (w.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
@@ -72,6 +75,8 @@ void Principal::executar()
         }
         if(f->isPlaying)
             f->executar(dt);
+        
+        // Isso vai virar o gerenciador de colisoes
         
         for (int i = 0; i < f->entidades.getLista().size(); i++)
         {

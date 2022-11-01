@@ -2,7 +2,7 @@
 #include "Principal.h"
 #include "Entidades/Jogador.h"
 
-Fase::Fase(Principal* p) : Ente()
+Fase::Fase(Principal* p) : Ente(), gCol(this)
 {
   isPlaying = true;
 }

@@ -26,7 +26,7 @@ GerenciadorGrafico::~GerenciadorGrafico()
   texturas.clear();
 }
 
-sf::Texture* GerenciadorGrafico::operator[] (int i) const 
+sf::Texture* GerenciadorGrafico::operator[] (const int i) const 
 {
   if(i >= 0 && i < texturas.size())
   {

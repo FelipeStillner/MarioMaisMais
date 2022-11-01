@@ -2,8 +2,6 @@
 
 #include "Fase.h"
 
-class Principal;
-
 class Fase1 : public Fase
 {
 private:
