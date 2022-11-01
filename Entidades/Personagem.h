@@ -15,6 +15,6 @@ public:
   virtual void imprimir(sf::RenderWindow *rw);
   void setAnimacao(Animacao a);
   const Animacao getAnimacao();
-  void operator++();
-  void operator--();
+  void operator+=(int n);
+  void operator-=(int n);
 };

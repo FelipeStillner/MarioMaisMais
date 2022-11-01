@@ -14,10 +14,10 @@ void GerenciadorColisoes::executar()
 {
   // Para cada combinacao de {obstaculo, projetil, jogador, inimigo, etc.}
   // Fazer uma interacao diferente
-  std::list<Inimigo*> inim = f->entidades.getInimigos();
-  std::list<Obstaculo*> obst = f->entidades.getObstaculos();
-  std::list<Projetil*> proj = f->entidades.getProjeteis();
-  Jogador* jog = f->entidades.getJogador();
+  std::list<Inimigo*> inim = f->getEntidades()->getInimigos();
+  std::list<Obstaculo*> obst = f->getEntidades()->getObstaculos();
+  std::list<Projetil*> proj = f->getEntidades()->getProjeteis();
+  Jogador* jog = f->getEntidades()->getJogador();
   std::list<Projetil*>::iterator p;
   std::list<Obstaculo*>::iterator o, o1;
   std::list<Inimigo*>::iterator i;
@@ -31,7 +31,7 @@ void GerenciadorColisoes::executar()
       if (colidindo(*p, *o))
       {
         (*p)->~Projetil();
-        f->entidades.remove(*p);
+        f->getEntidades()->remove(*p);
       }
     }
     // Projetil X Personagem: Inimigo leva dano e projetil eh eliminado
@@ -39,17 +39,16 @@ void GerenciadorColisoes::executar()
     {
       if (colidindo(*p, *i))
       {
-        (*i)->operator--();
+        (**i) -= (*p)->getDano();
         (*p)->~Projetil();
-        f->entidades.remove(*p);
+        f->getEntidades()->remove(*p);
       }
     }
     if (colidindo(*p, jog) || colidindo(*p, jog))
     {
-      std::cout << "AA";
-      jog--;
+      *jog -= (*p)->getDano();
       (*p)->~Projetil();
-        f->entidades.remove(*p);
+        f->getEntidades()->remove(*p);
     }
   }
   
@@ -59,7 +58,7 @@ void GerenciadorColisoes::executar()
     if (colidindo(jog, *i))
     {
       int dir = direcaoColisao(jog, *i);
-
+      (*jog) -= 1;
     }
   }
   
@@ -71,11 +70,11 @@ void GerenciadorColisoes::executar()
     {
       if (colidindo(*o1, *o))
       {
+        int dir = direcaoColisao(*o1, *o);
         (*o)->setY((*o)->getY0());
         (*o1)->setY((*o1)->getY0());
-        (*o)->vy = 0;
-        (*o1)->vy = 0;
-        //int dir = direcaoColisao(jog, *i);
+        (*o)->setVy(0);
+        (*o1)->setVy(0);
       }
     }
     // Personagem X Obstaculo: Personagem volta pra coordenada anterior na direcao da colisao
@@ -83,21 +82,20 @@ void GerenciadorColisoes::executar()
     {
       if (colidindo(*o, *i))
       {
+        int dir = direcaoColisao(*o, *i);
         (*o)->setY((*o)->getY0());
         (*i)->setY((*i)->getY0());
-        (*o)->vy = 0;
-        (*i)->vy = 0;
-        //int dir = direcaoColisao(jog, *i);
-
+        (*o)->setVy(0);
+        (*i)->setVy(0);
       }
     }
     if (colidindo(*o, jog))
     {
-      //int dir = direcaoColisao(jog, *i);
+      int dir = direcaoColisao(*o, jog);
       (*o)->setY((*o)->getY0());
       (jog)->setY((jog)->getY0());
-      (*o)->vy = 0;
-      (jog)->vy = 0;
+      (*o)->setVy(0);
+      (jog)->setVy(0);
     }
   }
 }

@@ -34,12 +34,12 @@ const Animacao Personagem::getAnimacao()
   return anim;
 }
 
-void Personagem::operator++()
+void Personagem::operator+=(int n)
 {
-  vida++;
+  vida += n;
 }
 
-void Personagem::operator--()
+void Personagem::operator-=(int n)
 {
-  vida--;
+  vida -= n;
 }

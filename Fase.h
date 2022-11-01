@@ -14,13 +14,15 @@ protected:
   GerenciadorColisoes gCol;
   sf::Texture* background;
   Principal* prin;
-public:
   ListaEntidades entidades;
-  bool isPlaying;
+  bool jogando;
 public:
   Fase(Principal *p);
   virtual ~Fase();
   virtual void executar(float dt);
   virtual void imprimir(sf::RenderWindow *w);
   void gerenciarColisoes();
+  ListaEntidades* getEntidades();
+  bool getJogando();
+  void setJogando(bool n);
 };

@@ -4,7 +4,7 @@
 
 Fase::Fase(Principal* p) : Ente(), gCol(this)
 {
-  isPlaying = true;
+  jogando = true;
 }
 
 Fase::~Fase()
@@ -30,4 +30,19 @@ void Fase::imprimir(sf::RenderWindow* rw)
   r.setTexture(background);
   rw->draw(r);
   entidades.imprimir(rw);
+}
+
+ListaEntidades* Fase::getEntidades()
+{
+  return &entidades;
+}
+
+bool Fase::getJogando()
+{
+  return jogando;
+}
+
+void Fase::setJogando(bool n)
+{
+  jogando = n;
 }

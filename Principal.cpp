@@ -20,7 +20,7 @@ void Principal::executar()
 
     while (w.isOpen())
     {
-        if(f->isPlaying)
+        if(f->getJogando())
             f->imprimir(&w);
         //menu.imprimir(&w);
         
@@ -42,41 +42,41 @@ void Principal::executar()
                 w.close();
             if (event.type == sf::Event::MouseButtonPressed)
             {
-                f->entidades.getJogador()->setXX0(sf::Mouse::getPosition(w).x);
-                f->entidades.getJogador()->setYY0(sf::Mouse::getPosition(w).y);
+                f->getEntidades()->getJogador()->setXX0(sf::Mouse::getPosition(w).x);
+                f->getEntidades()->getJogador()->setYY0(sf::Mouse::getPosition(w).y);
             }
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
-            Jogador* p = f->entidades.getJogador();
+            Jogador* p = f->getEntidades()->getJogador();
             p->setXX0(p->getX()+10);
             p->setYY0(p->getY());
             p->setEstado(WALKR);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
-            Jogador* p = f->entidades.getJogador();
+            Jogador* p = f->getEntidades()->getJogador();
             p->setXX0(p->getX()-10);
             p->setYY0(p->getY());
             p->setEstado(WALKL);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
-            Jogador* p = f->entidades.getJogador();
-            if(p->vy == 0)
+            Jogador* p = f->getEntidades()->getJogador();
+            if(p->getVy() == 0)
             {
-                p->vy = -31;
+                p->setVy(-31);
                 p->setXX0(p->getX());
                 p->setEstado(JUMP);
             }
         }
         else 
         {
-            f->entidades.getJogador()->setEstado(IDLE);   
+            f->getEntidades()->getJogador()->setEstado(IDLE);   
         }
-        if(f->isPlaying)
+        if(f->getJogando())
             f->executar(dt);
-        if(f->isPlaying)
+        if(f->getJogando())
             f->gerenciarColisoes();
     }
 }
