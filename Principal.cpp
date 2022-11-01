@@ -41,27 +41,27 @@ void Principal::executar()
                 w.close();
             if (event.type == sf::Event::MouseButtonPressed)
             {
-                f->jog->setXX0(sf::Mouse::getPosition(w).x);
-                f->jog->setYY0(sf::Mouse::getPosition(w).y);
+                f->entidades.getJogador()->setXX0(sf::Mouse::getPosition(w).x);
+                f->entidades.getJogador()->setYY0(sf::Mouse::getPosition(w).y);
             }
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
         {
-            Jogador* p = f->jog;
+            Jogador* p = f->entidades.getJogador();
             p->setXX0(p->getX()+10);
             p->setYY0(p->getY());
             p->setEstado(WALKR);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
-            Jogador* p = f->jog;
+            Jogador* p = f->entidades.getJogador();
             p->setXX0(p->getX()-10);
             p->setYY0(p->getY());
             p->setEstado(WALKL);
         }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
         {
-            Jogador* p = f->jog;
+            Jogador* p = f->entidades.getJogador();
             if(p->vy == 0)
             {
                 p->vy = -31;
@@ -71,16 +71,16 @@ void Principal::executar()
         }
         else 
         {
-            f->jog->setEstado(IDLE);   
+            f->entidades.getJogador()->setEstado(IDLE);   
         }
         if(f->isPlaying)
             f->executar(dt);
         
         // Isso vai virar o gerenciador de colisoes
         
-        for (int i = 0; i < f->entidades.getLista().size(); i++)
+        for (int i = 0; i < f->entidades.size(); i++)
         {
-            for (int j = i+1; j < f->entidades.getLista().size(); j++)
+            for (int j = i+1; j < f->entidades.size(); j++)
             {
                 Entidade *e1 = f->entidades[i],
                     *e2 = f->entidades[j];

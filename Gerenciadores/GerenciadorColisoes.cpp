@@ -3,7 +3,7 @@
 
 GerenciadorColisoes::GerenciadorColisoes(Fase* f)
 {
-  jog = f->jog;
+  this->f = f;
 }
 
 GerenciadorColisoes::~GerenciadorColisoes()
@@ -14,9 +14,14 @@ void GerenciadorColisoes::executar()
 {
   // Para cada combinacao de {obstaculo, projetil, jogador, inimigo, etc.}
   // Fazer uma interacao diferente
+  std::list<Inimigo*> inim = f->entidades.getInimigos();
+  std::list<Obstaculo*> obst = f->entidades.getObstaculos();
+  std::list<Projetil*> proj = f->entidades.getProjeteis();
+  Jogador* jog = f->entidades.getJogador();
   std::list<Projetil*>::iterator p;
   std::list<Obstaculo*>::iterator o, o1;
   std::list<Inimigo*>::iterator i;
+  int dir;
   for (p = proj.begin(); p != proj.end(); p++)
   {
     // Projetil X Obstaculo: Projetil eh eliminado
@@ -24,10 +29,11 @@ void GerenciadorColisoes::executar()
     {
       if (colidindo(*p, *o))
       {
-        proj.remove(*p);
+        (*p)->~Projetil();
+        f->entidades.remove(*p);
       }
     }
-    // Projetil X Personagem: Inimigo leva dano
+    // Projetil X Personagem: Inimigo leva dano e projetil eh eliminado
     for (i = inim.begin(); i != inim.end(); i++)
     {
       if (colidindo(*p, *i))
@@ -41,12 +47,13 @@ void GerenciadorColisoes::executar()
     }
   }
 
-  // Inimigo X Jogador: jogador leva dano
+  // Inimigo X Jogador: jogador leva dano e mudam posicao dependendo da direcao da colisao
   for (i = inim.begin(); i != inim.end(); i++)
   {
     if (colidindo(jog, *i))
     {
-      
+      int dir = direcaoColisao(jog, *i);
+
     }
   }
 
@@ -57,6 +64,7 @@ void GerenciadorColisoes::executar()
     {
       if (colidindo(*o1, *o))
       {
+        int dir = direcaoColisao(jog, *i);
         
       }
     }
@@ -65,27 +73,14 @@ void GerenciadorColisoes::executar()
     {
       if (colidindo(*p, *i))
       {
-        
+        int dir = direcaoColisao(jog, *i);
+
       }
     }
     if (colidindo(*p, jog))
     {
+      int dir = direcaoColisao(jog, *i);
       
     }
   }
-}
-
-void GerenciadorColisoes::push(Projetil* p)
-{
-  proj.push_back(p);
-}
-
-void GerenciadorColisoes::push(Obstaculo* o)
-{
-  obst.push_back(o);
-}
-
-void GerenciadorColisoes::push(Inimigo* i)
-{
-  inim.push_back(i);
 }

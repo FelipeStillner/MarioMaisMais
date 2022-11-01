@@ -16,7 +16,6 @@ protected:
   Principal* prin;
 public:
   ListaEntidades entidades;
-  Jogador* jog;
   bool isPlaying;
 public:
   Fase(Principal *p);
