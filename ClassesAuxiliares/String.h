@@ -1,3 +1,5 @@
+#pragma once
+
 #include "../Afix.h"
 
 class String
