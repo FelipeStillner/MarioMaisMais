@@ -24,9 +24,19 @@ void Personagem::imprimir(sf::RenderWindow *rw)
   rw->draw(r);
 }
 
+void Personagem::setVida(const int n)
+{
+  vida = n;
+}
+
 void Personagem::setAnimacao(Animacao a)
 {
   anim = a;
+}
+
+const int Personagem::getVida() const 
+{
+  return vida;
 }
 
 const Animacao Personagem::getAnimacao()

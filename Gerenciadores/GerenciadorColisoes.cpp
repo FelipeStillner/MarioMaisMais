@@ -48,7 +48,7 @@ void GerenciadorColisoes::executar()
     {
       *jog -= (*p)->getDano();
       (*p)->~Projetil();
-        f->getEntidades()->remove(*p);
+      f->getEntidades()->remove(*p);
     }
   }
   

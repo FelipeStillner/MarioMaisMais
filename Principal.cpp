@@ -25,6 +25,10 @@ void Principal::executar()
         if(f->getJogando())
             f->imprimir(w);
         //menu.imprimir(&w);
+        if(f->getEntidades()->getJogador()->getVida() < 0)
+        {
+            //f->setJogando(false);
+        }
         
         dt = clock.getElapsedTime().asSeconds();  
         if (dt < (1.0 / FPS))
