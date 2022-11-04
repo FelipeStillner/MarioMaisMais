@@ -44,7 +44,7 @@ void GerenciadorColisoes::executar()
         f->getEntidades()->remove(*p);
       }
     }
-    if (colidindo(*p, jog) || colidindo(*p, jog))
+    if (colidindo(*p, jog))
     {
       *jog -= (*p)->getDano();
       (*p)->~Projetil();
@@ -64,7 +64,6 @@ void GerenciadorColisoes::executar()
   
   for (o = obst.begin(); o != obst.end(); o++)
   {
-    
     // Obstaculo X Obstaculo: ambos voltam pra coordenada anterior na direcao da colisao
     for (o1 = o; o1 != obst.end(); o1++)
     {

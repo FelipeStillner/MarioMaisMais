@@ -60,30 +60,12 @@ bool colidindo(Entidade *e1, Entidade *e2)
   int x1 = e1->getX()+e1->getColisao().getX(), x2 = e2->getX()+e2->getColisao().getX(), y1 = e1->getY()+e1->getColisao().getY(), y2 = e2->getY()+e2->getColisao().getY(),
     w1 = e1->getColisao().getWidth(), w2 = e2->getColisao().getWidth(), 
     h1 = e1->getColisao().getHeight(), h2 = e2->getColisao().getHeight();
-  int colisao = false;
-  if(x1 <= x2 && x1 + w1 >= x2)
+
+  if(x1 < x2 + w2 && x1 + w1 > x2 && y1 < y2 + h2 && y1 + h1 > y2)
   {
-    if(y1 <= y2 && y1 + h1 >= y2)
-    {
-      colisao = true;
-    }
-    else if(y1 <= y2 + h2 && y1+ h1 >= y2 + h2)
-    {
-      colisao = true;
-    }
+    return true;
   }
-  else if(x1 <= x2 + w2 && x1 + w1 >= x2 + w2)
-  {
-    if(y1 <= y2 && y1 + h1 >= y2)
-    {
-      colisao = true;
-    }
-    else if(y1 <= y2 + h2 && y1 + h1 >= y2 + h2)
-    {
-      colisao = true;
-    }
-  }
-  return colisao;  
+  return false;  
 }
 
 // Retorna a direcao da colisao
