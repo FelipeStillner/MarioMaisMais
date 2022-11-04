@@ -32,7 +32,13 @@ void GerenciadorColisoes::executar()
       {
         (*p)->~Projetil();
         f->getEntidades()->remove(*p);
+        *p = NULL;
+        break;
       }
+    }
+    if(*p == NULL)
+    {
+      continue;
     }
     // Projetil X Personagem: Inimigo leva dano e projetil eh eliminado
     for (i = inim.begin(); i != inim.end(); i++)
@@ -42,7 +48,13 @@ void GerenciadorColisoes::executar()
         (**i) -= (*p)->getDano();
         (*p)->~Projetil();
         f->getEntidades()->remove(*p);
+        *p = NULL;
+        break;
       }
+    }
+    if(*p == NULL)
+    {
+      continue;
     }
     if (colidindo(*p, jog))
     {

@@ -12,7 +12,9 @@ GerenciadorEventos::~GerenciadorEventos()
 
 void GerenciadorEventos::executar()
 {
+  int estado = IDLE;
   sf::Event event;
+  Jogador* j = this->p->getFase()->getEntidades()->getJogador();
   while (this->p->getWindow()->pollEvent(event))
   {
     if (event.type == sf::Event::Closed)
@@ -27,30 +29,29 @@ void GerenciadorEventos::executar()
   }
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
   {
-    Jogador* p = this->p->getFase()->getEntidades()->getJogador();
-    p->setXX0(p->getX()+10);
-    p->setYY0(p->getY());
-    p->setEstado(WALKR);
+    j->setXX0(j->getX()+10);
+    j->setYY0(j->getY());
+    estado = WALKR;
   }
   else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
   {
-    Jogador* p = this->p->getFase()->getEntidades()->getJogador();
-    p->setXX0(p->getX()-10);
-    p->setYY0(p->getY());
-    p->setEstado(WALKL);
+    j->setXX0(j->getX()-10);
+    j->setYY0(j->getY());
+    estado = WALKL;
   }
-  else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
   {
-    Jogador* p = this->p->getFase()->getEntidades()->getJogador();
-    if(p->getVy() == 0)
+    if(j->getVy() == 0)
     {
-        p->setVy(-31);
-        p->setXX0(p->getX());
-        p->setEstado(JUMP);
+      j->setVy(-31);
+      j->setXX0(j->getX());
+      estado = JUMP;
     }
   }
-  else 
+  if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
   {
-      p->getFase()->getEntidades()->getJogador()->setEstado(IDLE);   
+    Projetil* p = new Projetil(j->getX()+j->getColisao().getWidth(), j->getY()+j->getColisao().getHeight()/2, 80, 80, (*(this->p->getGerenciadorGrafico()))[1], Colisao(10,10,60,60), 200, 0, 1);
+    this->p->getFase()->getEntidades()->push(p);
   }
+  j->setEstado(estado);
 }
