@@ -60,11 +60,6 @@ const Colisao Entidade::getColisao() const
   return col;
 }
 
-const sf::Texture* Entidade::getTextura() const 
-{
-  return text;
-}
-
 const float Entidade::getX() const
 {
   return x;

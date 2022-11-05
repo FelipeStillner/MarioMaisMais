@@ -1,15 +1,15 @@
 #include "Principal.h"
 
-Principal::Principal() : gGraf(NULL), w(NULL), clock(), gEven(NULL), menu()
+Principal::Principal() : gG(NULL), w(NULL), clock(), gEven(NULL), menu()
 {
     gEven = new GerenciadorEventos(this);
-    gGraf = new GerenciadorGrafico();
-    Ente::setg(gGraf);
+    gG = new GerenciadorGrafico();
+    Ente::setg(gG);
     w = new sf::RenderWindow(sf::VideoMode(1920, 1080), "SFML window");
     
     f = new Fase1(this);
     //Menu menu;
-    //menu->setg(gGraf);
+    //menu->setg(gG);
     executar();
 }
 
@@ -22,6 +22,7 @@ void Principal::executar()
 {
     const float FPS = 60.0;
     float dt ;
+    sf::RenderWindow* w = gG->getWindow();
 
     while (w->isOpen())
     {
@@ -54,19 +55,14 @@ void Principal::executar()
     }
 }
 
-void Principal::setWindow(sf::RenderWindow* w)
-{
-    this->w = w;
-}
-
 void Principal::setGerenciadorEventos(GerenciadorEventos *gEven)
 {
     this->gEven = gEven;
 }
 
-void Principal::setGerenciadorGrafico(GerenciadorGrafico *gGraf)
+void Principal::setGerenciadorGrafico(GerenciadorGrafico *gG)
 {
-    this->gGraf = gGraf;
+    this->gG = gG;
 }
 
 void Principal::setMenu(Menu *menu)
@@ -79,11 +75,6 @@ void Principal::setFase(Fase *f)
     this->f = f;
 }
 
-sf::RenderWindow* Principal::getWindow()
-{
-    return w;
-}
-
 GerenciadorEventos* Principal::getGerenciadorEventos()
 {
     return gEven;
@@ -91,7 +82,7 @@ GerenciadorEventos* Principal::getGerenciadorEventos()
 
 GerenciadorGrafico* Principal::getGerenciadorGrafico()
 {
-    return gGraf;
+    return gG;
 }
 
 Menu* Principal::getMenu()

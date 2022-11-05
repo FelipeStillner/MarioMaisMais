@@ -13,11 +13,11 @@ void Obstaculo::executar(float dt)
 {
 }
 
-void Obstaculo::imprimir(sf::RenderWindow *rw)
+void Obstaculo::imprimir()
 {
   sf::RectangleShape r;
-  r.setTexture(text);
+  r.setTexture((*gG)[2]);
   r.setPosition(x, y);
   r.setSize(sf::Vector2f(w, h));
-  rw->draw(r);
+  gG->getWindow()->draw(r);
 }

@@ -15,7 +15,7 @@ public:
   Lista<Entidade>* getEntidades();
   void remove(Entidade* e);
   void executar(float dt);
-  void imprimir(sf::RenderWindow* w);
+  void imprimir();
   Entidade* operator[](int n); 
   int size();
 };

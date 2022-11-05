@@ -9,21 +9,6 @@ Personagem::~Personagem()
 {
 }
 
-void Personagem::executar(float dt)
-{
-  anim.executar(dt);
-}
-
-void Personagem::imprimir(sf::RenderWindow *rw)
-{
-  sf::RectangleShape r;
-  r.setTexture(text);
-  r.setTextureRect(anim.rect);
-  r.setPosition(x, y);
-  r.setSize(sf::Vector2f(w, h));
-  rw->draw(r);
-}
-
 void Personagem::setVida(const int n)
 {
   vida = n;

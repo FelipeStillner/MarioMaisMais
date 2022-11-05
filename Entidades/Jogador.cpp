@@ -3,10 +3,6 @@
 
 Jogador::Jogador(Principal* p, float x, float y, float w, float h, int t, Colisao c, int v, Animacao a): Personagem(x, y, w, h, t, c, v, a)
 {
-  if(p == NULL)
-  {
-    exit(0);
-  }
   this->p = p;
 }
 
@@ -22,6 +18,45 @@ void Jogador::executar(float dt)
   anim.executar(dt);
 }
 
+void Jogador::imprimir()
+{
+  sf::Texture* t;
+  switch (estado)
+  {
+  case IDLE:
+    if(estado == WALKR)
+    {
+      t = (*(p->getGerenciadorGrafico()))[6];
+    }
+    else
+    {
+      t = (*(p->getGerenciadorGrafico()))[6];
+    }
+    break;
+  
+  case WALKR:
+    t = (*(p->getGerenciadorGrafico()))[0];
+    break;
+
+  case WALKL:
+    t = (*(p->getGerenciadorGrafico()))[0];
+    break;
+  
+  case JUMP:
+    t = (*(p->getGerenciadorGrafico()))[7];
+    break;
+  
+  default:
+    break;
+  }
+  sf::RectangleShape r;
+  r.setTexture(t);
+  r.setTextureRect(anim.rect);
+  r.setPosition(x, y);
+  r.setSize(sf::Vector2f(w, h));
+  gGraf->getWindow()->draw(r);
+}
+
 void Jogador::setEstado(const int est)
 {
   if(estado == est)
@@ -34,7 +69,7 @@ void Jogador::setEstado(const int est)
   case IDLE:
     if(estado == WALKR)
     {
-      setTextura(6);
+      setTextura((*(p->getGerenciadorGrafico()))[6]);
       setAnimacao(Animacao(sf::IntRect(0, 0 ,16, 32)));
     }
     else

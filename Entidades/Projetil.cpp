@@ -19,13 +19,13 @@ void Projetil::executar(const float dt)
   y = y + vy*dt;
 }
 
-void Projetil::imprimir(sf::RenderWindow *rw)
+void Projetil::imprimir()
 {
   sf::RectangleShape r;
-  r.setTexture(text);
+  r.setTexture((*gG)[1]);
   r.setPosition(x, y);
   r.setSize(sf::Vector2f(w, h));
-  rw->draw(r);
+  gG->getWindow()->draw(r);
 }
 
 const int Projetil::getDano() const 

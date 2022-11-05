@@ -18,9 +18,9 @@
 
 */
 
-void Menu::setgGraf(GerenciadorGrafico * g)
+void Menu::setgG(GerenciadorGrafico * g)
 {
-    gGraf = g;
+    gG = g;
 }
 Menu::Menu() : Ente()
 {   
@@ -59,13 +59,13 @@ void Menu::executar(float dt)
 
 }
 
-void Menu::imprimir (sf::RenderWindow* w)
+void Menu::imprimir ()
 {
     int i,j;
     float wd = 8.0 , hg = 8.0;
     float x = 500.0, y = 500.0;
-    sf::Texture* text = (*gGraf)[8];
-
+    sf::Texture* text = (*gG)[8];
+    sf::RenderWindow w* = gG->getWindow()
     for(j=0;j<strings.size();j++)
     for(i=0;i<(strings[j]).size();i++)
     {

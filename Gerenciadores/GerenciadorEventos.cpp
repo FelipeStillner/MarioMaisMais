@@ -15,16 +15,16 @@ void GerenciadorEventos::executar()
   int estado = IDLE;
   sf::Event event;
   Jogador* j = this->p->getFase()->getJogador();
-  while (this->p->getWindow()->pollEvent(event))
+  while (this->p->getGerenciadorGrafico()->getWindow()->pollEvent(event))
   {
     if (event.type == sf::Event::Closed)
     {
-      this->p->getWindow()->close();
+      this->p->getGerenciadorGrafico()->getWindow()->close();
     }
     if (event.type == sf::Event::MouseButtonPressed)
     {
-      j->setXX0(sf::Mouse::getPosition(*this->p->getWindow()).x);
-      j->setYY0(sf::Mouse::getPosition(*this->p->getWindow()).y);
+      j->setXX0(sf::Mouse::getPosition(*this->p->getGerenciadorGrafico()->getWindow()).x);
+      j->setYY0(sf::Mouse::getPosition(*this->p->getGerenciadorGrafico()->getWindow()).y);
     }
   }
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))

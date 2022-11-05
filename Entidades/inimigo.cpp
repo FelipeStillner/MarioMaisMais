@@ -15,3 +15,13 @@ void Inimigo::executar(float dt)
   vy += 2;
   anim.executar(dt);
 }
+
+void Inimigo::imprimir()
+{
+  sf::RectangleShape r;
+  r.setTexture((*gG)[4]);
+  r.setTextureRect(anim.rect);
+  r.setPosition(x, y);
+  r.setSize(sf::Vector2f(w, h));
+  gG->getWindow()->draw(r);
+}
