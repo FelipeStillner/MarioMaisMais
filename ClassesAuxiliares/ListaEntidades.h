@@ -2,17 +2,20 @@
 
 #include "../Afix.h"
 #include "../Entidades/Entidade.h"
+#include "Lista.h"
 
 class ListaEntidades
 {
 private:
-  std::list<Entidade*> lista;
+  Lista<Entidade> entidades;
 public:
   ListaEntidades();
   ~ListaEntidades();
   void push(Entidade* e);
-  std::list<Entidade*> getLista();
+  Lista<Entidade>* getEntidades();
+  void remove(Entidade* e);
   void executar(float dt);
   void imprimir(sf::RenderWindow* w);
   Entidade* operator[](int n); 
+  int size();
 };

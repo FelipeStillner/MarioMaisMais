@@ -12,7 +12,6 @@ Personagem::~Personagem()
 void Personagem::executar(float dt)
 {
   anim.executar(dt);
-  // Se personagem colidir com Obstaculo volta para posicao anterior/
 }
 
 void Personagem::imprimir(sf::RenderWindow *rw)
@@ -25,9 +24,19 @@ void Personagem::imprimir(sf::RenderWindow *rw)
   rw->draw(r);
 }
 
+void Personagem::setVida(const int n)
+{
+  vida = n;
+}
+
 void Personagem::setAnimacao(Animacao a)
 {
   anim = a;
+}
+
+const int Personagem::getVida() const 
+{
+  return vida;
 }
 
 const Animacao Personagem::getAnimacao()
@@ -35,12 +44,12 @@ const Animacao Personagem::getAnimacao()
   return anim;
 }
 
-void Personagem::operator++()
+void Personagem::operator+=(int n)
 {
-  vida++;
+  vida += n;
 }
 
-void Personagem::operator--()
+void Personagem::operator-=(int n)
 {
-  vida--;
+  vida -= n;
 }

@@ -24,7 +24,8 @@ public:
   const int getY() const;
 };
 
-int colidindo(Entidade *e1, Entidade *e2);
+bool colidindo(Entidade *e1, Entidade *e2);
+int direcaoColisao(Entidade *e1, Entidade *e2);
 
 #define NAOCOLIDIU 0
 #define BAIXO 1

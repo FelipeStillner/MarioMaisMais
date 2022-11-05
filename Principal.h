@@ -9,19 +9,29 @@
 #include "Entidades/Inimigo.h"
 #include "Gerenciadores/GerenciadorEventos.h"
 #include "Fase1.h"
-// #include "Menu.h"
+#include "Menu.h"
 
 class Principal
 {
 private:
   Fase* f;
   sf::Clock clock;
-public:
-  sf::RenderWindow w;
-  GerenciadorEventos gEven;
-  GerenciadorGrafico gGraf;
+  sf::RenderWindow* w;
+  GerenciadorEventos* gEven;
+  GerenciadorGrafico* gGraf;
+  Menu* menu;
 public:
   Principal();
   ~Principal();
   void executar();
+  void setWindow(sf::RenderWindow* w);
+  void setGerenciadorEventos(GerenciadorEventos *gEven);
+  void setGerenciadorGrafico(GerenciadorGrafico *gGraf);
+  void setMenu(Menu *menu);
+  void setFase(Fase *f);
+  sf::RenderWindow* getWindow();
+  GerenciadorEventos* getGerenciadorEventos();
+  GerenciadorGrafico* getGerenciadorGrafico();
+  Menu* getMenu();
+  Fase* getFase();
 };

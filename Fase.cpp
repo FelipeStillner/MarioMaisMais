@@ -4,7 +4,7 @@
 
 Fase::Fase(Principal* p) : Ente()
 {
-  isPlaying = true;
+  jogando = true;
 }
 
 Fase::~Fase()
@@ -19,14 +19,40 @@ void Fase::executar(float dt)
 
 void Fase::gerenciarColisoes()
 {
+  gCol.executar();
 }
 
 void Fase::imprimir(sf::RenderWindow* rw)
 {
   sf::RectangleShape r;
-  r.setOrigin(0, 0);
+  r.setOrigin(- jog->getX() + (rw->getSize().x/2),0);
   r.setSize(sf::Vector2f(rw->getSize().x, rw->getSize().y));
   r.setTexture(background);
   rw->draw(r);
   entidades.imprimir(rw);
+}
+
+ListaEntidades* Fase::getEntidades()
+{
+  return &entidades;
+}
+
+bool Fase::getJogando()
+{
+  return jogando;
+}
+
+void Fase::setJogando(bool n)
+{
+  jogando = n;
+}
+
+Jogador* Fase::getJogador()
+{
+  return jog;
+}
+
+void Fase::setJogador(Jogador* j)
+{
+  jog = j;
 }

@@ -9,5 +9,5 @@ private:
 public:
   GerenciadorGrafico();
   ~GerenciadorGrafico();
-  sf::Texture* operator[] (int i) const ;
+  sf::Texture* operator[] (const int i) const ;
 };

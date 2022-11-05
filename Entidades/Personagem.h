@@ -13,8 +13,10 @@ public:
   virtual ~Personagem();
   virtual void executar(float dt);
   virtual void imprimir(sf::RenderWindow *rw);
+  void setVida(const int n);
   void setAnimacao(Animacao a);
+  const int getVida() const;
   const Animacao getAnimacao();
-  void operator++();
-  void operator--();
+  void operator+=(int n);
+  void operator-=(int n);
 };

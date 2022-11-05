@@ -9,7 +9,7 @@ class GerenciadorEventos
 private:
   Principal* p;
 public:
-  GerenciadorEventos();
+  GerenciadorEventos(Principal* p);
   ~GerenciadorEventos();
   void executar();
 };

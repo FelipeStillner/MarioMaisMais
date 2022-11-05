@@ -1,53 +1,62 @@
 #include "ListaEntidades.h"
 
-ListaEntidades::ListaEntidades()
+ListaEntidades::ListaEntidades(): entidades()
 {
+
 }
 
 ListaEntidades::~ListaEntidades()
 {
-  lista.clear();
+  
 }
 
 void ListaEntidades::push(Entidade* e)
 {
-  lista.push_back(e);
+  entidades.incluaInfo(e);
 }
 
-std::list<Entidade*> ListaEntidades::getLista()
+Lista<Entidade>* ListaEntidades::getEntidades()
 {
-  return lista;
+  return &entidades;
+}
+
+void ListaEntidades::remove(Entidade* e)
+{
+  // A fazer
 }
 
 void ListaEntidades::executar(float dt)
 {
-  std::list<Entidade*>::iterator i;
-  for (i = lista.begin(); i != lista.end(); i++)
+  int i;
+  for (i = 0; i != entidades.getSize(); i++)
   {
-    (*i)->executar(dt);
+    Entidade* e = entidades[i];
+    if(e != NULL)
+    {
+       e->executar(dt);
+    }
   }
 }
 
 void ListaEntidades::imprimir(sf::RenderWindow* w)
 {
-  std::list<Entidade*>::iterator i;
-  for (i = lista.begin(); i != lista.end(); i++)
+  int i;
+  for (i = 0; i != entidades.getSize(); i++)
   {
-    (*i)->imprimir(w);
+    Entidade* e = entidades[i];
+    if(e != NULL)
+    {
+       e->imprimir(w);
+    }
   }
 }
 
 Entidade* ListaEntidades::operator[](int n)
 {
-  std::list<Entidade*>::iterator i = lista.begin();
-  if(n > lista.size())
-  {
-    return NULL;
-  }
-  while (n>0)
-  {
-    i++;
-    n--;
-  }
-  return *i;
+  return entidades[n];
+}
+
+int ListaEntidades::size()
+{
+  return entidades.getSize();
 }

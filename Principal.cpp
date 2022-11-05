@@ -1,8 +1,12 @@
 #include "Principal.h"
 
-Principal::Principal() : gGraf(), w(sf::VideoMode(1920, 1080), "SFML window"), clock()
+Principal::Principal() : gGraf(NULL), w(NULL), clock(), gEven(NULL), menu(NULL)
 {
+    gEven = new GerenciadorEventos(this);
+    gGraf = new GerenciadorGrafico();
+    w = new sf::RenderWindow(sf::VideoMode(1920, 1080), "SFML window");
     f = new Fase1(this);
+    //menu = Menu(&gGraf);
     executar();
 }
 
@@ -15,12 +19,18 @@ void Principal::executar()
 {
     const float FPS = 60.0;
     float dt ;
-    sf::Event event;
 
-    while (w.isOpen())
+    while (w->isOpen())
     {
-        if(f->isPlaying)
-            f->imprimir(&w);
+        if(f->getJogando())
+            f->imprimir(w);
+        //menu.imprimir(&w);
+        if(f->getJogador()->getVida() < 0)
+        {
+            //f->setJogando(false);
+        }
+        w->setView(sf::View(sf::Vector2f(f->getJogador()->getX(), f->getJogador()->getY()), sf::Vector2f(1920, 1080)));
+        
         dt = clock.getElapsedTime().asSeconds();  
         if (dt < (1.0 / FPS))
         {
@@ -30,81 +40,63 @@ void Principal::executar()
         }
         else{std::cout << "FPS\n";}
         clock.restart();
-        w.display();
+        w->display();
 
-        while (w.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                w.close();
-            if (event.type == sf::Event::MouseButtonPressed)
-            {
-                f->jog->setXX0(sf::Mouse::getPosition(w).x);
-                f->jog->setYY0(sf::Mouse::getPosition(w).y);
-            }
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-        {
-            Jogador* p = f->jog;
-            p->setXX0(p->getX()+10);
-            p->setYY0(p->getY());
-            p->setEstado(WALKR);
-        }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-        {
-            Jogador* p = f->jog;
-            p->setXX0(p->getX()-10);
-            p->setYY0(p->getY());
-            p->setEstado(WALKL);
-        }
-        else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-        {
-            Jogador* p = f->jog;
-            if(p->vy == 0)
-            {
-                p->vy = -31;
-                p->setXX0(p->getX());
-                p->setEstado(JUMP);
-            }
-        }
-        else 
-        {
-            f->jog->setEstado(IDLE);   
-        }
-        if(f->isPlaying)
-            f->executar(dt);
+        gEven->executar();
         
-        for (int i = 0; i < f->entidades.getLista().size(); i++)
-        {
-            for (int j = i+1; j < f->entidades.getLista().size(); j++)
-            {
-                Entidade *e1 = f->entidades[i],
-                    *e2 = f->entidades[j];
-                int c1 = colidindo(e1, e2), c2 = colidindo(e2, e1);
-                if (c1 == CIMA || c2 == BAIXO)
-                {
-                    e1->setY(e1->getY0());
-                    e2->setY(e2->getY0());
-                    e1->vy = 0;
-                    e2->vy = 0;
-                }
-                else if (c1 == BAIXO || c2 == CIMA)
-                {
-                    e2->setY(e2->getY0());
-                    e1->setY(e1->getY0());
-                    e1->vy = 0;
-                    e2->vy = 0;
-                }
-                if (c1 == DIREITA || c2 == ESQUERDA)
-                {
-                    e1->setX(e1->getX0());
-                    e2->setX(e2->getX0());
-                }
-                else if (c1 == ESQUERDA || c2 == DIREITA)
-                {
-                    e2->setX(e2->getX0());
-                    e1->setX(e1->getX0());
-                }
-            }
-        }
+        if(f->getJogando())
+            f->executar(dt);
+        if(f->getJogando())
+            f->gerenciarColisoes();
     }
+}
+
+void Principal::setWindow(sf::RenderWindow* w)
+{
+    this->w = w;
+}
+
+void Principal::setGerenciadorEventos(GerenciadorEventos *gEven)
+{
+    this->gEven = gEven;
+}
+
+void Principal::setGerenciadorGrafico(GerenciadorGrafico *gGraf)
+{
+    this->gGraf = gGraf;
+}
+
+void Principal::setMenu(Menu *menu)
+{
+    this->menu = menu;
+}
+
+void Principal::setFase(Fase *f)
+{
+    this->f = f;
+}
+
+sf::RenderWindow* Principal::getWindow()
+{
+    return w;
+}
+
+GerenciadorEventos* Principal::getGerenciadorEventos()
+{
+    return gEven;
+}
+
+GerenciadorGrafico* Principal::getGerenciadorGrafico()
+{
+    return gGraf;
+}
+
+Menu* Principal::getMenu()
+{
+    return menu;
+}
+
+Fase* Principal::getFase()
+{
+    return f;
 }

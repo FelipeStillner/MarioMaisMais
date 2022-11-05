@@ -1,11 +1,25 @@
 #pragma once
 
+#include "../Entidades/Inimigo.h"
+#include "../Entidades/Obstaculo.h"
+#include "../Entidades/Jogador.h"
+#include "../Entidades/Projetil.h"
+
+class Fase;
+
 class GerenciadorColisoes
 {
 private:
-  
+  Jogador* jog;
+  std::list<Projetil*> proj;
+  std::list<Inimigo*> inim;
+  std::list<Obstaculo*> obst;
 public:
-  GerenciadorColisoes(/* args */);
+  GerenciadorColisoes();
   ~GerenciadorColisoes();
   void executar();
+  void incluir(Jogador* j);
+  void incluir(Projetil* p);
+  void incluir(Inimigo* i);
+  void incluir(Obstaculo* o);
 };

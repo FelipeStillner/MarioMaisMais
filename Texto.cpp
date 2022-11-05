@@ -1,11 +1,5 @@
 #include "Texto.h"
-<<<<<<< Updated upstream
 /*
-=======
-
-
-// 8x8 !
->>>>>>> Stashed changes
 Texto::Texto(const string t, int index, int x, int y, float fontsize)
 {   
     //multiplicador do tamanho da fonte
@@ -102,13 +96,4 @@ void Texto::setGerenciadorGrafico(GerenciadorGrafico* gT)
     } 
     std::cout << "erro GG\n";
 }
-<<<<<<< Updated upstream
 */
-=======
-
-int Texto::fontWid = 8;
-int Texto::fontH = 8;
-int Texto::frstLt = static_cast<int> ('!');
-int Texto::lstLt = static_cast<int> ('~');
-int Texto::MAX = 1080;
->>>>>>> Stashed changes

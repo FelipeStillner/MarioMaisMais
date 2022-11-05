@@ -48,6 +48,11 @@ void Entidade::setYY0(float y)
   this->y = y;
 }
 
+void Entidade::setVy(float v)
+{
+  vy = v;
+}
+
 const Colisao Entidade::getColisao() const 
 {
   return col;
@@ -76,4 +81,9 @@ const float Entidade::getX0() const
 const float Entidade::getY0() const
 {
   return y0;
+}
+
+const float Entidade::getVy() const
+{
+  return vy;
 }
