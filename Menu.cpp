@@ -18,13 +18,19 @@
 
 */
 
-Menu::Menu(GerenciadorGrafico * gT) : Ente()
-{   
+void Menu::setgT(GerenciadorGrafico * gT)
+{
     gText = *gT;
+}
+Menu::Menu(/*GerenciadorGrafico * gT*/) : Ente()
+{   
+    //gText = *gT;
     int frstL= '!';
     int i,j;
     //strcpy(strings[0],"MARIO");
-    strings[0]="MARIO";
+    char * nstring = new char;
+    strcpy(nstring,"MARIO");
+    strings.push_back(nstring);
     //strings[1]+="++";
     for(i=0;i<('~'-'!'+1);i++)
     {
@@ -72,8 +78,8 @@ void Menu::imprimir /*const*/ (sf::RenderWindow* w)
             sf::RectangleShape rAux;
             rAux.setTexture(text);
             rAux.setTextureRect(*(letras[lAux-'!']));
-            rAux.setPosition(8.0*i+x, y+8.0*j);
-            rAux.setSize(sf::Vector2f(wd, hg));
+            rAux.setPosition(8*8.0*i+x, y+8*8.0*j);
+            rAux.setSize(sf::Vector2f(8*wd, 8*hg));
             w->draw(rAux);
         }
     }

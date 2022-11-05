@@ -16,7 +16,8 @@ private:
   vector<string> strings;
   GerenciadorGrafico gText;
 public:
-  Menu(GerenciadorGrafico * gT);
+  Menu(/*GerenciadorGrafico * gT*/);
+  void setgT(GerenciadorGrafico * gT);
   ~Menu();
   virtual void executar(float dt);
   virtual void imprimir(sf::RenderWindow* w);
