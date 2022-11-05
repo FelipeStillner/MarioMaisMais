@@ -9,10 +9,10 @@ protected:
   int vida;
   Animacao anim;
 public:
-  Personagem(float x = 0, float y = 0, float w = 0, float h = 0, sf::Texture* t = NULL, Colisao c = Colisao(), int v = 0, Animacao a = Animacao());
+  Personagem(GerenciadorGrafico* g, float x = 0, float y = 0, float w = 0, float h = 0, Colisao c = Colisao(), int v = 0, Animacao a = Animacao());
   virtual ~Personagem();
-  virtual void executar(float dt);
-  virtual void imprimir(sf::RenderWindow *rw);
+  virtual void executar(float dt) = 0;
+  virtual void imprimir() = 0;
   void setVida(const int n);
   void setAnimacao(Animacao a);
   const int getVida() const;

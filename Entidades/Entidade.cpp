@@ -1,6 +1,6 @@
 #include "Entidade.h"
 
-Entidade::Entidade(float x, float y, float w, float h, sf::Texture* t, Colisao c) : Ente(), col(c)
+Entidade::Entidade(GerenciadorGrafico* g, float x, float y, float w, float h, Colisao c) : Ente(g), col(c)
 {
   this->x = x;
   this->y = y;
@@ -8,7 +8,6 @@ Entidade::Entidade(float x, float y, float w, float h, sf::Texture* t, Colisao c
   this->h = h;
   x0 = x;
   y0 = y;
-  text = t;
   vy = 0;
 }
 
@@ -19,11 +18,6 @@ Entidade::~Entidade()
 void Entidade::setColisao(Colisao c)
 {
   col = c;
-}
-
-void Entidade::setTextura(sf::Texture* t)
-{
-  text = t;
 }
 
 void Entidade::setX(float x)
@@ -56,11 +50,6 @@ void Entidade::setVy(float v)
 const Colisao Entidade::getColisao() const 
 {
   return col;
-}
-
-const sf::Texture* Entidade::getTextura() const 
-{
-  return text;
 }
 
 const float Entidade::getX() const

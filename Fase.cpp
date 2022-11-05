@@ -2,8 +2,9 @@
 #include "Principal.h"
 #include "Entidades/Jogador.h"
 
-Fase::Fase(Principal* p) : Ente()
+Fase::Fase(Principal* p) : Ente(p->getGerenciadorGrafico())
 {
+  prin = p;
   jogando = true;
 }
 
@@ -22,14 +23,15 @@ void Fase::gerenciarColisoes()
   gCol.executar();
 }
 
-void Fase::imprimir(sf::RenderWindow* rw)
+void Fase::imprimir()
 {
   sf::RectangleShape r;
-  r.setOrigin(- jog->getX() + (rw->getSize().x/2),0);
-  r.setSize(sf::Vector2f(rw->getSize().x, rw->getSize().y));
+  sf::RenderWindow* w = prin->getGerenciadorGrafico()->getWindow();
+  r.setOrigin(- jog->getX() + (w->getSize().x/2),0);
+  r.setSize(sf::Vector2f(w->getSize().x, w->getSize().y));
   r.setTexture(background);
-  rw->draw(r);
-  entidades.imprimir(rw);
+  w->draw(r);
+  entidades.imprimir();
 }
 
 ListaEntidades* Fase::getEntidades()

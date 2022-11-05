@@ -38,7 +38,7 @@ void ListaEntidades::executar(float dt)
   }
 }
 
-void ListaEntidades::imprimir(sf::RenderWindow* w)
+void ListaEntidades::imprimir()
 {
   int i;
   for (i = 0; i != entidades.getSize(); i++)
@@ -46,7 +46,7 @@ void ListaEntidades::imprimir(sf::RenderWindow* w)
     Entidade* e = entidades[i];
     if(e != NULL)
     {
-       e->imprimir(w);
+       e->imprimir();
     }
   }
 }

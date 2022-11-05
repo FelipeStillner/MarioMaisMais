@@ -3,6 +3,7 @@
 
 GerenciadorGrafico::GerenciadorGrafico() : texturas()
 {
+  w = new sf::RenderWindow(sf::VideoMode(1920, 1080), "SFML window");
   std::string filename ("");
   std::ifstream file("Gerenciadores/Textures.txt");
   while (file >> filename) {
@@ -37,4 +38,9 @@ sf::Texture* GerenciadorGrafico::operator[] (const int i) const
     std::cout << "erro ao retornar textura em GG \n ";
     exit(0);
   }
+}
+
+sf::RenderWindow* GerenciadorGrafico::getWindow()
+{
+  return w;
 }

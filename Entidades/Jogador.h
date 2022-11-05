@@ -10,9 +10,10 @@ private:
   Principal* p;
   int estado;
 public:
-  Jogador(Principal* p = NULL, float x = 0, float y = 0, float w = 0, float h = 0, sf::Texture* t = NULL, Colisao c = Colisao(), int v = 0, Animacao a = Animacao());
+  Jogador(Principal* p, GerenciadorGrafico* g, float x = 0, float y = 0, float w = 0, float h = 0, Colisao c = Colisao(), int v = 0, Animacao a = Animacao());
   ~Jogador();
   virtual void executar(float dt);
+  virtual void imprimir();
   void setEstado(const int est);
   const int getEstado() const;
 };

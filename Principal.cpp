@@ -1,10 +1,9 @@
 #include "Principal.h"
 
-Principal::Principal() : gGraf(NULL), w(NULL), clock(), gEven(NULL), menu(NULL)
+Principal::Principal() : gGraf(NULL), clock(), gEven(NULL), menu(NULL)
 {
     gEven = new GerenciadorEventos(this);
     gGraf = new GerenciadorGrafico();
-    w = new sf::RenderWindow(sf::VideoMode(1920, 1080), "SFML window");
     f = new Fase1(this);
     //menu = Menu(&gGraf);
     executar();
@@ -19,11 +18,12 @@ void Principal::executar()
 {
     const float FPS = 60.0;
     float dt ;
+    sf::RenderWindow* w = gGraf->getWindow();
 
     while (w->isOpen())
     {
         if(f->getJogando())
-            f->imprimir(w);
+            f->imprimir();
         //menu.imprimir(&w);
         if(f->getJogador()->getVida() < 0)
         {
@@ -51,11 +51,6 @@ void Principal::executar()
     }
 }
 
-void Principal::setWindow(sf::RenderWindow* w)
-{
-    this->w = w;
-}
-
 void Principal::setGerenciadorEventos(GerenciadorEventos *gEven)
 {
     this->gEven = gEven;
@@ -74,11 +69,6 @@ void Principal::setMenu(Menu *menu)
 void Principal::setFase(Fase *f)
 {
     this->f = f;
-}
-
-sf::RenderWindow* Principal::getWindow()
-{
-    return w;
 }
 
 GerenciadorEventos* Principal::getGerenciadorEventos()

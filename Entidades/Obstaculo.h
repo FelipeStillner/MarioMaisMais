@@ -6,8 +6,8 @@ class Obstaculo : public Entidade
 {
 protected:
 public:
-  Obstaculo(float x = 0, float y = 0, float w = 0, float h = 0, sf::Texture* t = NULL, Colisao c = Colisao());
+  Obstaculo(GerenciadorGrafico* g, float x = 0, float y = 0, float w = 0, float h = 0, Colisao c = Colisao());
   virtual ~Obstaculo();
   virtual void executar(float dt);
-  virtual void imprimir(sf::RenderWindow *rw);
+  virtual void imprimir();
 };

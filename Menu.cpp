@@ -22,9 +22,9 @@ void Menu::setgGraf(GerenciadorGrafico * g)
 {
     gGraf = g;
 }
-Menu::Menu(GerenciadorGrafico * gT) : Ente()
+Menu::Menu(GerenciadorGrafico * g) : Ente(g)
 {   
-    gGraf = gT;
+    gGraf = g;
     int frstL= '!';
     int i,j;
     //strcpy(strings[0],"MARIO");

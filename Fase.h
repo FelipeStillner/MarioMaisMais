@@ -21,7 +21,7 @@ public:
   Fase(Principal *p);
   virtual ~Fase();
   virtual void executar(float dt);
-  virtual void imprimir(sf::RenderWindow *w);
+  virtual void imprimir();
   void gerenciarColisoes();
   ListaEntidades* getEntidades();
   bool getJogando();

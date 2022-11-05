@@ -1,27 +1,12 @@
 #include "Personagem.h"
 
-Personagem::Personagem(float x, float y, float w, float h, sf::Texture* t, Colisao c, int v ,Animacao a) : Entidade(x, y, w, h, t, c), anim(a)
+Personagem::Personagem(GerenciadorGrafico* g, float x, float y, float w, float h, Colisao c, int v ,Animacao a) : Entidade(g, x, y, w, h, c), anim(a)
 {
   vida = v;
 }
 
 Personagem::~Personagem()
 {
-}
-
-void Personagem::executar(float dt)
-{
-  anim.executar(dt);
-}
-
-void Personagem::imprimir(sf::RenderWindow *rw)
-{
-  sf::RectangleShape r;
-  r.setTexture(text);
-  r.setTextureRect(anim.rect);
-  r.setPosition(x, y);
-  r.setSize(sf::Vector2f(w, h));
-  rw->draw(r);
 }
 
 void Personagem::setVida(const int n)
