@@ -25,11 +25,11 @@ void Principal::executar()
         if(f->getJogando())
             f->imprimir(w);
         //menu.imprimir(&w);
-        if(f->getEntidades()->getJogador()->getVida() < 0)
+        if(f->getJogador()->getVida() < 0)
         {
             //f->setJogando(false);
         }
-        w->setView(sf::View(sf::Vector2f(f->getEntidades()->getJogador()->getX(), f->getEntidades()->getJogador()->getY()), sf::Vector2f(1920, 1080)));
+        w->setView(sf::View(sf::Vector2f(f->getJogador()->getX(), f->getJogador()->getY()), sf::Vector2f(1920, 1080)));
         
         dt = clock.getElapsedTime().asSeconds();  
         if (dt < (1.0 / FPS))

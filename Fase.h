@@ -15,6 +15,7 @@ protected:
   sf::Texture* background;
   Principal* prin;
   ListaEntidades entidades;
+  Jogador* jog;
   bool jogando;
 public:
   Fase(Principal *p);
@@ -25,4 +26,6 @@ public:
   ListaEntidades* getEntidades();
   bool getJogando();
   void setJogando(bool n);
+  Jogador* getJogador();
+  void setJogador(Jogador* jog);
 };

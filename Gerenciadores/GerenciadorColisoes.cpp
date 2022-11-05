@@ -1,9 +1,8 @@
 #include "GerenciadorColisoes.h"
 #include "../Fase.h"
 
-GerenciadorColisoes::GerenciadorColisoes(Fase* f)
+GerenciadorColisoes::GerenciadorColisoes(): jog()
 {
-  this->f = f;
 }
 
 GerenciadorColisoes::~GerenciadorColisoes()
@@ -14,10 +13,6 @@ void GerenciadorColisoes::executar()
 {
   // Para cada combinacao de {obstaculo, projetil, jogador, inimigo, etc.}
   // Fazer uma interacao diferente
-  std::list<Inimigo*> inim = f->getEntidades()->getInimigos();
-  std::list<Obstaculo*> obst = f->getEntidades()->getObstaculos();
-  std::list<Projetil*> proj = f->getEntidades()->getProjeteis();
-  Jogador* jog = f->getEntidades()->getJogador();
   std::list<Projetil*>::iterator p;
   std::list<Obstaculo*>::iterator o, o1;
   std::list<Inimigo*>::iterator i;
@@ -30,10 +25,12 @@ void GerenciadorColisoes::executar()
     {
       if (colidindo(*p, *o))
       {
+        /*
         (*p)->~Projetil();
         f->getEntidades()->remove(*p);
         *p = NULL;
         break;
+        */
       }
     }
     if(*p == NULL)
@@ -45,11 +42,13 @@ void GerenciadorColisoes::executar()
     {
       if (colidindo(*p, *i))
       {
+        /*
         (**i) -= (*p)->getDano();
         (*p)->~Projetil();
         f->getEntidades()->remove(*p);
         *p = NULL;
         break;
+        */
       }
     }
     if(*p == NULL)
@@ -58,9 +57,11 @@ void GerenciadorColisoes::executar()
     }
     if (colidindo(*p, jog))
     {
+      /*
       *jog -= (*p)->getDano();
       (*p)->~Projetil();
       f->getEntidades()->remove(*p);
+      */
     }
   }
   
@@ -81,6 +82,7 @@ void GerenciadorColisoes::executar()
     {
       if (colidindo(*o1, *o))
       {
+        printf("a");
         int dir = direcaoColisao(*o1, *o);
         (*o)->setY((*o)->getY0());
         (*o1)->setY((*o1)->getY0());
@@ -108,5 +110,37 @@ void GerenciadorColisoes::executar()
       (*o)->setVy(0);
       (jog)->setVy(0);
     }
+  }
+}
+
+void GerenciadorColisoes::incluir(Jogador* j)
+{
+  if(j != NULL)
+  {
+    jog = j;
+  }
+}
+
+void GerenciadorColisoes::incluir(Projetil* p)
+{
+  if(p != NULL)
+  {
+    proj.push_back(p);
+  }
+}
+
+void GerenciadorColisoes::incluir(Inimigo* i)
+{
+  if(i != NULL)
+  {
+    inim.push_back(i);
+  }
+}
+
+void GerenciadorColisoes::incluir(Obstaculo* o)
+{
+  if(o != NULL)
+  {
+    obst.push_back(o);
   }
 }

@@ -2,7 +2,7 @@
 #include "Principal.h"
 #include "Entidades/Jogador.h"
 
-Fase::Fase(Principal* p) : Ente(), gCol(this)
+Fase::Fase(Principal* p) : Ente()
 {
   jogando = true;
 }
@@ -25,7 +25,7 @@ void Fase::gerenciarColisoes()
 void Fase::imprimir(sf::RenderWindow* rw)
 {
   sf::RectangleShape r;
-  r.setOrigin(- entidades.getJogador()->getX() + (rw->getSize().x/2),0);
+  r.setOrigin(- jog->getX() + (rw->getSize().x/2),0);
   r.setSize(sf::Vector2f(rw->getSize().x, rw->getSize().y));
   r.setTexture(background);
   rw->draw(r);
@@ -45,4 +45,14 @@ bool Fase::getJogando()
 void Fase::setJogando(bool n)
 {
   jogando = n;
+}
+
+Jogador* Fase::getJogador()
+{
+  return jog;
+}
+
+void Fase::setJogador(Jogador* j)
+{
+  jog = j;
 }

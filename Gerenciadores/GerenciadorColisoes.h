@@ -10,9 +10,16 @@ class Fase;
 class GerenciadorColisoes
 {
 private:
-  Fase* f;
+  Jogador* jog;
+  std::list<Projetil*> proj;
+  std::list<Inimigo*> inim;
+  std::list<Obstaculo*> obst;
 public:
-  GerenciadorColisoes(Fase* f);
+  GerenciadorColisoes();
   ~GerenciadorColisoes();
   void executar();
+  void incluir(Jogador* j);
+  void incluir(Projetil* p);
+  void incluir(Inimigo* i);
+  void incluir(Obstaculo* o);
 };
