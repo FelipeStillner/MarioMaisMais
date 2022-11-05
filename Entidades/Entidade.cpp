@@ -1,6 +1,6 @@
 #include "Entidade.h"
 
-Entidade::Entidade(float x, float y, float w, float h, sf::Texture* t, Colisao c) : Ente(), col(c)
+Entidade::Entidade(float x, float y, float w, float h, int t, Colisao c) : Ente(), col(c)
 {
   this->x = x;
   this->y = y;
@@ -8,7 +8,7 @@ Entidade::Entidade(float x, float y, float w, float h, sf::Texture* t, Colisao c
   this->h = h;
   x0 = x;
   y0 = y;
-  text = t;
+  setTextura(t);
   vy = 0;
 }
 
@@ -21,9 +21,11 @@ void Entidade::setColisao(Colisao c)
   col = c;
 }
 
-void Entidade::setTextura(sf::Texture* t)
+void Entidade::setTextura(/*sf::Texture* t*/ int t)
 {
-  text = t;
+
+  //text = t;
+  text = (*gG)[t];
 }
 
 void Entidade::setX(float x)

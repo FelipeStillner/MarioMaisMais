@@ -1,6 +1,6 @@
 #include "Obstaculo.h"
 
-Obstaculo::Obstaculo(float x, float y, float w, float h,  sf::Texture* t, Colisao c)  : Entidade(x, y, w, h, t, c)
+Obstaculo::Obstaculo(float x, float y, float w, float h,  int t, Colisao c)  : Entidade(x, y, w, h, t, c)
 {
 }
 

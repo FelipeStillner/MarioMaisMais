@@ -1,7 +1,7 @@
 #include "Jogador.h"
 #include "../Principal.h"
 
-Jogador::Jogador(Principal* p, float x, float y, float w, float h, sf::Texture* t, Colisao c, int v, Animacao a): Personagem(x, y, w, h, t, c, v, a)
+Jogador::Jogador(Principal* p, float x, float y, float w, float h, int t, Colisao c, int v, Animacao a): Personagem(x, y, w, h, t, c, v, a)
 {
   if(p == NULL)
   {
@@ -34,29 +34,29 @@ void Jogador::setEstado(const int est)
   case IDLE:
     if(estado == WALKR)
     {
-      setTextura((*(p->getGerenciadorGrafico()))[6]);
+      setTextura(6);
       setAnimacao(Animacao(sf::IntRect(0, 0 ,16, 32)));
     }
     else
     {
-      setTextura((*(p->getGerenciadorGrafico()))[6]);
+      setTextura(6);
       setAnimacao(Animacao(sf::IntRect(16, 0 ,-16, 32)));
     }
     break;
   
   case WALKR:
     setAnimacao(Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
-    setTextura((*(p->getGerenciadorGrafico()))[0]);
+    setTextura(0);
     break;
 
   case WALKL:
     setAnimacao(Animacao(sf::IntRect(48, 0, -16, 32), 0.25, "1232"));
-    setTextura((*(p->getGerenciadorGrafico()))[0]);
+    setTextura(0);
     break;
   
   case JUMP:
     setAnimacao(Animacao(sf::IntRect(0, 0, 16, 32), 0.3, "12"));
-    setTextura((*(p->getGerenciadorGrafico()))[7]);
+    setTextura(7);
     break;
   
   default:

@@ -82,7 +82,9 @@ void GerenciadorColisoes::executar()
     {
       if (colidindo(*o1, *o))
       {
-        printf("a");
+        //printf("a");
+        //std::cout<<"a"<<std::endl;
+
         int dir = direcaoColisao(*o1, *o);
         (*o)->setY((*o)->getY0());
         (*o1)->setY((*o1)->getY0());

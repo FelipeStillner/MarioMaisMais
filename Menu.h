@@ -16,11 +16,11 @@ private:
   vector<string> strings;
   GerenciadorGrafico * gGraf;
 public:
-  Menu(/*GerenciadorGrafico * gT*/);
+  Menu();
 
   ~Menu();
   virtual void executar(float dt);
-  virtual void imprimir(sf::RenderWindow* w);
+  virtual void imprimir   (sf::RenderWindow* w);
   void setgGraf(GerenciadorGrafico * g);
   //void escreveTexto(string vTexto,int fIndex, int fX , int fY, int fSize);
 

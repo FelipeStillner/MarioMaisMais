@@ -22,21 +22,21 @@ void Menu::setgGraf(GerenciadorGrafico * g)
 {
     gGraf = g;
 }
-Menu::Menu(GerenciadorGrafico * gT) : Ente()
+Menu::Menu() : Ente()
 {   
-    gGraf = gT;
+    
     int frstL= '!';
     int i,j;
     //strcpy(strings[0],"MARIO");
     char * nstring = new char;
-    strcpy(nstring,"MARIO");
+    strcpy(nstring,"MARIO++");
     strings.push_back(nstring);
     //strings[1]+="++";
-    /*
+    
     for(i=0;i<('~'-'!'+1);i++)
     {
         letras.push_back(new sf::IntRect(i*8,0,8,8));
-    }*/
+    }
 }
 
 Menu::~Menu()
@@ -59,7 +59,7 @@ void Menu::executar(float dt)
 
 }
 
-void Menu::imprimir /*const*/ (sf::RenderWindow* w)
+void Menu::imprimir (sf::RenderWindow* w)
 {
     int i,j;
     float wd = 8.0 , hg = 8.0;

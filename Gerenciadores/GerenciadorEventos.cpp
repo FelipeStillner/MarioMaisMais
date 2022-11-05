@@ -50,7 +50,7 @@ void GerenciadorEventos::executar()
   }
   if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
   {
-    Projetil* p = new Projetil(j->getX()+j->getColisao().getWidth(), j->getY()+j->getColisao().getHeight()/2, 80, 80, (*(this->p->getGerenciadorGrafico()))[1], Colisao(10,10,60,60), 200, 0, 1);
+    Projetil* p = new Projetil(j->getX()+j->getColisao().getWidth(), j->getY()+j->getColisao().getHeight()/2, 80, 80, 1, Colisao(10,10,60,60), 200, 0, 1);
     this->p->getFase()->getEntidades()->push(p);
   }
   j->setEstado(estado);
