@@ -25,12 +25,12 @@ void GerenciadorColisoes::executar()
     {
       if (colidindo(*p, *o))
       {
-        /*
-        (*p)->~Projetil();
+        
+        /*(*p)->~Projetil();
         f->getEntidades()->remove(*p);
         *p = NULL;
-        break;
-        */
+        break;*/
+        
       }
     }
     if(*p == NULL)

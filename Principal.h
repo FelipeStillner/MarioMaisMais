@@ -17,14 +17,14 @@ private:
   Fase* f;
   sf::Clock clock;
   GerenciadorEventos* gEven;
-  GerenciadorGrafico* gGraf;
+  GerenciadorGrafico* gG;
   Menu* menu;
 public:
   Principal();
   ~Principal();
   void executar();
   void setGerenciadorEventos(GerenciadorEventos *gEven);
-  void setGerenciadorGrafico(GerenciadorGrafico *gGraf);
+  void setGerenciadorGrafico(GerenciadorGrafico *gG);
   void setMenu(Menu *menu);
   void setFase(Fase *f);
   GerenciadorEventos* getGerenciadorEventos();

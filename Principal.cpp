@@ -1,11 +1,13 @@
 #include "Principal.h"
 
-Principal::Principal() : gG(NULL), w(NULL), clock(), gEven(NULL), menu()
+Principal::Principal() : gG(NULL), /*w(NULL),*/ clock(), gEven(NULL)/*, menu(NULL)*/
 {
     gEven = new GerenciadorEventos(this);
     gG = new GerenciadorGrafico();
     Ente::setg(gG);
-    w = new sf::RenderWindow(sf::VideoMode(1920, 1080), "SFML window");
+    menu = new Menu();
+    
+  
     
     f = new Fase1(this);
     //Menu menu;
@@ -27,11 +29,11 @@ void Principal::executar()
     while (w->isOpen())
     {
         if(f->getJogando())
-            f->imprimir(w);
-            //menu.imprimir(&w);
+            f->imprimir();
+        if(menu->getPausa()){menu->imprimir();}
         if(f->getJogador()->getVida() < 0)
         {
-            //f->setJogando(false);
+            f->setJogando(false);
         }
         w->setView(sf::View(sf::Vector2f(f->getJogador()->getX(), f->getJogador()->getY()), sf::Vector2f(1920, 1080)));
         
@@ -67,7 +69,7 @@ void Principal::setGerenciadorGrafico(GerenciadorGrafico *gG)
 
 void Principal::setMenu(Menu *menu)
 {
-    this->menu = menu;
+    //this->menu = menu;
 }
 
 void Principal::setFase(Fase *f)
@@ -87,7 +89,7 @@ GerenciadorGrafico* Principal::getGerenciadorGrafico()
 
 Menu* Principal::getMenu()
 {
-    return menu;
+    //return menu;
 }
 
 Fase* Principal::getFase()

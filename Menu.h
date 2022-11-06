@@ -14,14 +14,17 @@ class Menu : public Ente
 private:
   vector<sf::IntRect*> letras;
   vector<string> strings;
-  GerenciadorGrafico * gGraf;
+  bool pausado;
+  
 public:
-  Menu();
+  Menu(int k = 0);
 
   ~Menu();
-  virtual void executar(float dt);
-  virtual void imprimir   (sf::RenderWindow* w);
-  void setgGraf(GerenciadorGrafico * g);
+  void executar(float dt);
+  void imprimir   ();
+  void setPausa(bool p);
+  const bool getPausa() const ;
+  
   //void escreveTexto(string vTexto,int fIndex, int fX , int fY, int fSize);
 
 };

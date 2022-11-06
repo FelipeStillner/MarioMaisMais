@@ -6,3 +6,4 @@ Enemies/Land/spr_goomba_strip2.png
 Tiles/background120.png
 mario_custom/big/spr_mario_big_slide.png
 mario_custom/big/spr_mario_big_jump_strip2.png
+hud/spr_spritefont_strip94.png

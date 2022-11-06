@@ -2,11 +2,11 @@
 
 int Ente::I = 0;
 
-Ente::Ente(GerenciadorGrafico* g)
+Ente::Ente()
 {
   id = I;
   I++;
-  gGraf = g;
+ 
 }
 
 Ente::~Ente()

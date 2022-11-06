@@ -16,7 +16,9 @@ protected:
   Principal* prin;
   ListaEntidades entidades;
   Jogador* jog;
+  Jogador* jog2;
   bool jogando;
+  bool mltply;
 public:
   Fase(Principal *p);
   virtual ~Fase();
@@ -26,6 +28,8 @@ public:
   ListaEntidades* getEntidades();
   bool getJogando();
   void setJogando(bool n);
-  Jogador* getJogador();
-  void setJogador(Jogador* jog);
+  Jogador* getJogador(int i = 1);
+  void setJogador(Jogador* j,int i = 1);
+  void setMltplyr(bool m = false);
+  const bool getMltplyr() const ;
 };

@@ -18,21 +18,25 @@
 
 */
 
-void Menu::setgG(GerenciadorGrafico * g)
-{
-    gG = g;
-}
-Menu::Menu() : Ente()
+
+Menu::Menu(int k) : Ente()
 {   
-    
+    setPausa(true);
     int frstL= '!';
     int i,j;
     //strcpy(strings[0],"MARIO");
-    char * nstring = new char;
-    strcpy(nstring,"MARIO++");
-    strings.push_back(nstring);
+
     //strings[1]+="++";
     
+    char * nstring = new char;
+    strcpy(nstring,"mario");
+    strings.push_back(nstring);
+    strcpy(nstring,"PLAY");
+    strings.push_back(nstring);
+    strcpy(nstring,"RANK");
+    strings.push_back(nstring);
+    
+   
     for(i=0;i<('~'-'!'+1);i++)
     {
         letras.push_back(new sf::IntRect(i*8,0,8,8));
@@ -41,7 +45,7 @@ Menu::Menu() : Ente()
 
 Menu::~Menu()
 {
-    /*
+    
     int i =0 ;
     while(i<('~'-'!'+1))
     {
@@ -51,7 +55,7 @@ Menu::~Menu()
     }
         letras.clear();
 
-*/
+
 }
 
 void Menu::executar(float dt)
@@ -60,29 +64,40 @@ void Menu::executar(float dt)
 }
 
 void Menu::imprimir ()
-{
+{   
     int i,j;
     float wd = 8.0 , hg = 8.0;
-    float x = 500.0, y = 500.0;
+    float x = 100.0, y = 100.0;
     sf::Texture* text = (*gG)[8];
-    sf::RenderWindow w* = gG->getWindow()
+    sf::RenderWindow * w = gG->getWindow();
+    float len = 8.0;
     for(j=0;j<strings.size();j++)
+    {
     for(i=0;i<(strings[j]).size();i++)
     {
-        int lAux =  strings[j][i];
+        int lAux =  static_cast<int>(strings[j][i]);
         if(lAux!=' '&& lAux!='\0')
-        {
+        {   
             sf::RectangleShape rAux;
             rAux.setTexture(text);
             rAux.setTextureRect(*(letras[lAux-'!']));
-            rAux.setPosition(8*8.0*i+x, y+8*8.0*j);
+            rAux.setPosition(len*8.0*(i)+x, y+len*8.0*j);
             rAux.setSize(sf::Vector2f(8*wd, 8*hg));
             w->draw(rAux);
+            
         }
+    }
     }
 }
 
-
+void Menu::setPausa(bool p)
+{
+    pausado = p;
+}
+const bool Menu::getPausa() const
+{
+    return(pausado);
+}
 
 
     /*

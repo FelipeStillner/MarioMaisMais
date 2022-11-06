@@ -20,41 +20,45 @@ void Jogador::executar(float dt)
 
 void Jogador::imprimir()
 {
-  sf::Texture* t;
+  
   switch (estado)
   {
   case IDLE:
     if(estado == WALKR)
     {
-      t = (*(p->getGerenciadorGrafico()))[6];
+      /*t = (*(p->getGerenciadorGrafico()))[6];*/
+      setTextura(6);
     }
     else
     {
-      t = (*(p->getGerenciadorGrafico()))[6];
+      /*t = (*(p->getGerenciadorGrafico()))[6];*/
+      setTextura(6);
     }
     break;
   
   case WALKR:
-    t = (*(p->getGerenciadorGrafico()))[0];
+    /*t = (*(p->getGerenciadorGrafico()))[0];*/
+      setTextura(0);
     break;
 
   case WALKL:
-    t = (*(p->getGerenciadorGrafico()))[0];
+      setTextura(0);
     break;
   
   case JUMP:
-    t = (*(p->getGerenciadorGrafico()))[7];
+      setTextura(7);
     break;
   
   default:
     break;
   }
+  sf::Texture* t = text;
   sf::RectangleShape r;
   r.setTexture(t);
   r.setTextureRect(anim.rect);
   r.setPosition(x, y);
   r.setSize(sf::Vector2f(w, h));
-  gGraf->getWindow()->draw(r);
+  gG->getWindow()->draw(r);
 }
 
 void Jogador::setEstado(const int est)
@@ -69,29 +73,24 @@ void Jogador::setEstado(const int est)
   case IDLE:
     if(estado == WALKR)
     {
-      setTextura((*(p->getGerenciadorGrafico()))[6]);
       setAnimacao(Animacao(sf::IntRect(0, 0 ,16, 32)));
     }
     else
     {
-      setTextura(6);
       setAnimacao(Animacao(sf::IntRect(16, 0 ,-16, 32)));
     }
     break;
   
   case WALKR:
     setAnimacao(Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
-    setTextura(0);
     break;
 
   case WALKL:
     setAnimacao(Animacao(sf::IntRect(48, 0, -16, 32), 0.25, "1232"));
-    setTextura(0);
     break;
   
   case JUMP:
     setAnimacao(Animacao(sf::IntRect(0, 0, 16, 32), 0.3, "12"));
-    setTextura(7);
     break;
   
   default:
