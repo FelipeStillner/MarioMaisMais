@@ -25,12 +25,14 @@ void Principal::executar()
     const float FPS = 60.0;
     float dt ;
     sf::RenderWindow* w = gG->getWindow();
-
+    menu->setPausa(false);
     while (w->isOpen())
     {
         if(f->getJogando())
             f->imprimir();
-        if(menu->getPausa()){menu->imprimir();}
+            menu->imprimir();
+        //menu->setPausa(false);
+        //if(menu->getPausa()){menu->imprimir();}
         if(f->getJogador()->getVida() < 0)
         {
             f->setJogando(false);

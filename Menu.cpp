@@ -21,7 +21,7 @@
 
 Menu::Menu(int k) : Ente()
 {   
-    setPausa(true);
+    setPausa(false);
     int frstL= '!';
     int i,j;
     //strcpy(strings[0],"MARIO");
@@ -29,7 +29,7 @@ Menu::Menu(int k) : Ente()
     //strings[1]+="++";
     
     char * nstring = new char;
-    strcpy(nstring,"mario");
+    strcpy(nstring,"mario++");
     strings.push_back(nstring);
     strcpy(nstring,"PLAY");
     strings.push_back(nstring);
@@ -68,8 +68,11 @@ void Menu::imprimir ()
     int i,j;
     float wd = 8.0 , hg = 8.0;
     float x = 100.0, y = 100.0;
+    
+
     sf::Texture* text = (*gG)[8];
     sf::RenderWindow * w = gG->getWindow();
+    //float xm = w->getPosition().x, ym = w->getPosition().y;
     float len = 8.0;
     for(j=0;j<strings.size();j++)
     {

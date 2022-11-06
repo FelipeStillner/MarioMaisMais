@@ -3,6 +3,8 @@
 
 GerenciadorColisoes::GerenciadorColisoes(): jog()
 {
+  jog =  NULL;
+  jog2 = NULL;
 }
 
 GerenciadorColisoes::~GerenciadorColisoes()
@@ -46,9 +48,9 @@ void GerenciadorColisoes::executar()
         (**i) -= (*p)->getDano();
         (*p)->~Projetil();
         f->getEntidades()->remove(*p);
-        *p = NULL;
-        break;
-        */
+        *p = NULL;*/
+        //reak;
+        
       }
     }
     if(*p == NULL)
@@ -63,7 +65,15 @@ void GerenciadorColisoes::executar()
       f->getEntidades()->remove(*p);
       */
     }
-  }
+    if (jog2 && colidindo(*p, jog2))
+    {
+      /*
+      *jog2 -= (*p)->getDano();
+      (*p)->~Projetil();
+      f->getEntidades()->remove(*p);
+      */
+    }
+  } 
   
   // Inimigo X Jogador: jogador leva dano e mudam posicao dependendo da direcao da colisao
   for (i = inim.begin(); i != inim.end(); i++)
@@ -72,6 +82,11 @@ void GerenciadorColisoes::executar()
     {
       int dir = direcaoColisao(jog, *i);
       (*jog) -= 1;
+    }
+       if (jog2 && colidindo(jog2, *i))
+    {
+      int dir = direcaoColisao(jog2, *i);
+      (*jog2) -= 1;
     }
   }
   
@@ -112,14 +127,25 @@ void GerenciadorColisoes::executar()
       (*o)->setVy(0);
       (jog)->setVy(0);
     }
+    if (jog2 && colidindo(*o, jog2))
+    {
+      int dir = direcaoColisao(*o, jog2);
+      (*o)->setY((*o)->getY0());
+      (jog2)->setY((jog2)->getY0());
+      (*o)->setVy(0);
+      (jog2)->setVy(0);
+    }
   }
+
 }
 
 void GerenciadorColisoes::incluir(Jogador* j)
 {
-  if(j != NULL)
-  {
-    jog = j;
+  if(j)
+  { if(!jog)
+    {jog=j;}
+    else
+    {jog2=j;}
   }
 }
 

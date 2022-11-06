@@ -11,6 +11,7 @@ class GerenciadorColisoes
 {
 private:
   Jogador* jog;
+  Jogador* jog2;
   std::list<Projetil*> proj;
   std::list<Inimigo*> inim;
   std::list<Obstaculo*> obst;

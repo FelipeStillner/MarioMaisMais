@@ -7,10 +7,10 @@ Fase1::Fase1(Principal* prin) : Fase(prin)
   jog = new Jogador(prin, 400.0, 400.0, 160, 320, 0, Colisao(10, 10, 140, 300), 200,Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
   entidades.push(jog);
   gCol.incluir(jog);
-  //jog2 = new Jogador(prin, 400.0, 400.0, 160, 320, 0, Colisao(10, 10, 140, 300), 200,Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
-  //entidades.push(jog2);
- // gCol.incluir(jog2);
-  //mltply = true;
+  jog2 = new Jogador(prin, 500.0, 400.0, 160, 320, 0, Colisao(10, 10, 140, 300), 200,Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
+  entidades.push(jog2);
+  gCol.incluir(jog2);
+  mltply = true;
   Projetil* p = new Projetil(0, 0, 80, 80, 1, Colisao(10, 10, 60, 60), 200.0, 100.0, 1);
   entidades.push(p);
   gCol.incluir(p);
