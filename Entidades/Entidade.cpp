@@ -10,6 +10,7 @@ Entidade::Entidade(float x, float y, float w, float h, int t, Colisao c) : Ente(
   y0 = y;
   setTextura(t);
   vy = 0;
+  setAtivo(true);
 }
 
 Entidade::~Entidade()
@@ -84,3 +85,12 @@ const float Entidade::getVy() const
 {
   return vy;
 }
+
+  void Entidade::setAtivo(bool a)
+  {
+    ativo = a;
+  }
+  const bool Entidade::getAtivo() const
+  {
+    return (ativo);
+  }

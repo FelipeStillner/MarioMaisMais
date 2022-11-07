@@ -5,8 +5,9 @@ Principal::Principal() : gG(NULL), /*w(NULL),*/ clock(), gEven(NULL)/*, menu(NUL
     gEven = new GerenciadorEventos(this);
     gG = new GerenciadorGrafico();
     Ente::setg(gG);
-    menu = new Menu();
     
+    menu = new Menu();
+    Menu::inicializaLetras();
   
     
     f = new Fase1(this);
@@ -17,7 +18,7 @@ Principal::Principal() : gG(NULL), /*w(NULL),*/ clock(), gEven(NULL)/*, menu(NUL
 
 Principal::~Principal()
 {
-    
+    Menu::destroiLetras();
 }
 
 void Principal::executar()

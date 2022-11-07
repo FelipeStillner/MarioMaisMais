@@ -12,6 +12,7 @@ protected:
   Colisao col;
   int vy;
   sf::Texture* text;
+  bool ativo;
 public:
   Entidade(float x = 0, float y = 0, float w = 0, float h = 0, int t = 0, Colisao c = Colisao());
   virtual ~Entidade();
@@ -30,4 +31,7 @@ public:
   const float getX0() const;
   const float getY0() const;
   const float getVy() const;
-};
+  void setAtivo(bool a = true);
+  const bool getAtivo() const;
+  
+  };

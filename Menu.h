@@ -11,8 +11,8 @@ using std::vector;
 
 class Menu : public Ente
 {
-private:
-  vector<sf::IntRect*> letras;
+protected:
+  static vector<sf::IntRect*> * letras;
   vector<string> strings;
   bool pausado;
   
@@ -25,8 +25,9 @@ public:
   void setPausa(bool p);
   const bool getPausa() const ;
   
-  //void escreveTexto(string vTexto,int fIndex, int fX , int fY, int fSize);
-
+  static void escreveTexto(string vTexto,int fX = 0 , float fY = 0, float len= 8.0);
+  static void inicializaLetras();
+  static void destroiLetras();
 };
 
 

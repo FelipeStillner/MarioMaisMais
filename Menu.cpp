@@ -36,16 +36,17 @@ Menu::Menu(int k) : Ente()
     strcpy(nstring,"RANK");
     strings.push_back(nstring);
     
-   
+   /*
     for(i=0;i<('~'-'!'+1);i++)
     {
-        letras.push_back(new sf::IntRect(i*8,0,8,8));
-    }
+        //letras.push_back(new sf::IntRect(i*8,0,8,8));
+    }*/
+
 }
 
 Menu::~Menu()
 {
-    
+    /*
     int i =0 ;
     while(i<('~'-'!'+1))
     {
@@ -54,6 +55,8 @@ Menu::~Menu()
         delete pAux;
     }
         letras.clear();
+
+    */
 
 
 }
@@ -65,6 +68,8 @@ void Menu::executar(float dt)
 
 void Menu::imprimir ()
 {   
+    escreveTexto(strings[0],0,0,8.0);
+    /*
     int i,j;
     float wd = 8.0 , hg = 8.0;
     float x = 100.0, y = 100.0;
@@ -91,6 +96,7 @@ void Menu::imprimir ()
         }
     }
     }
+    */
 }
 
 void Menu::setPausa(bool p)
@@ -110,14 +116,58 @@ const bool Menu::getPausa() const
     fY = posicao y da primeria letra
     fSize = tamanho da fonte
     */
-/*
-void Menu::escreveTexto(string vTexto, int fIndex, int fX , int fY, int fSize)
+
+
+ void Menu::escreveTexto(string vTexto,int fX , float fY, float len )
 {
-    int len = vTexto.size();
-    int i =0;
-    for(i=0;i<len;i++)
+    int i,j;
+    float wd = 8.0 , hg = 8.0;
+    float x = fX, y = fY;
+    
+
+    sf::Texture* text = (*gG)[8];
+    sf::RenderWindow * w = gG->getWindow();
+  
+    for(i=0;i<(vTexto).size();i++)
     {
-        
+        int lAux =  static_cast<int>(vTexto[i]);
+        if(lAux!=' '&& lAux!='\0')
+        {   
+            sf::RectangleShape rAux;
+            rAux.setTexture(text);
+            rAux.setTextureRect(*((*letras)[lAux-'!']));
+            rAux.setPosition(len*8.0*(i)+x, y);
+            rAux.setSize(sf::Vector2f(8*wd, 8*hg));
+            w->draw(rAux);
+        }
     }
 }
-*/
+void Menu::inicializaLetras() 
+{   
+    letras = new vector <sf::IntRect*> ;
+    int i ;
+    if((*letras).empty())
+    {
+        for(i=0;i<('~'-'!'+1);i++)
+        {
+            (*letras).push_back(new sf::IntRect(i*8,0,8,8));
+        }
+    }
+}
+
+
+
+
+void Menu::destroiLetras()
+{
+    int i =0 ;
+    while(i<('~'-'!'+1))
+    {
+        sf::IntRect * pAux = (*letras)[i];
+        i++;
+        delete pAux;
+    }
+    (*letras).clear();
+}
+
+vector<sf::IntRect*>* Menu::letras = NULL;
