@@ -19,4 +19,5 @@ public:
   const Animacao getAnimacao();
   void operator+=(int n);
   void operator-=(int n);
+ 
 };

@@ -2,7 +2,7 @@
 
 GerenciadorFases::GerenciadorFases()
 {
-
+    pP=NULL;
 }
 GerenciadorFases::~GerenciadorFases()
 {
@@ -39,6 +39,8 @@ Fase* GerenciadorFases::recFase()
 
     arquivo.close();
 
+    return pFase;
+
 }
 void GerenciadorFases::gravaFase(Fase* f = NULL)
 {
@@ -60,6 +62,7 @@ void GerenciadorFases::gravaFase(Fase* f = NULL)
             //arquivo<<(pE->getColisao()).getX()<<',';
             //arquivo<<(pE->getColisao()).getY()<<',';
 
+            arquivo<<pE->getTipo()<<' ';
             arquivo<<pE->getX0()<<' ';
             arquivo<<pE->getY0()<<' ';
             arquivo<<pE->getX()<<' ';

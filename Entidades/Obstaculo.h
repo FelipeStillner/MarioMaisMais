@@ -10,4 +10,6 @@ public:
   virtual ~Obstaculo();
   virtual void executar(float dt);
   virtual void imprimir();
+  int getTipo();
 };
+

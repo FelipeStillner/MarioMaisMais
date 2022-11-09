@@ -25,3 +25,9 @@ void Inimigo::imprimir()
   r.setSize(sf::Vector2f(w, h));
   gG->getWindow()->draw(r);
 }
+
+int Inimigo::getTipo()
+{
+  return ENEM1;
+}
+

@@ -33,5 +33,7 @@ public:
   const float getVy() const;
   void setAtivo(bool a = true);
   const bool getAtivo() const;
+
+  virtual int getTipo() = 0;
   
   };

@@ -38,3 +38,4 @@ void Personagem::operator-=(int n)
 {
   vida -= n;
 }
+

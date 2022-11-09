@@ -16,9 +16,11 @@ public:
   virtual void imprimir();
   void setEstado(const int est);
   const int getEstado() const;
+  int getTipo();
 };
 
 #define IDLE 0
 #define WALKR 1
 #define WALKL 2
 #define JUMP 3
+

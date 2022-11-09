@@ -11,4 +11,6 @@ public:
   ~Inimigo();
   virtual void executar(float dt);
   virtual void imprimir();
+  int getTipo();
 };
+

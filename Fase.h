@@ -1,12 +1,4 @@
 #pragma once
-#define PLAYER 0
-#define ENEM1 1
-#define ENEM2 2
-#define ENEM3 3
-#define BOSS 4
-#define OBS1 5
-#define OBS2 6
-#define PROJ 7
 
 #include "Afix.h"
 #include "Ente.h"
@@ -28,7 +20,7 @@ protected:
   bool jogando;
   bool mltply;
 public:
-  Fase(Principal *p);
+  Fase(Principal *p=NULL);
   virtual ~Fase();
   virtual void executar(float dt);
   virtual void imprimir();

@@ -103,3 +103,8 @@ const int Jogador::getEstado() const
 {
   return estado;
 }
+
+int Jogador::getTipo()
+{
+  return  PLAYER;
+}

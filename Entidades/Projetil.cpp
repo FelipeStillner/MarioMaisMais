@@ -33,4 +33,7 @@ const int Projetil::getDano() const
   return dano;
 }
 
-
+int Projetil::getTipo()
+{
+  return PROJ;
+}

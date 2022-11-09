@@ -1,12 +1,5 @@
 #pragma once
-#define EXIT -1
-#define PLAY 0
-#define INICIAL 1
-#define PAUSA 2
-#define RANK 3
-#define LOAD 4
-#define QUIT 5
-#define QUITGAME 6
+
 
 
 //objeto estado!!!!!!

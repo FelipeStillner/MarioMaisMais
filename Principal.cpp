@@ -62,9 +62,9 @@ void Principal::executar()
         gEven->executar();
         
         if(f->getJogando())
-            //f->executar(dt);
+            f->executar(dt);
         if(f->getJogando())
-            //f->gerenciarColisoes();
+            f->gerenciarColisoes();
         gG->getWindow()->clear();
     }
 

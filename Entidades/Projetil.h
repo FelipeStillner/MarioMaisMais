@@ -13,4 +13,5 @@ public:
   virtual void executar(const float dt);
   virtual void imprimir();
   const int getDano() const;
+  int getTipo();
 };

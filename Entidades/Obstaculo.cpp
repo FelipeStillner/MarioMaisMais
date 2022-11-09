@@ -21,3 +21,8 @@ void Obstaculo::imprimir()
   r.setSize(sf::Vector2f(w, h));
   gG->getWindow()->draw(r);
 }
+
+int Obstaculo::getTipo()
+{
+  return OBS1;
+}
