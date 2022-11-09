@@ -1,9 +1,9 @@
 #include "Jogador.h"
 #include "../Principal.h"
 
-Jogador::Jogador(Principal* p, float x, float y, float w, float h, int t, Colisao c, int v, Animacao a): Personagem(x, y, w, h, t, c, v, a)
+Jogador::Jogador(float x, float y, float w, float h, int t, Colisao c, int v, Animacao a): Personagem(x, y, w, h, t, c, v, a)
 {
-  this->p = p;
+
 }
 
 Jogador::~Jogador()

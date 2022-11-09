@@ -4,13 +4,15 @@ Principal::Principal() : gG(NULL), /*w(NULL),*/ clock(), gEven(NULL)/*, menu(NUL
 {
     gEven = new GerenciadorEventos(this);
     gG = new GerenciadorGrafico();
+    gF = new GerenciadorFases();
     Ente::setg(gG);
     
     menu = new Menu();
     Menu::inicializaLetras();
   
     
-    f = new Fase1(this);
+    //f = new Fase1(this);
+    f = gF->getFase(1);
     //Menu menu;
     //menu->setg(gG);
     executar();
@@ -26,7 +28,13 @@ void Principal::executar()
     const float FPS = 60.0;
     float dt ;
     sf::RenderWindow* w = gG->getWindow();
-    menu->setPausa(false);
+    menu->setPausa(true);
+    menu->setEstado(INICIAL);
+    f->imprimir();
+    gF->gravaFase(f);
+    //delete f;
+    f = gF->recFase();
+    //f->setJogando(false);
     while (w->isOpen())
     {
         if(f->getJogando())
@@ -34,7 +42,7 @@ void Principal::executar()
             menu->imprimir();
         //menu->setPausa(false);
         //if(menu->getPausa()){menu->imprimir();}
-        if(f->getJogador()->getVida() < 0)
+        if(f->getJogador(1)->getVida() < 0||f->getMltplyr()&&f->getJogador(2)->getVida() < 0)
         {
             f->setJogando(false);
         }
@@ -54,10 +62,13 @@ void Principal::executar()
         gEven->executar();
         
         if(f->getJogando())
-            f->executar(dt);
+            //f->executar(dt);
         if(f->getJogando())
-            f->gerenciarColisoes();
+            //f->gerenciarColisoes();
+        gG->getWindow()->clear();
     }
+
+
 }
 
 void Principal::setGerenciadorEventos(GerenciadorEventos *gEven)

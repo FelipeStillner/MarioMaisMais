@@ -4,4 +4,5 @@ all:
 	./sfml-app
 clean:
 	-del -fR *.exe *.o
+
 	
