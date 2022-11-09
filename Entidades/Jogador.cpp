@@ -1,5 +1,4 @@
 #include "Jogador.h"
-#include "../Principal.h"
 
 Jogador::Jogador(float x, float y, float w, float h, int t, Colisao c, int v, Animacao a): Personagem(x, y, w, h, t, c, v, a)
 {

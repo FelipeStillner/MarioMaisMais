@@ -1,6 +1,9 @@
 #include "GerenciadorEventos.h"
 #include "../Principal.h"
 
+namespace Gerenciadores
+{
+
 GerenciadorEventos::GerenciadorEventos(Principal* p)
 {
   this->p = p;
@@ -115,4 +118,6 @@ void GerenciadorEventos::executar()
     j->setEstado(estado);
   }
   }
+}
+
 }

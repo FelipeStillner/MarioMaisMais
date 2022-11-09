@@ -8,7 +8,6 @@ Obstaculo::~Obstaculo()
 {
 }
 
-
 void Obstaculo::executar(float dt)
 {
 }
@@ -26,3 +25,4 @@ int Obstaculo::getTipo()
 {
   return OBS1;
 }
+

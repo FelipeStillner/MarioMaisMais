@@ -2,6 +2,10 @@
 
 #include "../Afix.h"
 #include <fstream>
+
+namespace Gerenciadores
+{
+
 class GerenciadorGrafico
 {
 private:
@@ -14,3 +18,5 @@ public:
   void imprimir();
   sf::RenderWindow* getWindow();
 };
+
+}

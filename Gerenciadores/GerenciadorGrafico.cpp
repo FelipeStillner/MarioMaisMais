@@ -1,5 +1,7 @@
 #include "GerenciadorGrafico.h"
 
+namespace Gerenciadores
+{
 
 GerenciadorGrafico::GerenciadorGrafico() : texturas()
 {
@@ -44,4 +46,6 @@ sf::Texture* GerenciadorGrafico::operator[] (const int i) const
 sf::RenderWindow* GerenciadorGrafico::getWindow()
 {
   return w;
+}
+
 }

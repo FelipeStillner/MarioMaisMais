@@ -2,6 +2,9 @@
 
 #include "../Afix.h"
 
+namespace ClassesAuxiliares
+{
+
 class Animacao
 {
 public:
@@ -16,3 +19,7 @@ public:
   ~Animacao();
   void executar(float dt);
 };
+
+}
+
+using namespace ClassesAuxiliares;

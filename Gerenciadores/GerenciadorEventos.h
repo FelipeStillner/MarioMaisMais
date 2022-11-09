@@ -4,6 +4,9 @@
 
 class Principal;
 
+namespace Gerenciadores
+{
+
 class GerenciadorEventos
 {
 private:
@@ -13,3 +16,5 @@ public:
   ~GerenciadorEventos();
   void executar();
 };
+
+}

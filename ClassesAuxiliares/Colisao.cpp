@@ -53,9 +53,8 @@ const int Colisao::getY() const
   return y;
 }
 
-
 // Checa apenas se houve colisao
-bool colidindo(Entidade *e1, Entidade *e2)
+bool colidindo(Entidades::Entidade *e1, Entidades::Entidade *e2)
 {
   int x1 = e1->getX()+e1->getColisao().getX(), x2 = e2->getX()+e2->getColisao().getX(), y1 = e1->getY()+e1->getColisao().getY(), y2 = e2->getY()+e2->getColisao().getY(),
     w1 = e1->getColisao().getWidth(), w2 = e2->getColisao().getWidth(), 
@@ -69,7 +68,7 @@ bool colidindo(Entidade *e1, Entidade *e2)
 }
 
 // Retorna a direcao da colisao
-int direcaoColisao(Entidade *e1, Entidade *e2)
+int direcaoColisao(Entidades::Entidade *e1, Entidades::Entidade *e2)
 {
   int x1 = e1->getX()+e1->getColisao().getX(), x2 = e2->getX()+e2->getColisao().getX(), y1 = e1->getY()+e1->getColisao().getY(), y2 = e2->getY()+e2->getColisao().getY(),
     w1 = e1->getColisao().getWidth(), w2 = e2->getColisao().getWidth(), 

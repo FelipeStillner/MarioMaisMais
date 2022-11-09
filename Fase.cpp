@@ -87,7 +87,7 @@ void Fase::setJogador(Jogador* j,int i)
     switch (i)
     {
     case PLAYER:
-      { pAux = new Jogador(x, y, 160, 320, 0, Colisao(10, 10, 140, 300), 200,Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1232"));
+      { pAux = new Jogador(x, y, 160, 320, 0, Colisao(10, 10, 140, 300), 200,Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1"));
         gCol.incluir(static_cast<Jogador*>(pAux));
         setJogador(static_cast<Jogador*>(pAux));
       }

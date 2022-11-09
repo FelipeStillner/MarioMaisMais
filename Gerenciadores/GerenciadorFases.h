@@ -7,6 +7,9 @@
 
 using  std::cout; using std::cin; using  std::ios; using  std::fstream;
 
+namespace Gerenciadores
+{
+
 class GerenciadorFases 
 {
     private:
@@ -21,3 +24,5 @@ class GerenciadorFases
         void gravaFase(Fase* f);
         Fase* getFase(int i = 1);
 };
+
+}

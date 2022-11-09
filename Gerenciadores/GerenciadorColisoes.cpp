@@ -1,6 +1,9 @@
 #include "GerenciadorColisoes.h"
 #include "../Fase.h"
 
+namespace Gerenciadores
+{
+
 GerenciadorColisoes::GerenciadorColisoes(): jog()
 {
   jog =  NULL;
@@ -171,4 +174,6 @@ void GerenciadorColisoes::incluir(Obstaculo* o)
   {
     obst.push_back(o);
   }
+}
+
 }

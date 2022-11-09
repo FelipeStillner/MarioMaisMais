@@ -1,5 +1,8 @@
 #pragma once
 
+namespace ClassesAuxiliares
+{
+
 template <class TIPO>
 class Elemento
 {
@@ -14,6 +17,10 @@ public:
   void setInfo(TIPO* pi ); 
   TIPO* getInfo();
 };
+
+}
+
+using namespace ClassesAuxiliares;
 
 
 template <class TIPO>

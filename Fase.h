@@ -5,7 +5,6 @@
 #include "ClassesAuxiliares/ListaEntidades.h"
 #include "Gerenciadores/GerenciadorColisoes.h"
 
-class Jogador;
 class Principal;
 
 class Fase : public Ente

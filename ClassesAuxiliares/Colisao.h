@@ -2,7 +2,17 @@
 
 #include "../Afix.h"
 
-class Entidade;
+
+
+namespace Entidades
+{
+  class Entidade;
+}
+
+using namespace Entidades;
+
+namespace ClassesAuxiliares
+{
 
 class Colisao
 {
@@ -23,6 +33,8 @@ public:
   void setY(const int n);
   const int getY() const;
 };
+
+}
 
 bool colidindo(Entidade *e1, Entidade *e2);
 int direcaoColisao(Entidade *e1, Entidade *e2);

@@ -2,6 +2,9 @@
 
 #include "Entidade.h"
 
+namespace Entidades
+{
+
 class Projetil : public Entidade
 {
 private:
@@ -15,3 +18,5 @@ public:
   const int getDano() const;
   int getTipo();
 };
+
+}

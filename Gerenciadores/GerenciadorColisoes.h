@@ -7,6 +7,13 @@
 
 class Fase;
 
+using namespace Entidades;
+using namespace Personagens;
+using namespace Obstaculos;
+
+namespace Gerenciadores
+{
+
 class GerenciadorColisoes
 {
 private:
@@ -24,3 +31,5 @@ public:
   void incluir(Inimigo* i);
   void incluir(Obstaculo* o);
 };
+
+}

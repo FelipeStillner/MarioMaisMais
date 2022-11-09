@@ -30,4 +30,3 @@ int Inimigo::getTipo()
 {
   return ENEM1;
 }
-

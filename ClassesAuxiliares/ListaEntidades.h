@@ -4,6 +4,11 @@
 #include "../Entidades/Entidade.h"
 #include "Lista.h"
 
+using namespace Entidades;
+
+namespace ClassesAuxiliares
+{
+
 class ListaEntidades
 {
 private:
@@ -19,3 +24,5 @@ public:
   Entidade* operator[](int n); 
   int size();
 };
+
+}

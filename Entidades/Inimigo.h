@@ -2,6 +2,12 @@
 
 #include "Personagem.h"
 
+namespace Entidades
+{
+
+namespace Personagens
+{
+
 class Inimigo : public Personagem
 {
 private:
@@ -14,3 +20,6 @@ public:
   int getTipo();
 };
 
+}
+
+}

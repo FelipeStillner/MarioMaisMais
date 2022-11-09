@@ -3,6 +3,12 @@
 #include "Entidade.h"
 #include "../ClassesAuxiliares/Animacao.h"
 
+namespace Entidades
+{
+
+namespace Personagens
+{
+
 class Personagem : public Entidade
 {
 protected:
@@ -21,3 +27,9 @@ public:
   void operator-=(int n);
  
 };
+
+}
+
+}
+
+using namespace Personagens;

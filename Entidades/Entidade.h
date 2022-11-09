@@ -3,6 +3,11 @@
 #include "../Ente.h"
 #include "../ClassesAuxiliares/Colisao.h"
 
+using namespace ClassesAuxiliares;
+
+namespace Entidades
+{
+
 class Entidade : public Ente
 {
 protected:
@@ -33,7 +38,8 @@ public:
   const float getVy() const;
   void setAtivo(bool a = true);
   const bool getAtivo() const;
-
   virtual int getTipo() = 0;
   
-  };
+};
+
+}

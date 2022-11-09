@@ -51,7 +51,7 @@ void Entidade::setYY0(float y)
   this->y = y;
 }
 
-void Entidade::setVy(float v)
+void Entidades::Entidade::setVy(float v)
 {
   vy = v;
 }
@@ -86,11 +86,11 @@ const float Entidade::getVy() const
   return vy;
 }
 
-  void Entidade::setAtivo(bool a)
-  {
-    ativo = a;
-  }
-  const bool Entidade::getAtivo() const
-  {
-    return (ativo);
-  }
+void Entidade::setAtivo(bool a)
+{
+  ativo = a;
+}
+const bool Entidade::getAtivo() const
+{
+  return (ativo);
+}

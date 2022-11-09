@@ -2,6 +2,12 @@
 
 #include "Entidade.h"
 
+namespace Entidades
+{
+
+namespace Obstaculos
+{
+
 class Obstaculo : public Entidade
 {
 protected:
@@ -13,3 +19,8 @@ public:
   int getTipo();
 };
 
+}
+
+}
+
+using namespace Obstaculos;

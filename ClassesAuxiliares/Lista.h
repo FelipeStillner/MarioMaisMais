@@ -2,6 +2,9 @@
 #include "../Afix.h"
 #include "Elemento.h"
 
+namespace ClassesAuxiliares
+{
+
 template <class TIPO>
 class Lista
 {
@@ -18,6 +21,10 @@ public:
   TIPO* operator[](int n); 
   int getSize();
 };
+
+}
+
+using namespace ClassesAuxiliares;
 
 template <class TIPO>
 Lista<TIPO>::Lista()

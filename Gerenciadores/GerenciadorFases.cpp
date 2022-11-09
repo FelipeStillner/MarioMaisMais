@@ -1,5 +1,8 @@
 #include "GerenciadorFases.h"
 
+namespace Gerenciadores
+{
+
 GerenciadorFases::GerenciadorFases()
 {
     pP=NULL;
@@ -28,7 +31,7 @@ Fase* GerenciadorFases::recFase()
     while(!arquivo.eof())
     {   
         arquivo>>tipo>>X0>>Y0>>X>>Y>>Vy;
-        Entidade* pE = pFase->create(tipo,X,Y);
+        Entidades::Entidade* pE = pFase->create(tipo,X,Y);
         pE->setVy(Vy);
         //pE->setX(X);
         //pE->setY(Y);
@@ -53,7 +56,7 @@ void GerenciadorFases::gravaFase(Fase* f = NULL)
         arquivo<<f->getIBackground()<<std::endl;
     for(i=0;i<lista->size();i++)
     {
-        Entidade* pE = (*lista)[i];
+        Entidades::Entidade* pE = (*lista)[i];
         if(true)
         {
             //arquivo<<pE->getAtivo()<<',';
@@ -82,4 +85,6 @@ Fase* GerenciadorFases::getFase(int i )
 
     fase= pauxF;
     return (pauxF);
+}
+
 }

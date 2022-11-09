@@ -3,6 +3,8 @@
 #include "Afix.h"
 #include"Gerenciadores/GerenciadorGrafico.h"
 
+using namespace Gerenciadores;
+
 class Ente
 {
   protected:
