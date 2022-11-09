@@ -28,7 +28,7 @@ void Principal::executar()
     const float FPS = 60.0;
     float dt ;
     sf::RenderWindow* w = gG->getWindow();
-    menu->setPausa(true);
+    menu->setPausa(false);
     menu->setEstado(INICIAL);
     f->imprimir();
     gF->gravaFase(f);
@@ -67,8 +67,6 @@ void Principal::executar()
             f->gerenciarColisoes();
         gG->getWindow()->clear();
     }
-
-
 }
 
 void Principal::setGerenciadorEventos(GerenciadorEventos *gEven)
@@ -103,7 +101,7 @@ GerenciadorGrafico* Principal::getGerenciadorGrafico()
 
 Menu* Principal::getMenu()
 {
-    //return menu;
+    return menu;
 }
 
 Fase* Principal::getFase()

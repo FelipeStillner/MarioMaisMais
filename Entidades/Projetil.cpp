@@ -1,6 +1,8 @@
 #include "Projetil.h"
 
-Projetil::Projetil(float x, float y, float w, float h, int t, Colisao c, float vx, float vy, int dano) : Entidade(x, y, w, h, t, c)
+Colisao Projetil::col = Colisao(10, 10, 60, 60);
+
+Projetil::Projetil(float x, float y, float w, float h, int t, float vx, float vy, int dano) : Entidade(x, y, w, h, t)
 {
   this->vx = vx;
   this->vy = vy;
@@ -36,4 +38,9 @@ const int Projetil::getDano() const
 int Projetil::getTipo()
 {
   return PROJ;
+}
+
+Colisao Projetil::getColisao()
+{
+  return col;
 }

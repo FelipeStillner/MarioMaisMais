@@ -1,6 +1,8 @@
 #include "Jogador.h"
 
-Jogador::Jogador(float x, float y, float w, float h, int t, Colisao c, int v, Animacao a): Personagem(x, y, w, h, t, c, v, a)
+Colisao Jogador::col = Colisao(10, 10, 140, 300);
+
+Jogador::Jogador(float x, float y, float w, float h, int t, int v, Animacao a): Personagem(x, y, w, h, t, v, a)
 {
 
 }
@@ -106,4 +108,9 @@ const int Jogador::getEstado() const
 int Jogador::getTipo()
 {
   return  PLAYER;
+}
+
+Colisao Jogador::getColisao()
+{
+  return col;
 }

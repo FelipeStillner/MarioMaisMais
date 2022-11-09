@@ -1,6 +1,6 @@
 #include "Entidade.h"
 
-Entidade::Entidade(float x, float y, float w, float h, int t, Colisao c) : Ente(), col(c)
+Entidade::Entidade(float x, float y, float w, float h, int t) : Ente()
 {
   this->x = x;
   this->y = y;
@@ -15,11 +15,6 @@ Entidade::Entidade(float x, float y, float w, float h, int t, Colisao c) : Ente(
 
 Entidade::~Entidade()
 {
-}
-
-void Entidade::setColisao(Colisao c)
-{
-  col = c;
 }
 
 void Entidade::setTextura(/*sf::Texture* t*/ int t)
@@ -54,11 +49,6 @@ void Entidade::setYY0(float y)
 void Entidades::Entidade::setVy(float v)
 {
   vy = v;
-}
-
-const Colisao Entidade::getColisao() const 
-{
-  return col;
 }
 
 const float Entidade::getX() const

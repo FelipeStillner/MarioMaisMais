@@ -1,6 +1,6 @@
 #include "Obstaculo.h"
 
-Obstaculo::Obstaculo(float x, float y, float w, float h,  int t, Colisao c)  : Entidade(x, y, w, h, t, c)
+Obstaculo::Obstaculo(float x, float y, float w, float h,  int t, Colisao c)  : Entidade(x, y, w, h, t), col(c)
 {
 }
 
@@ -24,5 +24,10 @@ void Obstaculo::imprimir()
 int Obstaculo::getTipo()
 {
   return OBS1;
+}
+
+Colisao Obstaculo::getColisao()
+{
+  return col;
 }
 

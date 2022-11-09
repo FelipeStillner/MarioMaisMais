@@ -15,7 +15,7 @@ protected:
   int vida;
   Animacao anim;
 public:
-  Personagem(float x = 0, float y = 0, float w = 0, float h = 0, int t =0, Colisao c = Colisao(), int v = 0, Animacao a = Animacao());
+  Personagem(float x = 0, float y = 0, float w = 0, float h = 0, int t =0, int v = 0, Animacao a = Animacao());
   virtual ~Personagem();
   virtual void executar(float dt) = 0;
   virtual void imprimir() = 0;
@@ -25,7 +25,7 @@ public:
   const Animacao getAnimacao();
   void operator+=(int n);
   void operator-=(int n);
- 
+  virtual Colisao getColisao() = 0;
 };
 
 }

@@ -1,6 +1,8 @@
 #include "Inimigo.h"
 
-Inimigo::Inimigo(float x, float y, float w, float h, int t, Colisao c, int v, Animacao a): Personagem(x, y, w, h, t, c, v, a)
+Colisao Inimigo::col = Colisao(10, 10, 140, 140);
+
+Inimigo::Inimigo(float x, float y, float w, float h, int t, int v, Animacao a): Personagem(x, y, w, h, t, v, a)
 {
 }
 
@@ -29,4 +31,9 @@ void Inimigo::imprimir()
 int Inimigo::getTipo()
 {
   return ENEM1;
+}
+
+Colisao Inimigo::getColisao()
+{
+  return col;
 }
