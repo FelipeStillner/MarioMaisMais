@@ -33,13 +33,14 @@ void Principal::executar()
     f->imprimir();
     gF->gravaFase(f);
     //delete f;
-    //f = gF->recFase();
+    f = gF->recFase();
     //f->setJogando(false);
     while (w->isOpen())
     {
         if(f->getJogando())
             f->imprimir();
-        menu->imprimir();
+            menu->imprimir();
+        
         //menu->setPausa(false);
         //if(menu->getPausa()){menu->imprimir();}
         if(f->getJogador(1)->getVida() < 0||f->getMltplyr()&&f->getJogador(2)->getVida() < 0)

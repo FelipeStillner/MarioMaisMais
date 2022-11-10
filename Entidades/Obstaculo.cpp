@@ -23,11 +23,14 @@ void Obstaculo::imprimir()
 
 int Obstaculo::getTipo()
 {
-  return OBS1;
+    if(text==(*gG)[2]) {return(OBS1);}
+  else if(text==(*gG)[5]){return(OBS2);}
 }
 
 Colisao Obstaculo::getColisao()
 {
   return col;
 }
+
+
 

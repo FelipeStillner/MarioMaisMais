@@ -127,6 +127,7 @@ void Fase::setJogador(Jogador* j,int i)
       break;
     }
     entidades.push(pAux);
+    return(pAux);
   }
 
 const int Fase::getIBackground() const
@@ -135,5 +136,5 @@ const int Fase::getIBackground() const
 }
 void Fase::setBackground(int i)
 {
-  background=(*gG)[3];
+  background=(*gG)[i];
 }

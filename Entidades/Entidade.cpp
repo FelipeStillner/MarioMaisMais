@@ -84,3 +84,4 @@ const bool Entidade::getAtivo() const
 {
   return (ativo);
 }
+
