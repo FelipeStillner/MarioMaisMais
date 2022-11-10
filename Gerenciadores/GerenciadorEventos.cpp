@@ -80,7 +80,7 @@ void GerenciadorEventos::executar()
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
     {
-      Projetil* p = new Projetil(j->getX()+j->getColisao().getWidth(), j->getY()+j->getColisao().getHeight()/2, 80, 80, 1, 200, 0, 1);
+      Projetil* p = new Projetil(j->getX()+j->getColisao().getWidth(), j->getY()+j->getColisao().getHeight()/2, 80, 80, 1);
       this->p->getFase()->getEntidades()->push(p);
     }
     j->setEstado(estado);
@@ -112,7 +112,7 @@ void GerenciadorEventos::executar()
       }
       if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
       {
-        Projetil* p = new Projetil(j->getX()+j->getColisao().getWidth(), j->getY()+j->getColisao().getHeight()/2, 80, 80, 1, 200, 0, 1);
+        Projetil* p = new Projetil(j->getX()+j->getColisao().getWidth(), j->getY()+j->getColisao().getHeight()/2, 80, 80, 1);
         this->p->getFase()->getEntidades()->push(p);
       }
       j->setEstado(estado);

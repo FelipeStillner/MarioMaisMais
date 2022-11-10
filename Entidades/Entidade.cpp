@@ -1,6 +1,6 @@
 #include "Entidade.h"
 
-Entidade::Entidade(float x, float y, float w, float h, int t) : Ente()
+Entidade::Entidade(float x, float y, float w, float h, Colisao c) : Ente(), col(c)
 {
   this->x = x;
   this->y = y;
@@ -8,20 +8,12 @@ Entidade::Entidade(float x, float y, float w, float h, int t) : Ente()
   this->h = h;
   x0 = x;
   y0 = y;
-  setTextura(t);
   vy = 0;
   setAtivo(true);
 }
 
 Entidade::~Entidade()
 {
-}
-
-void Entidade::setTextura(/*sf::Texture* t*/ int t)
-{
-
-  //text = t;
-  text = (*gG)[t];
 }
 
 void Entidade::setX(float x)
@@ -82,6 +74,10 @@ void Entidade::setAtivo(bool a)
 }
 const bool Entidade::getAtivo() const
 {
-  return (ativo);
+  return ativo;
 }
 
+Colisao Entidade::getColisao()
+{
+  return col;
+}

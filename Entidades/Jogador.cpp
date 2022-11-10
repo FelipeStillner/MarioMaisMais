@@ -1,8 +1,6 @@
 #include "Jogador.h"
 
-Colisao Jogador::col = Colisao(10, 10, 140, 300);
-
-Jogador::Jogador(float x, float y, float w, float h, int t, int v, Animacao a): Personagem(x, y, w, h, t, v, a)
+Jogador::Jogador(float x, float y, int v): Personagem(x, y, 160, 320, v, Colisao(10, 10, 140, 300), Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1"))
 {
 
 }
@@ -21,39 +19,35 @@ void Jogador::executar(float dt)
 
 void Jogador::imprimir()
 {
-  
+  sf::Texture* t = NULL;
   switch (estado)
   {
   case IDLE:
     if(estado == WALKR)
     {
-      /*t = (*(p->getGerenciadorGrafico()))[6];*/
-      setTextura(6);
+      t = (*gG)[6];
     }
     else
     {
-      /*t = (*(p->getGerenciadorGrafico()))[6];*/
-      setTextura(6);
+      t = (*gG)[6];
     }
     break;
   
   case WALKR:
-    /*t = (*(p->getGerenciadorGrafico()))[0];*/
-      setTextura(0);
+      t = (*gG)[0];
     break;
 
   case WALKL:
-      setTextura(0);
+      t = (*gG)[0];
     break;
   
   case JUMP:
-      setTextura(7);
+      t = (*gG)[7];
     break;
   
   default:
     break;
   }
-  sf::Texture* t = text;
   sf::RectangleShape r;
   r.setTexture(t);
   r.setTextureRect(anim.rect);
@@ -108,9 +102,4 @@ const int Jogador::getEstado() const
 int Jogador::getTipo()
 {
   return  PLAYER;
-}
-
-Colisao Jogador::getColisao()
-{
-  return col;
 }

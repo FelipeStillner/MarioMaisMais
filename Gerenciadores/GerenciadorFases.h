@@ -3,9 +3,12 @@
 #include "../Fase.h"
 #include "../Fase1.h"
 #include "../Ente.h"
-#include<fstream>
+#include <fstream>
 
-using  std::cout; using std::cin; using  std::ios; using  std::fstream;
+using std::cout; 
+using std::cin; 
+using std::ios; 
+using std::fstream;
 
 namespace Gerenciadores
 {

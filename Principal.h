@@ -7,8 +7,10 @@
 #include "Gerenciadores/GerenciadorGrafico.h"
 #include "Entidades/Jogador.h"
 #include "Entidades/Inimigo.h"
+#include "Entidades/Tubo.h"
+#include "Entidades/Chao.h"
 #include "Gerenciadores/GerenciadorEventos.h"
-#include"Gerenciadores/GerenciadorFases.h"
+#include "Gerenciadores/GerenciadorFases.h"
 #include "Fase1.h"
 #include "Menu.h"
 

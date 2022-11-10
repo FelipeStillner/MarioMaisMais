@@ -7,11 +7,11 @@ using namespace Gerenciadores;
 
 class Ente
 {
-  protected:
+protected:
   int id;
   static int I;
   static GerenciadorGrafico * gG;
-  public:
+public:
   Ente();
   static void setg(GerenciadorGrafico * pG);
   static  GerenciadorGrafico * getgG ();

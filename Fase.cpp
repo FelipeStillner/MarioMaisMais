@@ -87,13 +87,15 @@ void Fase::setJogador(Jogador* j,int i)
     switch (i)
     {
     case PLAYER:
-      { pAux = new Jogador(x, y, 160, 320, 0, 200,Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1"));
+      { 
+        pAux = new Jogador(x, y, 200);
         gCol.incluir(static_cast<Jogador*>(pAux));
         setJogador(static_cast<Jogador*>(pAux));
       }
       break;
     case ENEM1:
-       { pAux= new Inimigo(x, y, 160, 160, 4, 1,Animacao(sf::IntRect(0, 0, 16, 16), 0.25, "12"));
+       { 
+        pAux= new Inimigo(x, y, 200);
         gCol.incluir(static_cast<Inimigo*>(pAux));
        }
       break;
@@ -107,17 +109,19 @@ void Fase::setJogador(Jogador* j,int i)
 
       break;
     case OBS1:
-        {pAux =  new Obstaculo(x, y, 320, 320, 2, Colisao(10, 10, 300, 300));
+        {
+          pAux =  new Tubo(x, y);
           gCol.incluir(static_cast<Obstaculo*>(pAux));
         }
       break;
     case OBS2:
-        {pAux = new Obstaculo(x, y, 1920, 320, 5, Colisao(10, 10, 1900, 300));
+        {
+          pAux = new Chao(x, y);
           gCol.incluir(static_cast<Obstaculo*>(pAux));
         }
       break;
     case PROJ:
-        {pAux = new Projetil(x, y, 80, 80, 1, 200.0, 100.0, 1);
+        {pAux = new Projetil(x, y, 80, 80, 1);
           gCol.incluir(static_cast<Projetil*>(pAux));
         }
 

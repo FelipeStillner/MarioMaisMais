@@ -13,16 +13,13 @@ class Jogador : public Personagem
 private:
   int estado;
 public:
-  static Colisao col;
-public:
-  Jogador(float x = 0, float y = 0, float w = 0, float h = 0, int t = 0, int v = 0, Animacao a = Animacao());
+  Jogador(float x = 0, float y = 0, int v = 0);
   ~Jogador();
   virtual void executar(float dt);
   virtual void imprimir();
   void setEstado(const int est);
   const int getEstado() const;
   int getTipo();
-  Colisao getColisao();
 };
 
 }

@@ -1,6 +1,6 @@
 #include "Personagem.h"
 
-Personagem::Personagem(float x, float y, float w, float h, int t, int v ,Animacao a) : Entidade(x, y, w, h, t), anim(a)
+Personagem::Personagem(float x, float y, float w, float h, int v, Colisao c, Animacao a) : Entidade(x, y, w, h, c), anim(a)
 {
   vida = v;
 }
