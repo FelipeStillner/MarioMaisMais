@@ -5,7 +5,6 @@ namespace Gerenciadores
 
 GerenciadorGrafico::GerenciadorGrafico() : texturas()
 {
-  //w = new sf::RenderWindow(sf::VideoMode(1920, 1080), "SFML window");
   w = new sf::RenderWindow(sf::VideoMode(1280, 800), "SFML window");
   std::string filename ("");
   std::ifstream file("Gerenciadores/Textures.txt");
