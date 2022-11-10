@@ -34,4 +34,5 @@ public:
   Entidade* create(int i = 0, float x = 0, float y = 0);
   void setBackground(int i = 3);
   const int getIBackground() const;
+  GerenciadorColisoes* getGCol();
 };

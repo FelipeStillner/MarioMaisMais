@@ -10,6 +10,9 @@ Tubo::~Tubo()
 
 void Tubo::executar(float dt)
 {
+  y0 = y;
+  y += vy;
+  vy += 2;
 }
 
 void Tubo::imprimir()

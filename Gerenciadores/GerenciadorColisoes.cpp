@@ -22,23 +22,24 @@ void GerenciadorColisoes::executar()
   std::list<Obstaculo*>::iterator o, o1;
   std::list<Inimigo*>::iterator i;
   int dir;
+  int flag;
   
   for (p = proj.begin(); p != proj.end(); p++)
   {
+    if(!(*p)->getAtivo())
+    {
+      continue;
+    }
     // Projetil X Obstaculo: Projetil eh eliminado
     for (o = obst.begin(); o != obst.end(); o++)
     {
       if (colidindo(*p, *o))
       {
-        
-        /*(*p)->~Projetil();
-        f->getEntidades()->remove(*p);
-        *p = NULL;
-        break;*/
-        
+        (*p)->setAtivo(false);
+        break;
       }
     }
-    if(*p == NULL)
+    if(!(*p)->getAtivo())
     {
       continue;
     }
@@ -47,49 +48,53 @@ void GerenciadorColisoes::executar()
     {
       if (colidindo(*p, *i))
       {
-        /*
         (**i) -= (*p)->getDano();
-        (*p)->~Projetil();
-        f->getEntidades()->remove(*p);
-        *p = NULL;*/
-        //reak;
-        
+        (*p)->setAtivo(false);
+        break;        
       }
     }
-    if(*p == NULL)
+    if(!(*p)->getAtivo())
     {
       continue;
     }
     if (colidindo(*p, jog))
     {
-      /*
       *jog -= (*p)->getDano();
-      (*p)->~Projetil();
-      f->getEntidades()->remove(*p);
-      */
+      (*p)->setAtivo(false);
+    }
+    if(!(*p)->getAtivo())
+    {
+      continue;
     }
     if (jog2 && colidindo(*p, jog2))
     {
-      /*
       *jog2 -= (*p)->getDano();
-      (*p)->~Projetil();
-      f->getEntidades()->remove(*p);
-      */
+      (*p)->setAtivo(false);
     }
   } 
   
   // Inimigo X Jogador: jogador leva dano e mudam posicao dependendo da direcao da colisao
   for (i = inim.begin(); i != inim.end(); i++)
   {
+    if(!(*i)->getAtivo())
+    {
+      continue;
+    }
     if (colidindo(jog, *i))
     {
       int dir = direcaoColisao(jog, *i);
       (*jog) -= 1;
+      (*i)->setAtivo(false);
     }
-       if (jog2 && colidindo(jog2, *i))
+    if(!(*i)->getAtivo())
+    {
+      continue;
+    }
+    if (jog2 && colidindo(jog2, *i))
     {
       int dir = direcaoColisao(jog2, *i);
       (*jog2) -= 1;
+      (*i)->setAtivo(false);
     }
   }
   
@@ -100,9 +105,6 @@ void GerenciadorColisoes::executar()
     {
       if (colidindo(*o1, *o))
       {
-        //printf("a");
-        //std::cout<<"a"<<std::endl;
-
         int dir = direcaoColisao(*o1, *o);
         (*o)->setY((*o)->getY0());
         (*o1)->setY((*o1)->getY0());

@@ -170,9 +170,7 @@ void Menu::imprimir ()
     float x = getgG()->getWindow()->getPosition().x;
     float y = getgG()->getWindow()->getPosition().y;
 
-
-
-        switch (estado)
+    switch (estado)
     {
     case INICIAL:
         {
@@ -233,6 +231,7 @@ void Menu::setPausa(bool p)
         setEstado(0);
     }
 }
+
 const bool Menu::getPausa() const
 {
     return(pausado);
@@ -281,10 +280,6 @@ const int Menu::getEstado() const
     return(estado);
 }
 
-
-
-
-
 void Menu::inicializaLetras() 
 {   
     letras = new vector <sf::IntRect*> ;
@@ -297,9 +292,6 @@ void Menu::inicializaLetras()
         }
     }
 }
-
-
-
 
 void Menu::destroiLetras()
 {

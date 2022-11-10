@@ -1,6 +1,6 @@
 #include "Principal.h"
 
-Principal::Principal() : gG(NULL), /*w(NULL),*/ clock(), gEven(NULL)/*, menu(NULL)*/
+Principal::Principal() : gG(NULL), clock(), gEven(NULL), menu(NULL)
 {
     gEven = new GerenciadorEventos(this);
     gG = new GerenciadorGrafico();
@@ -10,11 +10,8 @@ Principal::Principal() : gG(NULL), /*w(NULL),*/ clock(), gEven(NULL)/*, menu(NUL
     menu = new Menu();
     Menu::inicializaLetras();
   
-    
-    //f = new Fase1(this);
     f = gF->getFase(1);
-    //Menu menu;
-    //menu->setg(gG);
+    menu->setg(gG);
     executar();
 }
 
@@ -31,21 +28,31 @@ void Principal::executar()
     menu->setPausa(false);
     menu->setEstado(INICIAL);
     f->imprimir();
-    //gF->gravaFase(f);
-    //delete f;
+    gF->gravaFase(f);
+    delete f;
     f = gF->recFase();
     //f->setJogando(false);
     while (w->isOpen())
     {
-        if(f->getJogando())
-            f->imprimir();
+        w->clear(sf::Color(0, 0 ,0));
+        if(menu->getPausa())
+        {
             menu->imprimir();
-        
-        //menu->setPausa(false);
-        //if(menu->getPausa()){menu->imprimir();}
+        }
+        else
+        {
+            if(f->getJogando())
+            {
+                f->imprimir();
+            }
+            else
+            {
+                menu->imprimir();
+            }
+        }
         if(f->getJogador(1)->getVida() < 0 || f->getMltplyr() && f->getJogador(2)->getVida() < 0)
         {
-            //f->setJogando(false);
+            f->setJogando(false);
         }
         w->setView(sf::View(sf::Vector2f(f->getJogador()->getX(), w->getSize().y/2), sf::Vector2f(w->getSize())));
         dt = clock.getElapsedTime().asSeconds();  
@@ -60,12 +67,23 @@ void Principal::executar()
         w->display();
 
         gEven->executar();
-        
-        if(f->getJogando())
-            f->executar(dt);
-        if(f->getJogando())
-            f->gerenciarColisoes();
-        
+
+        if(menu->getPausa())
+        {
+            menu->executar();
+        }
+        else
+        {
+            if(f->getJogando())
+            {
+                f->executar(dt);
+                f->gerenciarColisoes();
+            }
+            else
+            {
+                menu->executar();
+            }
+        }  
     }
 }
 

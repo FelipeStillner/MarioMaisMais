@@ -144,3 +144,8 @@ void Fase::setBackground(int i)
 {
   background = (*gG)[i];
 }
+
+GerenciadorColisoes* Fase::getGCol()
+{
+  return &gCol;
+}

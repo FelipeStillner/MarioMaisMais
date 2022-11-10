@@ -16,7 +16,7 @@ public:
   ~Chao();
   virtual void executar(float dt);
   virtual void imprimir();
-  int getTipo();
+  virtual int getTipo();
 };
 
 }

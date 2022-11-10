@@ -33,7 +33,10 @@ void ListaEntidades::executar(float dt)
     Entidade* e = entidades[i];
     if(e != NULL)
     {
-       e->executar(dt);
+      if(e->getAtivo())
+      {
+        e->executar(dt);
+      }
     }
   }
 }
@@ -46,7 +49,10 @@ void ListaEntidades::imprimir()
     Entidade* e = entidades[i];
     if(e != NULL)
     {
-       e->imprimir();
+      if(e->getAtivo())
+      {
+        e->imprimir();
+      }
     }
   }
 }
