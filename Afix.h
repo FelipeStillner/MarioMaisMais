@@ -5,8 +5,8 @@
 #define ENEM2 2
 #define ENEM3 3
 #define BOSS 4
-#define OBS1 5
-#define OBS2 6
+#define TUBO 5
+#define CHAO 6
 #define PROJ 7
 
 #define EXIT -1

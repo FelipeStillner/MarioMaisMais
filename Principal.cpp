@@ -33,7 +33,7 @@ void Principal::executar()
     f->imprimir();
     gF->gravaFase(f);
     //delete f;
-    f = gF->recFase();
+    //f = gF->recFase();
     //f->setJogando(false);
     while (w->isOpen())
     {
@@ -43,12 +43,11 @@ void Principal::executar()
         
         //menu->setPausa(false);
         //if(menu->getPausa()){menu->imprimir();}
-        if(f->getJogador(1)->getVida() < 0||f->getMltplyr()&&f->getJogador(2)->getVida() < 0)
+        if(f->getJogador(1)->getVida() < 0 || f->getMltplyr() && f->getJogador(2)->getVida() < 0)
         {
             //f->setJogando(false);
         }
         w->setView(sf::View(sf::Vector2f(f->getJogador()->getX(), f->getJogador()->getY()), sf::Vector2f(1920, 1080)));
-        
         dt = clock.getElapsedTime().asSeconds();  
         if (dt < (1.0 / FPS))
         {

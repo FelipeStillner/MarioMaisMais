@@ -47,10 +47,9 @@ Fase* GerenciadorFases::recFase()
 
         std::cout<<tipo<<X0<<Y0<<X<<Y<<Vy<<std::endl;
 
-
         pE->setVy(Vy);
-        //pE->setX(X);
-        //pE->setY(Y);
+        pE->setX(X);
+        pE->setY(Y);
         pE->setXX0(X0);
         pE->setYY0(Y0);
         pE->setAtivo(true);
@@ -61,6 +60,7 @@ Fase* GerenciadorFases::recFase()
     return pFase;
 
 }
+
 void GerenciadorFases::gravaFase(Fase* f = NULL)
 {
     std::ofstream arquivo;
@@ -84,14 +84,14 @@ void GerenciadorFases::gravaFase(Fase* f = NULL)
             //arquivo<<(pE->getColisao()).getX()<<',';
             //arquivo<<(pE->getColisao()).getY()<<',';
 
-            arquivo<<pE->getTipo()<<' ';
-            arquivo<<pE->getX0()<<' ';
-            arquivo<<pE->getY0()<<' ';
-            arquivo<<pE->getX()<<' ';
-            arquivo<<pE->getY()<<' '; 
+            arquivo << pE->getTipo()<<' ';
+            arquivo << pE->getX0()<<' ';
+            arquivo << pE->getY0()<<' ';
+            arquivo << pE->getX()<<' ';
+            arquivo << pE->getY()<<' '; 
             //arquivo<<pE->getVx()<<',';
-            arquivo<<pE->getVy()<<' ';
-            arquivo<<std::endl;
+            arquivo << pE->getVy()<<' ';
+            arquivo << std::endl;
         }
     }
     arquivo.close();
@@ -100,10 +100,13 @@ void GerenciadorFases::gravaFase(Fase* f = NULL)
 Fase* GerenciadorFases::getFase(int i )
 {   
     Fase* pauxF = NULL;
-    if(i==1){pauxF = new Fase1(pP);}
+    if(i == 1)
+    {
+        pauxF = new Fase1(pP);
+    }
 
-    fase= pauxF;
-    return (pauxF);
+    fase = pauxF;
+    return pauxF;
 }
 
 }

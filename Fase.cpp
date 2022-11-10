@@ -72,73 +72,75 @@ void Fase::setJogador(Jogador* j,int i)
   */
 }
 
-  void Fase::setMltplyr(bool m)
+void Fase::setMltplyr(bool m)
+{
+  mltply = m;
+}
+const bool Fase::getMltplyr() const 
+{
+  return(mltply);
+}
+Entidade* Fase::create(int i, float x, float y )
+{ 
+  //é um "factory method"!
+  Entidade* pAux= NULL;
+  switch (i)
   {
-    mltply = m;
-  }
-  const bool Fase::getMltplyr() const 
-  {
-    return(mltply);
-  }
-  Entidade* Fase::create(int i, float x, float y )
-  { 
-    //é um "factory method"!
-    Entidade* pAux= NULL;
-    switch (i)
-    {
-    case PLAYER:
-      { 
-        pAux = new Jogador(x, y, 200);
-        gCol.incluir(static_cast<Jogador*>(pAux));
-        setJogador(static_cast<Jogador*>(pAux));
-      }
-      break;
-    case ENEM1:
-       { 
-        pAux= new Inimigo(x, y, 200);
-        gCol.incluir(static_cast<Inimigo*>(pAux));
-       }
-      break;
-    case ENEM2:
-
-      break;
-    case ENEM3:
-
-      break;
-    case BOSS:
-
-      break;
-    case OBS1:
-        {
-          pAux =  new Tubo(x, y);
-          gCol.incluir(static_cast<Obstaculo*>(pAux));
-        }
-      break;
-    case OBS2:
-        {
-          pAux = new Chao(x, y);
-          gCol.incluir(static_cast<Obstaculo*>(pAux));
-        }
-      break;
-    case PROJ:
-        {pAux = new Projetil(x, y, 80, 80, 1);
-          gCol.incluir(static_cast<Projetil*>(pAux));
-        }
-
-      break;
-    
-    default:
-      break;
+  case PLAYER:
+    { 
+      pAux = new Jogador(x, y, 200);
+      gCol.incluir(static_cast<Jogador*>(pAux));
+      setJogador(static_cast<Jogador*>(pAux));
     }
-    entidades.push(pAux);
-    return(pAux);
+    break;
+  case ENEM1:
+      { 
+      pAux= new Inimigo(x, y, 200);
+      gCol.incluir(static_cast<Inimigo*>(pAux));
+      }
+    break;
+  case ENEM2:
+
+    break;
+  case ENEM3:
+
+    break;
+  case BOSS:
+
+    break;
+  case CHAO:
+      {
+        pAux =  new Chao(x, y);
+        gCol.incluir(static_cast<Obstaculo*>(pAux));
+      }
+    break;
+  case TUBO:
+      {
+        pAux = new Tubo(x, y);
+        gCol.incluir(static_cast<Obstaculo*>(pAux));
+      }
+    break;
+  case PROJ:
+      {
+        pAux = new Projetil(x, y, 80, 80, 1);
+        gCol.incluir(static_cast<Projetil*>(pAux));
+      }
+
+    break;
+  
+  default:
+    break;
   }
+  entidades.push(pAux);
+  return(pAux);
+}
 
 const int Fase::getIBackground() const
 {
   return 3;
 }
+
 void Fase::setBackground(int i)
 {
-  background=(*gG)[i];
+  background = (*gG)[i];
 }

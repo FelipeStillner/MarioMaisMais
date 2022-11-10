@@ -1,6 +1,6 @@
 #include "Tubo.h"
 
-Tubo::Tubo(float x, float y) : Obstaculo(x, y, 1920, 320, Colisao(10, 10, 1900, 300))
+Tubo::Tubo(float x, float y) : Obstaculo(x, y, 320, 320, Colisao(10, 10, 300, 300))
 {
 }
 
@@ -15,7 +15,7 @@ void Tubo::executar(float dt)
 void Tubo::imprimir()
 {
   sf::RectangleShape r;
-  r.setTexture((*gG)[5]);
+  r.setTexture((*gG)[2]);
   r.setPosition(x, y);
   r.setSize(sf::Vector2f(w, h));
   gG->getWindow()->draw(r);
@@ -23,5 +23,5 @@ void Tubo::imprimir()
 
 int Tubo::getTipo()
 {
-  return OBS1;
+  return TUBO;
 }
