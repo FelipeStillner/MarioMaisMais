@@ -15,17 +15,17 @@ namespace Gerenciadores
 
 class GerenciadorFases 
 {
-    private:
-        Fase1 * fase1;
-        Fase* fase;
-        Principal* pP;
+private:
+    Fase1 * fase1;
+    Fase* fase;
+    Principal* pP;
 
-    public:
-        GerenciadorFases();
-        ~GerenciadorFases();
-        Fase* recFase();
-        void gravaFase(Fase* f);
-        Fase* getFase(int i = 1);
+public:
+    GerenciadorFases();
+    ~GerenciadorFases();
+    Fase* recFase();
+    void gravaFase(Fase* f);
+    Fase* getFase(int i = 1);
 };
 
 }

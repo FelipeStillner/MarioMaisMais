@@ -42,6 +42,14 @@ void GerenciadorEventos::executar()
       }
     }
 
+    if (event.type == sf::Event::KeyPressed)
+    {
+      if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+      {
+        p->getMenu()->setPausa(!(p->getMenu()->getPausa()));
+      }
+    }
+
     if (event.type == sf::Event::MouseButtonPressed)
     { 
       Menu* pMenu = p->getMenu();
@@ -50,10 +58,7 @@ void GerenciadorEventos::executar()
       j->setYY0(sf::Mouse::getPosition(*this->p->getGerenciadorGrafico()->getWindow()).y);
     }
   }
-  if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
-  {
-    p->getMenu()->setPausa(!(p->getMenu()->getPausa()));
-  }
+  
   if(!p->getMenu()->getPausa())
   {
       

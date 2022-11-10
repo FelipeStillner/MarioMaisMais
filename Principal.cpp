@@ -31,7 +31,7 @@ void Principal::executar()
     menu->setPausa(false);
     menu->setEstado(INICIAL);
     f->imprimir();
-    gF->gravaFase(f);
+    //gF->gravaFase(f);
     //delete f;
     f = gF->recFase();
     //f->setJogando(false);
@@ -47,7 +47,7 @@ void Principal::executar()
         {
             //f->setJogando(false);
         }
-        w->setView(sf::View(sf::Vector2f(f->getJogador()->getX(), f->getJogador()->getY()), sf::Vector2f(w->getSize())));
+        w->setView(sf::View(sf::Vector2f(f->getJogador()->getX(), w->getSize().y/2), sf::Vector2f(w->getSize())));
         dt = clock.getElapsedTime().asSeconds();  
         if (dt < (1.0 / FPS))
         {

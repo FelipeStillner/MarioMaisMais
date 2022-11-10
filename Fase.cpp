@@ -30,7 +30,7 @@ void Fase::imprimir()
 {
   sf::RectangleShape r;
   sf::RenderWindow* w =gG->getWindow();
-  r.setOrigin(- jog->getX() + (w->getSize().x/2) + 50,  100);
+  r.setOrigin(- jog->getX() + (w->getSize().x/2) + 50, 100);
   r.setSize(sf::Vector2f(w->getSize().x + 100, w->getSize().y + 200));
   r.setTexture(background);
   w->draw(r);

@@ -10,7 +10,7 @@ GerenciadorGrafico::GerenciadorGrafico() : texturas()
   std::ifstream file("Gerenciadores/Textures.txt");
   while (file >> filename) {
     sf::Texture *texture = new sf::Texture();  
-    if (!texture->loadFromFile("Texturas/"+filename))
+    if (!texture->loadFromFile("Texturas/" + filename))
     {
       std::cout << "Erro ao carregar a textura: " << filename << std::endl;
       return;
