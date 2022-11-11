@@ -12,11 +12,11 @@ class Inimigo : public Personagem
 {
 private:
 public:
-  Inimigo(float x = 0, float y = 0, int v = 0);
+  Inimigo(float x = 0, float y = 0, float w = 0, float h = 0, int v = 0, Colisao c = Colisao(), Animacao a = Animacao());
   ~Inimigo();
-  virtual void executar(float dt);
-  virtual void imprimir();
-  int getTipo();
+  virtual void executar(float dt) = 0;
+  virtual void imprimir() = 0;
+  virtual int getTipo() = 0;
 };
 
 }

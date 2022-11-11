@@ -1,5 +1,7 @@
 #include "Fase.h"
 #include "Principal.h"
+#include "Entidades/Andador.h"
+#include "Entidades/Lancador.h"
 #include "Entidades/Jogador.h"
 
 Fase::Fase(Principal* p) : Ente()
@@ -94,12 +96,15 @@ Entidade* Fase::create(int i, float x, float y )
     break;
   case ENEM1:
       { 
-      pAux= new Inimigo(x, y, 200);
+      pAux= new Andador(x, y, 200);
       gCol.incluir(static_cast<Inimigo*>(pAux));
       }
     break;
   case ENEM2:
-
+      { 
+      pAux= new Lancador(x, y, 200);
+      gCol.incluir(static_cast<Inimigo*>(pAux));
+      }
     break;
   case ENEM3:
 

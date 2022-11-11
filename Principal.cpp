@@ -10,7 +10,7 @@ Principal::Principal() : gG(NULL), clock(), gEven(NULL), menu(NULL)
     menu = new Menu();
     Menu::inicializaLetras();
   
-    f = gF->getFase(1);
+    f = gF->getFase(2);
     menu->setg(gG);
     executar();
 }

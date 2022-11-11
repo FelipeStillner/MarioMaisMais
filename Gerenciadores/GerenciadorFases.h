@@ -2,6 +2,7 @@
 #include "../Afix.h"
 #include "../Fase.h"
 #include "../Fase1.h"
+#include "../Fase2.h"
 #include "../Ente.h"
 #include <fstream>
 

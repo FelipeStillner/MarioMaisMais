@@ -104,6 +104,10 @@ Fase* GerenciadorFases::getFase(int i )
     {
         pauxF = new Fase1(pP);
     }
+    else if(i == 2)
+    {
+        pauxF = new Fase2(pP);
+    }
 
     fase = pauxF;
     return pauxF;
