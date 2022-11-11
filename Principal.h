@@ -12,6 +12,7 @@
 #include "Gerenciadores/GerenciadorEventos.h"
 #include "Gerenciadores/GerenciadorFases.h"
 #include "Fase1.h"
+#include "Fase2.h"
 #include "Menu.h"
 
 class Principal

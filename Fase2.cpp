@@ -1,6 +1,6 @@
-#include "Fase1.h"
+#include "Fase2.h"
 
-Fase1::Fase1(Principal* prin) : Fase(prin)
+Fase2::Fase2(Principal* prin) : Fase(prin)
 {
   background = (*gG)[3];
   mltply = true;
@@ -12,7 +12,6 @@ Fase1::Fase1(Principal* prin) : Fase(prin)
   create(CHAO, 0.0, 700.0);
 }
 
-Fase1::~Fase1()
+Fase2::~Fase2()
 {
-
 }

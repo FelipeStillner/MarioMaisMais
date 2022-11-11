@@ -107,13 +107,20 @@ void Menu::mouseClick( sf::Vector2<float> vMouse )
     {
     case INICIAL:
         {
-            if(vMouse.x>=xw &&vMouse.x<=((8.0*8.0*4)+xw))
-            {   if(vMouse.y>=(8.0*8.0+yw)&&vMouse.y<=((8.0*8.0)*2+yw))
-                        {setEstado(PLAY);}
-                    else if ((vMouse.y>=((8.0*8.0)*2+yw))&&(vMouse.y<=((8.0*8.0)*3+yw)))
-                        {setEstado(RANK);}
-                    else if ((vMouse.y>=((8.0*8.0)*3+yw) )&&(vMouse.y<=((8.0*8.0)*4+yw)))
-                        {setEstado(QUITGAME);}
+            if(vMouse.x >= xw && vMouse.x <= ((8.0*8.0*4)+xw))
+            {   
+                if(vMouse.y >= (8.0 * 8.0 + yw) && vMouse.y <= ((8.0 * 8.0) * 2 + yw))
+                {
+                    setEstado(PLAY);
+                }
+                else if ((vMouse.y>=((8.0*8.0)*2+yw))&&(vMouse.y<=((8.0*8.0)*3+yw)))
+                {
+                    setEstado(RANK);
+                }
+                else if ((vMouse.y>=((8.0*8.0)*3+yw) )&&(vMouse.y<=((8.0*8.0)*4+yw)))
+                {
+                    setEstado(QUITGAME);
+                }
             }
         }
         break;
@@ -132,13 +139,11 @@ void Menu::mouseClick( sf::Vector2<float> vMouse )
         {
 
         }
-        /* code */
         break;
     case RANK:
         {
 
         }
-        /* code */
         break;
     case QUIT:
         {
@@ -147,7 +152,6 @@ void Menu::mouseClick( sf::Vector2<float> vMouse )
             else if (vMouse.y>=(8.0*8.0*2)*2&&vMouse.y<=(8.0*8.0)*3)
             {setEstado(PAUSA);}
         }
-        /* code */
         break;
     case QUITGAME:
         {
@@ -156,7 +160,6 @@ void Menu::mouseClick( sf::Vector2<float> vMouse )
             else if (vMouse.y>=(8.0*8.0*2)*2&&vMouse.y<=(8.0*8.0)*3)
             {setEstado(EXIT);}
         }
-        /* code */
         break;
     default:
         break;

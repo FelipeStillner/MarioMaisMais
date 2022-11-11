@@ -55,8 +55,7 @@ void Fase::setJogando(bool n)
 Jogador* Fase::getJogador(int i)
 {
   if(i==1||!mltply){return jog;}
-  else if(i==2){return jog2;}
-  
+  else{return jog2;}
 }
 
 void Fase::setJogador(Jogador* j,int i)
