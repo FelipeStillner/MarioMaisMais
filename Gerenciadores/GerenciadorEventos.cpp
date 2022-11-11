@@ -47,7 +47,6 @@ void GerenciadorEventos::executar()
       if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
       {
         p->getMenu()->setPausa(!(p->getMenu()->getPausa()));
-        p->getGerenciadorGrafico()->getWindow()->clear();
       }
     }
 

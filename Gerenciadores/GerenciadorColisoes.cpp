@@ -46,6 +46,10 @@ void GerenciadorColisoes::executar()
     // Projetil X Personagem: Inimigo leva dano e projetil eh eliminado
     for (i = inim.begin(); i != inim.end(); i++)
     {
+      if(!(*i)->getAtivo())
+      {
+        continue;
+      }
       if (colidindo(*p, *i))
       {
         (**i) -= (*p)->getDano();
