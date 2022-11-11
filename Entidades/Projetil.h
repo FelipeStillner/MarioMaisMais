@@ -8,7 +8,7 @@ namespace Entidades
 class Projetil : public Entidade
 {
 private:
-  int vx, vy;
+  int vx;
   int dano;
 public:
   Projetil(float x = 0, float y = 0, float vx = 0, float vy = 0, int dano = 0);

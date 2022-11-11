@@ -61,7 +61,6 @@ void GerenciadorEventos::executar()
   
   if(!p->getMenu()->getPausa())
   {
-      
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
       j->setXX0(j->getX()+10);

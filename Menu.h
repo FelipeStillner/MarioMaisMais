@@ -31,7 +31,7 @@ public:
   const bool getPausa() const ;
   void setEstado(int e = -1);
   const int getEstado() const;
-  void mouseClick(sf::Vector2<float> vMouse =sf::Vector2<float>());
+  void mouseClick(sf::Vector2<float> vMouse = sf::Vector2<float>());
   static void escreveTexto(string vTexto,int fX = 0 , float fY = 0, float len= 8.0);
   static void inicializaLetras();
   static void destroiLetras();
