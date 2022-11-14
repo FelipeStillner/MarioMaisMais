@@ -1,7 +1,8 @@
 #include "Andador.h"
 
-Andador::Andador(float x, float y, int v): Inimigo(x, y, 160, 160, v, Colisao(10, 10, 140, 140), Animacao(sf::IntRect(0, 0, 16, 16), 0.25, "12"))
+Andador::Andador(float x, float y, int v): Inimigo(x, y, 160, 160, v, Colisao(10, 10, 140, 140), Animacao(sf::IntRect(0, 0, 16, 16), 0.25, "12"), 1)
 {
+  vx = -5;
 }
 
 Andador::~Andador()
@@ -10,10 +11,17 @@ Andador::~Andador()
 
 void Andador::executar(float dt)
 {
+  if(x0 == x)
+  {
+    vx = -vx;
+  }
   y0 = y;
   y += vy;
   vy += 2;
+  x0 = x;
+  x += vx;
   anim.executar(dt);
+  danar();
 }
 
 void Andador::imprimir()
@@ -29,4 +37,9 @@ void Andador::imprimir()
 int Andador::getTipo()
 {
   return ENEM1;
+}
+
+void Andador::danar()
+{
+
 }

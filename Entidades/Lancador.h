@@ -18,6 +18,7 @@ public:
   virtual void executar(float dt);
   virtual void imprimir();
   int getTipo();
+  virtual void danar();
 };
 
 }

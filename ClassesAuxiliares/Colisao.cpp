@@ -95,5 +95,5 @@ int direcaoColisao(Entidade *e1, Entidade *e2)
     return HOR;
   }
   printf("Erro na colisao direcional");
-  exit(1);
+  return TOTAL;
 }
