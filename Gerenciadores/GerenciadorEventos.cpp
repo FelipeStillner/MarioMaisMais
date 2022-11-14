@@ -66,12 +66,26 @@ void GerenciadorEventos::executar()
       j->setXX0(j->getX()+10);
       j->setYY0(j->getY());
       estado = WALKR;
+      if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && j->getTproj() >= 2)
+      {
+        Projetil* p = new Projetil(j->getX()+j->getColisao().getWidth() - 10, j->getY()+j->getColisao().getHeight()/2, 1000, -20, 1);
+        this->p->getFase()->getEntidades()->push(p);
+        this->p->getFase()->getGCol()->incluir(p);
+        j->setTproj();
+      }
     }
-    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+    else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) )
     {
       j->setXX0(j->getX()-10);
       j->setYY0(j->getY());
       estado = WALKL;
+      if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && j->getTproj() >= 2)
+      {
+        Projetil* p = new Projetil(j->getX() - 50, j->getY()+j->getColisao().getHeight()/2, -1000, -20, 1);
+        this->p->getFase()->getEntidades()->push(p);
+        this->p->getFase()->getGCol()->incluir(p);
+        j->setTproj();
+      }
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
     {
@@ -80,12 +94,6 @@ void GerenciadorEventos::executar()
         j->setVy(-31);
         estado = JUMP;
       }
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-    {
-      Projetil* p = new Projetil(j->getX()+j->getColisao().getWidth(), j->getY()+j->getColisao().getHeight()/2, 1000, -20, 1);
-      this->p->getFase()->getEntidades()->push(p);
-      this->p->getFase()->getGCol()->incluir(p);
     }
     j->setEstado(estado);
 
@@ -98,12 +106,26 @@ void GerenciadorEventos::executar()
         j->setXX0(j->getX()+10);
         j->setYY0(j->getY());
         estado = WALKR;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && j->getTproj() >= 2)
+        {
+          Projetil* p = new Projetil(j->getX()+j->getColisao().getWidth(), j->getY()+j->getColisao().getHeight()/2, 1000, -20, 1);
+          this->p->getFase()->getEntidades()->push(p);
+          this->p->getFase()->getGCol()->incluir(p);
+          j->setTproj();
+        }
       }
       else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
       {
         j->setXX0(j->getX()-10);
         j->setYY0(j->getY());
         estado = WALKL;
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && j->getTproj() >= 2)
+        {
+          Projetil* p = new Projetil(j->getX() - 50, j->getY()+j->getColisao().getHeight()/2, -1000, -20, 1);
+          this->p->getFase()->getEntidades()->push(p);
+          this->p->getFase()->getGCol()->incluir(p);
+          j->setTproj();
+        }
       }
       if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
       {
@@ -113,12 +135,7 @@ void GerenciadorEventos::executar()
           estado = JUMP;
         }
       }
-      if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-      {
-        Projetil* p = new Projetil(j->getX()+j->getColisao().getWidth(), j->getY()+j->getColisao().getHeight()/2, 1000, -20, 1);
-        this->p->getFase()->getEntidades()->push(p);
-        this->p->getFase()->getGCol()->incluir(p);
-      }
+      
       j->setEstado(estado);
     }
   }

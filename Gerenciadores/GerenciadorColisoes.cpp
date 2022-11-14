@@ -52,7 +52,7 @@ void GerenciadorColisoes::executar()
       }
       if (colidindo(*p, *i))
       {
-        (**i) -= (*p)->getDano();
+        (*i)->levarDano((*p)->getDano());
         (*p)->setAtivo(false);
         break;        
       }

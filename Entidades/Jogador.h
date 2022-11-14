@@ -12,6 +12,7 @@ class Jogador : public Personagem
 {
 private:
   int estado;
+  float tProj;
 public:
   Jogador(float x = 0, float y = 0, int v = 0);
   ~Jogador();
@@ -20,6 +21,8 @@ public:
   void setEstado(const int est);
   const int getEstado() const;
   int getTipo();
+  float getTproj();
+  void setTproj(float t = 0);
 };
 
 }

@@ -2,7 +2,7 @@
 
 Jogador::Jogador(float x, float y, int v): Personagem(x, y, 160, 320, v, Colisao(10, 10, 140, 300), Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1"))
 {
-
+  tProj = 0;
 }
 
 Jogador::~Jogador()
@@ -15,6 +15,11 @@ void Jogador::executar(float dt)
   y += vy;
   vy += 2;
   anim.executar(dt);
+  tProj += dt;
+  if(tProj >= 2)
+  {
+    tProj = 2;
+  }
 }
 
 void Jogador::imprimir()
@@ -102,4 +107,14 @@ const int Jogador::getEstado() const
 int Jogador::getTipo()
 {
   return  PLAYER;
+}
+
+float Jogador::getTproj()
+{
+  return tProj;
+}
+
+void Jogador::setTproj(float t)
+{
+  tProj = t;
 }
