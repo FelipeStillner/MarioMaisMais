@@ -88,12 +88,10 @@ int direcaoColisao(Entidade *e1, Entidade *e2)
   }
   else if(ver)
   {
-    printf("VER");
     return VER;
   }
   else if(hor)
   {
-    printf("HOR");
     return HOR;
   }
   printf("Erro na colisao direcional");
