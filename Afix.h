@@ -8,7 +8,8 @@
 #define CHAO 5
 #define TUBO 6
 #define MOLA 7
-#define PROJ 8
+#define BAND 8
+#define PROJ 9
 
 #define EXIT -1
 #define PLAY 0

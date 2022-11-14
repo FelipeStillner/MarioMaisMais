@@ -12,6 +12,7 @@ Fase2::Fase2(Principal* prin) : Fase(prin)
   create(ENEM3, 1400.0, 400.0);
   create(MOLA, 800.0, 0.0);
   create(TUBO, 1000.0, 600.0);
+  create(BAND, 2800.0, 0.0);
   create(TUBO, 1600.0, 600.0);
   create(TUBO, 2200.0, 600.0);
   create(CHAO, 0.0, 700.0);

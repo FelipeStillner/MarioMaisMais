@@ -197,6 +197,11 @@ void GerenciadorColisoes::executar()
         (jog2)->setY((jog2)->getY0());
         (*o)->setVy(0);
         (jog2)->setVy(0);
+        if((*o)->getTipo() == MOLA)
+        {
+          Mola* m = static_cast<Mola*>(*o);
+          (jog2)->setVy(-m->getForca());
+        }
       }
     }
   }

@@ -13,6 +13,7 @@
 #include "Entidades/Lancador.h"
 #include "Entidades/Tartaruga.h"
 #include "Entidades/Mola.h"
+#include "Entidades/Bandeira.h"
 #include "Gerenciadores/GerenciadorEventos.h"
 #include "Gerenciadores/GerenciadorFases.h"
 #include "Fase1.h"

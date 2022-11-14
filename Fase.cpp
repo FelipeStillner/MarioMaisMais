@@ -130,6 +130,12 @@ Entidade* Fase::create(int i, float x, float y )
       gCol.incluir(static_cast<Obstaculo*>(pAux));
     }
     break;
+  case BAND:
+    {
+      pAux = new Bandeira(x, y);
+      gCol.incluir(static_cast<Obstaculo*>(pAux));
+    }
+    break;
   case PROJ:
     {
       pAux = new Projetil(x, y, 80, 80, 1);
