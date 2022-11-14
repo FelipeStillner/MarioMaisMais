@@ -54,7 +54,7 @@ const int Colisao::getY() const
 }
 
 // Checa apenas se houve colisao
-bool colidindo(Entidades::Entidade *e1, Entidades::Entidade *e2)
+bool colidindo(Entidade *e1, Entidade *e2)
 {
   int x1 = e1->getX()+e1->getColisao().getX(), x2 = e2->getX()+e2->getColisao().getX(), y1 = e1->getY()+e1->getColisao().getY(), y2 = e2->getY()+e2->getColisao().getY(),
     w1 = e1->getColisao().getWidth(), w2 = e2->getColisao().getWidth(), 
@@ -68,28 +68,34 @@ bool colidindo(Entidades::Entidade *e1, Entidades::Entidade *e2)
 }
 
 // Retorna a direcao da colisao
-int direcaoColisao(Entidades::Entidade *e1, Entidades::Entidade *e2)
+int direcaoColisao(Entidade *e1, Entidade *e2)
 {
-  int x1 = e1->getX()+e1->getColisao().getX(), x2 = e2->getX()+e2->getColisao().getX(), y1 = e1->getY()+e1->getColisao().getY(), y2 = e2->getY()+e2->getColisao().getY(),
-    w1 = e1->getColisao().getWidth(), w2 = e2->getColisao().getWidth(), 
-    h1 = e1->getColisao().getHeight(), h2 = e2->getColisao().getHeight();
-  float Dvx = x2 - e2->getX0() - (x1 - e1->getX0());
-  float Dvy = y2 - e2->getY0() - (y1 - e1->getY0());
+  e2->setXX0(e2->getX0());
+  e1->setXX0(e1->getX0());
+  bool ver = colidindo(e1, e2);
+  e2->setXX0(e2->getX0());
+  e1->setXX0(e1->getX0());
 
-  if (Dvy > 0)// e1 embaixo de e2
+  e2->setYY0(e2->getY0());
+  e1->setYY0(e1->getY0());
+  bool hor = colidindo(e1, e2);
+  e2->setYY0(e2->getY0());
+  e1->setYY0(e1->getY0());
+
+  if(ver && hor)
   {
-    return BAIXO;
+    return TOTAL;
   }
-  else if (Dvy < 0)// e1 emcima de e2
+  else if(ver)
   {
-    return CIMA;
+    printf("VER");
+    return VER;
   }
-  else if (Dvx > 0)
+  else if(hor)
   {
-    return DIREITA;
+    printf("HOR");
+    return HOR;
   }
-  else
-  {
-    return ESQUERDA;
-  }
+  printf("Erro na colisao direcional");
+  exit(1);
 }

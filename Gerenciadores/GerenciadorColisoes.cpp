@@ -122,19 +122,35 @@ void GerenciadorColisoes::executar()
       if (colidindo(*o, *i))
       {
         int dir = direcaoColisao(*o, *i);
-        (*o)->setY((*o)->getY0());
-        (*i)->setY((*i)->getY0());
-        (*o)->setVy(0);
-        (*i)->setVy(0);
+        if(dir == HOR || dir == TOTAL)
+        {
+          (*o)->setX((*o)->getX0());
+          (*i)->setX((*i)->getX0());
+        }
+        if(dir == VER || dir == TOTAL)
+        {
+          (*o)->setY((*o)->getY0());
+          (*i)->setY((*i)->getY0());
+          (*o)->setVy(0);
+          (*i)->setVy(0);
+        }
       }
     }
     if (colidindo(*o, jog))
     {
       int dir = direcaoColisao(*o, jog);
-      (*o)->setY((*o)->getY0());
-      (jog)->setY((jog)->getY0());
-      (*o)->setVy(0);
-      (jog)->setVy(0);
+        if(dir == HOR || dir == TOTAL)
+        {
+          (*o)->setX((*o)->getX0());
+          (jog)->setX((jog)->getX0());
+        }
+        if(dir == VER || dir == TOTAL)
+        {
+          (*o)->setY((*o)->getY0());
+          (jog)->setY((jog)->getY0());
+          (*o)->setVy(0);
+          (jog)->setVy(0);
+        }
     }
     if (jog2 && colidindo(*o, jog2))
     {

@@ -40,7 +40,6 @@ bool colidindo(Entidade *e1, Entidade *e2);
 int direcaoColisao(Entidade *e1, Entidade *e2);
 
 #define NAOCOLIDIU 0
-#define BAIXO 1
-#define CIMA -1
-#define DIREITA 2
-#define ESQUERDA -2
+#define TOTAL 2
+#define HOR -1
+#define VER 1
