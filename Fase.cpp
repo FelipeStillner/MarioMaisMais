@@ -3,6 +3,7 @@
 #include "Entidades/Andador.h"
 #include "Entidades/Lancador.h"
 #include "Entidades/Jogador.h"
+#include "Entidades/Tartaruga.h"
 
 Fase::Fase(Principal* p) : Ente()
 {
@@ -89,47 +90,49 @@ Entidade* Fase::create(int i, float x, float y )
   {
   case PLAYER:
     { 
-      pAux = new Jogador(x, y, 200);
+      pAux = new Jogador(x, y, 2);
       gCol.incluir(static_cast<Jogador*>(pAux));
       setJogador(static_cast<Jogador*>(pAux));
     }
     break;
   case ENEM1:
-      { 
-      pAux= new Andador(x, y, 200);
+    { 
+      pAux= new Andador(x, y, 1);
       gCol.incluir(static_cast<Inimigo*>(pAux));
-      }
-    break;
+    }
+  break;
   case ENEM2:
-      { 
-      pAux= new Lancador(this, x, y, 200);
+    { 
+      pAux= new Lancador(this, x, y, 1);
       gCol.incluir(static_cast<Inimigo*>(pAux));
-      }
+    }
     break;
   case ENEM3:
-
+    { 
+      pAux= new Tartaruga(x, y, 2);
+      gCol.incluir(static_cast<Inimigo*>(pAux));
+    }
     break;
   case BOSS:
 
     break;
   case CHAO:
-      {
-        pAux =  new Chao(x, y);
-        gCol.incluir(static_cast<Obstaculo*>(pAux));
-      }
+    {
+      pAux =  new Chao(x, y);
+      gCol.incluir(static_cast<Obstaculo*>(pAux));
+    }
     break;
   case TUBO:
-      {
-        pAux = new Tubo(x, y);
-        gCol.incluir(static_cast<Obstaculo*>(pAux));
-      }
+    {
+      pAux = new Tubo(x, y);
+      gCol.incluir(static_cast<Obstaculo*>(pAux));
+    }
     break;
   case PROJ:
-      {
-        pAux = new Projetil(x, y, 80, 80, 1);
-        gCol.incluir(static_cast<Projetil*>(pAux));
-      }
-
+    {
+      pAux = new Projetil(x, y, 80, 80, 1);
+      gCol.incluir(static_cast<Projetil*>(pAux));
+    }
     break;
   
   default:

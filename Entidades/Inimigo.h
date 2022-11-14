@@ -18,7 +18,10 @@ public:
   virtual void executar(float dt) = 0;
   virtual void imprimir() = 0;
   virtual int getTipo() = 0;
+  virtual void levarDano(int d = 1);
   virtual void danar() = 0;
+  int getDanoColisao();
+  void setDanoColisao(int d);
 };
 
 }

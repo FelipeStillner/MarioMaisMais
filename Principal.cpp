@@ -50,7 +50,7 @@ void Principal::executar()
                 menu->imprimir();
             }
         }
-        if(f->getJogador(1)->getVida() < 0 || f->getMltplyr() && f->getJogador(2)->getVida() < 0)
+        if(f->getJogador(1)->getVida() <= 0 || (f->getMltplyr() && f->getJogador(2)->getVida() <= 0))
         {
             f->setJogando(false);
         }

@@ -91,11 +91,11 @@ void GerenciadorColisoes::executar()
       {
         (jog)->setX((jog)->getX0());
         (*i)->setX((*i)->getX0());
-        (*jog) -= 1;
+        (*jog) -= (*i)->getDanoColisao();
       }
       if(dir == VER || dir == TOTAL)
       {
-        (*i)->setAtivo(false);
+        (*i)->levarDano();
         jog->setVy(-31);
       }
     }
@@ -110,11 +110,11 @@ void GerenciadorColisoes::executar()
       {
         (jog2)->setX((jog2)->getX0());
         (*i)->setX((*i)->getX0());
-        (*jog2) -= 1;
+        (*jog2) -= (*i)->getDanoColisao();
       }
       if(dir == VER || dir == TOTAL)
       {
-        (*i)->setAtivo(false);
+        (*i)->levarDano();
         jog2->setVy(-31);
       }
     }
