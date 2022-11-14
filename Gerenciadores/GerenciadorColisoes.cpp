@@ -87,8 +87,17 @@ void GerenciadorColisoes::executar()
     if (colidindo(jog, *i))
     {
       int dir = direcaoColisao(jog, *i);
-      (*jog) -= 1;
-      (*i)->setAtivo(false);
+      if(dir == HOR || dir == TOTAL)
+      {
+        (jog)->setX((jog)->getX0());
+        (*i)->setX((*i)->getX0());
+        (*jog) -= 1;
+      }
+      if(dir == VER || dir == TOTAL)
+      {
+        (*i)->setAtivo(false);
+        jog->setVy(-31);
+      }
     }
     if(!(*i)->getAtivo())
     {
@@ -97,8 +106,17 @@ void GerenciadorColisoes::executar()
     if (jog2 && colidindo(jog2, *i))
     {
       int dir = direcaoColisao(jog2, *i);
-      (*jog2) -= 1;
-      (*i)->setAtivo(false);
+      if(dir == HOR || dir == TOTAL)
+      {
+        (jog2)->setX((jog2)->getX0());
+        (*i)->setX((*i)->getX0());
+        (*jog2) -= 1;
+      }
+      if(dir == VER || dir == TOTAL)
+      {
+        (*i)->setAtivo(false);
+        jog2->setVy(-31);
+      }
     }
   }
   
@@ -110,10 +128,13 @@ void GerenciadorColisoes::executar()
       if (colidindo(*o1, *o))
       {
         int dir = direcaoColisao(*o1, *o);
-        (*o)->setY((*o)->getY0());
-        (*o1)->setY((*o1)->getY0());
-        (*o)->setVy(0);
-        (*o1)->setVy(0);
+        if(dir == VER || dir == TOTAL)
+        {
+          (*o)->setY((*o)->getY0());
+          (*o1)->setY((*o1)->getY0());
+          (*o)->setVy(0);
+          (*o1)->setVy(0);
+        }
       }
     }
     // Personagem X Obstaculo: Personagem volta pra coordenada anterior na direcao da colisao
@@ -139,26 +160,34 @@ void GerenciadorColisoes::executar()
     if (colidindo(*o, jog))
     {
       int dir = direcaoColisao(*o, jog);
-        if(dir == HOR || dir == TOTAL)
-        {
-          (*o)->setX((*o)->getX0());
-          (jog)->setX((jog)->getX0());
-        }
-        if(dir == VER || dir == TOTAL)
-        {
-          (*o)->setY((*o)->getY0());
-          (jog)->setY((jog)->getY0());
-          (*o)->setVy(0);
-          (jog)->setVy(0);
-        }
+      if(dir == HOR || dir == TOTAL)
+      {
+        (*o)->setX((*o)->getX0());
+        (jog)->setX((jog)->getX0());
+      }
+      if(dir == VER || dir == TOTAL)
+      {
+        (*o)->setY((*o)->getY0());
+        (jog)->setY((jog)->getY0());
+        (*o)->setVy(0);
+        (jog)->setVy(0);
+      }
     }
     if (jog2 && colidindo(*o, jog2))
     {
       int dir = direcaoColisao(*o, jog2);
-      (*o)->setY((*o)->getY0());
-      (jog2)->setY((jog2)->getY0());
-      (*o)->setVy(0);
-      (jog2)->setVy(0);
+      if(dir == HOR || dir == TOTAL)
+      {
+        (*o)->setX((*o)->getX0());
+        (jog2)->setX((jog2)->getX0());
+      }
+      if(dir == VER || dir == TOTAL)
+      {
+        (*o)->setY((*o)->getY0());
+        (jog2)->setY((jog2)->getY0());
+        (*o)->setVy(0);
+        (jog2)->setVy(0);
+      }
     }
   }
 

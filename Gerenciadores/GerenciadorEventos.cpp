@@ -78,7 +78,6 @@ void GerenciadorEventos::executar()
       if(j->getVy() == 0)
       {
         j->setVy(-31);
-        j->setXX0(j->getX());
         estado = JUMP;
       }
     }
@@ -111,7 +110,6 @@ void GerenciadorEventos::executar()
         if(j->getVy() == 0)
         {
           j->setVy(-31);
-          j->setXX0(j->getX());
           estado = JUMP;
         }
       }
