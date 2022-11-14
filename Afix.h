@@ -9,7 +9,8 @@
 #define TUBO 6
 #define MOLA 7
 #define BAND 8
-#define PROJ 9
+#define SPIK 9
+#define PROJ 10
 
 #define EXIT -1
 #define PLAY 0

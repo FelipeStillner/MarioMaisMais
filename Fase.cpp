@@ -136,6 +136,12 @@ Entidade* Fase::create(int i, float x, float y )
       gCol.incluir(static_cast<Obstaculo*>(pAux));
     }
     break;
+  case SPIK:
+    {
+      pAux = new Spike(x, y, 1);
+      gCol.incluir(static_cast<Obstaculo*>(pAux));
+    }
+    break;
   case PROJ:
     {
       pAux = new Projetil(x, y, 80, 80, 1);

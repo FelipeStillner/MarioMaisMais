@@ -1,6 +1,7 @@
 #include "GerenciadorColisoes.h"
 #include "../Fase.h"
 #include "../Entidades/Mola.h"
+#include "../Entidades/Spike.h"
 
 namespace Gerenciadores
 {
@@ -159,11 +160,26 @@ void GerenciadorColisoes::executar()
           (*i)->setY((*i)->getY0());
           (*o)->setVy(0);
           (*i)->setVy(0);
+          if((*o)->getTipo() == MOLA)
+          {
+            Mola* m = static_cast<Mola*>(*o);
+            (*i)->setVy(-m->getForca());
+          }
+          else if((*o)->getTipo() == SPIK)
+          {
+            Spike* s = static_cast<Spike*>(*o);
+            (*i)->levarDano(s->getDano());
+          }
         }
       }
     }
     if (colidindo(*o, jog))
     {
+      if((*o)->getTipo() == SPIK)
+      {
+        Spike* s = static_cast<Spike*>(*o);
+        (*jog) -= s->getDano();
+      }
       int dir = direcaoColisao(*o, jog);
       if(dir == HOR || dir == TOTAL)
       {
@@ -185,6 +201,11 @@ void GerenciadorColisoes::executar()
     }
     if (jog2 && colidindo(*o, jog2))
     {
+      if((*o)->getTipo() == SPIK)
+      {
+        Spike* s = static_cast<Spike*>(*o);
+        (*jog) -= s->getDano();
+      }
       int dir = direcaoColisao(*o, jog2);
       if(dir == HOR || dir == TOTAL)
       {
