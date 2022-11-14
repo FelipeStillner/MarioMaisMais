@@ -10,3 +10,4 @@ hud/spr_spritefont_strip94.png
 Enemies/spr_bigchainchomp_strip2.png
 Enemies/Land/spr_koopa_strip2.png
 Enemies/Land/spr_shell_down_strip4.png
+Items/Collectables/spr_spring_strip4.png

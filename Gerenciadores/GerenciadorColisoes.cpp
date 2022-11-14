@@ -1,5 +1,6 @@
 #include "GerenciadorColisoes.h"
 #include "../Fase.h"
+#include "../Entidades/Mola.h"
 
 namespace Gerenciadores
 {
@@ -125,6 +126,10 @@ void GerenciadorColisoes::executar()
     // Obstaculo X Obstaculo: ambos voltam pra coordenada anterior na direcao da colisao
     for (o1 = o; o1 != obst.end(); o1++)
     {
+      if(o1 == o)
+      {
+        continue;
+      }
       if (colidindo(*o1, *o))
       {
         int dir = direcaoColisao(*o1, *o);
@@ -171,6 +176,11 @@ void GerenciadorColisoes::executar()
         (jog)->setY((jog)->getY0());
         (*o)->setVy(0);
         (jog)->setVy(0);
+        if((*o)->getTipo() == MOLA)
+        {
+          Mola* m = static_cast<Mola*>(*o);
+          (jog)->setVy(-m->getForca());
+        }
       }
     }
     if (jog2 && colidindo(*o, jog2))

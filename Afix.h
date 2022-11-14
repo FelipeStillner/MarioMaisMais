@@ -5,9 +5,10 @@
 #define ENEM2 2
 #define ENEM3 3
 #define BOSS 4
-#define TUBO 5
-#define CHAO 6
-#define PROJ 7
+#define CHAO 5
+#define TUBO 6
+#define MOLA 7
+#define PROJ 8
 
 #define EXIT -1
 #define PLAY 0

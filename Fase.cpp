@@ -1,9 +1,5 @@
 #include "Fase.h"
 #include "Principal.h"
-#include "Entidades/Andador.h"
-#include "Entidades/Lancador.h"
-#include "Entidades/Jogador.h"
-#include "Entidades/Tartaruga.h"
 
 Fase::Fase(Principal* p) : Ente()
 {
@@ -125,6 +121,12 @@ Entidade* Fase::create(int i, float x, float y )
   case TUBO:
     {
       pAux = new Tubo(x, y);
+      gCol.incluir(static_cast<Obstaculo*>(pAux));
+    }
+    break;
+  case MOLA:
+    {
+      pAux = new Mola(x, y, 31);
       gCol.incluir(static_cast<Obstaculo*>(pAux));
     }
     break;
