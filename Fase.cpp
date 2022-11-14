@@ -102,7 +102,7 @@ Entidade* Fase::create(int i, float x, float y )
     break;
   case ENEM2:
       { 
-      pAux= new Lancador(x, y, 200);
+      pAux= new Lancador(this, x, y, 200);
       gCol.incluir(static_cast<Inimigo*>(pAux));
       }
     break;

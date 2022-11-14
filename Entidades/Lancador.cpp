@@ -1,7 +1,8 @@
 #include "Lancador.h"
 
-Lancador::Lancador(float x, float y, int v): Inimigo(x, y, 160, 160, v, Colisao(10, 10, 140, 140), Animacao(sf::IntRect(0, 0, 64, 64), 0.25, "12"), 1)
+Lancador::Lancador(Fase* f, float x, float y, int v): Inimigo(x, y, 160, 160, v, Colisao(10, 10, 140, 140), Animacao(sf::IntRect(0, 0, 64, 64), 0.25, "12"), 1)
 {
+  this->f = f;
   tLan = 0;
 }
 
@@ -19,6 +20,9 @@ void Lancador::executar(float dt)
   if(tLan > 2)
   {  
     tLan = 0;
+    Projetil* p = static_cast<Projetil*>(f->create(PROJ, x + col.getX() + col.getWidth(), y));
+    p->setVy(-31);
+    p->setVx(1000);
     danar();
   }
 }

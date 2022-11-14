@@ -38,3 +38,13 @@ int Projetil::getTipo()
 {
   return PROJ;
 }
+
+void Projetil::setVx(int vx)
+{
+  this->vx = vx;
+}
+
+int Projetil::getVx()
+{
+  return vx;
+}

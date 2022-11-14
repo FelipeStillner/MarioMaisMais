@@ -17,6 +17,8 @@ public:
   virtual void imprimir();
   const int getDano() const;
   int getTipo();
+  void setVx(int vx);
+  int getVx();
 };
 
 }
