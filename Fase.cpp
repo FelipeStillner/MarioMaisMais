@@ -170,3 +170,25 @@ GerenciadorColisoes* Fase::getGCol()
 {
   return &gCol;
 }
+
+Tubo* Fase::createTubo(float x , float y)
+{
+  Tubo* pAux = new Tubo(x, y);
+  gCol.incluir(static_cast<Obstaculo*>(pAux));
+  entidades.push(pAux);
+  return(pAux);
+}
+Chao* Fase::createChao(float x , float y)
+{
+    Chao* pAux =  new Chao(x, y);
+    gCol.incluir(static_cast<Obstaculo*>(pAux));
+    entidades.push(pAux);
+    return(pAux);
+}
+Jogador* Fase::createJogador(float x, float y)
+{
+    Jogador* pAux = new Jogador(x, y, 2);
+    gCol.incluir(static_cast<Jogador*>(pAux));
+    setJogador(static_cast<Jogador*>(pAux));
+    return(pAux);
+}

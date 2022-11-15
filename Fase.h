@@ -4,6 +4,10 @@
 #include "Ente.h"
 #include "ClassesAuxiliares/ListaEntidades.h"
 #include "Gerenciadores/GerenciadorColisoes.h"
+#include"Entidades/Andador.h"
+#include"Entidades/Chao.h"
+#include"Entidades/Tubo.h"
+#include"Entidades/Jogador.h"
 
 class Principal;
 
@@ -32,7 +36,13 @@ public:
   void setMltplyr(bool m = false);
   const bool getMltplyr() const ;
   Entidade* create(int i = 0, float x = 0, float y = 0);
+  Jogador* createJogador(float x = 0, float y = 0);
+  Chao* createChao(float x = 0, float y = 0);
+  Tubo* createTubo(float x = 0, float y = 0);
+
   void setBackground(int i = 3);
   const int getIBackground() const;
+  virtual void gravaFase()= 0;
+  virtual Fase* recFase() = 0;
   GerenciadorColisoes* getGCol();
 };
