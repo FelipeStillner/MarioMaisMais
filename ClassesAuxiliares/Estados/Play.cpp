@@ -27,7 +27,6 @@ Estado* Play ::eExecutar(sf::Keyboard::Key  pKey)
         {
             setFase(1);
             return (this);
-            
         }
     //else if (sf::Keyboard::isKeyPressed(fase2.getOpt()))
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
@@ -53,11 +52,11 @@ Estado* Play ::eExecutar(sf::Keyboard::Key  pKey)
 }
 void  Play::setFase(int i )
 {
-    if(i==1)
+    if(i == 1)
     {
         pFase = new Fase1();
     }
-    else if( i ==2)
+    else if(i == 2)
     {
         pFase = new Fase2();
     }

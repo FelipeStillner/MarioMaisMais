@@ -15,12 +15,9 @@ GerenciadorEventos::~GerenciadorEventos()
 
 void GerenciadorEventos::executar()
 {
-  
   sf::Event event;
 
   int estado = IDLE;
-  
-  Jogador* j = this->p->getFase()->getJogador(1);
   while (this->p->getGerenciadorGrafico()->getWindow()->pollEvent(event))
   {
 
@@ -33,21 +30,15 @@ void GerenciadorEventos::executar()
     {
       if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
       {
-        p->getMenu()->setPausa(!(p->getMenu()->getPausa()));
+        //p->getMenu()->setPausa(!(p->getMenu()->getPausa()));
+        p->getFase()->setJogando(!p->getFase()->getJogando());
       }
-    }
-
-    if (event.type == sf::Event::MouseButtonPressed)
-    { 
-      Menu* pMenu = p->getMenu();
-    
-      j->setXX0(sf::Mouse::getPosition(*this->p->getGerenciadorGrafico()->getWindow()).x);
-      j->setYY0(sf::Mouse::getPosition(*this->p->getGerenciadorGrafico()->getWindow()).y);
     }
   }
   
   if(!p->getMenu()->getPausa())
   {
+    Jogador* j = this->p->getFase()->getJogador(1);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
       j->setXX0(j->getX()+10);

@@ -1,4 +1,5 @@
-#include "GerenciadorFases.h"
+
+/*#include "GerenciadorFases.h"
 
 namespace Gerenciadores
 {
@@ -114,3 +115,4 @@ Fase* GerenciadorFases::getFase(int i )
 }
 
 }
+*/

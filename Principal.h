@@ -28,7 +28,7 @@ private:
   sf::Clock clock;
   GerenciadorEventos* gEven;
   GerenciadorGrafico* gG;
-  GerenciadorFases* gF;
+  //GerenciadorFases* gF;
   Menu* menu;
 public:
   Principal();

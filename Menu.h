@@ -21,7 +21,7 @@ class Menu : public Ente
 {
 protected:
   bool pausado;
-
+  bool mudouEstado;
   Estado* pEstado;
 public:
 

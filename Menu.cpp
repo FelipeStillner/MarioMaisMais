@@ -19,6 +19,7 @@
 */
 Menu::Menu(int k) : Ente()
 {
+    mudouEstado = false;
     setPausa(true);
     int frstL = '!';
     int i, j;
@@ -39,11 +40,20 @@ void Menu::executar(float dt)
     sf::Event event;
     sf::RenderWindow *rw = (gG->getWindow());
     rw->pollEvent(event);
-    sf::sleep(sf::seconds(0.8));
-    pEstado=pEstado->eExecutar();
+    if(mudouEstado)
+    {
+        sf::sleep(sf::seconds(0.8));
+        mudouEstado = false;
+    }
+    Estado* e = pEstado;
+    pEstado = pEstado->eExecutar();
+    if(e != pEstado)
+    {
+        mudouEstado = true;
+    }
     if(!pEstado)
     {
-        setPausa(false);
+        gG->getWindow()->close();
     }
 }
 

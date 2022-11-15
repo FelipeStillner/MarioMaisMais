@@ -25,7 +25,7 @@ void Botao::imprimir()
     float len = 8.0;
     int i,j;
     float wd = 8.0 , hg = 8.0;
-    float x = pos.x + w->getView().getCenter().x, y =pos.y + w->getView().getCenter().y;
+    float x = pos.x + w->getView().getCenter().x - 200, y =pos.y + w->getView().getCenter().y - 200;
 
     sf::Texture* text = (*gG)[8];
    

@@ -1,4 +1,5 @@
 #pragma once
+/*
 #include "../Afix.h"
 #include "../Fase.h"
 #include "../Fase1.h"
@@ -30,3 +31,4 @@ public:
 };
 
 }
+*/

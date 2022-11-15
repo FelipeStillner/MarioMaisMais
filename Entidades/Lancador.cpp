@@ -20,7 +20,7 @@ void Lancador::executar(float dt)
   if(tLan > 2)
   {  
     tLan = 0;
-    Projetil* p = static_cast<Projetil*>(f->create(PROJ, x + col.getX() + col.getWidth(), y));
+    Projetil* p = static_cast<Projetil*>(f->createProjetil(x + col.getX() + col.getWidth(), y));
     p->setVy(-31);
     p->setVx(1000);
     danar();

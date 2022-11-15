@@ -14,6 +14,7 @@ GerenciadorColisoes::GerenciadorColisoes(): jog()
 
 GerenciadorColisoes::~GerenciadorColisoes()
 {
+  
 }
 
 void GerenciadorColisoes::executar()

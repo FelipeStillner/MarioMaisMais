@@ -37,9 +37,6 @@ Estado* Load ::eExecutar(sf::Keyboard::Key  pKey)
         {
             return (this);
         }
-    //
-        //return(NULL);
-
 }
 void  Load::setFase(int i )
 {

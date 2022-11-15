@@ -15,7 +15,7 @@ public:
   Tartaruga* createTartaruga(float x =0 , float y =0);
   Mola* createMola(float x =0 , float y =0);
   Spike* createSpike(float x =0 , float y =0);
-  Fase2(Principal* p =  NULL);
+  Fase2();
   ~Fase2();
 };
 

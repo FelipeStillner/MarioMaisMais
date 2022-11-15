@@ -18,7 +18,6 @@ public:
   ~ListaEntidades();
   void push(Entidade* e);
   Lista<Entidade>* getEntidades();
-  void remove(Entidade* e);
   void executar(float dt);
   void imprimir();
   Entidade* operator[](int n); 

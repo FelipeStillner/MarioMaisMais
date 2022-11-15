@@ -1,9 +1,8 @@
 #include "Fase.h"
 #include "Principal.h"
 
-Fase::Fase(Principal* p) : Ente()
+Fase::Fase() : Ente()
 {
-  prin = p;
   jogando = true;
   mltply= false;
   jog = NULL;
@@ -78,83 +77,6 @@ const bool Fase::getMltplyr() const
 {
   return(mltply);
 }
-Entidade* Fase::create(int i, float x, float y )
-{ 
-  //é um "factory method"!
-  Entidade* pAux= NULL;
-  switch (i)
-  {
-  case PLAYER:
-    { 
-      pAux = new Jogador(x, y, 2);
-      gCol.incluir(static_cast<Jogador*>(pAux));
-      setJogador(static_cast<Jogador*>(pAux));
-    }
-    break;
-  case ENEM1:
-    { 
-      pAux= new Andador(x, y, 1);
-      gCol.incluir(static_cast<Inimigo*>(pAux));
-    }
-  break;
-  case ENEM2:
-    { 
-      pAux= new Lancador(this, x, y, 1);
-      gCol.incluir(static_cast<Inimigo*>(pAux));
-    }
-    break;
-  case ENEM3:
-    { 
-      pAux= new Tartaruga(x, y, 2);
-      gCol.incluir(static_cast<Inimigo*>(pAux));
-    }
-    break;
-  case BOSS:
-
-    break;
-  case CHAO:
-    {
-      pAux =  new Chao(x, y);
-      gCol.incluir(static_cast<Obstaculo*>(pAux));
-    }
-    break;
-  case TUBO:
-    {
-      pAux = new Tubo(x, y);
-      gCol.incluir(static_cast<Obstaculo*>(pAux));
-    }
-    break;
-  case MOLA:
-    {
-      pAux = new Mola(x, y, 31);
-      gCol.incluir(static_cast<Obstaculo*>(pAux));
-    }
-    break;
-  case BAND:
-    {
-      pAux = new Bandeira(x, y);
-      gCol.incluir(static_cast<Obstaculo*>(pAux));
-    }
-    break;
-  case SPIK:
-    {
-      pAux = new Spike(x, y, 1);
-      gCol.incluir(static_cast<Obstaculo*>(pAux));
-    }
-    break;
-  case PROJ:
-    {
-      pAux = new Projetil(x, y, 80, 80, 1);
-      gCol.incluir(static_cast<Projetil*>(pAux));
-    }
-    break;
-  
-  default:
-    break;
-  }
-  entidades.push(pAux);
-  return(pAux);
-}
 
 const int Fase::getIBackground() const
 {
@@ -178,23 +100,35 @@ Tubo* Fase::createTubo(float x , float y)
   entidades.push(pAux);
   return(pAux);
 }
+
+Projetil* Fase::createProjetil(float x , float y)
+{
+  Projetil* pAux = new Projetil(x, y, 80, 80, 1);
+  gCol.incluir(static_cast<Projetil*>(pAux));
+  entidades.push(pAux);
+  return(pAux);
+}
 Chao* Fase::createChao(float x , float y)
 {
-    Chao* pAux =  new Chao(x, y);
+  Chao* pAux =  new Chao(x, y);
+  gCol.incluir(static_cast<Obstaculo*>(pAux));
+  entidades.push(pAux);
+  return(pAux);
+}
+
+Jogador* Fase::createJogador(float x, float y)
+{
+  Jogador* pAux = new Jogador(x, y, 2);
+  gCol.incluir(static_cast<Jogador*>(pAux));
+  setJogador(static_cast<Jogador*>(pAux));
+  entidades.push(pAux);
+  return(pAux);
+}
+
+Bandeira* Fase::createBandeira(float x , float y )
+{
+    Bandeira* pAux = new Bandeira(x, y);
     gCol.incluir(static_cast<Obstaculo*>(pAux));
     entidades.push(pAux);
     return(pAux);
 }
-Jogador* Fase::createJogador(float x, float y)
-{
-    Jogador* pAux = new Jogador(x, y, 2);
-    gCol.incluir(static_cast<Jogador*>(pAux));
-    setJogador(static_cast<Jogador*>(pAux));
-    return(pAux);
-}
- Bandeira* Fase::createBandeira(float x , float y )
- {
-      Bandeira* pAux = new Bandeira(x, y);
-      gCol.incluir(static_cast<Obstaculo*>(pAux));
-      return(pAux);
- }

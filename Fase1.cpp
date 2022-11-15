@@ -1,19 +1,19 @@
 #include "Fase1.h"
 
-Fase1::Fase1(Principal* prin) : Fase(prin)
+Fase1::Fase1() : Fase()
 {
   background = (*gG)[3];
   mltply = true;
 
-  create(PLAYER, 400.0, 200.0);
-  create(PLAYER, 500.0, 200.0);
-  create(ENEM1, 1000.0, 300.0);
-  create(TUBO, 1000.0, 600.0);
-  create(CHAO, 0.0, 700.0);
+  createJogador(400.0, 200.0);
+  createJogador(500.0, 200.0);
+  createAndador(1000.0, 300.0);
+  createTubo(1000.0, 600.0);
+  createChao(0.0, 700.0);
 }
 Andador* Fase1::createAndador(float x, float y)
 {
-  Andador* pAux= new Andador(x, y, 200);
+  Andador* pAux= new Andador(x, y, 1);
   entidades.push(pAux);
   gCol.incluir(static_cast<Inimigo*>(pAux));
   return(pAux);
@@ -114,5 +114,6 @@ Fase* Fase1::recFase()
 
 Fase1::~Fase1()
 {
-
+  entidades.~ListaEntidades();
+  gCol.~GerenciadorColisoes();
 }
