@@ -20,11 +20,9 @@ using std::vector;
 class Menu : public Ente
 {
 protected:
-  int estado;
   bool pausado;
 
   Estado* pEstado;
-
 public:
 
   Menu(int k = 0);
@@ -34,10 +32,8 @@ public:
   void imprimir();
   void setPausa(bool p);
   const bool getPausa() const ;
-  void setEstado(int e = -1);
-  const int getEstado() const;
   void mouseClick(sf::Vector2<float> vMouse = sf::Vector2<float>());
-
+  Fase* getFase();
 };
 
 

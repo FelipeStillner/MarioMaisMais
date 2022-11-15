@@ -13,7 +13,7 @@ void Load ::imprimir()
     fase2.escreveTexto();
     back.escreveTexto();
 }
-Estado* Load ::executar(sf::Keyboard::Key  pKey)
+Estado* Load ::eExecutar(sf::Keyboard::Key  pKey)
 {   //
 
     //if (sf::Keyboard::isKeyPressed(fase1.getOpt()))
@@ -53,6 +53,10 @@ void  Load::setFase(int i )
         pFase = new Fase2();
         pFase ->recFase();
     }
+}
+Fase* Load::getFase()
+{
+    return(pFase);
 }
 Load ::~Load ()
 {

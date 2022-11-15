@@ -15,5 +15,7 @@ public:
     Inicial ();
     ~Inicial ();
     void imprimir();
-    Estado* executar(sf::Keyboard::Key  pKey = sf::Keyboard::Comma);
+    Estado* eExecutar(sf::Keyboard::Key  pKey = sf::Keyboard::Comma);
+    Fase* getFase();
+    void setFase(int i = 0);
 };

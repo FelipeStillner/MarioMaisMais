@@ -2,7 +2,7 @@
 
 Inicial ::Inicial () :
 mario(sf::Keyboard::Comma,sf::Vector2f(0,0),string("mario++")),
-play(sf::Keyboard::Num1,sf::Vector2f(0,8.0*8.0),string("1)PL2AY")),
+play(sf::Keyboard::Num1,sf::Vector2f(0,8.0*8.0),string("1)PLAY")),
 rank(sf::Keyboard::Num2,sf::Vector2f(0,8.0*8.0*2),string("2)RANK")),
 quitgame(sf::Keyboard::Num3,sf::Vector2f(0,8.0*8.0*3),string("3)QUIT"))
 {
@@ -15,7 +15,7 @@ void Inicial ::imprimir()
     rank.escreveTexto();
     quitgame.escreveTexto();
 }
-Estado* Inicial ::executar(sf::Keyboard::Key  pKey)
+Estado* Inicial ::eExecutar(sf::Keyboard::Key  pKey)
 {   
     //if(sf::Keyboard::isKeyPressed(play.getOpt()))
     if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))        
@@ -30,7 +30,7 @@ Estado* Inicial ::executar(sf::Keyboard::Key  pKey)
         }
     //else if (sf::Keyboard::isKeyPressed(quitgame.getOpt()))
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3))
-        {
+        {   
             return(NULL);
         }
     else
@@ -43,4 +43,12 @@ Estado* Inicial ::executar(sf::Keyboard::Key  pKey)
 Inicial ::~Inicial ()
 {
     
+}
+Fase* Inicial ::getFase() 
+{
+    return (NULL);
+}
+void Inicial ::setFase(int i)
+{
+    pFase=NULL;
 }

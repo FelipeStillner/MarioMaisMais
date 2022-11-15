@@ -19,7 +19,7 @@ void Play ::imprimir()
     load.escreveTexto();
     back.escreveTexto();
 }
-Estado* Play ::executar(sf::Keyboard::Key  pKey)
+Estado* Play ::eExecutar(sf::Keyboard::Key  pKey)
 {   
     //if (sf::Keyboard::isKeyPressed(fase1.getOpt()))
 
@@ -27,6 +27,7 @@ Estado* Play ::executar(sf::Keyboard::Key  pKey)
         {
             setFase(1);
             return (this);
+            
         }
     //else if (sf::Keyboard::isKeyPressed(fase2.getOpt()))
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
@@ -61,5 +62,8 @@ void  Play::setFase(int i )
         pFase = new Fase2();
     }
 }
-
+Fase* Play::getFase()
+{
+    return(pFase);
+}
 

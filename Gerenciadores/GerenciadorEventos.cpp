@@ -28,19 +28,6 @@ void GerenciadorEventos::executar()
     {
       this->p->getGerenciadorGrafico()->getWindow()->close();
     }
-    else if(p->getMenu()->getPausa())
-    { 
-      if (event.type == sf::Event::MouseButtonPressed)
-      { 
-        Menu* pMenu = p->getMenu();
-      
-        float xm = sf::Mouse::getPosition(*p->getGerenciadorGrafico()->getWindow()).x;
-        float ym = sf::Mouse::getPosition(*p->getGerenciadorGrafico()->getWindow()).y;
-
-        pMenu->mouseClick(sf::Vector2<float>(xm,ym));
-
-      }
-    }
 
     if (event.type == sf::Event::KeyPressed)
     {

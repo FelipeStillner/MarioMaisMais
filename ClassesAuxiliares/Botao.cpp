@@ -21,13 +21,14 @@ void Botao::imprimir()
  }
  void Botao::escreveTexto()
 {   
+    sf::RenderWindow * w = gG->getWindow();
     float len = 8.0;
     int i,j;
     float wd = 8.0 , hg = 8.0;
-    float x = pos.x , y =pos.y;
+    float x = pos.x + w->getView().getCenter().x, y =pos.y + w->getView().getCenter().y;
 
     sf::Texture* text = (*gG)[8];
-    sf::RenderWindow * w = gG->getWindow();
+   
   
     for(i=0;i<(texto).size();i++)
     {
