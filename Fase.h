@@ -8,6 +8,7 @@
 #include"Entidades/Chao.h"
 #include"Entidades/Tubo.h"
 #include"Entidades/Jogador.h"
+#include"Entidades/Bandeira.h"
 
 class Principal;
 
@@ -39,7 +40,7 @@ public:
   Jogador* createJogador(float x = 0, float y = 0);
   Chao* createChao(float x = 0, float y = 0);
   Tubo* createTubo(float x = 0, float y = 0);
-
+  Bandeira* createBandeira(float x = 0, float y = 0);
   void setBackground(int i = 3);
   const int getIBackground() const;
   virtual void gravaFase()= 0;

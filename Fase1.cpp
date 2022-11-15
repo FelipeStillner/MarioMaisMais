@@ -87,6 +87,9 @@ Fase* Fase1::recFase()
         case CHAO:
           pE=pFase->createChao(X,Y);
           break;
+        case BAND:
+          pE=pFase->createBandeira(X,Y);
+          break;
         default:
           break;
         }

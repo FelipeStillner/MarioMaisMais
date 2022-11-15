@@ -192,3 +192,9 @@ Jogador* Fase::createJogador(float x, float y)
     setJogador(static_cast<Jogador*>(pAux));
     return(pAux);
 }
+ Bandeira* createBandeira(float x , float y )
+ {
+      Bandeira* pAux = new Bandeira(x, y);
+      gCol.incluir(static_cast<Obstaculo*>(pAux));
+      return(pAux);
+ }
