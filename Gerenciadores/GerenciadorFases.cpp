@@ -17,7 +17,7 @@ Fase* GerenciadorFases::recFase()
     std::ifstream arquivo;
     arquivo.open("Gerenciadores/novoarquivo1.dat",ios::in);
 
-    Fase* pFase = new Fase();
+    Fase* pFase = new Fase1();
 
     std::cout<<"REC FASE"<<std::endl;
 

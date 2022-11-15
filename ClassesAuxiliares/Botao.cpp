@@ -1,8 +1,8 @@
 #include"Botao.h"
- Botao::Botao(sf::Keyboard::Key o, sf::Vector2f p , string t): texto()
+ Botao::Botao(sf::Keyboard::Key o, sf::Vector2f p , string t): texto(t)
  {
 
-    texto+t;
+    //texto+t;
     pos.x = p.x;
     pos.y =p.y;
     opt = o;

@@ -8,6 +8,11 @@
 #include "Gerenciadores/GerenciadorGrafico.h"
 #include "Afix.h"
 #include "Ente.h"
+#include"ClassesAuxiliares/Botao.h"
+#include"ClassesAuxiliares/Estados/Estados.h"
+#include"ClassesAuxiliares/Estados/Load.h"
+#include"ClassesAuxiliares/Estados/Play.h"
+#include"ClassesAuxiliares/Estados/Inicial.h"
 
 using std::string;
 using std::vector;
@@ -15,13 +20,13 @@ using std::vector;
 class Menu : public Ente
 {
 protected:
-  static vector<sf::IntRect*>* letras;
-  vector<string> strings;
-  //vector<sf::IntRect*> boxes;
   int estado;
   bool pausado;
-  
+
+  Estado* pEstado;
+
 public:
+
   Menu(int k = 0);
 
   ~Menu();
@@ -32,9 +37,7 @@ public:
   void setEstado(int e = -1);
   const int getEstado() const;
   void mouseClick(sf::Vector2<float> vMouse = sf::Vector2<float>());
-  static void escreveTexto(string vTexto,int fX = 0 , float fY = 0, float len= 8.0);
-  static void inicializaLetras();
-  static void destroiLetras();
+
 };
 
 

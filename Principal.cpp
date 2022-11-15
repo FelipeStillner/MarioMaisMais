@@ -10,7 +10,8 @@ Principal::Principal() : gG(NULL), clock(), gEven(NULL), menu(NULL)
     menu = new Menu();
     Menu::inicializaLetras();
   
-    f = gF->getFase(2);
+    //f = gF->getFase(2);
+    f =  new Fase2();
     menu->setg(gG);
     executar();
 }
@@ -25,12 +26,12 @@ void Principal::executar()
     const float FPS = 60.0;
     float dt ;
     sf::RenderWindow* w = gG->getWindow();
-    menu->setPausa(false);
-    menu->setEstado(INICIAL);
-    f->imprimir();
-    gF->gravaFase(f);
-    delete f;
-    f = gF->recFase();
+    menu->setPausa(true);
+    //menu->setEstado(INICIAL);
+    //f->imprimir();
+    //gF->gravaFase(f);
+    //delete f;
+    //f = gF->recFase();
     //f->setJogando(false);
     while (w->isOpen())
     {
