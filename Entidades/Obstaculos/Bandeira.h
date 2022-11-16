@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Obstaculo.h"
-#include "../ClassesAuxiliares/Animacao.h"
+#include "../../ClassesAuxiliares/Animacao.h"
 
 namespace Entidades
 {

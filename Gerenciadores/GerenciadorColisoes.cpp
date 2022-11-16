@@ -1,7 +1,7 @@
 #include "GerenciadorColisoes.h"
-#include "../Fase.h"
-#include "../Entidades/Mola.h"
-#include "../Entidades/Spike.h"
+#include "../Fases/Fase.h"
+#include "../Entidades/Obstaculos/Mola.h"
+#include "../Entidades/Obstaculos/Spike.h"
 
 namespace Gerenciadores
 {

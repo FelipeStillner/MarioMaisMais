@@ -1,15 +1,20 @@
 #pragma once
 
-#include "../Entidades/Inimigo.h"
-#include "../Entidades/Obstaculo.h"
-#include "../Entidades/Jogador.h"
+#include "../Entidades/Personagens/Inimigo.h"
+#include "../Entidades/Obstaculos/Obstaculo.h"
+#include "../Entidades/Personagens/Jogador.h"
 #include "../Entidades/Projetil.h"
 
-class Fase;
+namespace Fases
+{
+  class Fase;
+}
 
 using namespace Entidades;
 using namespace Personagens;
 using namespace Obstaculos;
+using namespace Fases;
+
 
 namespace Gerenciadores
 {

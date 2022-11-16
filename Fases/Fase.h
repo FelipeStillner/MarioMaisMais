@@ -1,16 +1,19 @@
 #pragma once
 
-#include "Afix.h"
-#include "Ente.h"
-#include "ClassesAuxiliares/ListaEntidades.h"
-#include "Gerenciadores/GerenciadorColisoes.h"
-#include"Entidades/Andador.h"
-#include"Entidades/Chao.h"
-#include"Entidades/Tubo.h"
-#include"Entidades/Jogador.h"
-#include"Entidades/Bandeira.h"
+#include "../Afix.h"
+#include "../Ente.h"
+#include "../ClassesAuxiliares/ListaEntidades.h"
+#include "../Gerenciadores/GerenciadorColisoes.h"
+#include "../Entidades/Personagens/Andador.h"
+#include "../Entidades/Obstaculos/Chao.h"
+#include "../Entidades/Obstaculos/Tubo.h"
+#include "../Entidades/Personagens/Jogador.h"
+#include "../Entidades/Obstaculos/Bandeira.h"
 
 class Principal;
+
+namespace Fases
+{
 
 class Fase : public Ente
 {
@@ -46,3 +49,7 @@ public:
   virtual Fase* recFase() = 0;
   GerenciadorColisoes* getGCol();
 };
+
+}
+
+using namespace Fases;

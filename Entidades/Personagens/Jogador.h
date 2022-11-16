@@ -18,9 +18,9 @@ public:
   ~Jogador();
   virtual void executar(float dt);
   virtual void imprimir();
+  int getTipo();
   void setEstado(const int est);
   const int getEstado() const;
-  int getTipo();
   float getTproj();
   void setTproj(float t = 0);
 };

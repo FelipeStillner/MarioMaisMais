@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../Entidades/Jogador.h"
+#include "../Entidades/Personagens/Jogador.h"
 
 class Principal;
 

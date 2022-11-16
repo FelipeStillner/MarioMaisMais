@@ -1,6 +1,13 @@
 #pragma once
 
 #include"Estados.h"
+
+namespace ClassesAuxiliares
+{
+
+namespace Estados
+{
+
 class Play : public Estado
 {
 private:
@@ -8,14 +15,15 @@ private:
     Botao fase2;
     Botao load;
     Botao back;
-    //Estado* 
-    //Estado*
-    //Estado*
 public:
     Play ();
     ~Play ();
     void imprimir();
-    Estado* eExecutar(sf::Keyboard::Key  pKey = sf::Keyboard::Comma);
+    Estado* eExecutar();
     Fase* getFase();
     void setFase(int i = 0);
 };
+
+}
+
+}

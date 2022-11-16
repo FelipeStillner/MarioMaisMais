@@ -1,6 +1,14 @@
 #pragma once
 
 #include"Estados.h"
+
+namespace ClassesAuxiliares
+{
+
+namespace Estados
+{
+
+
 class Inicial : public Estado
 {
 private:
@@ -8,14 +16,15 @@ private:
     Botao play;
     Botao rank;
     Botao quitgame;
-    //Estado* 
-    //Estado*
-    //Estado*
 public:
     Inicial ();
     ~Inicial ();
     void imprimir();
-    Estado* eExecutar(sf::Keyboard::Key  pKey = sf::Keyboard::Comma);
+    Estado* eExecutar();
     Fase* getFase();
     void setFase(int i = 0);
 };
+
+}
+
+}

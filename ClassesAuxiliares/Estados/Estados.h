@@ -1,27 +1,40 @@
 #pragma once
+
 #include"../../Afix.h"
 #include"../../Ente.h"
 #include"../Botao.h"
-#include"../../Fase.h"
-#include"../../Fase1.h"
-#include"../../Fase2.h"
+#include"../../Fases/Fase.h"
+#include"../../Fases/Fase1.h"
+#include"../../Fases/Fase2.h"
+
+namespace ClassesAuxiliares
+{
+
+namespace Estados
+{
+
 class Estado : public Ente 
 {
-//protected:
-public: 
-    static Fase* pFase;
-    static Estado* eInicial;
+public:
+    static  Fase* pFase;
+    static  Estado* eInicial;
     static  Estado* ePlay;
     static  Estado* eLoad;
-    //static Inicial* eInicial;
-    //static  Play* ePlay;
-    //static  Load* eLoad;
-    virtual void imprimir()=0;
-    virtual Estado* eExecutar(sf::Keyboard::Key  pKey = sf::Keyboard::Comma)=0;
-    virtual void executar(float dt =0 );
+public: 
     Estado();
     virtual ~Estado();
+    virtual void imprimir() = 0;
+    virtual Estado* eExecutar() = 0;
+    virtual void executar(float dt = 0);
     static void inicializa();
-    virtual  Fase* getFase() = 0;
-    virtual  void setFase(int i = 0)=0;
+    virtual Fase* getFase() = 0;
+    virtual void setFase(int i = 0) = 0;
 };
+
+}
+
+}
+
+using namespace ClassesAuxiliares;
+
+using namespace Estados;

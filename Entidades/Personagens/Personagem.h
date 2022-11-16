@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Entidade.h"
-#include "../ClassesAuxiliares/Animacao.h"
+#include "../Entidade.h"
+#include "../../ClassesAuxiliares/Animacao.h"
 
 namespace Entidades
 {
@@ -19,12 +19,12 @@ public:
   virtual ~Personagem();
   virtual void executar(float dt) = 0;
   virtual void imprimir() = 0;
+  void operator+=(int n);
+  void operator-=(int n);
   void setVida(const int n);
   void setAnimacao(Animacao a);
   const int getVida() const;
   const Animacao getAnimacao();
-  void operator+=(int n);
-  void operator-=(int n);
 };
 
 }

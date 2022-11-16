@@ -1,5 +1,5 @@
 #include "Fase.h"
-#include "Principal.h"
+#include "../Principal.h"
 
 Fase::Fase() : Ente()
 {

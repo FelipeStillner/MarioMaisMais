@@ -1,25 +1,27 @@
 #include"Botao.h"
- Botao::Botao(sf::Keyboard::Key o, sf::Vector2f p , string t): texto(t)
- {
 
-    //texto+t;
+Botao::Botao(sf::Vector2f p , string t): texto(t)
+{
     pos.x = p.x;
     pos.y =p.y;
-    opt = o;
- }
+}
+
 void Botao::executar(float dt )
 {
     imprimir();
 }
+
 void Botao::imprimir()
 {
     escreveTexto();
 }
- Botao::~Botao()
- {
 
- }
- void Botao::escreveTexto()
+Botao::~Botao()
+{
+
+}
+
+void Botao::escreveTexto()
 {   
     sf::RenderWindow * w = gG->getWindow();
     float len = 8.0;
@@ -70,8 +72,4 @@ void Botao::destroiLetras()
     (*letras).clear();
 }
 
-const sf::Keyboard::Key Botao::getOpt() const
-{
-    return(opt);
-}
 vector<sf::IntRect*>* Botao::letras = NULL;

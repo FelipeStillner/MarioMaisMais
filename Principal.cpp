@@ -86,8 +86,9 @@ void Principal::executar()
             else
             {
                 menu->executar();
+                f = menu->getFase();
             }
-        }  
+        }
     }
 }
 

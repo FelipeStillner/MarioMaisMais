@@ -17,7 +17,7 @@
 
 
 */
-Menu::Menu(int k) : Ente()
+Menu::Menu() : Ente()
 {
     mudouEstado = false;
     setPausa(true);

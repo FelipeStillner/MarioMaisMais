@@ -1,10 +1,10 @@
 #include"Play.h"
 
 Play::Play () :
-fase1(sf::Keyboard::Num1,sf::Vector2f(0,0),string("1)FASE 1")),
-fase2(sf::Keyboard::Num2,sf::Vector2f(0,8.0*8.0),string("2)FASE 2")),
-load(sf::Keyboard::Num3,sf::Vector2f(0,8.0*8.0*2),string("3)LOAD")),
-back(sf::Keyboard::Num4,sf::Vector2f(0,8.0*8.0*3),string("4)GO BACK"))
+fase1(sf::Vector2f(0,0),string("1)FASE 1")),
+fase2(sf::Vector2f(0,8.0*8.0),string("2)FASE 2")),
+load(sf::Vector2f(0,8.0*8.0*2),string("3)LOAD")),
+back(sf::Vector2f(0,8.0*8.0*3),string("4)GO BACK"))
 {
 
 }
@@ -19,36 +19,30 @@ void Play ::imprimir()
     load.escreveTexto();
     back.escreveTexto();
 }
-Estado* Play ::eExecutar(sf::Keyboard::Key  pKey)
+Estado* Play::eExecutar()
 {   
-    //if (sf::Keyboard::isKeyPressed(fase1.getOpt()))
-
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
-        {
-            setFase(1);
-            return (this);
-        }
-    //else if (sf::Keyboard::isKeyPressed(fase2.getOpt()))
+    {
+        setFase(1);
+        return (this);
+    }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
-        {
-            setFase(2);
-            return (this);
-        }
-    //else if (sf::Keyboard::isKeyPressed(load.getOpt()))
+    {
+        setFase(2);
+        return (this);
+    }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3))
-        {
-            return(eLoad);
-        }
-    //else if (sf::Keyboard::isKeyPressed(back.getOpt()))
+    {
+        return(eLoad);
+    }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4))
-        {
-            return(eInicial);
-        }
+    {
+        return(eInicial);
+    }
     else
-        {
-            return (this);
-        }
-
+    {
+        return (this);
+    }
 }
 void  Play::setFase(int i )
 {
@@ -58,6 +52,7 @@ void  Play::setFase(int i )
     }
     else if(i == 2)
     {
+
         pFase = new Fase2();
     }
 }

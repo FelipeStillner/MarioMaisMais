@@ -2,7 +2,7 @@
 
 Estado::Estado()
 {
-    pFase=NULL;
+    pFase = NULL;
 }
 
 Estado::~Estado()

@@ -1,10 +1,14 @@
 #pragma once
 
 #include "Fase.h"
-#include"Entidades/Lancador.h"
-#include"Entidades/Tartaruga.h"
-#include"Entidades/Spike.h"
-#include"Entidades/Mola.h"
+#include "../Entidades/Personagens/Lancador.h"
+#include "../Entidades/Personagens/Tartaruga.h"
+#include "../Entidades/Obstaculos/Spike.h"
+#include "../Entidades/Obstaculos/Mola.h"
+
+namespace Fases
+{
+
 class Fase2 : public Fase
 {
 private:
@@ -19,3 +23,4 @@ public:
   ~Fase2();
 };
 
+}

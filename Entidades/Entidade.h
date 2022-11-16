@@ -23,6 +23,7 @@ public:
   virtual ~Entidade();
   virtual void executar(float dt) = 0;
   virtual void imprimir() = 0;
+  virtual int getTipo() = 0;
   void setX(float x);
   void setY(float y);
   void setXX0(float x);
@@ -36,7 +37,6 @@ public:
   const float getVy() const;
   void setAtivo(bool a = true);
   const bool getAtivo() const;
-  virtual int getTipo() = 0;
 };
 
 }

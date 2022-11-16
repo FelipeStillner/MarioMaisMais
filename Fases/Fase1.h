@@ -1,7 +1,11 @@
 #pragma once
 
 #include "Fase.h"
-#include"Entidades/Andador.h"
+#include "../Entidades/Personagens/Andador.h"
+
+namespace Fases
+{
+
 class Fase1 : public Fase
 {
 private:
@@ -13,3 +17,4 @@ public:
   virtual Fase* recFase();
 };
 
+}

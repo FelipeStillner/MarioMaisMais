@@ -1,7 +1,7 @@
 #pragma once 
 
 #include "Inimigo.h"
-#include "../Fase.h"
+#include "../../Fases/Fase.h"
 
 namespace Entidades
 {

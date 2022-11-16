@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Entidade.h"
+#include "../Entidade.h"
 
 namespace Entidades
 {
