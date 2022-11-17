@@ -2,6 +2,7 @@
 #include "../Fases/Fase.h"
 #include "../Entidades/Obstaculos/Mola.h"
 #include "../Entidades/Obstaculos/Spike.h"
+#include "../Entidades/Personagens/Bowser.h"
 
 namespace Gerenciadores
 {
@@ -25,7 +26,7 @@ void GerenciadorColisoes::executar()
   // Fazer uma interacao diferente
   std::list<Projetil*>::iterator p;
   std::list<Obstaculo*>::iterator o, o1;
-  std::list<Inimigo*>::iterator i;
+  std::list<Inimigo*>::iterator i, i1;
   int dir;
   
   for (p = proj.begin(); p != proj.end(); p++)
@@ -81,9 +82,30 @@ void GerenciadorColisoes::executar()
     }
   } 
   
-  // Inimigo X Jogador: jogador leva dano e mudam posicao dependendo da direcao da colisao
+  
   for (i = inim.begin(); i != inim.end(); i++)
   {
+    if(!(*i)->getAtivo())
+    {
+      continue;
+    }
+    for (i1 = i; i1 != inim.end(); i1++)
+    {
+      if(i1 == i)
+      {
+        continue;
+      }
+      if((*i)->getTipo() == BOSS )
+      {
+        if (colidindo(*i1, *i))
+        {
+          Tartaruga* t = static_cast<Tartaruga*>(*i1);
+          (*i1)->setX((*i1)->getX0() - 50);
+          t->setVx(-t->getVx());
+        }
+      }
+    }
+    // Inimigo X Jogador: jogador leva dano e mudam posicao dependendo da direcao da colisao
     if(!(*i)->getAtivo())
     {
       continue;

@@ -12,17 +12,29 @@ Fase2::Fase2() : Fase()
   createMola(800.0, 0.0);
   createTubo(1000.0, 600.0);
   createSpike(0.0, 400.0);
-  createBandeira(2800.0, 0.0);
+  createBandeira(5000.0, 0.0);
   createTubo(1600.0, 600.0);
   createTubo(2200, 600);
   createChao(0.0, 700.0);
-  createChao(1800.0, 700.0);
+  createChao(1000.0, 700.0);
+  createChao(2000.0, 700.0);
+  createChao(3000.0, 700.0);
+  createChao(4000.0, 700.0);
+  createBowser(4000.0, 200.0);
 }
 
 Fase2::~Fase2()
 {
   background=NULL;
   limpaFase();
+}
+
+Bowser* Fase2::createBowser(float x, float y)
+{
+    Bowser* pAux = new Bowser(this, x, y, 20);
+    gCol.incluir(static_cast<Inimigo*>(pAux));
+    entidades.push(pAux);
+    return(pAux);
 }
 
 Tartaruga* Fase2::createTartaruga(float x, float y)

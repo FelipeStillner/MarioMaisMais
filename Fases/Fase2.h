@@ -5,6 +5,7 @@
 #include "../Entidades/Personagens/Tartaruga.h"
 #include "../Entidades/Obstaculos/Spike.h"
 #include "../Entidades/Obstaculos/Mola.h"
+#include "../Entidades/Personagens/Bowser.h"
 
 namespace Fases
 {
@@ -15,10 +16,11 @@ private:
 public:
   virtual void gravaFase();
   virtual Fase* recFase();
-  Lancador* createLancador(float x =0 , float y =0);
-  Tartaruga* createTartaruga(float x =0 , float y =0);
-  Mola* createMola(float x =0 , float y =0);
-  Spike* createSpike(float x =0 , float y =0);
+  Bowser* createBowser(float x = 0 , float y = 0);
+  Lancador* createLancador(float x = 0 , float y = 0);
+  Tartaruga* createTartaruga(float x = 0 , float y = 0);
+  Mola* createMola(float x = 0 , float y = 0);
+  Spike* createSpike(float x = 0 , float y = 0);
   Fase2();
   ~Fase2();
 };

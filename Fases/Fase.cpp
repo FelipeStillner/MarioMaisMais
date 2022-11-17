@@ -146,7 +146,15 @@ Chao* Fase::createChao(float x , float y)
 
 Jogador* Fase::createJogador(float x, float y)
 {
-  Jogador* pAux = new Jogador(x, y, 2);
+  if(jog)
+  {
+    Luigi* pAux = new Luigi(x, y, 2);
+    gCol.incluir(static_cast<Jogador*>(pAux));
+    setJogador(static_cast<Jogador*>(pAux));
+    entidades.push(pAux);
+    return(pAux);
+  }
+  Jogador* pAux = new Jogador(x, y, 1000);
   gCol.incluir(static_cast<Jogador*>(pAux));
   setJogador(static_cast<Jogador*>(pAux));
   entidades.push(pAux);

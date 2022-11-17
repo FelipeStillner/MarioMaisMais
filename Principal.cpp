@@ -49,12 +49,12 @@ void Principal::executar()
         if(f)
         {   
             if(f->getJogador(1)->getVida() <= 0 || (f->getMltplyr() && f->getJogador(2)->getVida() <= 0))
-                {
-                    f->setJogando(false);
-                }
+            {
+                f->setJogando(false);
+            }
             if(f->getJogando())
             {
-            w->setView(sf::View(sf::Vector2f(f->getJogador()->getX(), w->getSize().y/2), sf::Vector2f(w->getSize())));
+                w->setView(sf::View(sf::Vector2f(f->getJogador()->getX(), w->getSize().y/2), sf::Vector2f(w->getSize())));
             }
         }
         dt = clock.getElapsedTime().asSeconds();  

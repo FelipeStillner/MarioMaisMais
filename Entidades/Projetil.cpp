@@ -17,7 +17,7 @@ void Projetil::executar(const float dt)
   x = x + vx*dt;
   y0 = y;
   y += vy;
-  vy += 2;
+  vy += 1;
 }
 
 void Projetil::imprimir()

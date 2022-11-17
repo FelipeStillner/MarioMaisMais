@@ -1,6 +1,14 @@
 #pragma once 
 
 #include "Inimigo.h"
+#include "Tartaruga.h"
+
+namespace Fases
+{
+  class Fase2;
+}
+
+using namespace Fases;
 
 namespace Entidades
 {
@@ -8,21 +16,20 @@ namespace Entidades
 namespace Personagens
 {
 
-class Tartaruga : public Inimigo
+class Bowser : public Inimigo
 {
 private:
-  bool casco;
-  int vx;
+  Fase2* f;
+  Tartaruga* t;
+  float tProj;
 public:
-  Tartaruga(float x = 0, float y = 0, int v = 0);
-  ~Tartaruga();
+  Bowser(Fase2* f, float x = 0, float y = 0, int v = 0);
+  ~Bowser();
   virtual void executar(float dt);
   virtual void imprimir();
   virtual void levarDano(int d = 1);
   int getTipo();
   virtual void danar();
-  void setVx(int v);
-  int getVx();
 };
 
 }

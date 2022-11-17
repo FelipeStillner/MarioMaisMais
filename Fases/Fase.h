@@ -10,6 +10,7 @@
 #include "../Entidades/Personagens/Jogador.h"
 #include "../Entidades/Obstaculos/Bandeira.h"
 #include "../ClassesAuxiliares/Hud.h"
+#include "../Entidades/Personagens/Luigi.h"
 
 class Principal;
 

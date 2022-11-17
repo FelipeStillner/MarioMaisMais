@@ -82,3 +82,13 @@ void Tartaruga::danar()
 {
 
 }
+
+void Tartaruga::setVx(int v)
+{
+  vx = v;
+}
+
+int Tartaruga::getVx()
+{
+  return vx;
+}

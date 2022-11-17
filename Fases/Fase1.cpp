@@ -3,7 +3,7 @@
 Fase1::Fase1() : Fase()
 {
   background = (*gG)[3];
-  mltply = true;
+  mltply = false;
 
   createJogador(0.0, 0.0);
   createAndador(1000.0, 300.0);
@@ -17,6 +17,7 @@ Fase1::Fase1() : Fase()
   createAndador(6000.0, 300.0);
   createAndador(6300.0, 300.0);
   createAndador(6600.0, 300.0);
+  createAndador(7400.0, 300.0);
   createTubo(1000.0, 600.0);
   createTubo(-1400.0, 400.0);
   createTubo(1600.0, 600.0);
@@ -57,6 +58,7 @@ Fase1::Fase1() : Fase()
   createChao(9000.0, 700.0);
   createChao(10000.0, 700.0);
 }
+
 Andador* Fase1::createAndador(float x, float y)
 {
   Andador* pAux= new Andador(x, y, 1);
