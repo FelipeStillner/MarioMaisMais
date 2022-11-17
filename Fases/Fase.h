@@ -9,6 +9,7 @@
 #include "../Entidades/Obstaculos/Tubo.h"
 #include "../Entidades/Personagens/Jogador.h"
 #include "../Entidades/Obstaculos/Bandeira.h"
+#include "../ClassesAuxiliares/Hud.h"
 
 class Principal;
 
@@ -23,6 +24,7 @@ protected:
   ListaEntidades entidades;
   Jogador* jog;
   Jogador* jog2;
+  Hud h;
   bool jogando;
   bool mltply;
 public:

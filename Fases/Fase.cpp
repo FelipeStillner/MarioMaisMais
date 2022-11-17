@@ -1,7 +1,7 @@
 #include "Fase.h"
 #include "../Principal.h"
 
-Fase::Fase() : Ente()
+Fase::Fase() : Ente(), h(this)
 {
   jogando = true;
   mltply= false;
@@ -17,6 +17,7 @@ Fase::~Fase()
 void Fase::executar(float dt)
 {
   entidades.executar(dt);
+  h.executar(dt);
 }
 
 void Fase::gerenciarColisoes()
@@ -33,6 +34,7 @@ void Fase::imprimir()
   r.setTexture(background);
   w->draw(r);
   entidades.imprimir();
+  h.imprimir();
 }
 
 ListaEntidades* Fase::getEntidades()
