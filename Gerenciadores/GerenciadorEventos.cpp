@@ -116,6 +116,14 @@ void GerenciadorEventos::executar()
       
       j->setEstado(estado);
     }
+    if(!p->getFase()->getMltplyr())
+    {
+      if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+      {
+        this->p->getFase()->setMltplyr(true);
+        this->p->getFase()->createJogador(j->getX(), j->getY());
+      }
+    }
   }
 }
 

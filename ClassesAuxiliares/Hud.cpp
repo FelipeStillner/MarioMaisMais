@@ -26,6 +26,7 @@ void Hud::imprimir()
   }
   if (f->getMltplyr())
   {
+    r.setTexture((*gG)[17]);
     x = -gG->getWindow()->getView().getCenter().x - gG->getWindow()->getSize().x/2 + 100;
     r.setSize(sf::Vector2f(80, 80));
     for (int i = 0; i < f->getJogador(2)->getVida(); i++)

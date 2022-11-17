@@ -15,3 +15,4 @@ Special/spr_flagpole_strip2.png
 Special/spr_flag_mario_strip4.png
 Items/Interactive/spr_fallingspike_strip4.png
 Items/Collectables/spr_3upmoon.png
+Items/Powerups/spr_frogsuit.png

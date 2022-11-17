@@ -54,16 +54,31 @@ void Fase::setJogando(bool n)
 
 Jogador* Fase::getJogador(int i)
 {
-  if(i==1||!mltply){return jog;}
-  else{return jog2;}
+  if(i==1||!mltply)
+  {
+    return jog;
+  }
+  else
+  {
+    return jog2;
+  }
 }
 
 void Fase::setJogador(Jogador* j,int i)
 { if(j)
   {
-    if(!jog){jog=j;}
-    else if(!jog2 && getMltplyr()){jog2=j;}
-    else{std::cerr<<"ERRO EM SET JOGADOR"<<std::endl;}
+    if(!jog)
+    {
+      jog = j;
+    }
+    else if(!jog2 && getMltplyr())
+    {
+      jog2 = j;
+    }
+    else
+    {
+      std::cerr<<"ERRO EM SET JOGADOR"<<std::endl;
+    }
   }
   /*
   if(i==1||!mltply){jog = j;}

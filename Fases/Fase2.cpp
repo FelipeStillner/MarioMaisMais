@@ -3,10 +3,10 @@
 Fase2::Fase2() : Fase()
 {
   background = (*gG)[3];
-  mltply = true;
+  mltply = false;
 
   createJogador(1000.0, 200.0);
-  createJogador(500.0, 200.0);
+  //createJogador(500.0, 200.0);
   createLancador(2400.0, 300.0);
   createTartaruga(1400.0, 400.0);
   createMola(800.0, 0.0);
@@ -17,6 +17,10 @@ Fase2::Fase2() : Fase()
   createTubo(2200, 600);
   createChao(0.0, 700.0);
   createChao(1800.0, 700.0);
+}
+
+Fase2::~Fase2()
+{
 }
 
 Tartaruga* Fase2::createTartaruga(float x, float y)
@@ -34,6 +38,7 @@ Lancador* Fase2::createLancador(float x, float y)
     entidades.push(pAux);
     return(pAux);
 }
+
 Mola* Fase2::createMola(float x , float y )
 {
     Mola* pAux = new Mola(x, y, 31);
@@ -41,6 +46,7 @@ Mola* Fase2::createMola(float x , float y )
     entidades.push(pAux);
     return(pAux);
 }
+
 Spike* Fase2::createSpike(float x , float y )
 {
     Spike* pAux = new Spike(x, y, 1);
@@ -49,9 +55,6 @@ Spike* Fase2::createSpike(float x , float y )
     return(pAux);
 }
 
-Fase2::~Fase2()
-{
-}
 void Fase2::gravaFase()
 {
     std::ofstream arquivo;
@@ -79,6 +82,7 @@ void Fase2::gravaFase()
     }
     arquivo.close();
 }
+
 Fase* Fase2::recFase()
 {
       int i ;
