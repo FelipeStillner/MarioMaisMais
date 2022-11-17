@@ -1,12 +1,13 @@
 #include "Fase.h"
 #include "../Principal.h"
 
-Fase::Fase() : Ente(), h(this)
+Fase::Fase() : Ente(), h(this), gCol(this)
 {
   jogando = true;
   mltply= false;
   jog = NULL;
   jog2 = NULL;
+  ganhou = false;
 }
 
 Fase::~Fase()
@@ -50,6 +51,16 @@ bool Fase::getJogando()
 void Fase::setJogando(bool n)
 {
   jogando = n;
+}
+
+bool Fase::getGanhou()
+{
+  return ganhou;
+}
+
+void Fase::setGanhou(bool n)
+{
+  ganhou = n;
 }
 
 Jogador* Fase::getJogador(int i)

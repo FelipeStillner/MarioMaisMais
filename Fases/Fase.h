@@ -27,6 +27,7 @@ protected:
   Hud h;
   bool jogando;
   bool mltply;
+  bool ganhou;
 public:
   Fase();
   virtual ~Fase();
@@ -36,6 +37,8 @@ public:
   ListaEntidades* getEntidades();
   bool getJogando();
   void setJogando(bool n);
+  bool getGanhou();
+  void setGanhou(bool n);
   Jogador* getJogador(int i = 1);
   void setJogador(Jogador* j,int i = 1);
   void setMltplyr(bool m = false);

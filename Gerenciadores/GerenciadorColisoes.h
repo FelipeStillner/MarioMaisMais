@@ -22,13 +22,14 @@ namespace Gerenciadores
 class GerenciadorColisoes
 {
 private:
+  Fase* f;
   Jogador* jog;
   Jogador* jog2;
   std::list<Projetil*> proj;
   std::list<Inimigo*> inim;
   std::list<Obstaculo*> obst;
 public:
-  GerenciadorColisoes();
+  GerenciadorColisoes(Fase* f);
   ~GerenciadorColisoes();
   void executar();
   void incluir(Jogador* j);

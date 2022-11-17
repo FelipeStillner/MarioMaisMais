@@ -6,8 +6,9 @@
 namespace Gerenciadores
 {
 
-GerenciadorColisoes::GerenciadorColisoes(): jog()
+GerenciadorColisoes::GerenciadorColisoes(Fase* f): jog()
 {
+  this->f = f;
   jog =  NULL;
   jog2 = NULL;
 }
@@ -25,7 +26,6 @@ void GerenciadorColisoes::executar()
   std::list<Obstaculo*>::iterator o, o1;
   std::list<Inimigo*>::iterator i;
   int dir;
-  int flag;
   
   for (p = proj.begin(); p != proj.end(); p++)
   {
@@ -180,6 +180,11 @@ void GerenciadorColisoes::executar()
       {
         Spike* s = static_cast<Spike*>(*o);
         (*jog) -= s->getDano();
+      }
+      if((*o)->getTipo() == BAND)
+      {
+        f->setGanhou(true);
+        f->setJogando(false);
       }
       int dir = direcaoColisao(*o, jog);
       if(dir == HOR || dir == TOTAL)

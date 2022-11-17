@@ -3,13 +3,59 @@
 Fase1::Fase1() : Fase()
 {
   background = (*gG)[3];
-  mltply = true;
+  mltply = false;
 
-  createJogador(400.0, 200.0);
-  createJogador(500.0, 200.0);
+  createJogador(0.0, 0.0);
   createAndador(1000.0, 300.0);
+  createAndador(1600.0, 300.0);
+  srand(time(0));
+  int n = rand() % 3 + 2;
+  for (int i = 0; i < n; i++)
+  {
+    createAndador(3200.0 + i * 200, 300.0);
+  }
+  createAndador(6000.0, 300.0);
+  createAndador(6300.0, 300.0);
+  createAndador(6600.0, 300.0);
   createTubo(1000.0, 600.0);
+  createTubo(-1400.0, 400.0);
+  createTubo(1600.0, 600.0);
+  createTubo(2200.0, 600.0);
+  createTubo(2800.0, 400.0);
+  createTubo(3000.0, 600.0);
+  createTubo(4500.0, 600.0);
+  n = rand() % 3 + 2;
+  for (int i = 0; i < n; i++)
+  {
+    createTubo(5000.0 + i * 200, 600.0 - i * 50);
+  }
+  createTubo(6900.0, 450.0);
+  createTubo(7630.0, 400.0);
+  createTubo(7750.0, 500.0);
+  createTubo(8500, 650.0);
+  createTubo(8650, 600.0);
+  createTubo(8800, 550.0);
+  createTubo(8950, 500.0);
+  createTubo(9100, 450.0);
+  createTubo(9250, 400.0);
+  createTubo(9400, 350.0);
+  createTubo(9550, 300.0);
+  createTubo(9400, 650.0);
+  createTubo(9550, 600.0);
+  createBandeira(10500.0, 0.0);
+  createChao(-2000.0, 700.0);
+  createChao(-1000.0, 700.0);
   createChao(0.0, 700.0);
+  createChao(1000.0, 700.0);
+  createChao(2000.0, 700.0);
+  createChao(3000.0, 700.0);
+  createChao(4000.0, 700.0);
+  createChao(5000.0, 700.0);
+  createChao(6000.0, 700.0);
+  createChao(7000.0, 700.0);
+  createChao(8000.0, 700.0);
+  createChao(9000.0, 700.0);
+  createChao(10000.0, 700.0);
 }
 Andador* Fase1::createAndador(float x, float y)
 {
