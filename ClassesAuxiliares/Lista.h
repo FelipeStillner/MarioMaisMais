@@ -20,6 +20,7 @@ public:
   bool incluaInfo(TIPO* pInfo);
   TIPO* operator[](int n); 
   int getSize();
+  void limpaLista();
 };
 
 }
@@ -115,4 +116,15 @@ template <class TIPO>
 int Lista<TIPO>::getSize()
 {
   return tam;
+}
+
+template <class TIPO>
+void Lista<TIPO>::limpaLista()
+{
+  while(pPrimeiro!=NULL)
+  {
+    Elemento<TIPO>* pAux = pPrimeiro;
+    pPrimeiro=pPrimeiro->getProximo();
+    delete pAux;
+  }
 }

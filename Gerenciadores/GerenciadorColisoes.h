@@ -36,6 +36,7 @@ public:
   void incluir(Projetil* p);
   void incluir(Inimigo* i);
   void incluir(Obstaculo* o);
+  void limpagCOL();
 };
 
 }

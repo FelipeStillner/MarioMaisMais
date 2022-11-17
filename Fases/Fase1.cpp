@@ -3,7 +3,7 @@
 Fase1::Fase1() : Fase()
 {
   background = (*gG)[3];
-  mltply = false;
+  mltply = true;
 
   createJogador(0.0, 0.0);
   createAndador(1000.0, 300.0);
@@ -95,11 +95,11 @@ void Fase1::gravaFase()
 }
 Fase* Fase1::recFase()
 {
-      int i ;
+    int i ;
     std::ifstream arquivo;
-    arquivo.open("Gerenciadores/novoarquivo1.dat",std::ios::in);
+    arquivo.open("Fase1.dat",std::ios::in);
 
-    Fase1* pFase = new Fase1();
+    limpaFase();
 
     std::cout<<"REC FASE"<<std::endl;
 
@@ -113,7 +113,7 @@ Fase* Fase1::recFase()
 
     std::cout<<mlt<<std::endl;
 
-    pFase->setMltplyr(static_cast<bool>(mlt));
+    setMltplyr(static_cast<bool>(mlt));
 
     while(!arquivo.eof())
     {   
@@ -122,19 +122,22 @@ Fase* Fase1::recFase()
         switch (tipo)
         {
         case PLAYER:
-          pE=pFase->createJogador(X,Y);
+          pE=createJogador(X,Y);
           break;
         case ENEM1:
-          pE=pFase->createAndador(X,Y);
+          pE=createAndador(X,Y);
           break;
         case TUBO:
-          pE=pFase->createTubo(X,Y);
+          pE=createTubo(X,Y);
           break;
         case CHAO:
-          pE=pFase->createChao(X,Y);
+          pE=createChao(X,Y);
           break;
         case BAND:
-          pE=pFase->createBandeira(X,Y);
+          pE=createBandeira(X,Y);
+          break;
+        case PROJ:
+          pE=createProjetil(X,Y);
           break;
         default:
           break;
@@ -154,12 +157,12 @@ Fase* Fase1::recFase()
     arquivo.close();
 
     std::cout<<"Retornou"<<std::endl;
-    return pFase;
+    return this;
 
 }
 
 Fase1::~Fase1()
 {
-  entidades.~ListaEntidades();
-  gCol.~GerenciadorColisoes();
+  limpaFase();
+  background=NULL;
 }

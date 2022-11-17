@@ -20,6 +20,8 @@ public:
     static  Estado* eInicial;
     static  Estado* ePlay;
     static  Estado* eLoad;
+    static  Estado* ePausa;
+
 public: 
     Estado();
     virtual ~Estado();

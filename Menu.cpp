@@ -27,6 +27,7 @@ Menu::Menu() : Ente()
     Estado::eInicial= new Inicial;
     Estado::ePlay= new Play;
     Estado::eLoad= new Load;
+    Estado::ePausa= new Pausa;
     pEstado = Estado::eInicial;
 }
 

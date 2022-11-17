@@ -33,6 +33,8 @@ Elemento<TIPO>::Elemento()
 template <class TIPO>
 Elemento<TIPO>::~Elemento()
 {
+  pProx=NULL;
+  delete pInfo;
 }
 
 template <class TIPO>

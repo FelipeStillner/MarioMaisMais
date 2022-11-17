@@ -22,6 +22,7 @@ public:
   void imprimir();
   Entidade* operator[](int n); 
   int size();
+  void limpaLista();
 };
 
 }

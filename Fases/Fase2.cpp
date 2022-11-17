@@ -21,6 +21,8 @@ Fase2::Fase2() : Fase()
 
 Fase2::~Fase2()
 {
+  background=NULL;
+  limpaFase();
 }
 
 Tartaruga* Fase2::createTartaruga(float x, float y)

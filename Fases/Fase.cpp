@@ -160,3 +160,11 @@ Bandeira* Fase::createBandeira(float x , float y )
     entidades.push(pAux);
     return(pAux);
 }
+
+void Fase::limpaFase()
+{
+  entidades.limpaLista();
+  gCol.limpagCOL();
+  jog=NULL;
+  jog2=NULL;
+}

@@ -53,6 +53,7 @@ public:
   virtual void gravaFase()= 0;
   virtual Fase* recFase() = 0;
   GerenciadorColisoes* getGCol();
+  void limpaFase();
 };
 
 }

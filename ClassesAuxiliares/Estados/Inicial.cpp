@@ -30,7 +30,8 @@ Estado* Inicial::eExecutar()
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3))
     {   
-        return(NULL);
+        gG->getWindow()->close();
+        return(this);
     }
     else
     {

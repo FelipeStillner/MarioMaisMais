@@ -24,12 +24,12 @@ Estado* Play::eExecutar()
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
     {
         setFase(1);
-        return (this);
+        return (ePausa);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
     {
         setFase(2);
-        return (this);
+        return (ePausa);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3))
     {

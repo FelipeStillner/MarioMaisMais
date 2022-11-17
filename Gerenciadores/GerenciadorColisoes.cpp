@@ -15,7 +15,8 @@ GerenciadorColisoes::GerenciadorColisoes(Fase* f): jog()
 
 GerenciadorColisoes::~GerenciadorColisoes()
 {
-  
+  limpagCOL();
+  f = NULL;
 }
 
 void GerenciadorColisoes::executar()
@@ -267,6 +268,16 @@ void GerenciadorColisoes::incluir(Obstaculo* o)
   {
     obst.push_back(o);
   }
+}
+
+void GerenciadorColisoes::limpagCOL()
+{ 
+  proj.clear();
+  proj.clear();
+  inim.clear();
+  obst.clear();
+  jog=NULL;
+  jog2=NULL;
 }
 
 }

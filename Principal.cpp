@@ -37,7 +37,7 @@ void Principal::executar()
         }
         else
         {
-            if(f->getJogando())
+            if(f&&f->getJogando())
             {
                 f->imprimir();
             }
@@ -68,7 +68,7 @@ void Principal::executar()
         clock.restart();
         w->display();
 
-        gEven->executar();
+        if(f){gEven->executar();}
 
         if(menu->getPausa())
         {

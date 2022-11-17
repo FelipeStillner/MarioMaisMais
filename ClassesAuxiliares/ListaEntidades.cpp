@@ -7,16 +7,16 @@ ListaEntidades::ListaEntidades(): entidades()
 
 ListaEntidades::~ListaEntidades()
 {
-  int i;
-  for (i = 0; i != entidades.getSize(); i++)
-  {
-    Entidade* e = entidades[i];
-    if(e != NULL)
-    {
-      delete e;
-    }
-  }
+  limpaLista();
 }
+void ListaEntidades::limpaLista()
+{
+  entidades.limpaLista();
+}
+
+
+
+
 
 void ListaEntidades::push(Entidade* e)
 {

@@ -13,7 +13,7 @@
 #include "ClassesAuxiliares/Estados/Load.h"
 #include "ClassesAuxiliares/Estados/Play.h"
 #include "ClassesAuxiliares/Estados/Inicial.h"
-
+#include "ClassesAuxiliares/Estados/Pausa.h"
 using std::string;
 using std::vector;
 
