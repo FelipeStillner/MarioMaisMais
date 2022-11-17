@@ -15,8 +15,8 @@ Bowser::~Bowser()
 void Bowser::executar(float dt)
 {
   y0 = y;
-  y += vy;
-  vy += 2;
+  y = y + vy*dt;
+  vy += Grav;
   anim.executar(dt);
   danar();
   tProj += dt;

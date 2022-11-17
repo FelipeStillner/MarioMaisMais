@@ -1,5 +1,8 @@
 #pragma once
 
+#define Grav 101
+#define Vel 1700
+
 #define PLAYER 0
 #define ENEM1 1
 #define ENEM2 2

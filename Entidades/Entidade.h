@@ -15,7 +15,7 @@ protected:
   float x, y;
   float w, h;
   float x0, y0;
-  int vy;
+  float vy;
   bool ativo;
   Colisao col;
 public:

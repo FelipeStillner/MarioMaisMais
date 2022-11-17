@@ -3,7 +3,7 @@
 class Rank
 {
 private:
-  /* data */
+  std::
 public:
   Rank(/* args */);
   ~Rank();

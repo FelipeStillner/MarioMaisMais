@@ -6,7 +6,6 @@ Fase2::Fase2() : Fase()
   mltply = false;
 
   createJogador(1000.0, 200.0);
-  //createJogador(500.0, 200.0);
   createLancador(2400.0, 300.0);
   createTartaruga(1400.0, 400.0);
   createMola(800.0, 0.0);
@@ -55,7 +54,7 @@ Lancador* Fase2::createLancador(float x, float y)
 
 Mola* Fase2::createMola(float x , float y )
 {
-    Mola* pAux = new Mola(x, y, 31);
+    Mola* pAux = new Mola(x, y, Vel);
     gCol.incluir(static_cast<Obstaculo*>(pAux));
     entidades.push(pAux);
     return(pAux);

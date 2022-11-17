@@ -2,7 +2,7 @@
 
 Andador::Andador(float x, float y, int v): Inimigo(x, y, 160, 160, v, Colisao(10, 10, 140, 140), Animacao(sf::IntRect(0, 0, 16, 16), 0.25, "12"), 1)
 {
-  vx = -5;
+  vx = -300;
 }
 
 Andador::~Andador()
@@ -16,10 +16,10 @@ void Andador::executar(float dt)
     vx = -vx;
   }
   y0 = y;
-  y += vy;
-  vy += 2;
+  y = y + vy*dt;
+  vy += Grav;
   x0 = x;
-  x += vx;
+  x = x + vx*dt;
   anim.executar(dt);
   danar();
 }
@@ -41,5 +41,4 @@ int Andador::getTipo()
 
 void Andador::danar()
 {
-
 }

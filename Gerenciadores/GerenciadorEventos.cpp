@@ -46,7 +46,7 @@ void GerenciadorEventos::executar()
       estado = WALKR;
       if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && j->getTproj() >= 2)
       {
-        Projetil* p = new Projetil(j->getX()+j->getColisao().getWidth() - 10, j->getY()+j->getColisao().getHeight()/2, 1000, -20, 1);
+        Projetil* p = new Projetil(j->getX()+j->getColisao().getWidth() - 10, j->getY()+j->getColisao().getHeight()/2, Vel, -Vel, 1);
         this->p->getFase()->getEntidades()->push(p);
         this->p->getFase()->getGCol()->incluir(p);
         j->setTproj();
@@ -59,7 +59,7 @@ void GerenciadorEventos::executar()
       estado = WALKL;
       if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && j->getTproj() >= 2)
       {
-        Projetil* p = new Projetil(j->getX() - 50, j->getY()+j->getColisao().getHeight()/2, -1000, -20, 1);
+        Projetil* p = new Projetil(j->getX() - 50, j->getY()+j->getColisao().getHeight()/2, -Vel, -Vel, 1);
         this->p->getFase()->getEntidades()->push(p);
         this->p->getFase()->getGCol()->incluir(p);
         j->setTproj();
@@ -69,7 +69,7 @@ void GerenciadorEventos::executar()
     {
       if(j->getVy() == 0)
       {
-        j->setVy(-31);
+        j->setVy(-Vel);
         estado = JUMP;
       }
     }
@@ -86,7 +86,7 @@ void GerenciadorEventos::executar()
         estado = WALKR;
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && j->getTproj() >= 2)
         {
-          Projetil* p = new Projetil(j->getX()+j->getColisao().getWidth(), j->getY()+j->getColisao().getHeight()/2, 1000, -20, 1);
+          Projetil* p = new Projetil(j->getX()+j->getColisao().getWidth(), j->getY()+j->getColisao().getHeight()/2, Vel, -Vel, 1);
           this->p->getFase()->getEntidades()->push(p);
           this->p->getFase()->getGCol()->incluir(p);
           j->setTproj();
@@ -99,7 +99,7 @@ void GerenciadorEventos::executar()
         estado = WALKL;
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) && j->getTproj() >= 2)
         {
-          Projetil* p = new Projetil(j->getX() - 50, j->getY()+j->getColisao().getHeight()/2, -1000, -20, 1);
+          Projetil* p = new Projetil(j->getX() - 50, j->getY()+j->getColisao().getHeight()/2, -Vel, -Vel, 1);
           this->p->getFase()->getEntidades()->push(p);
           this->p->getFase()->getGCol()->incluir(p);
           j->setTproj();
@@ -109,7 +109,7 @@ void GerenciadorEventos::executar()
       {
         if(j->getVy() == 0)
         {
-          j->setVy(-31);
+          j->setVy(-Vel);
           estado = JUMP;
         }
       }
