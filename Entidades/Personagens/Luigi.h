@@ -22,8 +22,3 @@ public:
 }
 
 using namespace Personagens;
-
-#define IDLE 0
-#define WALKR 1
-#define WALKL 2
-#define JUMP 3

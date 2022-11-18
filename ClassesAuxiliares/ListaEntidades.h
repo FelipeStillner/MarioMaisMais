@@ -9,6 +9,9 @@ using namespace Entidades;
 namespace ClassesAuxiliares
 {
 
+namespace Listas
+{
+
 class ListaEntidades
 {
 private:
@@ -26,3 +29,7 @@ public:
 };
 
 }
+
+}
+
+using namespace Listas;

@@ -5,6 +5,9 @@
 namespace ClassesAuxiliares
 {
 
+namespace Listas
+{
+
 template <class TIPO>
 class Lista
 {
@@ -25,7 +28,10 @@ public:
 
 }
 
+}
+
 using namespace ClassesAuxiliares;
+using namespace Listas;
 
 template <class TIPO>
 Lista<TIPO>::Lista()
