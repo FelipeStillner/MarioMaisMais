@@ -10,7 +10,7 @@ namespace Personagens
 
 class Jogador : public Personagem
 {
-private:
+protected:
   int estado;
   float tProj;
 public:

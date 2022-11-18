@@ -151,7 +151,7 @@ void GerenciadorColisoes::executar()
       if (colidindo(*o, *i))
       {
         int dir = direcaoColisao(*o, *i);
-        if(dir == HOR || dir == TOTAL)
+        if(dir == HOR)
         {
           (*o)->setX((*o)->getX0());
           (*i)->setX((*i)->getX0());

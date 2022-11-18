@@ -11,13 +11,10 @@ namespace Personagens
 class Luigi : public Jogador
 {
 private:
-  int estado;
-  float tProj;
 public:
   Luigi(float x = 0, float y = 0, int v = 0);
   ~Luigi();
   virtual void imprimir();
-  void setEstado(const int est);
 };
 
 }
