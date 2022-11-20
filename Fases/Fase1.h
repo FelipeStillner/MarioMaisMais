@@ -15,6 +15,7 @@ public:
   Andador* createAndador(float x = 0, float y = 0);
   virtual void gravaFase();
   virtual Fase* recFase();
+  virtual int getTipo();
 };
 
 }

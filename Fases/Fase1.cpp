@@ -168,3 +168,8 @@ Fase1::~Fase1()
   limpaFase();
   background=NULL;
 }
+
+int Fase1::getTipo()
+{
+  return FASE1;
+}

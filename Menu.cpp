@@ -43,7 +43,7 @@ void Menu::executar(float dt)
     rw->pollEvent(event);
     if(mudouEstado)
     {
-        sf::sleep(sf::seconds(0.8));
+        sf::sleep(sf::seconds(0.4));
         mudouEstado = false;
     }
     Estado* e = pEstado;
@@ -55,6 +55,14 @@ void Menu::executar(float dt)
     if(!pEstado)
     {
         gG->getWindow()->close();
+    }
+    if(pEstado->getFase())
+    {
+        if(pEstado->getFase()->getGanhou())
+        {
+            salvarPontuacao();
+            pEstado->setFase(2);
+        }
     }
 }
 
@@ -76,4 +84,9 @@ void Menu::setPausa(bool p)
 const bool Menu::getPausa() const
 {
     return (pausado);
+}
+
+void Menu::salvarPontuacao()
+{
+    return;
 }

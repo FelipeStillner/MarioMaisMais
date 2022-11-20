@@ -24,6 +24,9 @@
 #define QUIT 5
 #define QUITGAME 6
 
+#define FASE1 1
+#define FASE2 2
+
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>

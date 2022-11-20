@@ -31,6 +31,7 @@ public:
   void setPausa(bool p);
   const bool getPausa() const ;
   Fase* getFase();
+  void salvarPontuacao();
 };
 
 

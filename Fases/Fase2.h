@@ -14,6 +14,8 @@ class Fase2 : public Fase
 {
 private:
 public:
+  Fase2();
+  ~Fase2();
   virtual void gravaFase();
   virtual Fase* recFase();
   Bowser* createBowser(float x = 0 , float y = 0);
@@ -21,8 +23,7 @@ public:
   Tartaruga* createTartaruga(float x = 0 , float y = 0);
   Mola* createMola(float x = 0 , float y = 0);
   Spike* createSpike(float x = 0 , float y = 0);
-  Fase2();
-  ~Fase2();
+  virtual int getTipo();
 };
 
 }

@@ -173,5 +173,9 @@ Fase* Fase2::recFase()
 
     std::cout<<"Retornou"<<std::endl;
     return pFase;
+}
 
+int Fase2::getTipo()
+{
+  return FASE2;
 }

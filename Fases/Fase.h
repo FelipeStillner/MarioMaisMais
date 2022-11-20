@@ -55,6 +55,7 @@ public:
   virtual Fase* recFase() = 0;
   GerenciadorColisoes* getGCol();
   void limpaFase();
+  virtual int getTipo() = 0;
 };
 
 }
