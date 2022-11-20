@@ -70,27 +70,26 @@ Andador* Fase1::createAndador(float x, float y)
 void Fase1::gravaFase()
 {
     std::ofstream arquivo;
-    arquivo.open("Fase1.dat",std::ios::out);
+    arquivo.open("Fases/Fase1.dat",std::ios::out);
 
     ListaEntidades* lista = this->getEntidades();
     int i ;
 
-    arquivo<<static_cast<int>(this->getMltplyr())<<std::endl;
+    arquivo<<static_cast<int>(this->getMltplyr());
     
 
     for(i=0;i<lista->size();i++)
     {
         Entidades::Entidade* pE = (*lista)[i];
         if(pE->getAtivo())
-        {
-            arquivo << pE->getTipo()<<' ';
-            arquivo << pE->getX0()<<' ';
-            arquivo << pE->getY0()<<' ';
-            arquivo << pE->getX()<<' ';
-            arquivo << pE->getY()<<' '; 
+        {   arquivo<< std::endl
+            << pE->getTipo()<<' '
+            << pE->getX0()<<' '
+            << pE->getY0()<<' '
+            << pE->getX()<<' '
+            << pE->getY()<<' '
             //arquivo<<pE->getVx()<<',';
-            arquivo << pE->getVy()<<' ';
-            arquivo << std::endl;
+            << pE->getVy();
         }
     }
     arquivo.close();
@@ -99,7 +98,7 @@ Fase* Fase1::recFase()
 {
     int i ;
     std::ifstream arquivo;
-    arquivo.open("Fase1.dat",std::ios::in);
+    arquivo.open("Fases/Fase1.dat",std::ios::in);
 
     limpaFase();
 
@@ -159,6 +158,7 @@ Fase* Fase1::recFase()
     arquivo.close();
 
     std::cout<<"Retornou"<<std::endl;
+
     return this;
 
 }

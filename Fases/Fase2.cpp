@@ -71,26 +71,26 @@ Spike* Fase2::createSpike(float x , float y )
 void Fase2::gravaFase()
 {
     std::ofstream arquivo;
-    arquivo.open("Fase2.dat",std::ios::out);
+    arquivo.open("Fases/Fase2.dat",std::ios::out);
 
     ListaEntidades* lista = this->getEntidades();
     int i ;
 
-    arquivo<<static_cast<int>(this->getMltplyr())<<std::endl;
+    arquivo<<static_cast<int>(this->getMltplyr());
 
     for(i=0;i<lista->size();i++)
     {
         Entidades::Entidade* pE = (*lista)[i];
         if(pE->getAtivo())
         {
-            arquivo << pE->getTipo()<<' ';
-            arquivo << pE->getX0()<<' ';
-            arquivo << pE->getY0()<<' ';
-            arquivo << pE->getX()<<' ';
-            arquivo << pE->getY()<<' '; 
+            arquivo<< std::endl
+            << pE->getTipo()<<' '
+            << pE->getX0()<<' '
+            << pE->getY0()<<' '
+            << pE->getX()<<' '
+            << pE->getY()<<' '
             //arquivo<<pE->getVx()<<',';
-            arquivo << pE->getVy()<<' ';
-            arquivo << std::endl;
+            << pE->getVy();
         }
     }
     arquivo.close();
@@ -100,7 +100,7 @@ Fase* Fase2::recFase()
 {
       int i ;
     std::ifstream arquivo;
-    arquivo.open("Gerenciadores/novoarquivo1.dat",std::ios::in);
+    arquivo.open("Fases/Fase2.dat",std::ios::in);
 
     Fase2* pFase = new Fase2();
 
@@ -147,6 +147,12 @@ Fase* Fase2::recFase()
           break;
         case BAND:
           pE=pFase->createBandeira(X,Y);
+          break;
+        case PROJ:
+          pE=pFase->createProjetil(X,Y);
+          break;
+        case BOSS:
+          pE=pFase->createBowser(X,Y);
           break;
         default:
           break;

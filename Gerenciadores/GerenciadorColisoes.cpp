@@ -241,7 +241,7 @@ void GerenciadorColisoes::incluir(Jogador* j)
   if(j)
   { if(!jog)
     {jog=j;}
-    else
+    else if(!jog2)
     {jog2=j;}
   }
 }
