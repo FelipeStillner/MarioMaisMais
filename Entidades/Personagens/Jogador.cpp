@@ -9,7 +9,7 @@ Jogador::~Jogador()
 {
 }
 
-void Jogador::executar(float dt)
+void Jogador::executar(const float dt)
 {
   y0 = y;
   y = y + vy*dt;
@@ -104,17 +104,17 @@ const int Jogador::getEstado() const
   return estado;
 }
 
-int Jogador::getTipo()
+const int Jogador::getTipo() const
 {
   return  PLAYER;
 }
 
-float Jogador::getTproj()
+const float Jogador::getTproj() const
 {
   return tProj;
 }
 
-void Jogador::setTproj(float t)
+void Jogador::setTproj(const float t)
 {
   tProj = t;
 }

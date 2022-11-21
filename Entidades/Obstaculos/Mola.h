@@ -15,10 +15,11 @@ private:
 public:
   Mola(float x = 0, float y = 0, int f = 0);
   ~Mola();
-  virtual void executar(float dt);
+  virtual void executar(const float dt);
   virtual void imprimir();
-  virtual int getTipo();
-  int getForca();
+  virtual const int getTipo() const;
+  int const getForca() const;
+  void obstacular(Personagem* e, int dir);
 };
 
 }

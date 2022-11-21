@@ -27,10 +27,10 @@ public:
     virtual ~Estado();
     virtual void imprimir() = 0;
     virtual Estado* eExecutar() = 0;
-    virtual void executar(float dt = 0);
+    virtual void executar(const float dt = 0);
     static void inicializa();
-    virtual Fase* getFase() = 0;
-    virtual void setFase(int i = 0) = 0;
+    virtual Fase* getFase() const = 0;
+    virtual void setFase(const int i = 0) = 0;
 };
 
 }

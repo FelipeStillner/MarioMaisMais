@@ -170,7 +170,7 @@ Jogador* Fase::createJogador(float x, float y)
 
 Bandeira* Fase::createBandeira(float x , float y )
 {
-    Bandeira* pAux = new Bandeira(x, y);
+    Bandeira* pAux = new Bandeira(this, x, y);
     gCol.incluir(static_cast<Obstaculo*>(pAux));
     entidades.push(pAux);
     return(pAux);

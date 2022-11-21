@@ -21,8 +21,8 @@ public:
     ~Inicial ();
     void imprimir();
     Estado* eExecutar();
-    Fase* getFase();
-    void setFase(int i = 0);
+    Fase* getFase() const;
+    void setFase(const int i = 0);
 };
 
 }

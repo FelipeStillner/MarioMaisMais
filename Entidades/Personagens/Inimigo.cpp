@@ -10,7 +10,7 @@ Inimigo::~Inimigo()
 {
 }
 
-void Inimigo::levarDano(int d)
+void Inimigo::levarDano(const int d)
 {
   vida -= d;
   if(vida <= 0)
@@ -19,12 +19,12 @@ void Inimigo::levarDano(int d)
   }
 }
 
-int Inimigo::getDanoColisao()
+const int Inimigo::getDanoColisao() const
 {
   return danoColisao;
 }
 
-void Inimigo::setDanoColisao(int d)
+void Inimigo::setDanoColisao(const int d)
 {
   danoColisao = d;
 }

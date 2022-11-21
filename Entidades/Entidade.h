@@ -9,7 +9,7 @@ using namespace Entidades;
 namespace Entidades
 {
 
-class Entidade : public Ente
+class Entidade : public Ente, public Colisao
 {
 protected:
   float x, y;
@@ -17,25 +17,24 @@ protected:
   float x0, y0;
   float vy;
   bool ativo;
-  Colisao col;
 public:
   Entidade(float x = 0, float y = 0, float w = 0, float h = 0, Colisao c = Colisao());
   virtual ~Entidade();
-  virtual void executar(float dt) = 0;
+  virtual void executar(const float dt) = 0;
   virtual void imprimir() = 0;
-  virtual int getTipo() = 0;
-  void setX(float x);
-  void setY(float y);
-  void setXX0(float x);
-  void setYY0(float y);
-  void setVy(float v);
-  Colisao getColisao();
+  virtual const int getTipo() const = 0;
+  void setX(const float x);
+  void setY(const float y);
+  void setXX0(const float x);
+  void setYY0(const float y);
+  void setVy(const float v);
+  const Colisao getColisao() const;
   const float getX() const;
   const float getY() const;
   const float getX0() const;
   const float getY0() const;
   const float getVy() const;
-  void setAtivo(bool a = true);
+  void setAtivo(const bool a = true);
   const bool getAtivo() const;
 };
 

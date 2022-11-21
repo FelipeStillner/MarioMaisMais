@@ -44,7 +44,7 @@ Estado* Play::eExecutar()
         return (this);
     }
 }
-void  Play::setFase(int i )
+void  Play::setFase(const int i)
 {
     if(i == 1)
     {
@@ -56,7 +56,7 @@ void  Play::setFase(int i )
         pFase = new Fase2();
     }
 }
-Fase* Play::getFase()
+Fase* Play::getFase() const
 {
     return(pFase);
 }

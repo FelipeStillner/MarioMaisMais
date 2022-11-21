@@ -7,7 +7,7 @@ Fase2::Fase2() : Fase()
   background = (*gG)[3];
   mltply = false;
 
-  createJogador(5000.0, 0.0);
+  createJogador(500.0, 0.0);
 
   createLancador(2300.0, 0.0);
   n = rand() % 2;
@@ -143,11 +143,11 @@ void Fase2::gravaFase()
 
 Fase* Fase2::recFase()
 {
-      int i ;
+    int i ;
     std::ifstream arquivo;
     arquivo.open("Fases/Fase2.dat",std::ios::in);
 
-    Fase2* pFase = new Fase2();
+    limpaFase();
 
     std::cout<<"REC FASE"<<std::endl;
 
@@ -161,7 +161,7 @@ Fase* Fase2::recFase()
 
     std::cout<<mlt<<std::endl;
 
-    pFase->setMltplyr(static_cast<bool>(mlt));
+    setMltplyr(static_cast<bool>(mlt));
 
     while(!arquivo.eof())
     {   
@@ -170,34 +170,34 @@ Fase* Fase2::recFase()
         switch (tipo)
         {
         case PLAYER:
-          pE=pFase->createJogador(X,Y);
+          pE=createJogador(X,Y);
           break;
         case ENEM2:
-          pE=pFase->createLancador(X,Y);
+          pE=createLancador(X,Y);
           break;
         case ENEM3:
-          pE=pFase->createTartaruga(X,Y);
+          pE=createTartaruga(X,Y);
           break;
         case MOLA:
-          pE=pFase->createMola(X,Y);
+          pE=createMola(X,Y);
           break;
         case SPIK:
-          pE=pFase->createSpike(X,Y);
+          pE=createSpike(X,Y);
           break;
         case TUBO:
-          pE=pFase->createTubo(X,Y);
+          pE=createTubo(X,Y);
           break;
         case CHAO:
-          pE=pFase->createChao(X,Y);
+          pE=createChao(X,Y);
           break;
         case BAND:
-          pE=pFase->createBandeira(X,Y);
+          pE=createBandeira(X,Y);
           break;
         case PROJ:
-          pE=pFase->createProjetil(X,Y);
+          pE=createProjetil(X,Y);
           break;
         case BOSS:
-          pE=pFase->createBowser(X,Y);
+          pE=createBowser(X,Y);
           break;
         default:
           break;
@@ -217,7 +217,7 @@ Fase* Fase2::recFase()
     arquivo.close();
 
     std::cout<<"Retornou"<<std::endl;
-    return pFase;
+    return this;
 }
 
 int Fase2::getTipo()

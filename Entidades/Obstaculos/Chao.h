@@ -16,7 +16,8 @@ public:
   ~Chao();
   virtual void executar(float dt);
   virtual void imprimir();
-  virtual int getTipo();
+  virtual const int getTipo() const;
+  void obstacular(Personagem* e, int dir);
 };
 
 }

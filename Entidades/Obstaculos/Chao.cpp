@@ -21,7 +21,11 @@ void Chao::imprimir()
   gG->getWindow()->draw(r);
 }
 
-int Chao::getTipo()
+int const Chao::getTipo() const
 {
   return CHAO;
+}
+
+void Chao::obstacular(Personagem* e, int dir)
+{
 }

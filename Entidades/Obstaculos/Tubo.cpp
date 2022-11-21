@@ -8,7 +8,7 @@ Tubo::~Tubo()
 {
 }
 
-void Tubo::executar(float dt)
+void Tubo::executar(const float dt)
 {
   y0 = y;
   y = y + vy*dt;
@@ -24,7 +24,11 @@ void Tubo::imprimir()
   gG->getWindow()->draw(r);
 }
 
-int Tubo::getTipo()
+const int Tubo::getTipo() const
 {
   return TUBO;
+}
+
+void Tubo::obstacular(Personagem* e, int dir)
+{
 }

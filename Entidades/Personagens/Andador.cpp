@@ -9,7 +9,7 @@ Andador::~Andador()
 {
 }
 
-void Andador::executar(float dt)
+void Andador::executar(const float dt)
 {
   if(x0 == x)
   {
@@ -34,7 +34,7 @@ void Andador::imprimir()
   gG->getWindow()->draw(r);
 }
 
-int Andador::getTipo()
+const int Andador::getTipo() const
 {
   return ENEM1;
 }

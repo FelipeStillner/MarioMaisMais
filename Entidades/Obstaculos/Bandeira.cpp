@@ -1,7 +1,9 @@
 #include "Bandeira.h"
+#include "../../Fases/Fase.h"
 
-Bandeira::Bandeira(float x, float y) : Obstaculo(x, y, 160, 1600, Colisao(10, 10, 140, 1580))
+Bandeira::Bandeira(Fase* f, float x, float y) : Obstaculo(x, y, 160, 1600, Colisao(10, 10, 140, 1580))
 {
+  this->f = f;
   anim = Animacao(sf::IntRect(0, 0, 16, 16), 0.25, "1234");
 }
 
@@ -24,7 +26,7 @@ void Bandeira::imprimir()
   gG->getWindow()->draw(r);
 }
 
-void Bandeira::executar(float dt)
+void Bandeira::executar(const float dt)
 {
   y0 = y;
   y = y + vy*dt;
@@ -32,7 +34,16 @@ void Bandeira::executar(float dt)
   anim.executar(dt);
 }
 
-int Bandeira::getTipo()
+const int Bandeira::getTipo() const
 {
   return BAND;
+}
+
+void Bandeira::obstacular(Personagem* e, int dir)
+{
+  if(e->getTipo() == PLAYER)
+  {
+    f->setGanhou(true);
+    f->setJogando(false);
+  }
 }

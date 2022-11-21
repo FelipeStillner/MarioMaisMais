@@ -7,16 +7,19 @@ quit(sf::Vector2f(0,8.0*8.0*2),string("2)QUIT"))
 {
 
 }
+
 Pausa::~Pausa ()
 {
 
 }
+
 void Pausa ::imprimir()
 {
     resume.escreveTexto();
     save.escreveTexto();
     quit.escreveTexto();
 }
+
 Estado* Pausa::eExecutar()
 {   
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
@@ -35,14 +38,13 @@ Estado* Pausa::eExecutar()
         delete pAux;
         std::cout<<"DELETOU"<<std::endl;
         return(eInicial);
-  
     }
     else
     {
         return (this);
     }
 }
-void  Pausa::setFase(int i )
+void  Pausa::setFase(const int i)
 {   
     if(i == 1)
     {
@@ -55,7 +57,7 @@ void  Pausa::setFase(int i )
     }
     
 }
-Fase* Pausa::getFase()
+Fase* Pausa::getFase() const
 {
     return(pFase);
 }

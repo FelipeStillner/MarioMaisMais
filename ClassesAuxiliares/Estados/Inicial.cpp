@@ -44,12 +44,12 @@ Inicial::~Inicial ()
     
 }
 
-Fase* Inicial::getFase() 
+Fase* Inicial::getFase() const
 {
     return (pFase);
 }
 
-void Inicial::setFase(int i)
+void Inicial::setFase(const int i)
 {
     pFase=NULL;
 }

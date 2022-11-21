@@ -17,9 +17,9 @@ private:
 public:
   Lancador(Fase* f, float x = 0, float y = 0, int v = 0);
   ~Lancador();
-  virtual void executar(float dt);
+  virtual void executar(const float dt);
   virtual void imprimir();
-  int getTipo();
+  const int getTipo() const;
   virtual void danar();
 };
 

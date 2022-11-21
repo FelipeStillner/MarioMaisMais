@@ -14,7 +14,7 @@ void Personagem::setVida(const int n)
   vida = n;
 }
 
-void Personagem::setAnimacao(Animacao a)
+void Personagem::setAnimacao(const Animacao a)
 {
   anim = a;
 }
@@ -24,17 +24,17 @@ const int Personagem::getVida() const
   return vida;
 }
 
-const Animacao Personagem::getAnimacao()
+const Animacao Personagem::getAnimacao() const
 {
   return anim;
 }
 
-void Personagem::operator+=(int n)
+void Personagem::operator+=(const int n)
 {
   vida += n;
 }
 
-void Personagem::operator-=(int n)
+void Personagem::operator-=(const int n)
 {
   vida -= n;
 }

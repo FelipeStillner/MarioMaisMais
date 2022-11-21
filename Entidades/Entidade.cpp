@@ -1,6 +1,6 @@
 #include "Entidade.h"
 
-Entidade::Entidade(float x, float y, float w, float h, Colisao c) : Ente(), col(c)
+Entidade::Entidade(float x, float y, float w, float h, Colisao c) : Ente(), Colisao(c)
 {
   this->x = x;
   this->y = y;
@@ -16,29 +16,29 @@ Entidade::~Entidade()
 {
 }
 
-void Entidade::setX(float x)
+void Entidade::setX(const float x)
 {
   this->x = x;
 }
 
-void Entidade::setY(float y)
+void Entidade::setY(const float y)
 {
   this->y = y;
 }
 
-void Entidade::setXX0(float x)
+void Entidade::setXX0(const float x)
 {
   x0 = this->x;
   this->x = x;
 }
 
-void Entidade::setYY0(float y)
+void Entidade::setYY0(const float y)
 {
   y0 = this->y;
   this->y = y;
 }
 
-void Entidades::Entidade::setVy(float v)
+void Entidades::Entidade::setVy(const float v)
 {
   vy = v;
 }
@@ -68,7 +68,7 @@ const float Entidade::getVy() const
   return vy;
 }
 
-void Entidade::setAtivo(bool a)
+void Entidade::setAtivo(const bool a)
 {
   ativo = a;
 }
@@ -77,7 +77,7 @@ const bool Entidade::getAtivo() const
   return ativo;
 }
 
-Colisao Entidade::getColisao()
+const Colisao Entidade::getColisao() const 
 {
-  return col;
+  return static_cast<Colisao>(*this);
 }

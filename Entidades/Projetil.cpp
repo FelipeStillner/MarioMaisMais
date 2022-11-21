@@ -34,17 +34,17 @@ const int Projetil::getDano() const
   return dano;
 }
 
-int Projetil::getTipo()
+const int Projetil::getTipo() const
 {
   return PROJ;
 }
 
-void Projetil::setVx(int vx)
+void Projetil::setVx(const int vx)
 {
   this->vx = vx;
 }
 
-int Projetil::getVx()
+const int Projetil::getVx() const
 {
   return vx;
 }

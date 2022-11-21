@@ -10,7 +10,7 @@ Lancador::~Lancador()
 {
 }
 
-void Lancador::executar(float dt)
+void Lancador::executar(const float dt)
 {
   y0 = y;
   y = y + vy*dt;
@@ -30,7 +30,7 @@ void Lancador::imprimir()
   gG->getWindow()->draw(r);
 }
 
-int Lancador::getTipo()
+int const Lancador::getTipo() const
 {
   return ENEM2;
 }

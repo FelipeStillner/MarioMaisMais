@@ -1,4 +1,5 @@
 #include "Spike.h"
+#include "../Personagens/Inimigo.h"
 
 Spike::Spike(float x, float y, float d) : Obstaculo(x, y, 180, 160, Colisao(10, 10, 160, 140))
 {
@@ -9,7 +10,7 @@ Spike::~Spike()
 {
 }
 
-void Spike::executar(float dt)
+void Spike::executar(const float dt)
 {
   y0 = y;
   y = y + vy*dt;
@@ -26,12 +27,24 @@ void Spike::imprimir()
   gG->getWindow()->draw(r);
 }
 
-int Spike::getTipo()
+const int Spike::getTipo() const
 {
   return SPIK;
 }
 
-int Spike::getDano()
+const int Spike::getDano() const
 {
   return dano;
+}
+
+void Spike::obstacular(Personagem* e, int dir)
+{
+  if(e->getTipo() == PLAYER)
+  {
+    (*e) -= dano;
+  }
+  else
+  {
+    static_cast<Inimigo*>(e)->levarDano(dano);
+  }
 }

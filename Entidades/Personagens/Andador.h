@@ -15,9 +15,9 @@ private:
 public:
   Andador(float x = 0, float y = 0, int v = 0);
   ~Andador();
-  virtual void executar(float dt);
+  virtual void executar(const float dt);
   virtual void imprimir();
-  int getTipo();
+  int const getTipo() const;
   virtual void danar();
 };
 

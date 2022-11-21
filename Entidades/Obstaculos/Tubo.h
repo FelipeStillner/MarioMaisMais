@@ -14,9 +14,10 @@ private:
 public:
   Tubo(float x = 0, float y = 0);
   ~Tubo();
-  virtual void executar(float dt);
+  virtual void executar(const float dt);
   virtual void imprimir();
-  virtual int getTipo();
+  virtual const int getTipo() const;
+  void obstacular(Personagem* e, int dir);
 };
 
 }

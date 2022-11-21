@@ -14,10 +14,6 @@ void ListaEntidades::limpaLista()
   entidades.limpaLista();
 }
 
-
-
-
-
 void ListaEntidades::push(Entidade* e)
 {
   entidades.incluaInfo(e);
@@ -65,7 +61,7 @@ Entidade* ListaEntidades::operator[](int n)
   return entidades[n];
 }
 
-int ListaEntidades::size()
+const int ListaEntidades::size()
 {
   return entidades.getSize();
 }

@@ -7,12 +7,14 @@ back(sf::Vector2f(0,8.0*8.0*2),string("3)BACK"))
 {
 
 }
+
 void Load ::imprimir()
 {
     fase1.escreveTexto();
     fase2.escreveTexto();
     back.escreveTexto();
 }
+
 Estado* Load::eExecutar()
 {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
@@ -34,7 +36,7 @@ Estado* Load::eExecutar()
         return (this);
     }
 }
-void  Load::setFase(int i )
+void  Load::setFase(int i)
 {
     if(i==1)
     {
@@ -47,11 +49,12 @@ void  Load::setFase(int i )
         pFase ->recFase();
     }
 }
-Fase* Load::getFase()
+Fase* Load::getFase() const
 {
     return(pFase);
 }
-Load ::~Load ()
+
+Load::~Load()
 {
 
 }

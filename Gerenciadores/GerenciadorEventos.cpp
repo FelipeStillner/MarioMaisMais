@@ -31,12 +31,15 @@ void GerenciadorEventos::executar()
       if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
       {
         //p->getMenu()->setPausa(!(p->getMenu()->getPausa()));
-        p->getFase()->setJogando(!p->getFase()->getJogando());
+        if(p->getFase())
+        {
+          p->getFase()->setJogando(!p->getFase()->getJogando());
+        }
       }
     }
   }
   
-  if(!p->getMenu()->getPausa())
+  if(p->getFase())
   {
     Jogador* j = this->p->getFase()->getJogador(1);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))

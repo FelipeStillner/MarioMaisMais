@@ -10,7 +10,7 @@ Tartaruga::~Tartaruga()
 {
 }
 
-void Tartaruga::executar(float dt)
+void Tartaruga::executar(const float dt)
 {
   if(x0 == x)
   {
@@ -67,13 +67,13 @@ void Tartaruga::levarDano(int d)
     casco = true;
     anim = Animacao(sf::IntRect(0, 0, 16, 16), 0.25, "1234");
     h = 120;
-    col.setHeight(100);
+    setHeight(100);
     vx *= 2;
   }
   
 }
 
-int Tartaruga::getTipo()
+const int Tartaruga::getTipo() const
 {
   return ENEM3;
 }
@@ -83,12 +83,12 @@ void Tartaruga::danar()
 
 }
 
-void Tartaruga::setVx(int v)
+void Tartaruga::setVx(const int v)
 {
   vx = v;
 }
 
-int Tartaruga::getVx()
+const int Tartaruga::getVx() const
 {
   return vx;
 }

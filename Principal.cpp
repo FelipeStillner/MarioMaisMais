@@ -68,7 +68,7 @@ void Principal::executar()
         clock.restart();
         w->display();
 
-        if(f){gEven->executar();}
+        gEven->executar();
 
         if(menu->getPausa())
         {

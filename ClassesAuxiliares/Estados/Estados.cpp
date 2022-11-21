@@ -7,7 +7,6 @@ Estado::Estado()
 
 Estado::~Estado()
 {
-
 }
 
 Fase* Estado::pFase = NULL;
@@ -18,5 +17,4 @@ Estado* Estado::ePausa= NULL;
 
 void Estado::executar(float dt)
 {
-
 }

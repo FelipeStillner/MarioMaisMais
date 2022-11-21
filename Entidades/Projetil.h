@@ -16,9 +16,9 @@ public:
   virtual void executar(const float dt);
   virtual void imprimir();
   const int getDano() const;
-  int getTipo();
-  void setVx(int vx);
-  int getVx();
+  int const getTipo() const;
+  void setVx(const int vx);
+  int const getVx() const;
 };
 
 }

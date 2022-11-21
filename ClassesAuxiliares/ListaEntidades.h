@@ -21,10 +21,10 @@ public:
   ~ListaEntidades();
   void push(Entidade* e);
   Lista<Entidade>* getEntidades();
-  void executar(float dt);
+  void executar(const float dt);
   void imprimir();
-  Entidade* operator[](int n); 
-  int size();
+  Entidade* operator[](const int n); 
+  const int size();
   void limpaLista();
 };
 

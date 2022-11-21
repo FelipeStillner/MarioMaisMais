@@ -12,7 +12,7 @@ Bowser::~Bowser()
 {
 }
 
-void Bowser::executar(float dt)
+void Bowser::executar(const float dt)
 {
   y0 = y;
   y = y + vy*dt;
@@ -32,7 +32,7 @@ void Bowser::imprimir()
   gG->getWindow()->draw(r);
 }
 
-void Bowser::levarDano(int d)
+void Bowser::levarDano(const int d)
 {
   vida -= d;
   if(vida <= 0)
@@ -41,7 +41,7 @@ void Bowser::levarDano(int d)
   }  
 }
 
-int Bowser::getTipo()
+const int Bowser::getTipo() const
 {
   return BOSS;
 }

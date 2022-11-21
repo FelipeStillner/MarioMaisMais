@@ -159,31 +159,13 @@ void GerenciadorColisoes::executar()
           (*i)->setY((*i)->getY0());
           (*o)->setVy(0);
           (*i)->setVy(0);
-          if((*o)->getTipo() == MOLA)
-          {
-            Mola* m = static_cast<Mola*>(*o);
-            (*i)->setVy(-2*m->getForca()/3);
-          }
-          else if((*o)->getTipo() == SPIK)
-          {
-            Spike* s = static_cast<Spike*>(*o);
-            (*i)->levarDano(s->getDano());
-          }
         }
+        (*o)->obstacular(*i, dir);
       }
     }
     if (colidindo(*o, jog))
     {
-      if((*o)->getTipo() == SPIK)
-      {
-        Spike* s = static_cast<Spike*>(*o);
-        (*jog) -= s->getDano();
-      }
-      if((*o)->getTipo() == BAND)
-      {
-        f->setGanhou(true);
-        f->setJogando(false);
-      }
+      
       int dir = direcaoColisao(*o, jog);
       if(dir == HOR || dir == TOTAL)
       {
@@ -196,20 +178,11 @@ void GerenciadorColisoes::executar()
         (jog)->setY((jog)->getY0());
         (*o)->setVy(0);
         (jog)->setVy(0);
-        if((*o)->getTipo() == MOLA)
-        {
-          Mola* m = static_cast<Mola*>(*o);
-          (jog)->setVy(-m->getForca());
-        }
       }
+      (*o)->obstacular(jog, dir);
     }
     if (jog2 && colidindo(*o, jog2))
     {
-      if((*o)->getTipo() == SPIK)
-      {
-        Spike* s = static_cast<Spike*>(*o);
-        (*jog) -= s->getDano();
-      }
       int dir = direcaoColisao(*o, jog2);
       if(dir == HOR || dir == TOTAL)
       {
@@ -222,12 +195,8 @@ void GerenciadorColisoes::executar()
         (jog2)->setY((jog2)->getY0());
         (*o)->setVy(0);
         (jog2)->setVy(0);
-        if((*o)->getTipo() == MOLA)
-        {
-          Mola* m = static_cast<Mola*>(*o);
-          (jog2)->setVy(-m->getForca());
-        }
       }
+      (*o)->obstacular(jog2, dir);
     }
   }
 

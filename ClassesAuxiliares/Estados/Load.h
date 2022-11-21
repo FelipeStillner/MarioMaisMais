@@ -20,8 +20,8 @@ public:
     ~Load ();
     void imprimir();
     Estado* eExecutar();
-    void setFase(int i = 0);
-    Fase* getFase();
+    void setFase(const int i = 0);
+    Fase* getFase() const;
 };
 
 }
