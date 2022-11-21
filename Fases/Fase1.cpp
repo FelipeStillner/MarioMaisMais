@@ -14,10 +14,12 @@ Fase1::Fase1() : Fase()
   {
     createAndador(3200.0 + i * 200, 300.0);
   }
-  createAndador(6000.0, 300.0);
-  createAndador(6300.0, 300.0);
-  createAndador(6600.0, 300.0);
-  createAndador(7400.0, 300.0);
+  n = rand() % 3 + 2;
+  for (int i = 0; i < n; i++)
+  {
+    createTartaruga(6000.0 + i * 200, 300.0);
+  }
+  createTartaruga(7400.0, 300.0);
   createTubo(1000.0, 600.0);
   createTubo(-1400.0, 400.0);
   createTubo(1600.0, 600.0);
@@ -43,6 +45,14 @@ Fase1::Fase1() : Fase()
   createTubo(9550, 300.0);
   createTubo(9400, 650.0);
   createTubo(9550, 600.0);
+  n = rand() % 2 + 1;
+  for (int i = 0; i < n; i++)
+  {
+    createSpike(9870.0 + i * 80, 620.0);
+  }
+  createSpike(-1000.0, 620.0);
+  createSpike(1900.0, 620.0);
+  createSpike(2020.0, 620.0);
   createBandeira(10500.0, 0.0);
   createChao(-2000.0, 700.0);
   createChao(-1000.0, 700.0);
@@ -128,8 +138,14 @@ Fase* Fase1::recFase()
         case ENEM1:
           pE=createAndador(X,Y);
           break;
+        case ENEM2:
+          pE=createTartaruga(X,Y);
+          break;
         case TUBO:
           pE=createTubo(X,Y);
+          break;
+        case SPIK:
+          pE=createSpike(X,Y);
           break;
         case CHAO:
           pE=createChao(X,Y);

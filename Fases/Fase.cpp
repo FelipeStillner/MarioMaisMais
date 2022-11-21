@@ -143,6 +143,13 @@ Chao* Fase::createChao(float x , float y)
   entidades.push(pAux);
   return(pAux);
 }
+Tartaruga* Fase::createTartaruga(float x, float y)
+{
+    Tartaruga* pAux= new Tartaruga(x, y, 2);
+    gCol.incluir(static_cast<Inimigo*>(pAux));
+    entidades.push(pAux);
+    return(pAux);
+}
 
 Jogador* Fase::createJogador(float x, float y)
 {
@@ -175,4 +182,12 @@ void Fase::limpaFase()
   gCol.limpagCOL();
   jog=NULL;
   jog2=NULL;
+}
+
+Spike* Fase::createSpike(float x , float y )
+{
+    Spike* pAux = new Spike(x, y, 1);
+    gCol.incluir(static_cast<Obstaculo*>(pAux));
+    entidades.push(pAux);
+    return(pAux);
 }

@@ -1,6 +1,6 @@
 #include "Lancador.h"
 
-Lancador::Lancador(Fase* f, float x, float y, int v): Inimigo(x, y, 160, 160, v, Colisao(10, 10, 140, 140), Animacao(sf::IntRect(0, 0, 64, 64), 0.25, "12"), 1)
+Lancador::Lancador(Fase* f, float x, float y, int v): Inimigo(x, y, 210, 280, v, Colisao(60, 90, 140, 180), Animacao(sf::IntRect(48, 0, -24, 32), 1.0, "12"), 1)
 {
   this->f = f;
   tLan = 0;
@@ -17,14 +17,7 @@ void Lancador::executar(float dt)
   vy += Grav;
   anim.executar(dt);
   tLan += dt;
-  if(tLan > 2)
-  {  
-    tLan = 0;
-    Projetil* p = static_cast<Projetil*>(f->createProjetil(x + col.getX() + col.getWidth(), y));
-    p->setVy(-31);
-    p->setVx(1000);
-    danar();
-  }
+  danar();
 }
 
 void Lancador::imprimir()
@@ -44,5 +37,11 @@ int Lancador::getTipo()
 
 void Lancador::danar()
 {
-  
+  if(tLan > 2)
+  {  
+    tLan = 0;
+    Projetil* p = static_cast<Projetil*>(f->createProjetil(x - 80 , y + 100));
+    p->setVy(-Vel/2);
+    p->setVx(-Vel);
+  }
 }

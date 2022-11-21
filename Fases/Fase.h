@@ -11,6 +11,8 @@
 #include "../Entidades/Obstaculos/Bandeira.h"
 #include "../ClassesAuxiliares/Hud.h"
 #include "../Entidades/Personagens/Luigi.h"
+#include "../Entidades/Personagens/Tartaruga.h"
+#include "../Entidades/Obstaculos/Spike.h"
 
 class Principal;
 
@@ -49,6 +51,7 @@ public:
   Tubo* createTubo(float x = 0, float y = 0);
   Projetil* createProjetil(float x = 0, float y = 0);
   Bandeira* createBandeira(float x = 0, float y = 0);
+  Spike* createSpike(float x = 0 , float y = 0);
   void setBackground(int i = 3);
   const int getIBackground() const;
   virtual void gravaFase()= 0;
@@ -56,6 +59,7 @@ public:
   GerenciadorColisoes* getGCol();
   void limpaFase();
   virtual int getTipo() = 0;
+  Tartaruga* createTartaruga(float x = 0 , float y = 0);
 };
 
 }

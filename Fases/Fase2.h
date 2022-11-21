@@ -20,9 +20,7 @@ public:
   virtual Fase* recFase();
   Bowser* createBowser(float x = 0 , float y = 0);
   Lancador* createLancador(float x = 0 , float y = 0);
-  Tartaruga* createTartaruga(float x = 0 , float y = 0);
   Mola* createMola(float x = 0 , float y = 0);
-  Spike* createSpike(float x = 0 , float y = 0);
   virtual int getTipo();
 };
 

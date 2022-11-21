@@ -61,7 +61,12 @@ void Menu::executar(float dt)
         if(pEstado->getFase()->getGanhou())
         {
             salvarPontuacao();
-            pEstado->setFase(2);
+            if(pEstado->getFase()->getTipo() == FASE1)
+            {
+                pEstado->getFase()->limpaFase();
+                pEstado->getFase()->~Fase();
+                pEstado->setFase(2);
+            }
         }
     }
 }

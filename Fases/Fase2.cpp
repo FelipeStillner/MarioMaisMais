@@ -8,12 +8,17 @@ Fase2::Fase2() : Fase()
   createJogador(1000.0, 200.0);
   createLancador(2400.0, 300.0);
   createTartaruga(1400.0, 400.0);
+  createTartaruga(-1000.0, 400.0);
   createMola(800.0, 0.0);
   createTubo(1000.0, 600.0);
-  createSpike(0.0, 400.0);
   createBandeira(5000.0, 0.0);
+  createBandeira(-2000.0, 0.0);
+  createMola(-400, 600.0);
+  createTubo(-1400.0, 400.0);
   createTubo(1600.0, 600.0);
   createTubo(2200, 600);
+  createChao(-2000.0, 700.0);
+  createChao(-1000.0, 700.0);
   createChao(0.0, 700.0);
   createChao(1000.0, 700.0);
   createChao(2000.0, 700.0);
@@ -36,14 +41,6 @@ Bowser* Fase2::createBowser(float x, float y)
     return(pAux);
 }
 
-Tartaruga* Fase2::createTartaruga(float x, float y)
-{
-    Tartaruga* pAux= new Tartaruga(x, y, 2);
-    gCol.incluir(static_cast<Inimigo*>(pAux));
-    entidades.push(pAux);
-    return(pAux);
-}
-
 Lancador* Fase2::createLancador(float x, float y)
 {
     Lancador* pAux= new Lancador(this, x, y, 1);
@@ -55,14 +52,6 @@ Lancador* Fase2::createLancador(float x, float y)
 Mola* Fase2::createMola(float x , float y )
 {
     Mola* pAux = new Mola(x, y, Vel);
-    gCol.incluir(static_cast<Obstaculo*>(pAux));
-    entidades.push(pAux);
-    return(pAux);
-}
-
-Spike* Fase2::createSpike(float x , float y )
-{
-    Spike* pAux = new Spike(x, y, 1);
     gCol.incluir(static_cast<Obstaculo*>(pAux));
     entidades.push(pAux);
     return(pAux);
