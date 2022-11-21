@@ -7,15 +7,16 @@ Fase2::Fase2() : Fase()
   background = (*gG)[3];
   mltply = false;
 
-  createJogador(500.0, 0.0);
+  createJogador(5000.0, 0.0);
 
   createLancador(2300.0, 0.0);
   n = rand() % 2;
-  for (i = 0; i < n + 3; i++)
+  for (i = 0; i < n + 2; i++)
   {
-    createLancador(5500 + i * 500, 0.0);
-    createTubo(5460.0 + i * 500, 620.0 - i * 100);
-    createMola(5300.0 + i * 500, 0.0);
+    createLancador(5900 + i * 640, 0.0);
+    createMola(5460.0 + i * 640, 0.0);
+    createTubo(5460.0 + i * 640, 650.0);
+    createTubo(5620.0 + i * 640, 650.0); 
   }
 
   createTartaruga(1400.0, 400.0);
@@ -24,6 +25,10 @@ Fase2::Fase2() : Fase()
 
   createSpike(1280, 620);
   createSpike(1440, 620);
+  createSpike(8320, 620);
+  createSpike(8480, 620);
+  createSpike(8640, 620);
+  createMola(8480, 600);
   n = rand() % 3+1;
   for (i = 0; i < n ; i++)
   {
@@ -35,7 +40,7 @@ Fase2::Fase2() : Fase()
   createBandeira(-2000.0, 0.0);
 
   createMola(-500.0, 0.0);
-  n = rand() % 2;
+  n = rand() % 3;
   for (i = 0; i < n + 5; i++)
   {
     createMola(2840 + i * 160, 650.0);
@@ -54,6 +59,7 @@ Fase2::Fase2() : Fase()
   createTubo(1000.0, 600.0);
   createTubo(1600.0, 600.0);
   createTubo(2200, 500);
+  createTubo(8000, 500);
   createTubo(8800, 500);
   createTubo(9000, 400);
   createTubo(10500, 600);
