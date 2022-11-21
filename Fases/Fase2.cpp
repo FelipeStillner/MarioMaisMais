@@ -2,21 +2,63 @@
 
 Fase2::Fase2() : Fase()
 {
+  srand(time(0));
+  int i, n;
   background = (*gG)[3];
   mltply = false;
 
-  createJogador(1000.0, 200.0);
-  createLancador(2400.0, 300.0);
+  createJogador(500.0, 0.0);
+
+  createLancador(2300.0, 0.0);
+  n = rand() % 2;
+  for (i = 0; i < n + 3; i++)
+  {
+    createLancador(5500 + i * 500, 0.0);
+    createTubo(5460.0 + i * 500, 620.0 - i * 100);
+    createMola(5300.0 + i * 500, 0.0);
+  }
+
   createTartaruga(1400.0, 400.0);
   createTartaruga(-1000.0, 400.0);
-  createMola(800.0, 0.0);
-  createTubo(1000.0, 600.0);
-  createBandeira(5000.0, 0.0);
+
+
+  createSpike(1280, 620);
+  createSpike(1440, 620);
+  n = rand() % 3+1;
+  for (i = 0; i < n ; i++)
+  {
+    createSpike(4560 + i * 80, 630.0);
+  }
+  createTubo(4560 + (i+1) * 80, 600);
+
+  createBandeira(11000.0, 0.0);
   createBandeira(-2000.0, 0.0);
-  createMola(-400, 600.0);
+
+  createMola(-500.0, 0.0);
+  n = rand() % 2;
+  for (i = 0; i < n + 5; i++)
+  {
+    createMola(2840 + i * 160, 650.0);
+  }
+  createMola(4400.0, 0.0);
+
+  for (i = 0; i < n + 1; i++)
+  {
+    createTartaruga(2900 + i * 200, 200.0);
+  }
+
+  createTubo(2540, 300.0);
+  createTubo(2840 + (n+5) * 160, 400.0);
+  createTubo(4000, 500.0);
   createTubo(-1400.0, 400.0);
+  createTubo(1000.0, 600.0);
   createTubo(1600.0, 600.0);
-  createTubo(2200, 600);
+  createTubo(2200, 500);
+  createTubo(8800, 500);
+  createTubo(9000, 400);
+  createTubo(10500, 600);
+
+  createChao(-3000.0, 700.0);
   createChao(-2000.0, 700.0);
   createChao(-1000.0, 700.0);
   createChao(0.0, 700.0);
@@ -24,7 +66,15 @@ Fase2::Fase2() : Fase()
   createChao(2000.0, 700.0);
   createChao(3000.0, 700.0);
   createChao(4000.0, 700.0);
-  createBowser(4000.0, 200.0);
+  createChao(5000.0, 700.0);
+  createChao(6000.0, 700.0);
+  createChao(7000.0, 700.0);
+  createChao(8000.0, 700.0);
+  createChao(9000.0, 700.0);
+  createChao(10000.0, 700.0);
+  createChao(11000.0, 700.0);
+
+  createBowser(10000.0, 200.0);
 }
 
 Fase2::~Fase2()

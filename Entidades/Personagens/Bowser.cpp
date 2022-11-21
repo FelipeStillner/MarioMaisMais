@@ -1,10 +1,10 @@
 #include "Bowser.h"
 #include "../../Fases/Fase2.h"
 
-Bowser::Bowser(Fase2* f, float x, float y, int v): Inimigo(x, y, 320, 480, v, Colisao(10, 10, 300, 460), Animacao(sf::IntRect(0, 0, 32, 48), 0.25, "1234"), 2)
+Bowser::Bowser(Fase2* f, float x, float y, int v): Inimigo(x, y, 320, 480, v, Colisao(40, 10, 270, 460), Animacao(sf::IntRect(0, 0, 32, 48), 0.25, "1234"), 2)
 {
   this->f = f;
-  tProj = 0;
+  tProj = 0.1;
   t = NULL;
 }
 
@@ -18,15 +18,8 @@ void Bowser::executar(float dt)
   y = y + vy*dt;
   vy += Grav;
   anim.executar(dt);
-  danar();
   tProj += dt;
-  if(tProj > 1)
-  {  
-    tProj = 0;
-    Projetil* p = static_cast<Projetil*>(f->createProjetil(x - 100, y + 50));
-    p->setVy(-31);
-    p->setVx(-1000);
-  }
+  danar();
 }
 
 void Bowser::imprimir()
@@ -55,9 +48,17 @@ int Bowser::getTipo()
 
 void Bowser::danar()
 {
+  if(tProj > 2)
+  {  
+    tProj = 0;
+    int n = rand()%3+1;
+    Projetil* p = static_cast<Projetil*>(f->createProjetil(x - 20, y + 140));
+    p->setVy(-(Vel/4)*n+1);
+    p->setVx(-Vel/2);
+  }
   if (!t || !(t->getAtivo()))
   {
-    t = f->createTartaruga(x-200, y+200);
+    t = f->createTartaruga(x+100, y+200);
     t->setVx(5);
   }
 }

@@ -3,9 +3,6 @@
 #include "../Entidades/Obstaculos/Mola.h"
 #include "../Entidades/Obstaculos/Spike.h"
 
-namespace Gerenciadores
-{
-
 GerenciadorColisoes::GerenciadorColisoes(Fase* f): jog()
 {
   this->f = f;
@@ -119,7 +116,7 @@ void GerenciadorColisoes::executar()
       if(dir == VER || dir == TOTAL)
       {
         (*i)->levarDano();
-        jog2->setVy(-31);
+        jog2->setVy(-Vel);
       }
     }
   }
@@ -165,7 +162,7 @@ void GerenciadorColisoes::executar()
           if((*o)->getTipo() == MOLA)
           {
             Mola* m = static_cast<Mola*>(*o);
-            (*i)->setVy(-m->getForca());
+            (*i)->setVy(-2*m->getForca()/3);
           }
           else if((*o)->getTipo() == SPIK)
           {
@@ -276,8 +273,6 @@ void GerenciadorColisoes::limpagCOL()
   proj.clear();
   inim.clear();
   obst.clear();
-  jog=NULL;
-  jog2=NULL;
-}
-
+  jog = NULL;
+  jog2 = NULL;
 }

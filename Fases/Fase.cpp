@@ -161,7 +161,7 @@ Jogador* Fase::createJogador(float x, float y)
     entidades.push(pAux);
     return(pAux);
   }
-  Jogador* pAux = new Jogador(x, y, 5);
+  Jogador* pAux = new Jogador(x, y, 10);
   gCol.incluir(static_cast<Jogador*>(pAux));
   setJogador(static_cast<Jogador*>(pAux));
   entidades.push(pAux);
