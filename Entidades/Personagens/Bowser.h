@@ -30,6 +30,7 @@ public:
   virtual void levarDano(const int d = 1);
   virtual const int getTipo() const;
   virtual void danar();
+  virtual const int getPontuacao() const;
 };
 
 }

@@ -19,6 +19,7 @@ public:
   virtual void imprimir();
   int const getTipo() const;
   virtual void danar();
+  virtual const int getPontuacao() const;
 };
 
 }

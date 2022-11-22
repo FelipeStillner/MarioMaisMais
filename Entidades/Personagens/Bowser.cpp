@@ -62,3 +62,8 @@ void Bowser::danar()
     t->setVx(5);
   }
 }
+
+const int Bowser::getPontuacao() const
+{
+  return 100;
+}

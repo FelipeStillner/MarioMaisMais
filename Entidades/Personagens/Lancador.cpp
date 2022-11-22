@@ -45,3 +45,8 @@ void Lancador::danar()
     p->setVx(-Vel);
   }
 }
+
+const int Lancador::getPontuacao() const
+{
+  return 30;
+}

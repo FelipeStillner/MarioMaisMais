@@ -5,6 +5,7 @@ Projetil::Projetil(float x, float y, float vx, float vy, int dano) : Entidade(x,
   this->vx = vx;
   this->vy = vy;
   this->dano = dano;
+  jogJog = false;
 }
 
 Projetil::~Projetil()
@@ -47,4 +48,14 @@ void Projetil::setVx(const int vx)
 const int Projetil::getVx() const
 {
   return vx;
+}
+
+void Projetil::setjogJog(const char n)
+{
+  jogJog = n;
+}
+
+const char Projetil::getjogJog() const
+{
+  return jogJog;
 }

@@ -1,5 +1,6 @@
 #include "Hud.h"
 #include "../Fases/Fase.h"
+#include "Botao.h"
 
 Hud::Hud(Fase* f)
 {
@@ -24,6 +25,10 @@ void Hud::imprimir()
     gG->getWindow()->draw(r);
     x += 100;
   }
+
+  Botao b1(sf::Vector2f(-400, -200),std::to_string(f->getJogador(1)->getPont()));
+  b1.imprimir();
+  
   if (f->getMltplyr())
   {
     r.setTexture((*gG)[17]);
@@ -35,7 +40,11 @@ void Hud::imprimir()
       gG->getWindow()->draw(r);
       x += 100;
     }
+
+    Botao b2(sf::Vector2f(-400, -100),std::to_string(f->getJogador(2)->getPont()));
+    b2.imprimir();
   }
+
 }
 
 void Hud::executar(float dt)

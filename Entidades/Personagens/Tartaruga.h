@@ -23,6 +23,7 @@ public:
   virtual void danar();
   void setVx(const int v);
   const int getVx() const;
+  virtual const int getPontuacao() const;
 };
 
 }

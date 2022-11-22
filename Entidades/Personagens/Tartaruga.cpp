@@ -92,3 +92,8 @@ const int Tartaruga::getVx() const
 {
   return vx;
 }
+
+const int Tartaruga::getPontuacao() const
+{
+  return 20;
+}

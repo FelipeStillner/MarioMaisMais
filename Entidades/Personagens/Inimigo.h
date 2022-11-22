@@ -22,6 +22,7 @@ public:
   virtual void danar() = 0;
   const int getDanoColisao() const;
   void setDanoColisao(const int d);
+  virtual const int getPontuacao() const = 0;
 };
 
 }

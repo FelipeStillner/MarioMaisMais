@@ -65,7 +65,7 @@ Fase* Pausa::getFase() const
 
 void Pausa::salvarPontuacao()
 {
-    int p1 =66 , p2 = 77;
+    int p1 = pFase->getJogador(1)->getPont();
     std::ofstream arquivo;
     arquivo.open("ClassesAuxiliares/Estados/Rank.dat",std::ios::app);
     char nome1[10];
@@ -73,12 +73,12 @@ void Pausa::salvarPontuacao()
     arquivo<<std::endl;
     arquivo<<nome1<<' '<<p1;
     if(pFase->getMltplyr())
-    {   char nome2[10];
+    {   
+        int p2 = pFase->getJogador(2)->getPont();
+        char nome2[10];
         arquivo<<std::endl;
         std::cin>>nome2;
         arquivo<<nome2<<' '<<p2;
     }
     arquivo.close();
-
-    
 }   

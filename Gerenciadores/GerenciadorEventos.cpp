@@ -66,6 +66,7 @@ void GerenciadorEventos::executar()
         this->p->getFase()->getEntidades()->push(p);
         this->p->getFase()->getGCol()->incluir(p);
         j->setTproj();
+        p->setjogJog(1);
       }
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
@@ -106,6 +107,7 @@ void GerenciadorEventos::executar()
           this->p->getFase()->getEntidades()->push(p);
           this->p->getFase()->getGCol()->incluir(p);
           j->setTproj();
+          p->setjogJog(2);
         }
       }
       if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))

@@ -6,7 +6,7 @@ using std::pair;
 namespace ClassesAuxiliares
 {
 
-typedef multimap<int, string, std::greater<int>> mMapa ;
+typedef multimap<int, string, std::greater<int> > mMapa ;
 typedef pair<int,string> mPar;
 
 namespace Estados

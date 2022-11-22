@@ -13,6 +13,7 @@ class Jogador : public Personagem
 protected:
   int estado;
   float tProj;
+  int pont;
 public:
   Jogador(float x = 0, float y = 0, int v = 0);
   ~Jogador();
@@ -23,6 +24,8 @@ public:
   const int getEstado() const;
   const float getTproj() const;
   void setTproj(const float t = 0);
+  void somaPont(const int p);
+  const int getPont() const ;
 };
 
 }

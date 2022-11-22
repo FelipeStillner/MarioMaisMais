@@ -42,3 +42,8 @@ const int Andador::getTipo() const
 void Andador::danar()
 {
 }
+
+const int Andador::getPontuacao() const
+{
+  return 10;
+}

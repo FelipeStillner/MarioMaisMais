@@ -61,7 +61,6 @@ void Menu::executar(float dt)
     {
         if(pEstado->getFase()->getGanhou())
         {
-            //salvarPontuacao();
             if(pEstado->getFase()->getTipo() == FASE1)
             {
                 pEstado->getFase()->limpaFase();
@@ -91,4 +90,3 @@ const bool Menu::getPausa() const
 {
     return (pausado);
 }
-

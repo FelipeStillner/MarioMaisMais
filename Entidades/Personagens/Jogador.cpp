@@ -3,6 +3,7 @@
 Jogador::Jogador(float x, float y, int v): Personagem(x, y, 160, 320, v, Colisao(10, 10, 140, 300), Animacao(sf::IntRect(0, 0, 16, 32), 0.25, "1"))
 {
   tProj = 0;
+  pont = 0;
 }
 
 Jogador::~Jogador()
@@ -117,4 +118,14 @@ const float Jogador::getTproj() const
 void Jogador::setTproj(const float t)
 {
   tProj = t;
+}
+
+void Jogador::somaPont(const int p)
+{
+  pont += p;
+}
+
+const int Jogador::getPont() const
+{
+  return pont;
 }

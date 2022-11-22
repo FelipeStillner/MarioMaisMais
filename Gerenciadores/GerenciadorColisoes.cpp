@@ -53,6 +53,14 @@ void GerenciadorColisoes::executar()
       }
       if (colidindo(*p, *i))
       {
+        if((*p)->getjogJog() == 1)
+        {
+          jog->somaPont((*i)->getPontuacao());
+        }      
+        if((*p)->getjogJog() == 2)
+        {
+          jog2->somaPont((*i)->getPontuacao());
+        }   
         (*i)->levarDano((*p)->getDano());
         (*p)->setAtivo(false);
         break;        
@@ -98,6 +106,7 @@ void GerenciadorColisoes::executar()
       {
         (*i)->levarDano();
         jog->setVy(-Vel);
+        jog->somaPont((*i)->getPontuacao());
       }
     }
     if(!(*i)->getAtivo())
@@ -117,6 +126,7 @@ void GerenciadorColisoes::executar()
       {
         (*i)->levarDano();
         jog2->setVy(-Vel);
+        jog2->somaPont((*i)->getPontuacao());
       }
     }
   }
