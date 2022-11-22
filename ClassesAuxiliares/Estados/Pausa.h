@@ -21,6 +21,7 @@ public:
     Estado* eExecutar();
     Fase* getFase() const;
     void setFase(const int i = 0);
+    void salvarPontuacao();
 };
 
 }

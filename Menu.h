@@ -3,7 +3,6 @@
 
 
 //objeto estado!!!!!!
-
 #include "Entidades/Entidade.h"
 #include "Gerenciadores/GerenciadorGrafico.h"
 #include "Afix.h"
@@ -14,6 +13,7 @@
 #include "ClassesAuxiliares/Estados/Play.h"
 #include "ClassesAuxiliares/Estados/Inicial.h"
 #include "ClassesAuxiliares/Estados/Pausa.h"
+#include "ClassesAuxiliares/Estados/Rank.h"
 using std::string;
 using std::vector;
 
@@ -31,7 +31,6 @@ public:
   void setPausa(bool p);
   const bool getPausa() const ;
   Fase* getFase();
-  void salvarPontuacao();
 };
 
 

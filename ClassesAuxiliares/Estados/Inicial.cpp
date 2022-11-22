@@ -25,8 +25,9 @@ Estado* Inicial::eExecutar()
     
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
-    {
-        return(this);
+    {   
+        eRank->executar();
+        return(eRank);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3))
     {   

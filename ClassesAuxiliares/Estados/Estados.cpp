@@ -14,7 +14,8 @@ Estado* Estado::eInicial= NULL;
 Estado* Estado::ePlay= NULL;
 Estado* Estado::eLoad= NULL;
 Estado* Estado::ePausa= NULL;
-
+Estado* Estado::eRank = NULL;
 void Estado::executar(float dt)
 {
+
 }

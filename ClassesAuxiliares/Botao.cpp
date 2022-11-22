@@ -18,7 +18,7 @@ void Botao::imprimir()
 
 Botao::~Botao()
 {
-
+    texto.clear();
 }
 
 void Botao::escreveTexto()

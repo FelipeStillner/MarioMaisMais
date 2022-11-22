@@ -28,6 +28,7 @@ Menu::Menu() : Ente()
     Estado::ePlay= new Play;
     Estado::eLoad= new Load;
     Estado::ePausa= new Pausa;
+    Estado::eRank= new Rank;
     pEstado = Estado::eInicial;
 }
 
@@ -60,7 +61,7 @@ void Menu::executar(float dt)
     {
         if(pEstado->getFase()->getGanhou())
         {
-            salvarPontuacao();
+            //salvarPontuacao();
             if(pEstado->getFase()->getTipo() == FASE1)
             {
                 pEstado->getFase()->limpaFase();
@@ -91,7 +92,3 @@ const bool Menu::getPausa() const
     return (pausado);
 }
 
-void Menu::salvarPontuacao()
-{
-    return;
-}

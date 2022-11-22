@@ -21,6 +21,7 @@ public:
     static  Estado* ePlay;
     static  Estado* eLoad;
     static  Estado* ePausa;
+    static Estado* eRank; 
 
 public: 
     Estado();
