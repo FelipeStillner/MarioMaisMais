@@ -29,6 +29,7 @@ Menu::Menu() : Ente()
     Estado::eLoad= new Load;
     Estado::ePausa= new Pausa;
     Estado::eRank= new Rank;
+    Estado::eSave = new Save;
     pEstado = Estado::eInicial;
 }
 
@@ -48,6 +49,7 @@ void Menu::executar(float dt)
         mudouEstado = false;
     }
     Estado* e = pEstado;
+    
     pEstado = pEstado->eExecutar();
     if(e != pEstado)
     {

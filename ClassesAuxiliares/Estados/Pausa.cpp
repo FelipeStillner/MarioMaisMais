@@ -28,8 +28,8 @@ Estado* Pausa::eExecutar()
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
     {
         pFase->gravaFase();
-        salvarPontuacao();
-        return (this);
+        (static_cast<Save*>(eSave))->limpaSave();
+        return (eSave);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
     {   

@@ -45,13 +45,12 @@ void Rank::executar(const float dt )
     int n = 0;
     char ch[10];
     int pt , i;
-    int ps[2][3];
     
     while (!arquivo.eof())
     {   
         arquivo>>ch>>pt;
         std::cout<<ch<<pt<<std::endl;
-        if(strcmp(ch,"")&&pt>=0)
+        if(strcmp(ch,"")&&strcmp(ch,"\n")&&pt>=0)
         {mapa.insert(mPar(pt,string(ch)));}
         else
         {std::cerr<<"ERRO EM MAPA"<<std::endl;}

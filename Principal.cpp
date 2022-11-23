@@ -67,11 +67,15 @@ void Principal::executar()
         else{std::cout << "FPS\n";}
         clock.restart();
         w->display();
+        /*if(menu->getPausa())
+        {
+            menu->executar();
+        }*/
 
         gEven->executar();
 
         if(menu->getPausa())
-        {
+        {   
             menu->executar();
             f = menu->getFase();
             if(f){menu->setPausa(false);}

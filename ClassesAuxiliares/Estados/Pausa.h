@@ -1,7 +1,7 @@
 #pragma once
 
 #include"Estados.h"
-
+#include"Save.h"
 namespace ClassesAuxiliares
 {
 

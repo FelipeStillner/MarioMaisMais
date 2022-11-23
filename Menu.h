@@ -14,6 +14,8 @@
 #include "ClassesAuxiliares/Estados/Inicial.h"
 #include "ClassesAuxiliares/Estados/Pausa.h"
 #include "ClassesAuxiliares/Estados/Rank.h"
+#include "ClassesAuxiliares/Estados/Save.h"
+
 using std::string;
 using std::vector;
 
