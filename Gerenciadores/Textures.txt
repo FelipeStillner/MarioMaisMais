@@ -20,3 +20,4 @@ marioP2_custom/big/spr_marioP2_big_walk_strip4.png
 marioP2_custom/big/spr_marioP2_big_slide.png
 marioP2_custom/big/spr_marioP2_big_jump.png
 Boss/spr_bowser_strip6.png
+Backgrounds/bg_classic.png

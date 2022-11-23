@@ -80,6 +80,13 @@ Fase* Menu::getFase()
   
 void Menu::imprimir()
 {
+    int x = -gG->getWindow()->getView().getCenter().x + gG->getWindow()->getSize().x/2,
+        y = -gG->getWindow()->getView().getCenter().y + gG->getWindow()->getSize().y/2;
+    sf::RectangleShape r;
+    r.setTexture((*gG)[22]);
+    r.setSize(sf::Vector2f(gG->getWindow()->getSize()));
+    r.setOrigin(x, y);
+    gG->getWindow()->draw(r);
     pEstado->imprimir();
 }
 
