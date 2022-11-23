@@ -34,7 +34,7 @@ Estado* Pausa::eExecutar()
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
     {   
         Fase* pAux = pFase;
-        pFase=NULL;
+        pFase = NULL;
         delete pAux;
         std::cout<<"DELETOU"<<std::endl;
         return(eInicial);

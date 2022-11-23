@@ -9,7 +9,6 @@
 #include "../Entidades/Obstaculos/Tubo.h"
 #include "../Entidades/Personagens/Jogador.h"
 #include "../Entidades/Obstaculos/Bandeira.h"
-#include "../ClassesAuxiliares/Hud.h"
 #include "../Entidades/Personagens/Luigi.h"
 #include "../Entidades/Personagens/Tartaruga.h"
 #include "../Entidades/Obstaculos/Spike.h"
@@ -21,6 +20,17 @@ namespace Fases
 
 class Fase : public Ente
 {
+public:
+  class Hud : public Ente
+  {
+  private:
+    Fase* f;
+  public:
+    Hud(Fase* f);
+    ~Hud();
+    virtual void imprimir();
+    virtual void executar(float dt = 0);
+  };
 protected:
   GerenciadorColisoes gCol;
   sf::Texture* background;
