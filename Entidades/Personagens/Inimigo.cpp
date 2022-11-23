@@ -29,3 +29,7 @@ void Inimigo::setDanoColisao(const int d)
   danoColisao = d;
 }
 
+void Inimigo::danar()
+{
+
+}

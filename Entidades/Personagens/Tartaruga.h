@@ -20,7 +20,6 @@ public:
   virtual void imprimir();
   virtual void levarDano(const int d = 1);
   const int getTipo() const;
-  virtual void danar();
   void setVx(const int v);
   const int getVx() const;
   virtual const int getPontuacao() const;

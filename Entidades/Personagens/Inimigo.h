@@ -19,7 +19,7 @@ public:
   virtual void imprimir() = 0;
   virtual const int getTipo() const = 0;
   virtual void levarDano(const int d = 1);
-  virtual void danar() = 0;
+  virtual void danar();
   const int getDanoColisao() const;
   void setDanoColisao(const int d);
   virtual const int getPontuacao() const = 0;

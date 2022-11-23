@@ -78,11 +78,6 @@ const int Tartaruga::getTipo() const
   return ENEM3;
 }
 
-void Tartaruga::danar()
-{
-
-}
-
 void Tartaruga::setVx(const int v)
 {
   vx = v;

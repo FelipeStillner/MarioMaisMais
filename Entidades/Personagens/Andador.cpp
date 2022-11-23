@@ -39,10 +39,6 @@ const int Andador::getTipo() const
   return ENEM1;
 }
 
-void Andador::danar()
-{
-}
-
 const int Andador::getPontuacao() const
 {
   return 10;

@@ -18,7 +18,6 @@ public:
   virtual void executar(const float dt);
   virtual void imprimir();
   int const getTipo() const;
-  virtual void danar();
   virtual const int getPontuacao() const;
 };
 
