@@ -65,9 +65,21 @@ void Menu::executar(float dt)
         {
             if(pEstado->getFase()->getTipo() == FASE1)
             {
+                int pont = pEstado->getFase()->getJogador(1)->getPont(), pont2 = -1;
+                if(pEstado->getFase()->getMltplyr())
+                {
+                    pont2 = pEstado->getFase()->getJogador(2)->getPont();
+                }
                 pEstado->getFase()->limpaFase();
                 pEstado->getFase()->~Fase();
                 pEstado->setFase(2);
+                pEstado->getFase()->getJogador(1)->somaPont(pont);
+                if(pont2 >= 0)
+                {
+                    pEstado->getFase()->getJogador(2)->somaPont(pont2);
+                }
+                pausado = true;
+                pEstado->getFase()->setJogando(false);
             }
         }
     }
