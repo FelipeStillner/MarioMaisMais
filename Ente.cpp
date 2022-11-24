@@ -13,7 +13,7 @@ Ente::~Ente()
 {
 }
 
- void Ente::setg(GerenciadorGrafico * pG)
+ void Ente::setgG(GerenciadorGrafico * pG)
 {
   if(pG){gG= pG;}
 }

@@ -13,9 +13,9 @@ protected:
   static GerenciadorGrafico * gG;
 public:
   Ente();
-  static void setg(GerenciadorGrafico * pG);
-  static  GerenciadorGrafico * getgG ();
   virtual ~Ente();
+  static void setgG(GerenciadorGrafico * pG);
+  static  GerenciadorGrafico * getgG ();
   virtual void executar(float dt = 0) = 0;
   virtual void imprimir() = 0;
 };

@@ -28,10 +28,10 @@ protected:
 public:
   Menu();
   ~Menu();
-  virtual void executar(float dt = 0);
+  void executar(float dt = 0);
   void imprimir();
   void setPausa(bool p);
-  const bool getPausa() const ;
+  const bool getPausa() const;
   Fase* getFase();
 };
 

@@ -16,12 +16,12 @@ private:
 public:
   Fase2();
   ~Fase2();
-  virtual void gravaFase();
-  virtual Fase* recFase();
+  void gravaFase();
+  Fase* recFase();
   Bowser* createBowser(float x = 0 , float y = 0);
   Lancador* createLancador(float x = 0 , float y = 0);
   Mola* createMola(float x = 0 , float y = 0);
-  virtual int getTipo();
+  int getTipo();
 };
 
 }

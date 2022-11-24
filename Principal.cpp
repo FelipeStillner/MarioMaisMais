@@ -4,17 +4,16 @@ Principal::Principal() : gG(NULL), clock(), gEven(NULL), menu(NULL)
 {
     gEven = new GerenciadorEventos(this);
     gG = new GerenciadorGrafico();
-    Ente::setg(gG);
+    Ente::setgG(gG);
     
     menu = new Menu();
     f = NULL;
-    menu->setg(gG);
+    menu->setgG(gG);
     executar();
 }
 
 Principal::~Principal()
 {
-
 }
 
 void Principal::executar()
@@ -22,12 +21,6 @@ void Principal::executar()
     const float FPS = 60.0;
     float dt ;
     sf::RenderWindow* w = gG->getWindow();
-    //menu->setEstado(INICIAL);
-    //f->imprimir();
-    //gF->gravaFase(f);
-    //delete f;
-    //f = gF->recFase();
-    //f->setJogando(false);
     while (w->isOpen())
     {
         w->clear(sf::Color(0, 0 ,0));

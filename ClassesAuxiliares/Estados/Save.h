@@ -1,7 +1,10 @@
 #pragma once
-#include"Estados.h"
+
+#include "Estados.h"
 #include <string>
+
 using std::string;
+
 namespace ClassesAuxiliares
 {
 

@@ -3,9 +3,8 @@
 #include "../Entidades/Obstaculos/Mola.h"
 #include "../Entidades/Obstaculos/Spike.h"
 
-GerenciadorColisoes::GerenciadorColisoes(Fase* f): jog()
+GerenciadorColisoes::GerenciadorColisoes(): jog()
 {
-  this->f = f;
   jog =  NULL;
   jog2 = NULL;
 }
@@ -13,7 +12,6 @@ GerenciadorColisoes::GerenciadorColisoes(Fase* f): jog()
 GerenciadorColisoes::~GerenciadorColisoes()
 {
   limpagCOL();
-  f = NULL;
 }
 
 void GerenciadorColisoes::executar()

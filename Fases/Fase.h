@@ -28,8 +28,8 @@ public:
   public:
     Hud(Fase* f);
     ~Hud();
-    virtual void imprimir();
-    virtual void executar(float dt = 0);
+    void imprimir();
+    void executar(float dt = 0);
   };
 protected:
   GerenciadorColisoes gCol;
@@ -47,28 +47,28 @@ public:
   virtual void executar(float dt);
   virtual void imprimir();
   void gerenciarColisoes();
-  ListaEntidades* getEntidades();
-  bool getJogando();
+  virtual void gravaFase()= 0;
+  virtual Fase* recFase() = 0;
+  void limpaFase();
   void setJogando(bool n);
-  bool getGanhou();
   void setGanhou(bool n);
-  Jogador* getJogador(int i = 1);
   void setJogador(Jogador* j,int i = 1);
   void setMltplyr(bool m = false);
+  void setBackground(int i = 3);
+  ListaEntidades* getEntidades();
+  const int getIBackground() const;
+  bool getJogando();
+  bool getGanhou();
+  Jogador* getJogador(int i = 1);
   const bool getMltplyr() const ;
+  GerenciadorColisoes* getGCol();
+  virtual int getTipo() = 0;
+  Spike* createSpike(float x = 0 , float y = 0);
   Jogador* createJogador(float x = 0, float y = 0);
   Chao* createChao(float x = 0, float y = 0);
   Tubo* createTubo(float x = 0, float y = 0);
   Projetil* createProjetil(float x = 0, float y = 0);
   Bandeira* createBandeira(float x = 0, float y = 0);
-  Spike* createSpike(float x = 0 , float y = 0);
-  void setBackground(int i = 3);
-  const int getIBackground() const;
-  virtual void gravaFase()= 0;
-  virtual Fase* recFase() = 0;
-  GerenciadorColisoes* getGCol();
-  void limpaFase();
-  virtual int getTipo() = 0;
   Tartaruga* createTartaruga(float x = 0 , float y = 0);
 };
 

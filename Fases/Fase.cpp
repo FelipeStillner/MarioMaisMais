@@ -1,7 +1,7 @@
 #include "Fase.h"
 #include "../Principal.h"
 
-Fase::Fase() : Ente(), h(this), gCol(this)
+Fase::Fase() : Ente(), h(this), gCol()
 {
   jogando = true;
   mltply= false;
