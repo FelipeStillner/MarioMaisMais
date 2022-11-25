@@ -17,10 +17,10 @@ protected:
 public:
   Jogador(float x = 0, float y = 0, int v = 0);
   ~Jogador();
-  virtual void executar(const float dt);
+  void executar(const float dt);
   virtual void imprimir();
   int const getTipo() const;
-  virtual void setEstado(const int est);
+  void setEstado(const int est);
   const int getEstado() const;
   const float getTproj() const;
   void setTproj(const float t = 0);

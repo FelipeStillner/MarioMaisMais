@@ -94,7 +94,7 @@ void GerenciadorColisoes::executar()
     if (colidindo(jog, *i))
     {
       int dir = direcaoColisao(jog, *i);
-      if(dir == HOR || dir == TOTAL)
+      if(dir == HOR)
       {
         (jog)->setX((jog)->getX0());
         (*i)->setX((*i)->getX0());
@@ -114,7 +114,7 @@ void GerenciadorColisoes::executar()
     if (jog2 && colidindo(jog2, *i))
     {
       int dir = direcaoColisao(jog2, *i);
-      if(dir == HOR || dir == TOTAL)
+      if(dir == HOR)
       {
         (jog2)->setX((jog2)->getX0());
         (*i)->setX((*i)->getX0());

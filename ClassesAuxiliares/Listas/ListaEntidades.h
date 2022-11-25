@@ -1,7 +1,7 @@
 #pragma once
 
-#include "../Afix.h"
-#include "../Entidades/Entidade.h"
+#include "../../Afix.h"
+#include "../../Entidades/Entidade.h"
 #include "Lista.h"
 
 using namespace Entidades;

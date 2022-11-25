@@ -23,19 +23,19 @@ public:
   virtual void executar(const float dt) = 0;
   virtual void imprimir() = 0;
   virtual const int getTipo() const = 0;
-  void setX(const float x);
-  void setY(const float y);
-  void setXX0(const float x);
-  void setYY0(const float y);
-  void setVy(const float v);
   const Colisao getColisao() const;
   const float getX() const;
   const float getY() const;
   const float getX0() const;
   const float getY0() const;
   const float getVy() const;
-  void setAtivo(const bool a = true);
   const bool getAtivo() const;
+  void setX(const float x);
+  void setY(const float y);
+  void setXX0(const float x);
+  void setYY0(const float y);
+  void setVy(const float v);
+  void setAtivo(const bool a = true);
 };
 
 }

@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Afix.h"
-#include "ClassesAuxiliares/ListaEntidades.h"
 #include "Entidades/Obstaculos/Obstaculo.h"
 #include "Entidades/Projetil.h"
 #include "Gerenciadores/GerenciadorGrafico.h"

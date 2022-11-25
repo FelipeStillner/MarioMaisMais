@@ -2,7 +2,7 @@
 
 #include "../Afix.h"
 #include "../Ente.h"
-#include "../ClassesAuxiliares/ListaEntidades.h"
+#include "../ClassesAuxiliares/Listas/ListaEntidades.h"
 #include "../Gerenciadores/GerenciadorColisoes.h"
 #include "../Entidades/Personagens/Andador.h"
 #include "../Entidades/Obstaculos/Chao.h"

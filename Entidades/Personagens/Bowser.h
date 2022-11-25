@@ -25,12 +25,12 @@ private:
 public:
   Bowser(Fase2* f, float x = 0, float y = 0, int v = 0);
   ~Bowser();
-  virtual void executar(const float dt);
-  virtual void imprimir();
-  virtual void levarDano(const int d = 1);
-  virtual const int getTipo() const;
-  virtual void danar();
-  virtual const int getPontuacao() const;
+  void executar(const float dt);
+  void imprimir();
+  void levarDano(const int d = 1);
+  const int getTipo() const;
+  void danar();
+  const int getPontuacao() const;
 };
 
 }

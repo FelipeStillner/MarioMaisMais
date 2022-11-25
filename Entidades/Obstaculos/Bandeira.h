@@ -24,9 +24,9 @@ private:
 public:
   Bandeira(Fase* f, float x = 0, float y = 0);
   ~Bandeira();
-  virtual void imprimir();
-  virtual void executar(const float dt = 0);
-  virtual int const getTipo() const;
+  void imprimir();
+  void executar(const float dt = 0);
+  int const getTipo() const;
   void obstacular(Personagem* e, int dir);
 };
 

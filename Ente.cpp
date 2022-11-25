@@ -6,19 +6,25 @@ Ente::Ente()
 {
   id = I;
   I++;
- 
+}
+
+Ente::Ente(int i)
+{
+  id = i;
 }
 
 Ente::~Ente()
 {
 }
 
- void Ente::setgG(GerenciadorGrafico * pG)
+void Ente::setgG(GerenciadorGrafico * pG)
 {
   if(pG){gG= pG;}
 }
- GerenciadorGrafico * Ente::getgG ()
+
+GerenciadorGrafico * Ente::getgG ()
 {
   return (gG);
 }
+
 GerenciadorGrafico * Ente::gG = NULL;

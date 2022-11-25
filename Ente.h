@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Afix.h"
-#include"Gerenciadores/GerenciadorGrafico.h"
+#include "Gerenciadores/GerenciadorGrafico.h"
 
 using namespace Gerenciadores;
 
@@ -13,6 +13,7 @@ protected:
   static GerenciadorGrafico * gG;
 public:
   Ente();
+  Ente(int i);
   virtual ~Ente();
   static void setgG(GerenciadorGrafico * pG);
   static  GerenciadorGrafico * getgG ();

@@ -1,5 +1,5 @@
 #pragma once
-#include "../Afix.h"
+#include "../../Afix.h"
 #include "Elemento.h"
 
 namespace ClassesAuxiliares
