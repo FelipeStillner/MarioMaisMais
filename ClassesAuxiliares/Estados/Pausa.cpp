@@ -36,7 +36,6 @@ Estado* Pausa::eExecutar()
         Fase* pAux = pFase;
         pFase = NULL;
         delete pAux;
-        std::cout<<"DELETOU"<<std::endl;
         return(eInicial);
     }
     else

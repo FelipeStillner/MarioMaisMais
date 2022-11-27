@@ -112,8 +112,6 @@ Fase* Fase1::recFase()
 
     limpaFase();
 
-    std::cout<<"REC FASE"<<std::endl;
-
     int tipo;
 
     bool mlt;
@@ -121,8 +119,6 @@ Fase* Fase1::recFase()
     float  X0, Y0 , X , Y , Vy ;
 
     arquivo>>mlt;
-
-    std::cout<<mlt<<std::endl;
 
     setMltplyr(static_cast<bool>(mlt));
 
@@ -159,7 +155,6 @@ Fase* Fase1::recFase()
         default:
           break;
         }
-        std::cout<<tipo<<X0<<Y0<<X<<Y<<Vy<<std::endl;
         if(pE)
         {
           pE->setVy(Vy);
@@ -172,8 +167,6 @@ Fase* Fase1::recFase()
     }
 
     arquivo.close();
-
-    std::cout<<"Retornou"<<std::endl;
 
     return this;
 

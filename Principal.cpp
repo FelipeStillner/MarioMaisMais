@@ -57,7 +57,6 @@ void Principal::executar()
             sf::sleep(t);
             dt = 1.0f / FPS;
         }
-        else{std::cout << "FPS\n";}
         clock.restart();
         w->display();
 

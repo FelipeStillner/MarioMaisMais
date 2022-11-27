@@ -88,7 +88,7 @@ void Fase::setJogador(Jogador* j,int i)
     }
     else
     {
-      std::cout<<"ERRO EM SET JOGADOR"<<std::endl;
+      std::cerr<<"ERRO EM SET JOGADOR"<<std::endl;
     }
   }
   /*

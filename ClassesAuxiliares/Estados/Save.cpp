@@ -50,12 +50,9 @@ void Save::executar(const float dt)
     sf::Event evento;
     if (gG->getWindow()->waitEvent(evento))
     {
-
-        std::cout << "AAA" << std::endl;
         if (evento.type == sf::Event::KeyPressed)
         {
             string *nome = NULL;
-            std::cout << "DDD" << std::endl;
 
             if (pFase->getMltplyr() && entrou)
             {
@@ -74,11 +71,9 @@ void Save::executar(const float dt)
             {
                 if (nome->size() <= 10)
                 {
-                    std::cout << "BBB" << std::endl;
                     char ch = static_cast<char>(evento.text.unicode + 65);
                     // char ch = 'a';
                     nome->push_back(ch);
-                    std::cout << "CCC" << std::endl;
                 }
             }
         }

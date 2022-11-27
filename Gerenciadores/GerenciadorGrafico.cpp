@@ -14,7 +14,7 @@ GerenciadorGrafico::GerenciadorGrafico() : texturas()
     {
       if (!texture->loadFromFile("Texturas/" + filename))
       {
-        std::cout << "Erro ao carregar a textura: " << filename << std::endl;
+        std::cerr << "Erro ao carregar a textura: " << filename << std::endl;
         throw 3;
       }
       texturas.push_back(texture);
@@ -45,7 +45,7 @@ sf::Texture* GerenciadorGrafico::operator[] (const int i) const
   }
   else
   {
-    std::cout << "erro ao retornar textura em GG \n ";
+    std::cerr << "erro ao retornar textura em GG \n ";
     exit(0);
   }
 }

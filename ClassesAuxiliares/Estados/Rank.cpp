@@ -49,7 +49,6 @@ void Rank::executar(const float dt )
     while (!arquivo.eof())
     {   
         arquivo>>ch>>pt;
-        std::cout<<ch<<pt<<std::endl;
         if(strcmp(ch,"")&&strcmp(ch,"\n")&&pt>=0)
         {mapa.insert(mPar(pt,string(ch)));}
         else

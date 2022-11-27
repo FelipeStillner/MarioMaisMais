@@ -134,7 +134,6 @@ void Fase2::gravaFase()
             << pE->getY0()<<' '
             << pE->getX()<<' '
             << pE->getY()<<' '
-            //arquivo<<pE->getVx()<<',';
             << pE->getVy();
         }
     }
@@ -149,8 +148,6 @@ Fase* Fase2::recFase()
 
     limpaFase();
 
-    std::cout<<"REC FASE"<<std::endl;
-
     int tipo;
 
     bool mlt;
@@ -158,8 +155,6 @@ Fase* Fase2::recFase()
     float  X0, Y0 , X , Y , Vy ;
 
     arquivo>>mlt;
-
-    std::cout<<mlt<<std::endl;
 
     setMltplyr(static_cast<bool>(mlt));
 
@@ -202,7 +197,6 @@ Fase* Fase2::recFase()
         default:
           break;
         }
-        std::cout<<tipo<<X0<<Y0<<X<<Y<<Vy<<std::endl;
         if(pE)
         {
           pE->setVy(Vy);
@@ -215,8 +209,7 @@ Fase* Fase2::recFase()
     }
 
     arquivo.close();
-
-    std::cout<<"Retornou"<<std::endl;
+    
     return this;
 }
 

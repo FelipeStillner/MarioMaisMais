@@ -73,7 +73,7 @@ bool Lista<TIPO>::incluaElemento(Elemento<TIPO>* pElemento)
   }
   else 
   {
-    std::cout << "Erro, elemento nulo na lista." << std::endl; 
+    std::cerr << "Erro, elemento nulo na lista." << std::endl; 
     return false;
   }
 }
